@@ -1,0 +1,19 @@
+ImageContent = 
+{
+	SpriteSourceBuilder = 
+	{
+		string Name = "IonWeapon",
+		uint64 ResourceId = 524dc896a7f2a4f4,
+		uint64 AtlasId = 5274cf95e4a661fd,
+		uint FrameSizeX = 11,
+		uint FrameSizeY = 13,
+		uint FrameCount = 4,
+		float FrameDelay = 0.0833333,
+		float OriginX = 5,
+		float OriginY = 6,
+		float PixelsPerUnit = 32,
+		bool Smoothing = false,
+		bool Looping = true,
+		Vec4 Slices = [0, 0, 0, 0],
+	},
+},

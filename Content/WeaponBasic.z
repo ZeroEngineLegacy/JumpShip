@@ -1,0 +1,48 @@
+// A basic weapon that fires one shot in the fire direction at a given speed.
+class WeaponBasic : ScriptComponent
+{
+    [Property]
+    var FireSpeed : Real = 3.0;
+    
+    [Property]
+    var ProjectileArchetype : Archetype = null;
+    
+    constructor() : base()
+    {
+    }
+
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Owner, "FireWeapon", this.OnFireWeapon);
+    }
+
+    function OnFireWeapon(weaponFireEvent : WeaponFireEvent)
+    {
+        // If our archetype is bad then don't do anything
+        if(this.ProjectileArchetype == null)
+        {
+            return;
+        }
+        
+        var root = this.Owner.FindRoot();
+        
+        // Create the projectile we're going to fire
+        var projectile = this.Space.CreateAtPosition(this.ProjectileArchetype, weaponFireEvent.FirePosW);
+        
+        // Tell this projectile that it can't collide with any piece in our current ship hierarchy
+        this.Space.PhysicsSpace.AddPairFilter(projectile,root);
+        this.Space.PhysicsSpace.AddHierarchyPairFilter(projectile,root);
+        
+        // If this projectile has a rigid body then give it the correct velocity
+        var body = projectile.RigidBody;
+        if(body != null)
+        {
+            var vel = weaponFireEvent.FireDirW * this.FireSpeed;
+            vel += root.RigidBody.Velocity;
+            body.Velocity = vel;
+        }
+        
+        // Make sure the projectile is facing the correct direction.
+        projectile.Transform.Rotation = weaponFireEvent.Rotation;
+    }
+}

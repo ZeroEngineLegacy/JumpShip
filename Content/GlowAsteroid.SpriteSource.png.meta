@@ -1,0 +1,19 @@
+ImageContent = 
+{
+	SpriteSourceBuilder = 
+	{
+		string Name = "GlowAsteroid",
+		uint64 ResourceId = 524dc874b1e51aab,
+		uint64 AtlasId = 5274cf95e4a661fd,
+		uint FrameSizeX = 24,
+		uint FrameSizeY = 23,
+		uint FrameCount = 4,
+		float FrameDelay = 0.0833333,
+		float OriginX = 12,
+		float OriginY = 11,
+		float PixelsPerUnit = 32,
+		bool Smoothing = false,
+		bool Looping = true,
+		Vec4 Slices = [0, 0, 0, 0],
+	},
+},
