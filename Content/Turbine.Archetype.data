@@ -14,7 +14,7 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [0, 0, 0],
+		Vec3 Translation = [0, -1, 0],
 		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
@@ -61,6 +61,8 @@ Cog =
 	},
 	GridAttachable = 
 	{
+		bool IsDraggable = true,
+		string RootArchetype = "525b9b8a9d8d8062:ObjectRoot",
 	},
 	Health = 
 	{
@@ -70,5 +72,10 @@ Cog =
 	CreateOnDestroy = 
 	{
 		string ArchetypeToCreate = "52247a3f629e359a:Explosion",
+	},
+	Turbine = 
+	{
+		string MaxSpeedCurve = "4f16dfae49806add:DefaultCurve",
+		string LinearScalarCurve = "4f16dfae49806add:DefaultCurve",
 	},
 },

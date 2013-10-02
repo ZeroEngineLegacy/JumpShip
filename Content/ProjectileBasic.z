@@ -1,0 +1,79 @@
+class ProjectileBasic : ScriptComponent
+{
+    // Any object (mostly effects) that we'll create when we damage something.
+    [Property]
+    var CreateOnDamage : Archetype = null;
+    
+    // Do we destroy ourself whenever we damage anything?
+    [Property]
+    var DestroyOnDamage : Boolean = true;
+    
+    // The amount of damage we'll do based upon our current level.
+    [Property]
+    var DamageCurve : SampleCurve = SampleCurve.Find("DamageCurve");
+    
+    constructor() : base()
+    {
+    }
+    
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Owner, Events.CollisionStarted, this.OnCollisionStarted);
+    }
+    
+    function OnCollisionStarted(collisionEvent : CollisionEvent)
+    {
+        var otherCog = collisionEvent.OtherObject;
+        var normal = collisionEvent.FirstPoint.WorldNormalTowardsOther;
+        
+        // If we hit something that doesn't have health then don't do anything
+        var health = otherCog.Health;
+        if(health == null)
+        {
+            return;
+        }
+        
+        // If the object has no health then it's dying and we can safely ignore it
+        if(health.IsZero())
+        {
+            return;
+        }
+        
+        // Check to see if the other cog has a CoreLink (so we can avoid hitting ourself).
+        // If it doesn't have one then it's safe to damage (asteroids, etc...)
+        var coreLink = otherCog.FindRoot().CoreLink;
+        if(coreLink == null)
+        {
+            this.HitObject(otherCog, normal);
+        }
+        
+        // Now make sure we are hitting something that doesn't belong to us
+        var myCore = this.Owner.Projectile.CoreCog;
+        if(myCore != coreLink.CoreCog)
+        {
+            this.HitObject(otherCog, normal);
+        }
+    }
+    
+    function HitObject(otherObj : Cog, normal : Real3)
+    {
+        var toSend = new DamageEvent();
+        toSend.Damage = this.DamageCurve.Sample(this.Owner.Projectile.Level);
+        toSend.Normal = normal;
+        
+        // Tell the other object we dealt damage, also tell any of our other components
+        otherObj.DispatchEvent("ApplyDamage", toSend);
+        this.Owner.DispatchEvent("ApplyDamage", toSend);
+        
+        // Create any effects on damage
+        if(this.CreateOnDamage != null)
+        {
+            var effect = this.Space.CreateAtPosition(this.CreateOnDamage, this.Owner.Transform.WorldTranslation);
+        }
+        
+        if(this.DestroyOnDamage)
+        {
+            this.Owner.Destroy();
+        }
+    }
+}

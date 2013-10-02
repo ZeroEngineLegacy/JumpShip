@@ -1,0 +1,24 @@
+class Projectile : ScriptComponent
+{
+    // The core that fired us. Used so we can not
+    // collide with anything that shares a core.
+    var CoreCog : Cog = null;
+    
+    // Each projectile can use this to compute damage or other level-up values.
+    var Level : Real = 0.0;
+    
+    constructor() : base()
+    {
+    }
+
+    function Initialize(init : CogInitializer)
+    {
+        
+    }
+    
+    function Setup(coreCog : Cog, level : Real)
+    {
+        this.CoreCog = coreCog;
+        this.Level = level;
+    }
+}

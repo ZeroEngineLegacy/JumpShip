@@ -4,20 +4,20 @@ ImageContent =
 	{
 		object Tags = 
 		[
-			"Plasma",
+			"Sonic",
 		],
 	},
 	SpriteSourceBuilder = 
 	{
-		string Name = "PlasmaProjectile0",
-		uint64 ResourceId = 5226e9b95f2c146e,
+		string Name = "SonicProjectile2",
+		uint64 ResourceId = 522e5414f56abcd1,
 		uint64 AtlasId = 5274cf95e4a661fd,
-		uint FrameSizeX = 7,
-		uint FrameSizeY = 14,
+		uint FrameSizeX = 10,
+		uint FrameSizeY = 13,
 		uint FrameCount = 1,
 		float FrameDelay = 0.0833333,
-		float OriginX = 3,
-		float OriginY = 7,
+		float OriginX = 5,
+		float OriginY = 6,
 		float PixelsPerUnit = 32,
 		bool Smoothing = false,
 		bool Looping = true,

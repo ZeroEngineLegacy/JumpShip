@@ -70,7 +70,8 @@ class GridAttachable : ScriptComponent
         // If our root had a core then we need to figure out what pieces would
         // be orphaned when we are removed from this core. These pieces need to
         // move with us
-        if(root.CoreLink.CoreCog != null)
+        var coreCog = root.CoreLink.CoreCog;
+        if(coreCog != null)
         {
             //if(this.Group != null)
             //{
@@ -109,7 +110,7 @@ class GridAttachable : ScriptComponent
                 
                 // Tell all of our components that we're attaching to another core
                 var attachEvent = new AttachEvent();
-                attachEvent.CoreCog = null;
+                attachEvent.CoreCog = coreCog;
                 cog.DispatchEvent("DetachFromCore", attachEvent);
             }
             
@@ -310,6 +311,7 @@ class GridAttachable : ScriptComponent
     function OnDeath(e : Event)
     {
         var root = this.Owner.FindRoot();
+        var coreCog = root.CoreLink.CoreCog;
         var oldGrid = root.ObjectGrid;
         
         // Get the key we were at in the old grid and then remove ourself from the grid
@@ -342,7 +344,7 @@ class GridAttachable : ScriptComponent
                 
                 // Tell all of our components that we're attaching to another core
                 var attachEvent = new AttachEvent();
-                attachEvent.CoreCog = null;
+                attachEvent.CoreCog = coreCog;
                 cog.DispatchEvent("DetachFromCore", attachEvent);
             }
         }

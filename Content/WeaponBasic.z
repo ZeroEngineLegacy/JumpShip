@@ -1,11 +1,17 @@
 // A basic weapon that fires one shot in the fire direction at a given speed.
 class WeaponBasic : ScriptComponent
 {
-    [Property]
-    var FireSpeed : Real = 3.0;
-    
+    // The projectile that we'll spawn when we fire.
     [Property]
     var ProjectileArchetype : Archetype = null;
+    
+    // The current level of this weapon. Controls how fast we fire the bullet at.
+    [Property]
+    var Level : Real = 0.0;
+    
+    // The curve to represent how fast we'll fire the bullet based upon our current level.
+    [Property]
+    var FireSpeedCurve : SampleCurve = SampleCurve.Find("WeaponSpeed");
     
     constructor() : base()
     {
@@ -26,23 +32,32 @@ class WeaponBasic : ScriptComponent
         
         var root = this.Owner.FindRoot();
         
-        // Create the projectile we're going to fire
-        var projectile = this.Space.CreateAtPosition(this.ProjectileArchetype, weaponFireEvent.FirePosW);
+        // Create the object we're going to fire
+        var obj = this.Space.CreateAtPosition(this.ProjectileArchetype, weaponFireEvent.FirePosW);
         
-        // Tell this projectile that it can't collide with any piece in our current ship hierarchy
-        this.Space.PhysicsSpace.AddPairFilter(projectile,root);
-        this.Space.PhysicsSpace.AddHierarchyPairFilter(projectile,root);
+        // Tell this object that it can't collide with any piece in our current ship hierarchy
+        this.Space.PhysicsSpace.AddPairFilter(obj,root);
+        this.Space.PhysicsSpace.AddHierarchyPairFilter(obj,root);
         
-        // If this projectile has a rigid body then give it the correct velocity
-        var body = projectile.RigidBody;
+        // Setup the projectile component so it knows who fired it and what level it should be at
+        var projectile = obj.Projectile;
+        if(projectile != null)
+        {
+            projectile.Setup(root.CoreLink.CoreCog, this.Level);
+        }
+        
+        // If this object has a rigid body then give it the correct velocity
+        var body = obj.RigidBody;
         if(body != null)
         {
-            var vel = weaponFireEvent.FireDirW * this.FireSpeed;
+            var speed = this.FireSpeedCurve.Sample(this.Level);
+            
+            var vel = weaponFireEvent.FireDirW * speed;
             vel += root.RigidBody.Velocity;
             body.Velocity = vel;
         }
         
-        // Make sure the projectile is facing the correct direction.
-        projectile.Transform.Rotation = weaponFireEvent.Rotation;
+        // Make sure the object is facing the correct direction.
+        obj.Transform.Rotation = weaponFireEvent.Rotation;
     }
 }

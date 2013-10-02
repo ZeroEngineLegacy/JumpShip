@@ -1,5 +1,12 @@
 DataContent = 
 {
+	ContentTags = 
+	{
+		object Tags = 
+		[
+			"Turbine",
+		],
+	},
 	DataBuilder = 
 	{
 		string Name = "Turbine",

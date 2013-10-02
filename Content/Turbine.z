@@ -1,0 +1,49 @@
+// Increase the max speed of a core as well as how fast it can accelerate (the linear scalar).
+class Turbine : ScriptComponent
+{
+    // Upgrade curve for how we effect the max speed of the core.
+    [Property]
+    var MaxSpeedCurve : SampleCurve = SampleCurve.Find("TurbineMaxSpeed");
+    
+    // Upgrade curve for how we effect the linear scalar for the speed of the core.
+    [Property]
+    var LinearScalarCurve : SampleCurve = SampleCurve.Find("TurbineLinearScalar");
+    
+    // The current level of this turbine.
+    [Property]
+    var Level : Real = 0.0;
+    
+    constructor() : base()
+    {
+    }
+
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Owner, "AttachToCore", this.OnAttachToCore);
+        Zero.Connect(this.Owner, "DetachFromCore", this.OnDetachFromCore);
+    }
+    
+    function OnAttachToCore(attachEvent : AttachEvent)
+    {
+        // Sample the curves and add those values to the core
+        var coreCog = attachEvent.CoreCog;
+        if(coreCog != null)
+        {
+            var core = coreCog.Core;
+            core.MaxSpeed += this.MaxSpeedCurve.Sample(this.Level);
+            core.LinearScalar += this.LinearScalarCurve.Sample(this.Level);
+        }
+    }
+    
+    function OnDetachFromCore(attachEvent : AttachEvent)
+    {
+        // Sample the curves and subtract those values to the core
+        var coreCog = attachEvent.CoreCog;
+        if(coreCog != null)
+        {
+            var core = coreCog.Core;
+            core.MaxSpeed -= this.MaxSpeedCurve.Sample(this.Level);
+            core.LinearScalar -= this.LinearScalarCurve.Sample(this.Level);
+        }
+    }
+}

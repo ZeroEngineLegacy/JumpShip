@@ -4,13 +4,13 @@ DataContent =
 	{
 		object Tags = 
 		[
-			"Plasma",
+			"Sonic",
 		],
 	},
 	DataBuilder = 
 	{
-		string Name = "PlasmaProjectile",
-		uint64 ResourceId = 5226ea44cc3b5c37,
+		string Name = "SonicProjectile",
+		uint64 ResourceId = 522e5467e2207931,
 		string LoaderType = "Cog",
 		uint Version = 0,
 		bool ShowInEditor = true,

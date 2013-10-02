@@ -10,7 +10,7 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [4.49769, -0.597049, 0],
+		Vec3 Translation = [7.67966, -0.114663, 0],
 		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
@@ -56,7 +56,7 @@ Cog =
 				bool SendsMessages = true,
 				bool Seamless = false,
 				string MaterialName = "4faa6050b8692851:HardMaterial",
-				string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+				string SerializedGroupName = "522e52eabc7a4536:Explosion",
 				Vec3 Offset = [0, 0, 0],
 				float Radius = 2,
 			},

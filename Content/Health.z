@@ -1,3 +1,13 @@
+class DamageEvent : Event
+{
+    var Damage : Real = 0.0;
+    var Normal : Real3 = local Real3(0.0, 0.0, 0.0);
+    
+    constructor() : base()
+    {
+    }
+}
+
 class Health : ScriptComponent
 {
     // The max health we can have
@@ -16,6 +26,12 @@ class Health : ScriptComponent
     function Initialize(init : CogInitializer)
     {
         this.CurrentHealth = this.MaxHealth;
+        Zero.Connect(this.Owner, "ApplyDamage", this.OnApplyDamage);
+    }
+    
+    function OnApplyDamage(damageEvent : DamageEvent)
+    {
+        this.ApplyDamage(damageEvent.Damage);
     }
     
     function ApplyDamage(damage : Real)
@@ -38,5 +54,10 @@ class Health : ScriptComponent
                 this.Owner.Destroy();
             }
         }
+    }
+    
+    function IsZero() : Boolean
+    {
+        return this.CurrentHealth <= 0.0;
     }
 }

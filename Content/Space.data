@@ -6,7 +6,7 @@ Space =
 	},
 	Archetyped = 
 	{
-		string Name = "5243a0728e23441f:Space",
+		string Name = "524dcfc823a891d3:Space",
 	},
 	TimeSpace = 
 	{
@@ -26,7 +26,7 @@ Space =
 		bool Mode2D = true,
 		bool Deterministic = false,
 		uint SubStepCount = 1,
-		string CollisionFilterName = "4e66a5c0b9dc59b9:DefaultCollisionTable",
+		string CollisionFilterName = "522e52e5bd796eb4:Game",
 	},
 	SoundSpace = 
 	{

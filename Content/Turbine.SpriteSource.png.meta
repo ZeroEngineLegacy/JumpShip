@@ -1,5 +1,12 @@
 ImageContent = 
 {
+	ContentTags = 
+	{
+		object Tags = 
+		[
+			"Turbine",
+		],
+	},
 	SpriteSourceBuilder = 
 	{
 		string Name = "Turbine",

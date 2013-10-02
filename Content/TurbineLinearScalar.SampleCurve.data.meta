@@ -4,14 +4,14 @@ DataContent =
 	{
 		object Tags = 
 		[
-			"Plasma",
+			"Turbine",
 		],
 	},
 	DataBuilder = 
 	{
-		string Name = "PlasmaProjectile",
-		uint64 ResourceId = 5226ea44cc3b5c37,
-		string LoaderType = "Cog",
+		string Name = "TurbineLinearScalar",
+		uint64 ResourceId = 52289a5c226aa4f8,
+		string LoaderType = "SampleCurve",
 		uint Version = 0,
 		bool ShowInEditor = true,
 	},
