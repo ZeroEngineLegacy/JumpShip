@@ -138,7 +138,7 @@ class Core : ScriptComponent
         
         // Get the amount that the direction is facing the same way as the velocity
         // This is basically a [1, -1] value, 1 being in the same direction, -1 being in the opposite, 0 means orthogonal
-        var velInDir = Math.Dot(curVel,targetDir);
+        var velInDir = Math.Dot(Math.Normalize(curVel),targetDir);
         
         // Compute an amount that tells us the magnitude of the rotational force
         var rotationMagnitude = Math.Length(targetRotation);
