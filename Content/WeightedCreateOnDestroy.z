@@ -1,0 +1,45 @@
+// Creates one item based upon the weight ration inside a resource table.
+class WeightedCreateOnDestroy : ScriptComponent
+{
+    // The table that has the ratios of how often we should create different archetypes.
+    [Property]
+    var DropTable : ResourceTable = null;
+    
+    // Should we apply a random velocity to what we created?
+    [Property]
+    var ApplyRandomVelocity : Boolean = true;
+    
+    constructor() : base()
+    {
+    }
+    
+    function Initialize(init : CogInitializer)
+    {
+        // Listen for an event on ourself that says we died
+        Zero.Connect(this.Owner, "Death", this.OnDeath);
+    }
+    
+    function OnDeath(e : Event)
+    {
+        // Create an object at our position
+        var pos = this.Owner.Transform.WorldTranslation;
+        var randomContext = this.Space.FindObjectByName("LevelSettings").RandomContext;
+        
+        // Sample the resource table for the archetype to create
+        var resource = this.DropTable.SampleResource(randomContext.Float(), randomContext.Float());
+        var archetype = resource as Archetype;
+        
+        var obj = this.Space.CreateAtPosition(archetype, pos);
+        
+        // If we want to apply a random velocity to what we create
+        if(this.ApplyRandomVelocity == true)
+        {
+            var body = obj.RigidBody;
+            if(body != null)
+            {
+                var vel = randomContext.Vector3(0.1, 0.2);
+                body.Velocity = vel;
+            }
+        }
+    }
+}

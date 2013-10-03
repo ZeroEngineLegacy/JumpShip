@@ -39,6 +39,9 @@ Level =
 		{
 			Vec4 ClearColor = [0.278431, 0.278431, 0.278431, 1],
 		},
+		RandomContext = 
+		{
+		},
 	},
 	Cog = 
 	{
@@ -103,7 +106,7 @@ Level =
 			float FieldOfView = 45,
 			float NearPlane = 0.5,
 			float FarPlane = 200,
-			float Size = 9.3,
+			float Size = 13,
 		},
 	},
 	Cog = 
@@ -260,7 +263,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [0.258923, -3.83051, 0],
+			Vec3 Translation = [6.50283, -3.83051, 0],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -769,7 +772,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-0.726464, -3.83051, 0],
+			Vec3 Translation = [5.51744, -3.83051, 0],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -829,7 +832,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-2.2797, -3.6969, 0],
+			Vec3 Translation = [4.79429, 1.50537, 0],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -859,7 +862,7 @@ Level =
 		{
 			ArchetypeInstance = 
 			{
-				string Name = "5252cbce47d0c501:Turbine",
+				string Name = "52244e49c1f35507:HullBasic",
 				LinkId = 
 				{
 					uint Id = 23,
@@ -872,7 +875,7 @@ Level =
 				},
 				Named = 
 				{
-					string Name = "Turbine",
+					string Name = "HullBasic",
 				},
 			},
 		},
@@ -889,7 +892,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-3.382, -3.83051, 0],
+			Vec3 Translation = [6.21392, 1.50537, 0],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -919,7 +922,7 @@ Level =
 		{
 			ArchetypeInstance = 
 			{
-				string Name = "5252cbce47d0c501:Turbine",
+				string Name = "52244e49c1f35507:HullBasic",
 				LinkId = 
 				{
 					uint Id = 25,
@@ -932,7 +935,7 @@ Level =
 				},
 				Named = 
 				{
-					string Name = "Turbine",
+					string Name = "HullBasic",
 				},
 			},
 		},
@@ -949,7 +952,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-4.60121, -3.83051, 0],
+			Vec3 Translation = [6.21392, 0.135847, 0],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -979,7 +982,7 @@ Level =
 		{
 			ArchetypeInstance = 
 			{
-				string Name = "5252cbce47d0c501:Turbine",
+				string Name = "52244e49c1f35507:HullBasic",
 				LinkId = 
 				{
 					uint Id = 27,
@@ -992,7 +995,7 @@ Level =
 				},
 				Named = 
 				{
-					string Name = "Turbine",
+					string Name = "HullBasic",
 				},
 			},
 		},
@@ -1009,7 +1012,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-5.98743, -3.83051, 0],
+			Vec3 Translation = [2.01849, 0.135847, 0],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -1039,7 +1042,7 @@ Level =
 		{
 			ArchetypeInstance = 
 			{
-				string Name = "5252cbce47d0c501:Turbine",
+				string Name = "52244e49c1f35507:HullBasic",
 				LinkId = 
 				{
 					uint Id = 29,
@@ -1052,7 +1055,7 @@ Level =
 				},
 				Named = 
 				{
-					string Name = "Turbine",
+					string Name = "HullBasic",
 				},
 			},
 		},
@@ -1069,7 +1072,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [4.79429, 1.50537, 0],
+			Vec3 Translation = [2.01849, 1.50537, 0],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -1129,7 +1132,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [6.21392, 1.50537, 0],
+			Vec3 Translation = [3.3045, 1.50537, 0],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -1189,7 +1192,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [6.21392, 0.135847, 0],
+			Vec3 Translation = [3.3045, 0.135847, 0],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -1249,246 +1252,6 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [2.01849, 0.135847, 0],
-			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0, 0, 0, 1],
-		},
-		RigidBody = 
-		{
-			bool Static = false,
-			bool Asleep = false,
-			bool Kinematic = false,
-			bool RotationLocked = false,
-			bool Mode2D = true,
-			bool AllowSleep = true,
-			bool Inherit2DMode = true,
-			Vec3 Velocity = [0, 0, 0],
-			Vec3 AngularVelocity = [0, 0, 0],
-		},
-		ObjectGrid = 
-		{
-			string DisplayArchetype = "5252e76acb5e3746:GridCellSprite",
-		},
-		CoreLink = 
-		{
-		},
-		Attachable = 
-		{
-		},
-		Hierarchy = 
-		{
-			ArchetypeInstance = 
-			{
-				string Name = "52244e49c1f35507:HullBasic",
-				LinkId = 
-				{
-					uint Id = 37,
-				},
-				Transform = 
-				{
-					Vec3 Translation = [0, 0, 0],
-					Vec3 Scale = [1, 1, 1],
-					Quat Rotation = [0, 0, 0, 1],
-				},
-				Named = 
-				{
-					string Name = "HullBasic",
-				},
-			},
-		},
-	},
-	Cog = 
-	{
-		LinkId = 
-		{
-			uint Id = 38,
-		},
-		Named = 
-		{
-			string Name = "Root",
-		},
-		Transform = 
-		{
-			Vec3 Translation = [2.01849, 1.50537, 0],
-			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0, 0, 0, 1],
-		},
-		RigidBody = 
-		{
-			bool Static = false,
-			bool Asleep = false,
-			bool Kinematic = false,
-			bool RotationLocked = false,
-			bool Mode2D = true,
-			bool AllowSleep = true,
-			bool Inherit2DMode = true,
-			Vec3 Velocity = [0, 0, 0],
-			Vec3 AngularVelocity = [0, 0, 0],
-		},
-		ObjectGrid = 
-		{
-			string DisplayArchetype = "5252e76acb5e3746:GridCellSprite",
-		},
-		CoreLink = 
-		{
-		},
-		Attachable = 
-		{
-		},
-		Hierarchy = 
-		{
-			ArchetypeInstance = 
-			{
-				string Name = "52244e49c1f35507:HullBasic",
-				LinkId = 
-				{
-					uint Id = 39,
-				},
-				Transform = 
-				{
-					Vec3 Translation = [0, 0, 0],
-					Vec3 Scale = [1, 1, 1],
-					Quat Rotation = [0, 0, 0, 1],
-				},
-				Named = 
-				{
-					string Name = "HullBasic",
-				},
-			},
-		},
-	},
-	Cog = 
-	{
-		LinkId = 
-		{
-			uint Id = 40,
-		},
-		Named = 
-		{
-			string Name = "Root",
-		},
-		Transform = 
-		{
-			Vec3 Translation = [3.3045, 1.50537, 0],
-			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0, 0, 0, 1],
-		},
-		RigidBody = 
-		{
-			bool Static = false,
-			bool Asleep = false,
-			bool Kinematic = false,
-			bool RotationLocked = false,
-			bool Mode2D = true,
-			bool AllowSleep = true,
-			bool Inherit2DMode = true,
-			Vec3 Velocity = [0, 0, 0],
-			Vec3 AngularVelocity = [0, 0, 0],
-		},
-		ObjectGrid = 
-		{
-			string DisplayArchetype = "5252e76acb5e3746:GridCellSprite",
-		},
-		CoreLink = 
-		{
-		},
-		Attachable = 
-		{
-		},
-		Hierarchy = 
-		{
-			ArchetypeInstance = 
-			{
-				string Name = "52244e49c1f35507:HullBasic",
-				LinkId = 
-				{
-					uint Id = 41,
-				},
-				Transform = 
-				{
-					Vec3 Translation = [0, 0, 0],
-					Vec3 Scale = [1, 1, 1],
-					Quat Rotation = [0, 0, 0, 1],
-				},
-				Named = 
-				{
-					string Name = "HullBasic",
-				},
-			},
-		},
-	},
-	Cog = 
-	{
-		LinkId = 
-		{
-			uint Id = 42,
-		},
-		Named = 
-		{
-			string Name = "Root",
-		},
-		Transform = 
-		{
-			Vec3 Translation = [3.3045, 0.135847, 0],
-			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0, 0, 0, 1],
-		},
-		RigidBody = 
-		{
-			bool Static = false,
-			bool Asleep = false,
-			bool Kinematic = false,
-			bool RotationLocked = false,
-			bool Mode2D = true,
-			bool AllowSleep = true,
-			bool Inherit2DMode = true,
-			Vec3 Velocity = [0, 0, 0],
-			Vec3 AngularVelocity = [0, 0, 0],
-		},
-		ObjectGrid = 
-		{
-			string DisplayArchetype = "5252e76acb5e3746:GridCellSprite",
-		},
-		CoreLink = 
-		{
-		},
-		Attachable = 
-		{
-		},
-		Hierarchy = 
-		{
-			ArchetypeInstance = 
-			{
-				string Name = "52244e49c1f35507:HullBasic",
-				LinkId = 
-				{
-					uint Id = 43,
-				},
-				Transform = 
-				{
-					Vec3 Translation = [0, 0, 0],
-					Vec3 Scale = [1, 1, 1],
-					Quat Rotation = [0, 0, 0, 1],
-				},
-				Named = 
-				{
-					string Name = "HullBasic",
-				},
-			},
-		},
-	},
-	Cog = 
-	{
-		LinkId = 
-		{
-			uint Id = 44,
-		},
-		Named = 
-		{
-			string Name = "Root",
-		},
-		Transform = 
-		{
 			Vec3 Translation = [0.592609, -2.46726, 0],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
@@ -1517,7 +1280,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 45,
+					uint Id = 37,
 				},
 				Named = 
 				{
@@ -1602,7 +1365,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 46,
+			uint Id = 38,
 		},
 		Named = 
 		{
@@ -1638,7 +1401,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 47,
+					uint Id = 39,
 				},
 				Named = 
 				{
@@ -1723,7 +1486,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 48,
+			uint Id = 40,
 		},
 		Named = 
 		{
@@ -1763,7 +1526,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 49,
+					uint Id = 41,
 				},
 				Named = 
 				{
@@ -1853,7 +1616,7 @@ Level =
 		string Name = "522ffcbcf4ca6d8b:Steel",
 		LinkId = 
 		{
-			uint Id = 50,
+			uint Id = 42,
 		},
 		Transform = 
 		{
@@ -1867,7 +1630,7 @@ Level =
 		string Name = "522ffcb7f5d840b3:Zinc",
 		LinkId = 
 		{
-			uint Id = 51,
+			uint Id = 43,
 		},
 		Transform = 
 		{
@@ -1881,11 +1644,39 @@ Level =
 		string Name = "522ffc42f787cfb7:Platinum",
 		LinkId = 
 		{
-			uint Id = 52,
+			uint Id = 44,
 		},
 		Transform = 
 		{
 			Vec3 Translation = [3.01287, -1.62501, 0],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "522fce3953e69354:BigAsteroid",
+		LinkId = 
+		{
+			uint Id = 45,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-3.28449, -4.86791, 0],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "522fce3953e69354:BigAsteroid",
+		LinkId = 
+		{
+			uint Id = 46,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-6.06498, -4.86791, 0],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},

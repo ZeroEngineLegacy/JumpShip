@@ -47,6 +47,7 @@ class ProjectileBasic : ScriptComponent
         if(coreLink == null)
         {
             this.HitObject(otherCog, normal, worldPoint);
+            return;
         }
         
         // Now make sure we are hitting something that doesn't belong to us

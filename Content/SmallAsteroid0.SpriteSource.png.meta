@@ -2,15 +2,15 @@ ImageContent =
 {
 	SpriteSourceBuilder = 
 	{
-		string Name = "BigAsteroid",
-		uint64 ResourceId = 524dce7f2db914b8,
+		string Name = "SmallAsteroid0",
+		uint64 ResourceId = 522ff6d7f6c87cf3,
 		uint64 AtlasId = 5274cf95e4a661fd,
-		uint FrameSizeX = 69,
-		uint FrameSizeY = 75,
+		uint FrameSizeX = 21,
+		uint FrameSizeY = 23,
 		uint FrameCount = 1,
 		float FrameDelay = 0.0833333,
-		float OriginX = 34,
-		float OriginY = 37,
+		float OriginX = 10,
+		float OriginY = 11,
 		float PixelsPerUnit = 32,
 		bool Smoothing = false,
 		bool Looping = true,

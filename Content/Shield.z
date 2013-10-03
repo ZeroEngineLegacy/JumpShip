@@ -120,8 +120,6 @@ class Shield : ScriptComponent
         // Set the shield to be facing the direction we just got hit from
         var dir = damageEvent.WorldPoint - this.Owner.Transform.WorldTranslation;
         var localDir = this.Owner.Transform.TransformNormalInverse(dir);
-        Console.WriteLine(dir);
-        Console.WriteLine(localDir);
         this.BarrierCog.Orientation.LookAtDirection(localDir);
         
         // Make the barrier visible and interpolate it back to invisible (do with actions later)
