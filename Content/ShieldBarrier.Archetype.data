@@ -1,0 +1,55 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "ShieldBarrier",
+	},
+	Archetyped = 
+	{
+		string Name = "522efcb5c5064cfe:ShieldBarrier",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [-10.8962, 4.34089, 0],
+		Vec3 Scale = [1, 1, 1],
+		Quat Rotation = [0, 0, 0, 1],
+	},
+	Sprite = 
+	{
+		string SpriteSource = "522ee77c60295462:ShieldBarrier",
+		bool FlipX = false,
+		bool FlipY = false,
+		Vec4 Color = [1, 1, 1, 1],
+		bool Visible = true,
+		bool OnTop = true,
+		bool AnimationActive = true,
+		float AnimationSpeed = 1,
+		uint StartFrame = 0,
+		BlendMode BlendMode = Alpha,
+		SpriteGeometryMode GeometryMode = ZPlane,
+	},
+	SphereCollider = 
+	{
+		bool Ghost = true,
+		bool SendsMessages = true,
+		bool Seamless = false,
+		string MaterialName = "522ed4616b15044d:Massless",
+		string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+		Vec3 Offset = [0, 0, 0],
+		float Radius = 1.5,
+	},
+	Orientation = 
+	{
+		Vec3 UpVector = [0, 0, 1],
+		Vec3 ForwardVector = [-1, 1, 0],
+	},
+	Health = 
+	{
+		float MaxHealth = 50,
+		bool DestroyAtZeroHealth = false,
+	},
+},

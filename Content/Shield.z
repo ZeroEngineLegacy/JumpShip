@@ -1,0 +1,130 @@
+// A shield to block incoming projectiles. The shield barrier has an
+// extra health that if it is fully destroyed the shield goes into a
+// "sleep" mode to recharge, until then the barrier is not active.
+class Shield : ScriptComponent
+{
+    // The barrier to create.
+    [Property]
+    var BarrierArchetype : Archetype = Archetype.Find("ShieldBarrier");
+    
+    // Current upgrade level of this shield.
+    [Property]
+    var Level : Real = 0.0;
+    
+    // Curve to represent how quickly the barrier recharges its health.
+    [Property]
+    var RechareRateCurve : SampleCurve = SampleCurve.Find("ShieldRechargeRate");
+    
+    // How the radius of the barrier increases with level.
+    [Property]
+    var ShieldRadiusCurve : SampleCurve = SampleCurve.Find("ShieldRadius");
+    
+    // The color of the shield when it's in the powered down state.
+    [Property]
+    var RechargeColor : Real4 = local Real4(0.2, 0.2, 0.0, 1.0);
+    
+    // Our barrier that we create and manage.
+    var BarrierCog : Cog = null;
+    
+    // Variables for updating timers, should be replaced with actions later.
+    var BarrierDied : Boolean = false;
+    var BarrierDeathTimer : Real = 0.0;
+    var MaxBarrierDeathTimer : Real = 3.0;
+    
+    var BarrierDamageTimer : Real = 0.0;
+    var MaxBarrierDamageTimer : Real = 0.2;
+    
+    constructor() : base()
+    {
+    }
+
+    function OnAllObjectsCreated()
+    {
+        // Create the barrier, attach it to us and center it on us
+        this.BarrierCog = this.Space.CreateAtPosition(this.BarrierArchetype, local Real3(0.0, 0.0, 0.0));
+        this.BarrierCog.AttachTo(this.Owner);
+        
+        // Set the initial size of the shield and its color
+        var radius = this.ShieldRadiusCurve.Sample(this.Level);
+        this.BarrierCog.Transform.Scale = local Real3(radius, radius, radius);
+        this.BarrierCog.Sprite.Color = local Real4(this.BarrierCog.Sprite.Color.XYZ, 0.0);
+        
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        Zero.Connect(this.BarrierCog, "Death", this.OnBarrierDied);
+        Zero.Connect(this.BarrierCog, "ApplyDamage", this.OnProjectileCollision);
+    }
+
+    function OnLogicUpdate(updateEvent : UpdateEvent)
+    {
+        var dt = updateEvent.Dt;
+        
+        //(replace with an action)
+        if(this.BarrierDamageTimer > 0.0)
+        {
+            this.BarrierDamageTimer = Math.Max(0.0, this.BarrierDamageTimer - dt);
+            
+            var alpha = this.BarrierDamageTimer / this.MaxBarrierDamageTimer;
+            var bSprite = this.BarrierCog.Sprite;
+            bSprite.Color = local Real4(bSprite.Color.XYZ, alpha);
+        }
+        
+        //(replace with an action)
+        if(this.BarrierDied)
+        {
+            this.BarrierDeathTimer = Math.Max(0.0, this.BarrierDeathTimer - dt);
+            this.Owner.Sprite.Color = Math.Lerp(this.RechargeColor, local Real4(1.0, 1.0, 1.0, 1.0), 1.0 - this.BarrierDeathTimer / 3.0);
+            
+            if(this.BarrierDeathTimer <= 0.0)
+            {
+                this.BarrierDied = false;
+                this.Owner.Sprite.Color = local Real4(1.0, 1.0, 1.0, 1.0);
+            }
+            //(if the action is running then don't do the rest of logic update)
+            return;
+        }
+        
+        // Grab the health component, the current health and the max health
+        var health = this.BarrierCog.Health;
+        var currHealth = health.CurrentHealth;
+        var maxHealth = health.MaxHealth;
+        
+        // Recharge the health by our current recharge rate until we reach max health
+        if(currHealth < maxHealth)
+        {
+            // Grab the current amount we recharge per second
+            var rechargeRate = this.RechareRateCurve.Sample(this.Level);
+            // Use later with actions (we can't specify the steps of the action,
+            // only the time to take, so compute the time to take)
+            var timeToRecharge = maxHealth / rechargeRate;
+            
+            var newHealth = currHealth + rechargeRate * dt;
+            // Make sure to not go above max health
+            health.CurrentHealth = Math.Min(newHealth, maxHealth);
+            
+            this.Owner.Sprite.AnimationSpeed = health.CurrentHealth / maxHealth;
+        }
+    }
+    
+    function OnBarrierDied(e : Event)
+    {
+        // Change to our recharging color and then interpolate back to our normal color,
+        // then we'll begin recovering health again (use actions later)
+        this.Owner.Sprite.Color = this.RechargeColor;
+        this.BarrierDied = true;
+        this.BarrierDeathTimer = this.MaxBarrierDeathTimer;
+        this.Owner.Sprite.AnimationSpeed = 0.0;
+    }
+    
+    function OnProjectileCollision(damageEvent : DamageEvent)
+    {
+        // Set the shield to be facing the direction we just got hit from
+        var dir = damageEvent.WorldPoint - this.Owner.Transform.WorldTranslation;
+        var localDir = this.Owner.Transform.TransformNormalInverse(dir);
+        Console.WriteLine(dir);
+        Console.WriteLine(localDir);
+        this.BarrierCog.Orientation.LookAtDirection(localDir);
+        
+        // Make the barrier visible and interpolate it back to invisible (do with actions later)
+        this.BarrierDamageTimer = this.MaxBarrierDamageTimer;
+    }
+}

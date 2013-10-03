@@ -1,0 +1,16 @@
+// Used to pickup items and store the current
+// amount of resources that a core has.
+class PickupCollector : ScriptComponent
+{
+    // The current amount of resources available to the core.
+    var Resources : Real = 0.0;
+    
+    constructor() : base()
+    {
+    }
+    
+    function CollectPickup(pickup : Pickup)
+    {
+        this.Resources += pickup.Value;
+    }
+}

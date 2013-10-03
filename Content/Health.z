@@ -2,6 +2,7 @@ class DamageEvent : Event
 {
     var Damage : Real = 0.0;
     var Normal : Real3 = local Real3(0.0, 0.0, 0.0);
+    var WorldPoint : Real3 = local Real3(0.0, 0.0, 0.0);
     
     constructor() : base()
     {

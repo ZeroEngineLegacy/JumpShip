@@ -6,11 +6,11 @@ Cog =
 	},
 	Named = 
 	{
-		string Name = "Player",
+		string Name = "Shield",
 	},
 	Archetyped = 
 	{
-		string Name = "5252cbcb47702c20:Player",
+		string Name = "522efcf6f14384fd:Shield",
 	},
 	Transform = 
 	{
@@ -38,11 +38,11 @@ Cog =
 		string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
 		string SerializedGroupName = "4e740859314e5515:DefaultGroup",
 		Vec3 Offset = [0, 0, 0],
-		Vec3 Size = [0.5, 0.5, 0.1],
+		Vec3 Size = [0.5, 0.5, 0.05],
 	},
 	Sprite = 
 	{
-		string SpriteSource = "524dc939f7a122eb:Core",
+		string SpriteSource = "524dc84db87b9edc:ShieldConnector",
 		bool FlipX = false,
 		bool FlipY = false,
 		Vec4 Color = [1, 1, 1, 1],
@@ -54,16 +54,15 @@ Cog =
 		BlendMode BlendMode = Alpha,
 		SpriteGeometryMode GeometryMode = ZPlane,
 	},
-	Orientation = 
+	Reactive = 
 	{
-		Vec3 UpVector = [0, 0, 1],
-		Vec3 ForwardVector = [0, 1, 0],
+		bool Active = true,
+		bool CaptureMouse = true,
 	},
-	Core = 
+	GridAttachable = 
 	{
-	},
-	PlayerCore = 
-	{
+		bool IsDraggable = true,
+		string RootArchetype = "525b9b8a9d8d8062:ObjectRoot",
 	},
 	Health = 
 	{
@@ -74,8 +73,11 @@ Cog =
 	{
 		string ArchetypeToCreate = "52247a3f629e359a:Explosion",
 	},
-	PickupCollector = 
+	Shield = 
 	{
+		string BarrierArchetype = "522efcb5c5064cfe:ShieldBarrier",
+		float Level = 0,
+		string RechareRateCurve = "522ee3f842b9833f:ShieldRechargeRate",
 	},
 	Hierarchy = 
 	{

@@ -24,7 +24,9 @@ class ProjectileBasic : ScriptComponent
     function OnCollisionStarted(collisionEvent : CollisionEvent)
     {
         var otherCog = collisionEvent.OtherObject;
-        var normal = collisionEvent.FirstPoint.WorldNormalTowardsOther;
+        var firstPoint = collisionEvent.FirstPoint;
+        var normal = firstPoint.WorldNormalTowardsOther;
+        var worldPoint = firstPoint.WorldPoint;
         
         // If we hit something that doesn't have health then don't do anything
         var health = otherCog.Health;
@@ -44,22 +46,23 @@ class ProjectileBasic : ScriptComponent
         var coreLink = otherCog.FindRoot().CoreLink;
         if(coreLink == null)
         {
-            this.HitObject(otherCog, normal);
+            this.HitObject(otherCog, normal, worldPoint);
         }
         
         // Now make sure we are hitting something that doesn't belong to us
         var myCore = this.Owner.Projectile.CoreCog;
         if(myCore != coreLink.CoreCog)
         {
-            this.HitObject(otherCog, normal);
+            this.HitObject(otherCog, normal, worldPoint);
         }
     }
     
-    function HitObject(otherObj : Cog, normal : Real3)
+    function HitObject(otherObj : Cog, normal : Real3, worldPoint : Real3)
     {
         var toSend = new DamageEvent();
         toSend.Damage = this.DamageCurve.Sample(this.Owner.Projectile.Level);
         toSend.Normal = normal;
+        toSend.WorldPoint = worldPoint;
         
         // Tell the other object we dealt damage, also tell any of our other components
         otherObj.DispatchEvent("ApplyDamage", toSend);
