@@ -106,7 +106,7 @@ class GridAttachable : ScriptComponent
                 
                 // Make sure this cog has the correct transform under the new root
                 cog.Transform.Translation = local Real3(newKey, 0.0);
-                cog.Transform.Rotation = local Quat();
+                cog.Transform.Rotation = local Quaternion();
                 
                 // Tell all of our components that we're attaching to another core
                 var attachEvent = new AttachEvent();
@@ -164,7 +164,7 @@ class GridAttachable : ScriptComponent
         var endPos = local Real3(key, 0.0);
         var group = Actions.Group(cog.Actions);
         Actions.Property(group, @cog.Transform.Translation, endPos, 0.1, Ease.Linear);
-        Actions.Property(group, @cog.Transform.Rotation, Quat.Identity, 0.1, Ease.Linear);
+        Actions.Property(group, @cog.Transform.Rotation, Quaternion.Identity, 0.1, Ease.Linear);
         //this.Group = group;
        
         // Tell all of our components that we're attaching to another core
@@ -340,7 +340,7 @@ class GridAttachable : ScriptComponent
                 
                 // Make sure this cog has the correct transform under the new root
                 cog.Transform.Translation = local Real3(newKey, 0.0);
-                cog.Transform.Rotation = local Quat();
+                cog.Transform.Rotation = local Quaternion();
                 
                 // Tell all of our components that we're attaching to another core
                 var attachEvent = new AttachEvent();

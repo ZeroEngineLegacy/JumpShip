@@ -5,7 +5,7 @@ class WeaponFireEvent : Event
     var FireDirW : Real3 = local Real3();
     var FirePosW : Real3 = local Real3();
     // The rotation of the weapon that is firing.
-    var Rotation : Quat = local Quat();
+    var Rotation : Quaternion = local Quaternion();
     
     constructor() : base()
     {
