@@ -9,6 +9,9 @@ class Turbine : ScriptComponent
     [Property]
     var LinearScalarCurve : SampleCurve = SampleCurve.Find("TurbineLinearScalar");
     
+    [Dependency]
+    var Upgradable : Upgradable = null;
+    
     // The core that we add speed to.
     var CoreCog : Cog = null;
     
@@ -23,16 +26,6 @@ class Turbine : ScriptComponent
         Zero.Connect(this.Owner, Events.Upgrade, this.OnUpgrade);
     }
     
-    function GetLevel() : Real
-    {
-        var upgradable = this.Owner.Upgradable;
-        if(upgradable != null)
-        {
-            return upgradable.Level;
-        }
-        return 0.0;
-    }
-    
     function OnAttachToCore(attachEvent : AttachEvent)
     {
         // Sample the curves and add those values to the core
@@ -40,7 +33,7 @@ class Turbine : ScriptComponent
         if(this.CoreCog != null)
         {
             var core = this.CoreCog.Core;
-            var level = this.GetLevel();
+            var level = this.Upgradable.Level;
             core.MaxSpeed += this.MaxSpeedCurve.Sample(level);
             core.LinearScalar += this.LinearScalarCurve.Sample(level);
         }
@@ -53,7 +46,7 @@ class Turbine : ScriptComponent
         if(this.CoreCog != null)
         {
             var core = this.CoreCog.Core;
-            var level = this.GetLevel();
+            var level = this.Upgradable.Level;
             core.MaxSpeed -= this.MaxSpeedCurve.Sample(level);
             core.LinearScalar -= this.LinearScalarCurve.Sample(level);
         }

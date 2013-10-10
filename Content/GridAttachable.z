@@ -36,6 +36,11 @@ class GridAttachable : ScriptComponent
     [Property]
     var RootArchetype : Archetype = Archetype.Find("ObjectRoot");
     
+    // We need a reactive to get mouse events, although we
+    // don't actually need the reactive component.
+    [Dependency]
+    var Reactive : Reactive = null;
+    
     // Should we do mouse drag logic because the mouse went down on us?
     var IsMoving : Boolean = false;
     

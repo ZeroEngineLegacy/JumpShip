@@ -21,6 +21,11 @@ class Upgradable : ScriptComponent
     [Property]
     var UpgradeWindow : Archetype = Archetype.Find("UpgradeWindow");
     
+    // We need a reactive to get mouse events, although we
+    // don't actually need the reactive component.
+    [Dependency]
+    var Reactive : Reactive = null;
+    
     // The upgrade window we have open (if we do have one open)
     var Window : Cog = null;
     

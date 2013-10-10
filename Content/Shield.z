@@ -19,6 +19,9 @@ class Shield : ScriptComponent
     [Property]
     var RechargeColor : Real4 = local Real4(0.2, 0.2, 0.0, 1.0);
     
+    [Dependency]
+    var Upgradable : Upgradable = null;
+    
     // Our barrier that we create and manage.
     var BarrierCog : Cog = null;
     
@@ -42,7 +45,7 @@ class Shield : ScriptComponent
         this.BarrierCog.AttachTo(this.Owner);
         
         // Set the initial size of the shield and its color
-        var level = this.GetLevel();
+        var level = this.Upgradable.Level;
         var radius = this.ShieldRadiusCurve.Sample(level);
         this.BarrierCog.Transform.Scale = local Real3(radius, radius, radius);
         this.BarrierCog.Sprite.Color = local Real4(this.BarrierCog.Sprite.Color.XYZ, 0.0);
@@ -51,16 +54,6 @@ class Shield : ScriptComponent
         Zero.Connect(this.BarrierCog, Events.Death, this.OnBarrierDied);
         Zero.Connect(this.BarrierCog, Events.ApplyDamage, this.OnProjectileCollision);
         Zero.Connect(this.Owner, Events.Upgrade, this.OnUpgrade);
-    }
-    
-    function GetLevel() : Real
-    {
-        var upgradable = this.Owner.Upgradable;
-        if(upgradable != null)
-        {
-            return upgradable.Level;
-        }
-        return 0.0;
     }
     
     function OnLogicUpdate(updateEvent : UpdateEvent)
@@ -100,7 +93,7 @@ class Shield : ScriptComponent
         // Recharge the health by our current recharge rate until we reach max health
         if(currHealth < maxHealth)
         {
-            var level = this.GetLevel();
+            var level = this.Upgradable.Level;
             // Grab the current amount we recharge per second
             var rechargeRate = this.RechareRateCurve.Sample(level);
             // Use later with actions (we can't specify the steps of the action,
@@ -138,7 +131,7 @@ class Shield : ScriptComponent
     
     function OnUpgrade(e : Event)
     {
-        var level = this.GetLevel();
+        var level = this.Upgradable.Level;
         var radius = this.ShieldRadiusCurve.Sample(level);
         this.BarrierCog.Transform.Scale = local Real3(radius, radius, radius);
     }

@@ -9,6 +9,14 @@ class WeaponBasic : ScriptComponent
     [Property]
     var FireSpeedCurve : SampleCurve = SampleCurve.Find("WeaponSpeed");
     
+    [Dependency]
+    var Upgradable : Upgradable = null;
+    
+    // Don't actually need the weapon (everything handled through events)
+    // but logically we depend on having it.
+    [Dependency]
+    var Weapon : Weapon = null;
+    
     constructor() : base()
     {
     }
@@ -16,16 +24,6 @@ class WeaponBasic : ScriptComponent
     function Initialize(init : CogInitializer)
     {
         Zero.Connect(this.Owner, Events.FireWeapon, this.OnFireWeapon);
-    }
-    
-    function GetLevel() : Real
-    {
-        var upgradable = this.Owner.Upgradable;
-        if(upgradable != null)
-        {
-            return upgradable.Level;
-        }
-        return 0.0;
     }
     
     function OnFireWeapon(weaponFireEvent : WeaponFireEvent)
@@ -45,7 +43,7 @@ class WeaponBasic : ScriptComponent
         this.Space.PhysicsSpace.AddPairFilter(obj,root);
         this.Space.PhysicsSpace.AddHierarchyPairFilter(obj,root);
         
-        var level = this.GetLevel();
+        var level = this.Upgradable.Level;
         
         // Setup the projectile component so it knows who fired it and what level it should be at
         var projectile = obj.Projectile;

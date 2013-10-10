@@ -5,6 +5,9 @@ class ProjectileBouncer : ScriptComponent
     [Property]
     var MaxBounces : Integer = 2;
     
+    [Dependency]
+    var ProjectileBasic : ProjectileBasic = null;
+    
     // The current number of bounces we've done.
     var CurrentBounces :Integer = 0;
     

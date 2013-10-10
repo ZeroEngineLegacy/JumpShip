@@ -6,6 +6,11 @@ class ItemMountable : ScriptComponent
     [Property]
     var RootArchetype : Archetype = Archetype.Find("ObjectRoot");
     
+    // We need a reactive to get mouse events, although we
+    // don't actually need the reactive component.
+    [Dependency]
+    var Reactive : Reactive = null;
+    
     // The cog we are currently mounted to.
     var MountCog : Cog = null;
     // Did the mouse click on us? If so we have to handle drag logic.
@@ -38,7 +43,6 @@ class ItemMountable : ScriptComponent
         this.MountCog.ItemMount.AddItem(this.Owner);
         this.Owner.AttachTo(this.MountCog);
         this.Owner.Transform.Translation = localPosition;
-        Console.WriteLine("Attach");
         
         // Tell all of our components that we're attaching to another core
         var attachEvent = new AttachEvent();

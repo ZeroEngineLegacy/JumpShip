@@ -1,6 +1,9 @@
 // Translates the player input into movement/firing logic on the core.
 class PlayerCore : ScriptComponent
 {
+    [Dependency]
+    var Core : Core = null;
+    
     var MoveRequests : Integer = 0;
     var KeyMoveVector : Real3 = local Real3(0.0,0.0,0.0);
     
@@ -116,7 +119,7 @@ class PlayerCore : ScriptComponent
         var targetPos = e.ToWorldZPlane(0.0);
         
         // Always tell the core to aim at the mouse
-        this.Owner.Core.SetAimTarget(aimTarget : targetPos);
+        this.Core.SetAimTarget(aimTarget : targetPos);
         
         // Only do movement logic if a key or the mouse was down
         if(this.MoveRequests <= 0)
@@ -140,6 +143,6 @@ class PlayerCore : ScriptComponent
             moveTarget = e.ToWorldZPlane(0.0);
         }
         
-        this.Owner.Core.SetMoveTarget(moveTarget);
+        this.Core.SetMoveTarget(moveTarget);
     }
 }
