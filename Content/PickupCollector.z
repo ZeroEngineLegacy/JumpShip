@@ -1,16 +1,48 @@
-// Used to pickup items and store the current
-// amount of resources that a core has.
+// Manages the current resources of an object (the player) and updates a ui space to reflect this.
 class PickupCollector : ScriptComponent
 {
+    // The level to load with our Ui
+    [Property]
+    var UiLevel : Level = Level.Find("UiLevel");
+    
     // The current amount of resources available to the core.
-    var Resources : Real = 0.0;
+    var Resources : HashMap[String, Real] = new HashMap[String, Real]();
+    
+    // The space where we display the current resource amounts to the user
+    var DisplaySpace : Space = null;
     
     constructor() : base()
     {
     }
     
+    function Initialize(initializer : CogInitializer)
+    {
+        // Create the display space and load the ui level
+        var displayCog = Zero.Game.CreateNamedSpace("UiSpace", "DefaultSpace");
+        this.DisplaySpace = displayCog.Space;
+        this.DisplaySpace.LoadLevel(this.UiLevel);
+    }
+    
     function CollectPickup(pickup : Pickup)
     {
-        this.Resources += pickup.Value;
+        // Increase how much we have of the given resource
+        var value = pickup.Value + this.Resources.Get(pickup.ResourceType, 0.0);
+        this.Resources.AddOrOverwrite(pickup.ResourceType, value);
+        
+        // And update the display text to reflect this
+        var displayText = this.DisplaySpace.FindObjectByName("`pickup.ResourceType`Text");
+        displayText.SpriteText.Text = "`value as Integer`";
+    }
+    
+    function UpdateUi()
+    {
+        // For all resource types, update the text with the current amount of that resource
+        foreach(var resourceNames in this.Resources.Keys)
+        {
+            var value = this.Resources.Get(resourceNames);
+            
+            var displayText = this.DisplaySpace.FindObjectByName("`resourceNames`Text");
+            displayText.SpriteText.Text = "`value as Integer`";
+        }
     }
 }

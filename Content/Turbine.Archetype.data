@@ -14,7 +14,7 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [0, -1, 0],
+		Vec3 Translation = [0, 0, 0],
 		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
@@ -77,5 +77,10 @@ Cog =
 	{
 		string MaxSpeedCurve = "4f16dfae49806add:DefaultCurve",
 		string LinearScalarCurve = "4f16dfae49806add:DefaultCurve",
+	},
+	Upgradable = 
+	{
+		float Level = 0,
+		string UpgradeWindow = "5230b4fb7a12c599:UpgradeWindow",
 	},
 },

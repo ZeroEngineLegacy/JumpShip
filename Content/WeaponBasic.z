@@ -5,10 +5,6 @@ class WeaponBasic : ScriptComponent
     [Property]
     var ProjectileArchetype : Archetype = null;
     
-    // The current level of this weapon. Controls how fast we fire the bullet at.
-    [Property]
-    var Level : Real = 0.0;
-    
     // The curve to represent how fast we'll fire the bullet based upon our current level.
     [Property]
     var FireSpeedCurve : SampleCurve = SampleCurve.Find("WeaponSpeed");
@@ -21,7 +17,17 @@ class WeaponBasic : ScriptComponent
     {
         Zero.Connect(this.Owner, "FireWeapon", this.OnFireWeapon);
     }
-
+    
+    function GetLevel() : Real
+    {
+        var upgradable = this.Owner.Upgradable;
+        if(upgradable != null)
+        {
+            return upgradable.Level;
+        }
+        return 0.0;
+    }
+    
     function OnFireWeapon(weaponFireEvent : WeaponFireEvent)
     {
         // If our archetype is bad then don't do anything
@@ -39,18 +45,20 @@ class WeaponBasic : ScriptComponent
         this.Space.PhysicsSpace.AddPairFilter(obj,root);
         this.Space.PhysicsSpace.AddHierarchyPairFilter(obj,root);
         
+        var level = this.GetLevel();
+        
         // Setup the projectile component so it knows who fired it and what level it should be at
         var projectile = obj.Projectile;
         if(projectile != null)
         {
-            projectile.Setup(root.CoreLink.CoreCog, this.Level);
+            projectile.Setup(root.CoreLink.CoreCog, level);
         }
         
         // If this object has a rigid body then give it the correct velocity
         var body = obj.RigidBody;
         if(body != null)
         {
-            var speed = this.FireSpeedCurve.Sample(this.Level);
+            var speed = this.FireSpeedCurve.Sample(level);
             
             var vel = weaponFireEvent.FireDirW * speed;
             vel += root.RigidBody.Velocity;

@@ -6,17 +6,17 @@ Cog =
 	},
 	Archetyped = 
 	{
-		string Name = "522ffcbcf4ca6d8b:Steel",
+		string Name = "522d0a2389c5ff62:LargeExperience",
 	},
 	Transform = 
 	{
-		Vec3 Translation = [-7.06308, -2.30365, 0],
+		Vec3 Translation = [-6.39023, -1.41011, 0],
 		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
 	Sprite = 
 	{
-		string SpriteSource = "522fe084be388bc0:Steel",
+		string SpriteSource = "522d3018a05f0e60:ExperienceRed",
 		bool FlipX = false,
 		bool FlipY = false,
 		Vec4 Color = [1, 1, 1, 1],
@@ -36,7 +36,7 @@ Cog =
 		string MaterialName = "4faa6050b8692851:HardMaterial",
 		string SerializedGroupName = "4e740859314e5515:DefaultGroup",
 		Vec3 Offset = [0, 0, 0],
-		float Radius = 0.25,
+		float Radius = 0.15,
 	},
 	RigidBody = 
 	{
@@ -52,7 +52,7 @@ Cog =
 	},
 	Pickup = 
 	{
-		string ResourceType = "Steel",
-		float Value = 1,
+		string ResourceType = "Exp",
+		float Value = 20,
 	},
 },

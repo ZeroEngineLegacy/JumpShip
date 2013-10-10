@@ -9,9 +9,8 @@ class Turbine : ScriptComponent
     [Property]
     var LinearScalarCurve : SampleCurve = SampleCurve.Find("TurbineLinearScalar");
     
-    // The current level of this turbine.
-    [Property]
-    var Level : Real = 0.0;
+    // The core that we add speed to.
+    var CoreCog : Cog = null;
     
     constructor() : base()
     {
@@ -21,29 +20,50 @@ class Turbine : ScriptComponent
     {
         Zero.Connect(this.Owner, "AttachToCore", this.OnAttachToCore);
         Zero.Connect(this.Owner, "DetachFromCore", this.OnDetachFromCore);
+        Zero.Connect(this.Owner, Events.Upgrade, this.OnUpgrade);
+    }
+    
+    function GetLevel() : Real
+    {
+        var upgradable = this.Owner.Upgradable;
+        if(upgradable != null)
+        {
+            return upgradable.Level;
+        }
+        return 0.0;
     }
     
     function OnAttachToCore(attachEvent : AttachEvent)
     {
         // Sample the curves and add those values to the core
-        var coreCog = attachEvent.CoreCog;
-        if(coreCog != null)
+        this.CoreCog = attachEvent.CoreCog;
+        if(this.CoreCog != null)
         {
-            var core = coreCog.Core;
-            core.MaxSpeed += this.MaxSpeedCurve.Sample(this.Level);
-            core.LinearScalar += this.LinearScalarCurve.Sample(this.Level);
+            var core = this.CoreCog.Core;
+            var level = this.GetLevel();
+            core.MaxSpeed += this.MaxSpeedCurve.Sample(level);
+            core.LinearScalar += this.LinearScalarCurve.Sample(level);
         }
     }
     
     function OnDetachFromCore(attachEvent : AttachEvent)
     {
-        // Sample the curves and subtract those values to the core
-        var coreCog = attachEvent.CoreCog;
-        if(coreCog != null)
+        // Sample the curves and subtract those values from the core's speed the core
+        this.CoreCog = attachEvent.CoreCog;
+        if(this.CoreCog != null)
         {
-            var core = coreCog.Core;
-            core.MaxSpeed -= this.MaxSpeedCurve.Sample(this.Level);
-            core.LinearScalar -= this.LinearScalarCurve.Sample(this.Level);
+            var core = this.CoreCog.Core;
+            var level = this.GetLevel();
+            core.MaxSpeed -= this.MaxSpeedCurve.Sample(level);
+            core.LinearScalar -= this.LinearScalarCurve.Sample(level);
         }
+    }
+    
+    function OnUpgrade(e : Event)
+    {
+        var attachEvent = new AttachEvent();
+        attachEvent.CoreCog = this.CoreCog;
+        this.OnDetachFromCore(attachEvent);
+        this.OnAttachToCore(attachEvent);
     }
 }

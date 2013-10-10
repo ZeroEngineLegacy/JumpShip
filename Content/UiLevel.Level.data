@@ -1,0 +1,378 @@
+Level = 
+{
+	LevelSettings = 
+	{
+		LinkId = 
+		{
+			uint Id = 1,
+		},
+		Named = 
+		{
+			string Name = "LevelSettings",
+		},
+		GravityEffect = 
+		{
+			bool Active = false,
+			bool WakeUpOnChange = false,
+			bool LocalSpaceDirection = true,
+			float Strength = 10,
+			Vec3 Direction = [0, -1, 0],
+		},
+		DragEffect = 
+		{
+			bool Active = false,
+			bool WakeUpOnChange = false,
+			float Drag = 0.7,
+		},
+		CameraViewport = 
+		{
+			bool Background = false,
+			Vec2 Offset = [0, 0],
+			Vec2 Size = [1, 1],
+			uint Layer = 1,
+			bool Active = true,
+			bool Blocking = true,
+			uint Renderer = 1,
+			uint Camera = 2,
+		},
+		ForwardRenderer = 
+		{
+			Vec4 ClearColor = [0.278431, 0.278431, 0.278431, 1],
+		},
+		FixedAspectRatio = 
+		{
+			float Width = 16,
+			float Height = 9,
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 3,
+		},
+		Named = 
+		{
+			string Name = "EditorCamera",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-10.0754, -2.8007, 78],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, -2.50967e-008, -0, 1],
+		},
+		Camera = 
+		{
+			ProjectionMode ProjectionMode = Orthographic,
+			Facing Facing = NegativeZ,
+			SpriteSort SpriteSort = ZDepth,
+			float FieldOfView = 45,
+			float NearPlane = 0.5,
+			float FarPlane = 500,
+			float Size = 13,
+		},
+		EditorCameraController = 
+		{
+			ControlMode ControlMode = ZPlane,
+			float LookDistance = 38,
+			float VerticalAngle = 0,
+			float HorizontalAngle = 0,
+			Vec3 LookTarget = [-10.0754, -2.8007, 40],
+		},
+		EditorRenderer = 
+		{
+			Vec4 ClearColor = [0.278431, 0.278431, 0.278431, 1],
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 2,
+		},
+		Named = 
+		{
+			string Name = "Camera",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-22.4255, -10.5352, 40],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Camera = 
+		{
+			ProjectionMode ProjectionMode = Orthographic,
+			Facing Facing = NegativeZ,
+			SpriteSort SpriteSort = ZDepth,
+			float FieldOfView = 45,
+			float NearPlane = 0.5,
+			float FarPlane = 200,
+			float Size = 20,
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 4,
+		},
+		Named = 
+		{
+			string Name = "PlatinumVisual",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-5.5, -1.3, 0],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Sprite = 
+		{
+			string SpriteSource = "522fe097bb9f098a:Platinum",
+			bool FlipX = false,
+			bool FlipY = false,
+			Vec4 Color = [1, 1, 1, 1],
+			bool Visible = true,
+			bool OnTop = true,
+			bool AnimationActive = true,
+			float AnimationSpeed = 1,
+			uint StartFrame = 0,
+			BlendMode BlendMode = Alpha,
+			SpriteGeometryMode GeometryMode = ZPlane,
+		},
+		Hierarchy = 
+		{
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 5,
+				},
+				Named = 
+				{
+					string Name = "PlatinumText",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [0, -0.5, 0],
+					Vec3 Scale = [1, 1, 1],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				SpriteText = 
+				{
+					SpriteGeometryMode GeometryMode = ZPlane,
+					TextPositionMode Position = Centered,
+					string FontName = "4e7bac697bec55c5:Verdana",
+					uint FontSize = 20,
+					Vec4 Color = [1, 1, 1, 1],
+					bool Visible = true,
+					string Text = "0",
+					bool OnTop = false,
+					BlendMode BlendMode = Alpha,
+					Vec2 Size = [0, 0],
+					TextAlign Align = Left,
+					float PixelsPerUnit = 64,
+				},
+			},
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 6,
+		},
+		Named = 
+		{
+			string Name = "SteelVisual",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-7, -1.3, 0],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Sprite = 
+		{
+			string SpriteSource = "522fe084be388bc0:Steel",
+			bool FlipX = false,
+			bool FlipY = false,
+			Vec4 Color = [1, 1, 1, 1],
+			bool Visible = true,
+			bool OnTop = true,
+			bool AnimationActive = true,
+			float AnimationSpeed = 1,
+			uint StartFrame = 0,
+			BlendMode BlendMode = Alpha,
+			SpriteGeometryMode GeometryMode = ZPlane,
+		},
+		Hierarchy = 
+		{
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 7,
+				},
+				Named = 
+				{
+					string Name = "SteelText",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [0, -0.5, 0],
+					Vec3 Scale = [0.5, 0.5, 0.5],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				SpriteText = 
+				{
+					SpriteGeometryMode GeometryMode = ZPlane,
+					TextPositionMode Position = Centered,
+					string FontName = "4e7bac697bec55c5:Verdana",
+					uint FontSize = 40,
+					Vec4 Color = [1, 1, 1, 1],
+					bool Visible = true,
+					string Text = "0",
+					bool OnTop = false,
+					BlendMode BlendMode = Alpha,
+					Vec2 Size = [0, 0],
+					TextAlign Align = Left,
+					float PixelsPerUnit = 64,
+				},
+			},
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 8,
+		},
+		Named = 
+		{
+			string Name = "ZincVisual",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-8.5, -1.3, 0],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Sprite = 
+		{
+			string SpriteSource = "522fe316535da728:Zinc",
+			bool FlipX = false,
+			bool FlipY = false,
+			Vec4 Color = [1, 1, 1, 1],
+			bool Visible = true,
+			bool OnTop = true,
+			bool AnimationActive = true,
+			float AnimationSpeed = 1,
+			uint StartFrame = 0,
+			BlendMode BlendMode = Alpha,
+			SpriteGeometryMode GeometryMode = ZPlane,
+		},
+		Hierarchy = 
+		{
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 9,
+				},
+				Named = 
+				{
+					string Name = "ZincText",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [0, -0.5, 0],
+					Vec3 Scale = [0.5, 0.5, 0.5],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				SpriteText = 
+				{
+					SpriteGeometryMode GeometryMode = ZPlane,
+					TextPositionMode Position = Centered,
+					string FontName = "4e7bac697bec55c5:Verdana",
+					uint FontSize = 40,
+					Vec4 Color = [1, 1, 1, 1],
+					bool Visible = true,
+					string Text = "0",
+					bool OnTop = false,
+					BlendMode BlendMode = Alpha,
+					Vec2 Size = [0, 0],
+					TextAlign Align = Left,
+					float PixelsPerUnit = 64,
+				},
+			},
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 10,
+		},
+		Named = 
+		{
+			string Name = "ExpVisual",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-10, -1.3, 0],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Sprite = 
+		{
+			string SpriteSource = "522d3039be042f23:ExperienceGreen",
+			bool FlipX = false,
+			bool FlipY = false,
+			Vec4 Color = [1, 1, 1, 1],
+			bool Visible = true,
+			bool OnTop = true,
+			bool AnimationActive = true,
+			float AnimationSpeed = 1,
+			uint StartFrame = 0,
+			BlendMode BlendMode = Alpha,
+			SpriteGeometryMode GeometryMode = ZPlane,
+		},
+		Hierarchy = 
+		{
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 11,
+				},
+				Named = 
+				{
+					string Name = "ExpText",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [0, -0.5, 0],
+					Vec3 Scale = [0.5, 0.5, 0.5],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				SpriteText = 
+				{
+					SpriteGeometryMode GeometryMode = ZPlane,
+					TextPositionMode Position = Centered,
+					string FontName = "4e7bac697bec55c5:Verdana",
+					uint FontSize = 40,
+					Vec4 Color = [1, 1, 1, 1],
+					bool Visible = true,
+					string Text = "0",
+					bool OnTop = false,
+					BlendMode BlendMode = Alpha,
+					Vec2 Size = [0, 0],
+					TextAlign Align = Left,
+					float PixelsPerUnit = 64,
+				},
+			},
+		},
+	},
+},

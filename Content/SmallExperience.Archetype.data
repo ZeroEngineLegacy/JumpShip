@@ -6,37 +6,27 @@ Cog =
 	},
 	Archetyped = 
 	{
-		string Name = "522ffcbcf4ca6d8b:Steel",
+		string Name = "522d0a318a3d2edf:SmallExperience",
 	},
 	Transform = 
 	{
-		Vec3 Translation = [-7.06308, -2.30365, 0],
+		Vec3 Translation = [-6.97532, -1.41011, 0],
 		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
 	Sprite = 
 	{
-		string SpriteSource = "522fe084be388bc0:Steel",
+		string SpriteSource = "522d3039be042f23:ExperienceGreen",
 		bool FlipX = false,
 		bool FlipY = false,
 		Vec4 Color = [1, 1, 1, 1],
 		bool Visible = true,
-		bool OnTop = true,
+		bool OnTop = false,
 		bool AnimationActive = true,
 		float AnimationSpeed = 1,
 		uint StartFrame = 0,
 		BlendMode BlendMode = Alpha,
 		SpriteGeometryMode GeometryMode = ZPlane,
-	},
-	SphereCollider = 
-	{
-		bool Ghost = false,
-		bool SendsMessages = true,
-		bool Seamless = false,
-		string MaterialName = "4faa6050b8692851:HardMaterial",
-		string SerializedGroupName = "4e740859314e5515:DefaultGroup",
-		Vec3 Offset = [0, 0, 0],
-		float Radius = 0.25,
 	},
 	RigidBody = 
 	{
@@ -50,9 +40,19 @@ Cog =
 		Vec3 Velocity = [0, 0, 0],
 		Vec3 AngularVelocity = [0, 0, 0],
 	},
+	SphereCollider = 
+	{
+		bool Ghost = false,
+		bool SendsMessages = true,
+		bool Seamless = false,
+		string MaterialName = "4faa6050b8692851:HardMaterial",
+		string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+		Vec3 Offset = [0, 0, 0],
+		float Radius = 0.15,
+	},
 	Pickup = 
 	{
-		string ResourceType = "Steel",
+		string ResourceType = "Exp",
 		float Value = 1,
 	},
 },

@@ -12,7 +12,7 @@ Level =
 		},
 		GravityEffect = 
 		{
-			bool Active = true,
+			bool Active = false,
 			bool WakeUpOnChange = false,
 			bool LocalSpaceDirection = true,
 			float Strength = 10,
@@ -20,7 +20,7 @@ Level =
 		},
 		DragEffect = 
 		{
-			bool Active = true,
+			bool Active = false,
 			bool WakeUpOnChange = false,
 			float Drag = 0.7,
 		},
@@ -55,9 +55,9 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-8.96489, -2.30493, 50],
+			Vec3 Translation = [-2.96264, -2.92987, 38],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0, -1.90735e-008, -0, 1],
+			Quat Rotation = [0, -2.19596e-008, -0, 1],
 		},
 		Camera = 
 		{
@@ -67,15 +67,15 @@ Level =
 			float FieldOfView = 45,
 			float NearPlane = 0.5,
 			float FarPlane = 500,
-			float Size = 18.8356,
+			float Size = 23.1961,
 		},
 		EditorCameraController = 
 		{
 			ControlMode ControlMode = ZPlane,
-			float LookDistance = 50,
+			float LookDistance = 38,
 			float VerticalAngle = 0,
 			float HorizontalAngle = 0,
-			Vec3 LookTarget = [-8.96488, -2.30493, 0],
+			Vec3 LookTarget = [-2.96264, -2.92987, 0],
 		},
 		EditorRenderer = 
 		{
@@ -178,7 +178,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-5.50568, -0.391817, 0],
+			Vec3 Translation = [-7.60946, -0.391817, 0],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -199,7 +199,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-6.65165, -0.442207, 0],
+			Vec3 Translation = [-6.65165, 0.308397, 0],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -252,7 +252,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-4.6216, -0.329185, 0],
+			Vec3 Translation = [-6.72538, -0.329185, 0],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -273,7 +273,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-7.6626, -0.379577, 0],
+			Vec3 Translation = [-7.6626, 0.298388, 0],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -524,7 +524,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-8.10908, -1.62501, 0],
+			Vec3 Translation = [-8.10908, -2.30365, 0],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -538,7 +538,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-7.06308, -1.62501, 0],
+			Vec3 Translation = [-7.06308, -2.30365, 0],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -552,7 +552,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-6.05028, -1.62501, 0],
+			Vec3 Translation = [-6.05028, -2.30365, 0],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -639,6 +639,66 @@ Level =
 			Vec3 Translation = [-14.1456, -2.58209, 0],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "522d0a148ca4407f:MediumExperience",
+		LinkId = 
+		{
+			uint Id = 28,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-7.5176, -1.41011, 0],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "522d0a318a3d2edf:SmallExperience",
+		LinkId = 
+		{
+			uint Id = 29,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-6.97532, -1.41011, 0],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "522d0a2389c5ff62:LargeExperience",
+		LinkId = 
+		{
+			uint Id = 30,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-6.39023, -1.41011, 0],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "5230b4fb7a12c599:UpgradeWindow",
+		LinkId = 
+		{
+			uint Id = 31,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-4.53724, -4.13534, 0],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Named = 
+		{
+			string Name = "UiObjectInfo",
 		},
 	},
 },

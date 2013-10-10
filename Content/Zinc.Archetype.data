@@ -10,7 +10,7 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [-6.05028, -1.62501, 0],
+		Vec3 Translation = [-6.05028, -2.30365, 0],
 		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
@@ -52,6 +52,7 @@ Cog =
 	},
 	Pickup = 
 	{
+		string ResourceType = "Zinc",
 		float Value = 1,
 	},
 },

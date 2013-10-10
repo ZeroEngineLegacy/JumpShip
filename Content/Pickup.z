@@ -2,6 +2,10 @@
 // up by a core with a PickupCollector component.
 class Pickup : ScriptComponent
 {
+    // The kind of resource this is (experience, platinum, etc...)
+    [Property]
+    var ResourceType : String = "";
+    
     // The amount of resources this pickup is worth.
     [Property]
     var Value : Real = 1.0;

@@ -76,8 +76,14 @@ Cog =
 	Shield = 
 	{
 		string BarrierArchetype = "522efcb5c5064cfe:ShieldBarrier",
-		float Level = 0,
 		string RechareRateCurve = "522ee3f842b9833f:ShieldRechargeRate",
+		string ShieldRadiusCurve = "522edbdb92b4259a:ShieldRadius",
+		Vec4 RechargeColor = [0.2, 0.2, 0, 1],
+	},
+	Upgradable = 
+	{
+		float Level = 0,
+		string UpgradeWindow = "5230b4fb7a12c599:UpgradeWindow",
 	},
 	Hierarchy = 
 	{

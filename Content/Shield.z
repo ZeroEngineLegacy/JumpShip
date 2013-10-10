@@ -7,10 +7,6 @@ class Shield : ScriptComponent
     [Property]
     var BarrierArchetype : Archetype = Archetype.Find("ShieldBarrier");
     
-    // Current upgrade level of this shield.
-    [Property]
-    var Level : Real = 0.0;
-    
     // Curve to represent how quickly the barrier recharges its health.
     [Property]
     var RechareRateCurve : SampleCurve = SampleCurve.Find("ShieldRechargeRate");
@@ -36,6 +32,7 @@ class Shield : ScriptComponent
     
     constructor() : base()
     {
+        
     }
 
     function OnAllObjectsCreated()
@@ -45,15 +42,27 @@ class Shield : ScriptComponent
         this.BarrierCog.AttachTo(this.Owner);
         
         // Set the initial size of the shield and its color
-        var radius = this.ShieldRadiusCurve.Sample(this.Level);
+        var level = this.GetLevel();
+        var radius = this.ShieldRadiusCurve.Sample(level);
         this.BarrierCog.Transform.Scale = local Real3(radius, radius, radius);
         this.BarrierCog.Sprite.Color = local Real4(this.BarrierCog.Sprite.Color.XYZ, 0.0);
         
         Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
         Zero.Connect(this.BarrierCog, "Death", this.OnBarrierDied);
         Zero.Connect(this.BarrierCog, "ApplyDamage", this.OnProjectileCollision);
+        Zero.Connect(this.Owner, Events.Upgrade, this.OnUpgrade);
     }
-
+    
+    function GetLevel() : Real
+    {
+        var upgradable = this.Owner.Upgradable;
+        if(upgradable != null)
+        {
+            return upgradable.Level;
+        }
+        return 0.0;
+    }
+    
     function OnLogicUpdate(updateEvent : UpdateEvent)
     {
         var dt = updateEvent.Dt;
@@ -91,8 +100,9 @@ class Shield : ScriptComponent
         // Recharge the health by our current recharge rate until we reach max health
         if(currHealth < maxHealth)
         {
+            var level = this.GetLevel();
             // Grab the current amount we recharge per second
-            var rechargeRate = this.RechareRateCurve.Sample(this.Level);
+            var rechargeRate = this.RechareRateCurve.Sample(level);
             // Use later with actions (we can't specify the steps of the action,
             // only the time to take, so compute the time to take)
             var timeToRecharge = maxHealth / rechargeRate;
@@ -124,5 +134,12 @@ class Shield : ScriptComponent
         
         // Make the barrier visible and interpolate it back to invisible (do with actions later)
         this.BarrierDamageTimer = this.MaxBarrierDamageTimer;
+    }
+    
+    function OnUpgrade(e : Event)
+    {
+        var level = this.GetLevel();
+        var radius = this.ShieldRadiusCurve.Sample(level);
+        this.BarrierCog.Transform.Scale = local Real3(radius, radius, radius);
     }
 }
