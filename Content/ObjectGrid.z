@@ -59,10 +59,10 @@ class ObjectGrid : ScriptComponent
     function Initialize(init : CogInitializer)
     {
         // Listen for when a piece start/stops dragging so we can create/destroy visuals
-        Zero.Connect(this.Space, "PieceDragBegin", this.OnPieceDragBegin);
-        Zero.Connect(this.Space, "PieceDragEnd", this.OnPieceDragEnd);
+        Zero.Connect(this.Space, Events.PieceDragBegin, this.OnPieceDragBegin);
+        Zero.Connect(this.Space, Events.PieceDragEnd, this.OnPieceDragEnd);
         
-        Zero.Connect(this.Space, "TestAttachment", this.OnTestAttachment);
+        Zero.Connect(this.Space, Events.TestAttachment, this.OnTestAttachment);
     }
     
     function OnAllObjectsCreated()

@@ -11,7 +11,7 @@ class CreateOnDestroy : ScriptComponent
     function Initialize(init : CogInitializer)
     {
         // Listen for an event on ourself that says we died
-        Zero.Connect(this.Owner, "Death", this.OnDeath);
+        Zero.Connect(this.Owner, Events.Death, this.OnDeath);
     }
     
     function OnDeath(e : Event)

@@ -11,6 +11,13 @@ class ItemMountable : ScriptComponent
     // Did the mouse click on us? If so we have to handle drag logic.
     var IsMoving : Boolean = false;
     
+    //sends AttachToCore : AttachEvent;
+    //sends DetachFromCore : AttachEvent;
+    
+    sends ItemDragBegin : Event;
+    sends ItemDragEnd : Event;
+    sends TestItemMount : /*GridAttach*/Event;
+    
     constructor() : base()
     {
     }
@@ -31,11 +38,12 @@ class ItemMountable : ScriptComponent
         this.MountCog.ItemMount.AddItem(this.Owner);
         this.Owner.AttachTo(this.MountCog);
         this.Owner.Transform.Translation = localPosition;
+        Console.WriteLine("Attach");
         
         // Tell all of our components that we're attaching to another core
         var attachEvent = new AttachEvent();
         attachEvent.CoreCog = this.Owner.FindRoot().CoreLink.CoreCog;
-        this.Owner.DispatchEvent("AttachToCore", attachEvent);
+        this.Owner.DispatchEvent(Events.AttachToCore, attachEvent);
     }
     
     function Detach()
@@ -53,7 +61,7 @@ class ItemMountable : ScriptComponent
         // Tell all of our components that we're attaching to another core
         var attachEvent = new AttachEvent();
         attachEvent.CoreCog = null;
-        this.Owner.DispatchEvent("DetachFromCore", attachEvent);
+        this.Owner.DispatchEvent(Events.DetachFromCore, attachEvent);
     }
     
     function OnMouseDown(viewportMouseEvent : ViewportMouseEvent)
@@ -70,7 +78,7 @@ class ItemMountable : ScriptComponent
         
         // Tell everyone that an item is being dragged
         var toSend = new Event();
-        this.Space.DispatchEvent("ItemDragBegin", toSend);
+        this.Space.DispatchEvent(Events.ItemDragBegin, toSend);
         
         // Test all mounts for our current position
         this.TestResults(viewportMouseEvent, false);
@@ -102,7 +110,7 @@ class ItemMountable : ScriptComponent
         
         // Tell everyone we stopped dragging
         var toSend = new Event();
-        this.Space.DispatchEvent("ItemDragEnd", toSend);
+        this.Space.DispatchEvent(Events.ItemDragEnd, toSend);
         
         // Test to see if there's a good attachment point (we want results)
         var info = this.TestResults(viewportMouseEvent, true);
@@ -122,7 +130,7 @@ class ItemMountable : ScriptComponent
         var toSend = new GridAttachEvent();
         toSend.TestPos = this.Owner.Transform.WorldTranslation;
         toSend.TestRoot = this.Owner.FindRoot();
-        this.Space.DispatchEvent("TestItemMount", toSend);
+        this.Space.DispatchEvent(Events.TestItemMount, toSend);
         
         // If the user wants results then find the closest attachment point
         if(getResults == true)

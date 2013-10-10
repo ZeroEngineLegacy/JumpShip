@@ -40,6 +40,8 @@ class Core : ScriptComponent
     var AngularScalar : Real = 0.15;
     var MaxSpeed : Real = 2.0;
     
+    sends TargetMoved : AimTargetEvent;
+    
     constructor() : base()
     {
     }
@@ -65,7 +67,7 @@ class Core : ScriptComponent
             
             var targetEvent = new AimTargetEvent();
             targetEvent.AimTarget = this.AimTarget;
-            this.Owner.DispatchEvent("TargetMoved",targetEvent as Event);
+            this.Owner.DispatchEvent(Events.TargetMoved, targetEvent as Event);
         }
         
         if(this.IsMoving == false)

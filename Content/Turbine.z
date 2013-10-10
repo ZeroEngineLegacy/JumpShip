@@ -18,8 +18,8 @@ class Turbine : ScriptComponent
 
     function Initialize(init : CogInitializer)
     {
-        Zero.Connect(this.Owner, "AttachToCore", this.OnAttachToCore);
-        Zero.Connect(this.Owner, "DetachFromCore", this.OnDetachFromCore);
+        Zero.Connect(this.Owner, Events.AttachToCore, this.OnAttachToCore);
+        Zero.Connect(this.Owner, Events.DetachFromCore, this.OnDetachFromCore);
         Zero.Connect(this.Owner, Events.Upgrade, this.OnUpgrade);
     }
     

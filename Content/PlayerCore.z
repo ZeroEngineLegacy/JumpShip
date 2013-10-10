@@ -4,6 +4,9 @@ class PlayerCore : ScriptComponent
     var MoveRequests : Integer = 0;
     var KeyMoveVector : Real3 = local Real3(0.0,0.0,0.0);
     
+    sends CoreKeyDown : CoreKeyboardEvent;
+    sends CoreKeyUp : CoreKeyboardEvent;
+    
     constructor() : base()
     {
     }
@@ -64,7 +67,7 @@ class PlayerCore : ScriptComponent
             ++this.MoveRequests;
         }
         
-        this.DispatchKeyEvent(key : e.Key, eventName : "CoreKeyDown");
+        this.DispatchKeyEvent(key : e.Key, eventName : Events.CoreKeyDown);
     }
     
     function OnKeyUp(e : KeyboardEvent)
@@ -95,7 +98,7 @@ class PlayerCore : ScriptComponent
             this.MoveRequests = 0;
         }
         
-        this.DispatchKeyEvent(key : e.Key, eventName : "CoreKeyUp");
+        this.DispatchKeyEvent(key : e.Key, eventName : Events.CoreKeyUp);
     }
     
     function DispatchKeyEvent(key : Integer, eventName : String)

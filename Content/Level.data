@@ -1451,40 +1451,116 @@ Level =
 			float Value = 999,
 		},
 	},
-	ArchetypeInstance = 
+	Cog = 
 	{
-		string Name = "522ee43aa74829c4:SonicWeapon",
 		LinkId = 
 		{
 			uint Id = 46,
 		},
+		Named = 
+		{
+			string Name = "Root",
+		},
 		Transform = 
 		{
-			Vec3 Translation = [3.39151, -2.40539, 0],
+			Vec3 Translation = [1.01908, -1.62656, 0],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
-		Named = 
+		RigidBody = 
 		{
-			string Name = "Weapon",
+			bool Static = false,
+			bool Asleep = false,
+			bool Kinematic = false,
+			bool RotationLocked = false,
+			bool Mode2D = true,
+			bool AllowSleep = true,
+			bool Inherit2DMode = true,
+			Vec3 Velocity = [0, 0, 0],
+			Vec3 AngularVelocity = [0, 0, 0],
+		},
+		CoreLink = 
+		{
+		},
+		Attachable = 
+		{
+		},
+		Hierarchy = 
+		{
+			ArchetypeInstance = 
+			{
+				string Name = "522ee43aa74829c4:SonicWeapon",
+				LinkId = 
+				{
+					uint Id = 47,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [0, 0, 0],
+					Vec3 Scale = [1, 1, 1],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				Named = 
+				{
+					string Name = "Weapon",
+				},
+			},
 		},
 	},
-	ArchetypeInstance = 
+	Cog = 
 	{
-		string Name = "522ee5c5a10b9f53:PlasmaWeapon",
 		LinkId = 
 		{
-			uint Id = 47,
-		},
-		Transform = 
-		{
-			Vec3 Translation = [2.52199, -2.44088, 0],
-			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0, 0, 0, 1],
+			uint Id = 48,
 		},
 		Named = 
 		{
-			string Name = "Weapon",
+			string Name = "Root",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [0.00813246, -1.63657, 0],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		RigidBody = 
+		{
+			bool Static = false,
+			bool Asleep = false,
+			bool Kinematic = false,
+			bool RotationLocked = false,
+			bool Mode2D = true,
+			bool AllowSleep = true,
+			bool Inherit2DMode = true,
+			Vec3 Velocity = [0, 0, 0],
+			Vec3 AngularVelocity = [0, 0, 0],
+		},
+		CoreLink = 
+		{
+		},
+		Attachable = 
+		{
+		},
+		Hierarchy = 
+		{
+			ArchetypeInstance = 
+			{
+				string Name = "522ee5c5a10b9f53:PlasmaWeapon",
+				LinkId = 
+				{
+					uint Id = 49,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [0, 0, 0],
+					Vec3 Scale = [1, 1, 1],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				Named = 
+				{
+					string Name = "Weapon",
+				},
+			},
 		},
 	},
 },

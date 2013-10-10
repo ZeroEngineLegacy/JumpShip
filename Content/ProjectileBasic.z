@@ -12,6 +12,8 @@ class ProjectileBasic : ScriptComponent
     [Property]
     var DamageCurve : SampleCurve = SampleCurve.Find("DamageCurve");
     
+    sends ApplyDamage : /*Damage*/Event;
+    
     constructor() : base()
     {
     }
@@ -66,8 +68,8 @@ class ProjectileBasic : ScriptComponent
         toSend.WorldPoint = worldPoint;
         
         // Tell the other object we dealt damage, also tell any of our other components
-        otherObj.DispatchEvent("ApplyDamage", toSend);
-        this.Owner.DispatchEvent("ApplyDamage", toSend);
+        otherObj.DispatchEvent(Events.ApplyDamage, toSend);
+        this.Owner.DispatchEvent(Events.ApplyDamage, toSend);
         
         // Create any effects on damage
         if(this.CreateOnDamage != null)

@@ -43,6 +43,12 @@ class GridAttachable : ScriptComponent
     // These groups are currently broken in zilch (dangling pointer or something), waiting for a fix to use.
     var Group : ActionSet = null;
     
+    sends AttachToCore : AttachEvent;
+    sends DetachFromCore : AttachEvent;
+    sends PieceDragBegin : GridAttachEvent;
+    sends PieceDragEnd : GridAttachEvent;
+    sends TestAttachment : GridAttachEvent;
+    
     constructor() : base()
     {
     }
@@ -60,7 +66,7 @@ class GridAttachable : ScriptComponent
             Zero.Connect(this.Space, Events.MouseUpdate, this.OnMouseMove);
         }
         
-        Zero.Connect(this.Owner, "Death", this.OnDeath);
+        Zero.Connect(this.Owner, Events.Death, this.OnDeath);
     }
     
     function OnMouseDown(viewportMouseEvent : ViewportMouseEvent)
@@ -111,7 +117,7 @@ class GridAttachable : ScriptComponent
                 // Tell all of our components that we're attaching to another core
                 var attachEvent = new AttachEvent();
                 attachEvent.CoreCog = coreCog;
-                cog.DispatchEvent("DetachFromCore", attachEvent);
+                cog.DispatchEvent(Events.DetachFromCore, attachEvent);
             }
             
             // Our root has just changed for the below logic
@@ -125,7 +131,7 @@ class GridAttachable : ScriptComponent
         var toSend = new GridAttachEvent();
         toSend.TestPos = viewportMouseEvent.ToWorldZPlane(0.0);
         toSend.TestRoot = root;
-        this.Space.DispatchEvent("PieceDragBegin", toSend);
+        this.Space.DispatchEvent(Events.PieceDragBegin, toSend);
         
         // The mouse is now down over us, so it's ok to do movement logic
         this.IsMoving = true;
@@ -170,7 +176,7 @@ class GridAttachable : ScriptComponent
         // Tell all of our components that we're attaching to another core
         var attachEvent = new AttachEvent();
         attachEvent.CoreCog = coreCog;
-        cog.DispatchEvent("AttachToCore", attachEvent);
+        cog.DispatchEvent(Events.AttachToCore, attachEvent);
     }
     
     function ChangeToRoot(cog : Cog, oldGrid : ObjectGrid, newRoot : Cog, key : Real2)
@@ -233,7 +239,7 @@ class GridAttachable : ScriptComponent
         var toSend = new GridAttachEvent();
         toSend.TestPos = viewportMouseEvent.ToWorldZPlane(0.0);
         toSend.TestRoot = this.Owner.FindRoot();
-        this.Space.DispatchEvent("PieceDragEnd", toSend);
+        this.Space.DispatchEvent(Events.PieceDragEnd, toSend);
         
         // Don't do mouse move logic anymore
         this.IsMoving = false;
@@ -247,7 +253,7 @@ class GridAttachable : ScriptComponent
         var toSend = new GridAttachEvent();
         toSend.TestPos = viewportMouseEvent.ToWorldZPlane(0.0);
         toSend.TestRoot = root;
-        this.Space.DispatchEvent("TestAttachment", toSend);
+        this.Space.DispatchEvent(Events.TestAttachment, toSend);
         
         // If the caller didn't want results then there's nothing more to do,
         // Otherwise we need to find the closest attachment point
@@ -345,7 +351,7 @@ class GridAttachable : ScriptComponent
                 // Tell all of our components that we're attaching to another core
                 var attachEvent = new AttachEvent();
                 attachEvent.CoreCog = coreCog;
-                cog.DispatchEvent("DetachFromCore", attachEvent);
+                cog.DispatchEvent(Events.DetachFromCore, attachEvent);
             }
         }
     }

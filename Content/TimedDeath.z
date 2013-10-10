@@ -6,6 +6,8 @@ class TimedDeath : ScriptComponent
     [Property]
     var Lifetime : Real = 1.0;
     
+    //sends Death : Event;
+    
     constructor() : base()
     {
     }
@@ -23,7 +25,7 @@ class TimedDeath : ScriptComponent
     {
         // Let anyone listening know we just died
         var toSend = new Event();
-        this.Owner.DispatchEvent("Death", toSend);
+        this.Owner.DispatchEvent(Events.Death, toSend);
         
         this.Owner.Destroy();
     }

@@ -14,7 +14,7 @@ class ProjectileBouncer : ScriptComponent
 
     function Initialize(init : CogInitializer)
     {
-        Zero.Connect(this.Owner, "ApplyDamage", this.OnApplyDamage);
+        Zero.Connect(this.Owner, Events.ApplyDamage, this.OnApplyDamage);
     }
 
     function OnApplyDamage(damageEvent : DamageEvent)

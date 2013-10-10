@@ -12,6 +12,8 @@ class DamageOnCollide : ScriptComponent
     // Set this to null to damage everything
     var OriginRoot : Cog = null;
     
+    //sends Death : Event;
+    
     constructor() : base()
     {
     }
@@ -46,7 +48,7 @@ class DamageOnCollide : ScriptComponent
         {
             // Let anyone listening know we just died
             var toSend = new Event();
-            this.Owner.DispatchEvent("Death", toSend);
+            this.Owner.DispatchEvent(Events.Death, toSend);
             
             this.Owner.Destroy();
         }

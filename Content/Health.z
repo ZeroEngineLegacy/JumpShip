@@ -20,6 +20,8 @@ class Health : ScriptComponent
     [Property]
     var DestroyAtZeroHealth : Boolean = true;
     
+    sends Death : Event;
+    
     constructor() : base()
     {
     }
@@ -27,7 +29,7 @@ class Health : ScriptComponent
     function Initialize(init : CogInitializer)
     {
         this.CurrentHealth = this.MaxHealth;
-        Zero.Connect(this.Owner, "ApplyDamage", this.OnApplyDamage);
+        Zero.Connect(this.Owner, Events.ApplyDamage, this.OnApplyDamage);
     }
     
     function OnApplyDamage(damageEvent : DamageEvent)
@@ -47,7 +49,7 @@ class Health : ScriptComponent
         {
             // Let anyone listening know we just died
             var toSend = new Event();
-            this.Owner.DispatchEvent("Death", toSend);
+            this.Owner.DispatchEvent(Events.Death, toSend);
             
             // And if the property is set destroy ourself
             if(this.DestroyAtZeroHealth)

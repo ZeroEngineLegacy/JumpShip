@@ -48,8 +48,8 @@ class Shield : ScriptComponent
         this.BarrierCog.Sprite.Color = local Real4(this.BarrierCog.Sprite.Color.XYZ, 0.0);
         
         Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
-        Zero.Connect(this.BarrierCog, "Death", this.OnBarrierDied);
-        Zero.Connect(this.BarrierCog, "ApplyDamage", this.OnProjectileCollision);
+        Zero.Connect(this.BarrierCog, Events.Death, this.OnBarrierDied);
+        Zero.Connect(this.BarrierCog, Events.ApplyDamage, this.OnProjectileCollision);
         Zero.Connect(this.Owner, Events.Upgrade, this.OnUpgrade);
     }
     

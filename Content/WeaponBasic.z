@@ -15,7 +15,7 @@ class WeaponBasic : ScriptComponent
 
     function Initialize(init : CogInitializer)
     {
-        Zero.Connect(this.Owner, "FireWeapon", this.OnFireWeapon);
+        Zero.Connect(this.Owner, Events.FireWeapon, this.OnFireWeapon);
     }
     
     function GetLevel() : Real

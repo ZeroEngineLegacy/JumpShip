@@ -33,16 +33,18 @@ class Weapon : ScriptComponent
     // Are we currently firing? If so we need to increment our timer.
     var IsFiring : Boolean = false;
     
+    sends FireWeapon : WeaponFireEvent;
+    
     constructor() : base()
     {
     }
     
     function Initialize(init : CogInitializer)
     {
-        Zero.Connect(this.Owner, "AttachToCore", this.OnAttachToCore);
-        Zero.Connect(this.Owner, "DetachFromCore", this.OnDetachFromCore);
-        Zero.Connect(this.Owner, "BeginFire", this.OnBeginFire);
-        Zero.Connect(this.Owner, "EndFire", this.OnEndFire);
+        Zero.Connect(this.Owner, Events.AttachToCore, this.OnAttachToCore);
+        Zero.Connect(this.Owner, Events.DetachFromCore, this.OnDetachFromCore);
+        Zero.Connect(this.Owner, Events.BeginFire, this.OnBeginFire);
+        Zero.Connect(this.Owner, Events.EndFire, this.OnEndFire);
         
         // Remove later and use actions, once chris fixes action leaks
         Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
@@ -75,7 +77,7 @@ class Weapon : ScriptComponent
         toSend.FireDirW = Math.Normalize(fireDirW);
         toSend.Rotation = this.Owner.Transform.WorldRotation;
         toSend.CoreCog = this.CoreCog;
-        this.Owner.DispatchEvent("FireWeapon", toSend);
+        this.Owner.DispatchEvent(Events.FireWeapon, toSend);
     }
     
     function OnTargetMoved(targetEvent : AimTargetEvent)
@@ -106,7 +108,7 @@ class Weapon : ScriptComponent
         // If we got an actual core then start listening for the aim target moving
         if(this.CoreCog != null)
         {
-            Zero.Connect(this.CoreCog, "TargetMoved", this.OnTargetMoved);
+            Zero.Connect(this.CoreCog, Events.TargetMoved, this.OnTargetMoved);
         }
     }
     
@@ -116,7 +118,7 @@ class Weapon : ScriptComponent
         // If we no longer have a core then stop listening for the aim target moving
         if(this.CoreCog != null)
         {
-            Zero.Disconnect(this.CoreCog, "TargetMoved", this);
+            Zero.Disconnect(this.CoreCog, Events.TargetMoved, this);
         }
     }
     

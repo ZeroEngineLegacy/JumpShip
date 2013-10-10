@@ -24,14 +24,17 @@ class InputFromCore : ScriptComponent
     // The cog that contains the core we are listening to.
     var CoreCog : Cog = null;
     
+    sends BeginFire : /*Core*/Event;
+    sends EndFire : /*Core*/Event;
+    
     constructor() : base()
     {
     }
 
     function Initialize(init : CogInitializer)
     {
-        Zero.Connect(this.Owner, "AttachToCore",this.OnAttachToCore);
-        Zero.Connect(this.Owner, "DetachFromCore",this.OnDetachFromCore);
+        Zero.Connect(this.Owner, Events.AttachToCore,this.OnAttachToCore);
+        Zero.Connect(this.Owner, Events.DetachFromCore,this.OnDetachFromCore);
     }
     
     function OnAttachToCore(e : AttachEvent)
@@ -39,8 +42,8 @@ class InputFromCore : ScriptComponent
         this.CoreCog = e.CoreCog;
         if(this.CoreCog != null)
         {
-            Zero.Connect(this.CoreCog, "CoreKeyDown", this.OnCoreKeyDown);
-            Zero.Connect(this.CoreCog, "CoreKeyUp", this.OnCoreKeyUp);
+            Zero.Connect(this.CoreCog, Events.CoreKeyDown, this.OnCoreKeyDown);
+            Zero.Connect(this.CoreCog, Events.CoreKeyUp, this.OnCoreKeyUp);
             Zero.Connect(this.CoreCog, "OverrideBegin", this.OnOverrideBegin);
             Zero.Connect(this.CoreCog, "OverrideEnd", this.OnOverrideEnd);
         }
@@ -50,8 +53,8 @@ class InputFromCore : ScriptComponent
     {
         if(this.CoreCog != null)
         {
-            Zero.Disconnect(this.CoreCog, "CoreKeyDown", this as Component);
-            Zero.Disconnect(this.CoreCog, "CoreKeyUp", this as Component);
+            Zero.Disconnect(this.CoreCog, Events.CoreKeyDown, this as Component);
+            Zero.Disconnect(this.CoreCog, Events.CoreKeyUp, this as Component);
             Zero.Disconnect(this.CoreCog, "OverrideBegin", this as Component);
             Zero.Disconnect(this.CoreCog, "OverrideEnd", this as Component);
         }
@@ -98,10 +101,7 @@ class InputFromCore : ScriptComponent
     function SendEvent(eventPrefix : String)
     {
         // Build up the actual event name that we're sending
-        var builder = new StringBuilder();
-        builder.Write(eventPrefix);
-        builder.Write(this.EventName);
-        var eventString = builder.ToString();
+        var eventString = "`eventPrefix``this.EventName`";
         
         var toSend = new CoreEvent();
         toSend.CoreCog = this.CoreCog;

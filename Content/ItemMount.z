@@ -15,17 +15,20 @@ class ItemMount : ScriptComponent
     // The visuals we show when an item is being dragged so that the user can know where they can drag to.
     var DisplayCog : Cog = null;
     
+    //sends AttachToCore : AttachEvent;
+    //sends DetachFromCore : AttachEvent;
+    
     constructor() : base()
     {
     }
     
     function Initialize(init : CogInitializer)
     {
-        Zero.Connect(this.Space, "ItemDragBegin", this.OnItemDragBegin);
-        Zero.Connect(this.Space, "ItemDragEnd", this.OnItemDragEnd);
-        Zero.Connect(this.Space, "TestItemMount", this.OnTestItemMount);
-        Zero.Connect(this.Owner, "AttachToCore", this.OnAttachToCore);
-        Zero.Connect(this.Owner, "DetachFromCore", this.OnDetachFromCore);
+        Zero.Connect(this.Space, Events.ItemDragBegin, this.OnItemDragBegin);
+        Zero.Connect(this.Space, Events.ItemDragEnd, this.OnItemDragEnd);
+        Zero.Connect(this.Space, Events.TestItemMount, this.OnTestItemMount);
+        Zero.Connect(this.Owner, Events.AttachToCore, this.OnAttachToCore);
+        Zero.Connect(this.Owner, Events.DetachFromCore, this.OnDetachFromCore);
     }
     
     function AddItem(itemCog : Cog)
@@ -127,7 +130,7 @@ class ItemMount : ScriptComponent
         // If we have a cog, tell it that we've attached to a new core
         if(this.ItemCog != null)
         {
-            this.ItemCog.DispatchEvent("AttachToCore", attachEvent);
+            this.ItemCog.DispatchEvent(Events.AttachToCore, attachEvent);
         }
     }
     
@@ -136,7 +139,7 @@ class ItemMount : ScriptComponent
         // If we have a cog, tell it that we've detached from the core
         if(this.ItemCog != null)
         {
-            this.ItemCog.DispatchEvent("DetachFromCore", attachEvent);
+            this.ItemCog.DispatchEvent(Events.DetachFromCore, attachEvent);
         }
     }
 }

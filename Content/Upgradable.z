@@ -41,7 +41,7 @@ class Upgradable : ScriptComponent
         Zero.Connect(this.Owner, Events.MiddleMouseUp, this.OnMiddleMouseUp);
         Zero.Connect(this.Space, Events.MiddleMouseDown, this.OnGlobalMiddleMouseDown);
         
-        Zero.Connect(this.Owner, "DetachFromCore", this.OnDetachFromCore);
+        Zero.Connect(this.Owner, Events.DetachFromCore, this.OnDetachFromCore);
     }
     
     function OnDetachFromCore(e : Event)
@@ -177,7 +177,7 @@ class Upgradable : ScriptComponent
         {
             this.Level += 1.0;
             var toSend = new Event();
-            this.Owner.DispatchEvent("Upgrade", toSend);
+            this.Owner.DispatchEvent(Events.Upgrade, toSend);
         }
     }
 }
