@@ -7,7 +7,7 @@ SampleCurve =
 	[
 		{
 			float Time = 0,
-			float Value = 0.5,
+			float Value = 0.332258,
 			Vec2 TangentIn = [-0.0707107, -0.0707107],
 			Vec2 TangentOut = [0.0707107, 0.0707107],
 			uint EditorFlags = 0,

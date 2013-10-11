@@ -55,9 +55,9 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-2.96264, -2.92987, 38],
+			Vec3 Translation = [-6.00326, -0.41281, 38],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0, -2.19596e-008, -0, 1],
+			Quat Rotation = [0, -1.88225e-008, -0, 1],
 		},
 		Camera = 
 		{
@@ -67,7 +67,7 @@ Level =
 			float FieldOfView = 45,
 			float NearPlane = 0.5,
 			float FarPlane = 500,
-			float Size = 23.1961,
+			float Size = 7,
 		},
 		EditorCameraController = 
 		{
@@ -75,7 +75,7 @@ Level =
 			float LookDistance = 38,
 			float VerticalAngle = 0,
 			float HorizontalAngle = 0,
-			Vec3 LookTarget = [-2.96264, -2.92987, 0],
+			Vec3 LookTarget = [-6.00326, -0.41281, 0],
 		},
 		EditorRenderer = 
 		{
@@ -699,6 +699,80 @@ Level =
 		Named = 
 		{
 			string Name = "UiObjectInfo",
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "523a75b1ebb0860e:MissileProjectile",
+		LinkId = 
+		{
+			uint Id = 32,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-5.92972, -0.289637, 0],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Named = 
+		{
+			string Name = "MissileProjectile",
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 33,
+		},
+		Named = 
+		{
+			string Name = "Root",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-5.9213, 0.308397, 0],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		RigidBody = 
+		{
+			bool Static = false,
+			bool Asleep = false,
+			bool Kinematic = false,
+			bool RotationLocked = false,
+			bool Mode2D = true,
+			bool AllowSleep = true,
+			bool Inherit2DMode = true,
+			Vec3 Velocity = [0, 0, 0],
+			Vec3 AngularVelocity = [0, 0, 0],
+		},
+		CoreLink = 
+		{
+		},
+		Attachable = 
+		{
+		},
+		Hierarchy = 
+		{
+			ArchetypeInstance = 
+			{
+				string Name = "523a75c99faa64bd:MissileWeapon",
+				LinkId = 
+				{
+					uint Id = 34,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [0, 0, 0],
+					Vec3 Scale = [1, 1, 1],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				Named = 
+				{
+					string Name = "Weapon",
+				},
+			},
 		},
 	},
 },
