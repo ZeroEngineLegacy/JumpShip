@@ -1,12 +1,5 @@
 DataContent = 
 {
-	ContentTags = 
-	{
-		object Tags = 
-		[
-			"Plasma",
-		],
-	},
 	DataBuilder = 
 	{
 		string Name = "PlasmaProjectile",
@@ -14,5 +7,12 @@ DataContent =
 		string LoaderType = "Cog",
 		uint Version = 0,
 		bool ShowInEditor = true,
+	},
+	ContentTags = 
+	{
+		Array Tags = 
+		[
+			"Plasma",
+		],
 	},
 },

@@ -23,6 +23,7 @@ class PlayerCore : ScriptComponent
         Zero.Connect(this.Space, Events.RightMouseDown, this.OnRightMouseDown);
         Zero.Connect(this.Space, Events.RightMouseUp, this.OnRightMouseUp);
         Zero.Connect(this.Space, Events.MouseUpdate, this.OnMouseUpdate);
+        Zero.Connect(this.Space, Events.MouseMove, this.OnMouseUpdate);
         Zero.Connect(this.Space, Events.MiddleMouseDown, this.OnMiddleMouseDown);
     }
     

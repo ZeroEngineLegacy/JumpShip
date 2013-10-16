@@ -55,7 +55,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-6.00326, -0.41281, 38],
+			Vec3 Translation = [-4.39433, -1.90805, 38],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, -1.88225e-008, -0, 1],
 		},
@@ -67,7 +67,7 @@ Level =
 			float FieldOfView = 45,
 			float NearPlane = 0.5,
 			float FarPlane = 500,
-			float Size = 7,
+			float Size = 14,
 		},
 		EditorCameraController = 
 		{
@@ -75,7 +75,7 @@ Level =
 			float LookDistance = 38,
 			float VerticalAngle = 0,
 			float HorizontalAngle = 0,
-			Vec3 LookTarget = [-6.00326, -0.41281, 0],
+			Vec3 LookTarget = [-4.39433, -1.90805, 0],
 		},
 		EditorRenderer = 
 		{
@@ -773,6 +773,198 @@ Level =
 					string Name = "Weapon",
 				},
 			},
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 35,
+		},
+		Named = 
+		{
+			string Name = "Cube",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-5.1023, -0.182121, 0],
+			Vec3 Scale = [0.331979, 0.331979, 0.331979],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Model = 
+		{
+			string MaterialName = "4de020863e85bb61:DefaultMaterial",
+			string MeshName = "4de0354322b345ae:Cube",
+			Vec4 Color = [1, 1, 1, 1],
+			bool Visible = true,
+		},
+		RigidBody = 
+		{
+			bool Static = false,
+			bool Asleep = false,
+			bool Kinematic = false,
+			bool RotationLocked = false,
+			bool Mode2D = true,
+			bool AllowSleep = true,
+			bool Inherit2DMode = true,
+			Vec3 Velocity = [0, 0, 0],
+			Vec3 AngularVelocity = [0, 0, 0],
+		},
+		BoxCollider = 
+		{
+			bool Ghost = false,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [0, 0, 0],
+			Vec3 Size = [0.5, 0.5, 0.5],
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 36,
+		},
+		Named = 
+		{
+			string Name = "Cube",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-5.1023, -0.97544, 0],
+			Vec3 Scale = [0.331979, 0.331979, 0.331979],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Model = 
+		{
+			string MaterialName = "4de020863e85bb61:DefaultMaterial",
+			string MeshName = "4de0354322b345ae:Cube",
+			Vec4 Color = [1, 1, 1, 1],
+			bool Visible = true,
+		},
+		RigidBody = 
+		{
+			bool Static = false,
+			bool Asleep = false,
+			bool Kinematic = false,
+			bool RotationLocked = false,
+			bool Mode2D = true,
+			bool AllowSleep = true,
+			bool Inherit2DMode = true,
+			Vec3 Velocity = [0, 0, 0],
+			Vec3 AngularVelocity = [0, 0, 0],
+		},
+		BoxCollider = 
+		{
+			bool Ghost = false,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [0, 0, 0],
+			Vec3 Size = [0.5, 0.5, 0.5],
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 37,
+		},
+		Archetyped = 
+		{
+			string Name = "523e7c32da96f2f1:BeamProjectile",
+		},
+		ObjectLink = 
+		{
+			uint ObjectA = 35,
+			uint ObjectB = 36,
+			Vec3 BodyPointA = [-9.53674e-007, 0, 0.499999],
+			Vec3 BodyPointB = [-6.19888e-006, 1.19209e-007, 0.499998],
+		},
+		SpriteBeam = 
+		{
+			string SpriteSource = "523e7d9627815329:BeamProjectile2",
+			bool Visible = true,
+			BlendMode BlendMode = Alpha,
+			BeamCapMode BeamCapMode = Normal,
+			BeamGeometryMode BeamGeometryMode = Mode2D,
+			Vec4 Color = [1, 1, 1, 1],
+			float SpriteThickness = 0.1,
+			float SpriteLength = 0.001,
+			float RepeatCount = 0,
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 38,
+		},
+		Named = 
+		{
+			string Name = "Root",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-5.1023, 0.290836, 0],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		RigidBody = 
+		{
+			bool Static = false,
+			bool Asleep = false,
+			bool Kinematic = false,
+			bool RotationLocked = false,
+			bool Mode2D = true,
+			bool AllowSleep = true,
+			bool Inherit2DMode = true,
+			Vec3 Velocity = [0, 0, 0],
+			Vec3 AngularVelocity = [0, 0, 0],
+		},
+		CoreLink = 
+		{
+		},
+		Attachable = 
+		{
+		},
+		Hierarchy = 
+		{
+			ArchetypeInstance = 
+			{
+				string Name = "523c8e9054cadb11:BeamWeapon",
+				LinkId = 
+				{
+					uint Id = 39,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [0, 0, 0],
+					Vec3 Scale = [1, 1, 1],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				Named = 
+				{
+					string Name = "Weapon",
+				},
+			},
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "523c8e0cbc053bc4:DamageEffect",
+		LinkId = 
+		{
+			uint Id = 40,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-2.94138, 0.00742686, 0],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
 		},
 	},
 },

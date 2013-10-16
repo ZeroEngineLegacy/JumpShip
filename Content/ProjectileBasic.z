@@ -33,34 +33,13 @@ class ProjectileBasic : ScriptComponent
         var normal = firstPoint.WorldNormalTowardsOther;
         var worldPoint = firstPoint.WorldPoint;
         
-        // If we hit something that doesn't have health then don't do anything
-        var health = otherCog.Health;
-        if(health == null)
+        if(Projectile.CanDamage(otherCog, this.Projectile.CoreCog) == false)
         {
             return;
         }
         
-        // If the object has no health then it's dying and we can safely ignore it
-        if(health.IsZero())
-        {
-            return;
-        }
-        
-        // Check to see if the other cog has a CoreLink (so we can avoid hitting ourself).
-        // If it doesn't have one then it's safe to damage (asteroids, etc...)
-        var coreLink = otherCog.FindRoot().CoreLink;
-        if(coreLink == null)
-        {
-            this.HitObject(otherCog, normal, worldPoint);
-            return;
-        }
-        
-        // Now make sure we are hitting something that doesn't belong to us
-        var myCore = this.Projectile.CoreCog;
-        if(myCore != coreLink.CoreCog)
-        {
-            this.HitObject(otherCog, normal, worldPoint);
-        }
+        this.HitObject(otherCog, normal, worldPoint);
+       
     }
     
     function HitObject(otherObj : Cog, normal : Real3, worldPoint : Real3)

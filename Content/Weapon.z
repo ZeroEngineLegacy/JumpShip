@@ -61,9 +61,16 @@ class Weapon : ScriptComponent
                 this.FireWeapon();
             }
         }
+        else
+        {
+            if(this.Timer < this.RefireTime)
+            {
+                this.Timer += updateEvent.Dt;
+            }
+        }
     }
     
-    function FireWeapon()
+    function GetFireInfo() : WeaponFireEvent
     {
         // Get our translation (but on the 0 z-plane) to fire from
         var firePosW = this.Owner.Transform.WorldTranslation;
@@ -77,6 +84,12 @@ class Weapon : ScriptComponent
         toSend.FireDirW = Math.Normalize(fireDirW);
         toSend.Rotation = this.Owner.Transform.WorldRotation;
         toSend.CoreCog = this.CoreCog;
+        return toSend;
+    }
+    
+    function FireWeapon()
+    {
+        var toSend = this.GetFireInfo();
         this.Owner.DispatchEvent(Events.FireWeapon, toSend);
     }
     
@@ -125,12 +138,10 @@ class Weapon : ScriptComponent
     function OnBeginFire(coreEvent : CoreEvent)
     {
         this.IsFiring = true;
-        this.Timer = this.RefireTime;
     }
     
     function OnEndFire(coreEvent : CoreEvent)
     {
         this.IsFiring = false;
-        this.Timer = 0.0;
     }
 }

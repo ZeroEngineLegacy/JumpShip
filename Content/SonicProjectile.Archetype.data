@@ -14,7 +14,7 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [3.1237, -1.74881, 0],
+		Vec3 Translation = [-6.72538, -0.329185, 0],
 		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
@@ -64,9 +64,9 @@ Cog =
 	},
 	ProjectileBasic = 
 	{
-		string DamageCurve = "52289e04f7821205:DamageCurve",
-		string CreateOnDamage = "",
+		string CreateOnDamage = "523c8e0cbc053bc4:DamageEffect",
 		bool DestroyOnDamage = false,
+		string DamageCurve = "52289e04f7821205:DamageCurve",
 	},
 	TimedDeath = 
 	{

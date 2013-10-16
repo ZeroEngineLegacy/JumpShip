@@ -130,24 +130,16 @@ class HashMap[Key, Value]
     
     function FindIndex(key : Key) : Integer
     {
-        //Console.Write("Searching(");
-        //Console.Write(key);
-        //Console.Write("):");
         for (var i = 0; i < this.InternalKeys.Count; ++i)
         {
             var currentKey = this.InternalKeys.Get(i);
-            //Console.Write("[");
-            //Console.Write(currentKey);
-            //Console.Write("] ");
             
             if (currentKey == key)
             {
-                //Console.WriteLine("Found");
                 return i;
             }
         }
         
-        //Console.WriteLine("NotFound");
         return -1;
     }
     

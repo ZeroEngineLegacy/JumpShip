@@ -98,30 +98,14 @@ class ProjectileHoming : ScriptComponent
                 continue;
             }
             
-            // We only objects with health components
-            if(hitObj.Health == null)
+            // If we can't damage this cog then ignore it
+            if(Projectile.CanDamage(hitObj, this.Projectile.CoreCog) == false)
             {
                 continue;
             }
             
-            // See if the object we hit has a core link
-            var hitRoot = hitObj.FindRoot();
-            var coreLink = hitRoot.CoreLink;
-            // If it doesn't have a core link, just target it (something like an asteroid)
-            if(coreLink == null)
-            {
-                minDistance = distance;
-                closestObj = result.ObjectHit;
-                continue;
-            }
-            
-            // If it does have a core link, make sure we aren't targetting an
-            // object that belongs to the core that shot us
-            if(this.Projectile.CoreCog != coreLink.CoreCog)
-            {
-                minDistance = distance;
-                closestObj = result.ObjectHit;
-            }
+            minDistance = distance;
+            closestObj = result.ObjectHit;
         }
         
         this.Target = closestObj;

@@ -74,7 +74,7 @@ Cog =
 	},
 	ProjectileBasic = 
 	{
-		string CreateOnDamage = "",
+		string CreateOnDamage = "523c8e0cbc053bc4:DamageEffect",
 		bool DestroyOnDamage = true,
 		string DamageCurve = "52289e04f7821205:DamageCurve",
 	},

@@ -1,0 +1,65 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Archetyped = 
+	{
+		string Name = "523c8e0cbc053bc4:DamageEffect",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [-2.94138, 0.00742686, 0],
+		Vec3 Scale = [1, 1, 1],
+		Quat Rotation = [0, 0, 0, 1],
+	},
+	SpriteParticleSystem = 
+	{
+		SystemChildMode ChildMode = Independent,
+		SystemSpace SystemSpace = WorldSpace,
+		uint DrawOrder = 1,
+		ParticleGeometry GeometryMode = Billboarded,
+		ParticleRenderMode RenderMode = Additive,
+		ParticleSortMode SortMode = None,
+		string Texture = "523c8f8d874b588c:Sparks",
+		Vec4 Tint = [1, 1, 1, 1],
+		float VelocityScale = 1,
+		float LengthScale = 0,
+		float MaxParticleSize = 100,
+		Vec3 SystemSize = [2, 2, 2],
+	},
+	SphericalParticleEmitter = 
+	{
+		bool Active = true,
+		uint EmitCount = 4,
+		float EmitRate = 100,
+		float EmitVariance = 0,
+		float Size = 0.3,
+		float SizeVariance = 0.1,
+		float Lifetime = 0.2,
+		float LifetimeVariance = 0.05,
+		float Spin = 0,
+		float SpinVariance = 0,
+		bool RandomSpin = true,
+		float Fill = 1,
+		float EmitterVelocityPercent = 0,
+		Vec3 StartVelocity = [0, 1, 0],
+		Vec3 RandomVelocity = [0, 0, 0],
+		Vec3 TangentVelocity = [0, 0, 0],
+		Vec3 EmitterSize = [0, 0, 0],
+		bool FastMovingEmitter = false,
+	},
+	ParticleColorAnimator = 
+	{
+		Vec4 Color0 = [1, 1, 1, 1],
+		Vec4 Color1 = [1, 1, 1, 1],
+		Vec4 Color2 = [1, 1, 1, 1],
+		Vec4 Color3 = [1, 1, 1, 0.5],
+		Vec4 Color4 = [1, 1, 1, 0],
+	},
+	TimedDeath = 
+	{
+		float Lifetime = 0.25,
+	},
+},
