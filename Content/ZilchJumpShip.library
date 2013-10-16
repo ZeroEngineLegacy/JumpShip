@@ -53,6 +53,7 @@ ContentLibrary =
 		"MediumExperience.Archetype.data",
 		"MissileProjectile.Archetype.data",
 		"MissileProjectile0.SpriteSource.png",
+		"MissileSmoke.png",
 		"MissileWeapon.Archetype.data",
 		"MushroomExplosion.SpriteSource.png",
 		"ObjectGrid.z",

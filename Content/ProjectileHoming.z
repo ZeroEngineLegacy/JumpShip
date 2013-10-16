@@ -9,7 +9,7 @@ class ProjectileHoming : ScriptComponent
     
     // The maximum results we can get from the sphere cast.
     // Just a property so it doesn't take memory and whatnot.
-    var MaxResults : Integer { get { return 3; } }
+    var MaxResults : Integer { get { return 10; } }
     
     constructor() : base()
     {
@@ -70,7 +70,7 @@ class ProjectileHoming : ScriptComponent
     function GetSearchRadius() : Real
     {
         // Hardcoded for now, use a curve later?
-        return 5.0;
+        return 3.0;
     }
     
     function FindTarget()
