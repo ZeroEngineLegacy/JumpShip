@@ -137,7 +137,7 @@ Level =
 			bool Kinematic = false,
 			bool RotationLocked = false,
 			bool Mode2D = true,
-			bool AllowSleep = true,
+			bool AllowSleep = false,
 			bool Inherit2DMode = true,
 			Vec3 Velocity = [0, 0, 0],
 			Vec3 AngularVelocity = [0, 0, 0],
@@ -802,12 +802,19 @@ Level =
 		},
 		Hierarchy = 
 		{
-			ArchetypeInstance = 
+			Cog = 
 			{
-				string Name = "52244e49c1f35507:HullBasic",
 				LinkId = 
 				{
 					uint Id = 27,
+				},
+				Named = 
+				{
+					string Name = "HullBasic",
+				},
+				Archetyped = 
+				{
+					string Name = "52244e49c1f35507:HullBasic",
 				},
 				Transform = 
 				{
@@ -815,9 +822,65 @@ Level =
 					Vec3 Scale = [1, 1, 1],
 					Quat Rotation = [0, 0, 0, 1],
 				},
-				Named = 
+				RigidBody = 
 				{
-					string Name = "HullBasic",
+					bool Static = true,
+					bool Asleep = false,
+					bool Kinematic = false,
+					bool RotationLocked = false,
+					bool Mode2D = true,
+					bool AllowSleep = true,
+					bool Inherit2DMode = true,
+					Vec3 Velocity = [0, 0, 0],
+					Vec3 AngularVelocity = [0, 0, 0],
+				},
+				BoxCollider = 
+				{
+					bool Ghost = false,
+					bool SendsMessages = true,
+					bool Seamless = true,
+					string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+					string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+					Vec3 Offset = [0, 0, 0],
+					Vec3 Size = [0.5, 0.5, 0.05],
+				},
+				Sprite = 
+				{
+					string SpriteSource = "522230c6abcdce55:Connector",
+					bool FlipX = false,
+					bool FlipY = false,
+					Vec4 Color = [1, 1, 1, 1],
+					bool Visible = true,
+					bool OnTop = false,
+					bool AnimationActive = true,
+					float AnimationSpeed = 1,
+					uint StartFrame = 0,
+					BlendMode BlendMode = Alpha,
+					SpriteGeometryMode GeometryMode = ZPlane,
+				},
+				Reactive = 
+				{
+					bool Active = true,
+					bool CaptureMouse = true,
+				},
+				GridAttachable = 
+				{
+					bool IsDraggable = true,
+					string RootArchetype = "525b9b8a9d8d8062:ObjectRoot",
+				},
+				ItemMount = 
+				{
+					string DisplayArchetype = "5252e76acb5e3746:GridCellSprite",
+					Vec3 DisplayCogScale = [0.5, 0.5, 1],
+				},
+				Health = 
+				{
+					float MaxHealth = 50,
+					bool DestroyAtZeroHealth = true,
+				},
+				CreateOnDestroy = 
+				{
+					string ArchetypeToCreate = "52247a3f629e359a:Explosion",
 				},
 			},
 		},
@@ -2003,6 +2066,369 @@ Level =
 				},
 				Hierarchy = 
 				{
+				},
+			},
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 56,
+		},
+		Named = 
+		{
+			string Name = "Root",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-9.00482, 0.298388, 0],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		RigidBody = 
+		{
+			bool Static = false,
+			bool Asleep = false,
+			bool Kinematic = false,
+			bool RotationLocked = false,
+			bool Mode2D = true,
+			bool AllowSleep = true,
+			bool Inherit2DMode = true,
+			Vec3 Velocity = [0, 0, 0],
+			Vec3 AngularVelocity = [0, 0, 0],
+		},
+		CoreLink = 
+		{
+		},
+		Attachable = 
+		{
+		},
+		Hierarchy = 
+		{
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 57,
+				},
+				Named = 
+				{
+					string Name = "Weapon",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [0, 0, 0],
+					Vec3 Scale = [1, 1, 1],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				RigidBody = 
+				{
+					bool Static = true,
+					bool Asleep = false,
+					bool Kinematic = false,
+					bool RotationLocked = false,
+					bool Mode2D = true,
+					bool AllowSleep = true,
+					bool Inherit2DMode = true,
+					Vec3 Velocity = [0, 0, 0],
+					Vec3 AngularVelocity = [0, 0, 0],
+				},
+				Sprite = 
+				{
+					string SpriteSource = "52026759d3313998:Drill",
+					bool FlipX = false,
+					bool FlipY = false,
+					Vec4 Color = [1, 1, 1, 1],
+					bool Visible = true,
+					bool OnTop = false,
+					bool AnimationActive = true,
+					float AnimationSpeed = 1,
+					uint StartFrame = 0,
+					BlendMode BlendMode = Alpha,
+					SpriteGeometryMode GeometryMode = ZPlane,
+				},
+				Orientation = 
+				{
+					Vec3 UpVector = [0, 0, 1],
+					Vec3 ForwardVector = [0, 1, 0],
+				},
+				BoxCollider = 
+				{
+					bool Ghost = false,
+					bool SendsMessages = true,
+					bool Seamless = false,
+					string MaterialName = "4faa6050b8692851:HardMaterial",
+					string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+					Vec3 Offset = [0, 0, 0],
+					Vec3 Size = [0.25, 0.25, 0.05],
+				},
+				Reactive = 
+				{
+					bool Active = true,
+					bool CaptureMouse = false,
+				},
+				ItemMountable = 
+				{
+					string RootArchetype = "525b9b8a9d8d8062:ObjectRoot",
+				},
+				Upgradable = 
+				{
+					float Level = 0,
+					string UpgradeWindow = "5230b4fb7a12c599:UpgradeWindow",
+				},
+				Hierarchy = 
+				{
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 58,
+						},
+						Named = 
+						{
+							string Name = "Weapon",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0, 0, 0],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						ConvexMeshCollider = 
+						{
+							bool Ghost = false,
+							bool SendsMessages = true,
+							bool Seamless = false,
+							string MaterialName = "522ed4616b15044d:Massless",
+							string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+							Vec3 Offset = [0, 0, 0],
+							string MeshName = "52026601f8780c12:Drill",
+						},
+						DamageRegion = 
+						{
+							string DamageCurve = "52289e04f7821205:DamageCurve",
+							string DamageEffect = "523c8e0cbc053bc4:DamageEffect",
+						},
+					},
+				},
+			},
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 59,
+		},
+		Named = 
+		{
+			string Name = "Root",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [3.83769, -1.72542, 0],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		RigidBody = 
+		{
+			bool Static = false,
+			bool Asleep = false,
+			bool Kinematic = false,
+			bool RotationLocked = false,
+			bool Mode2D = true,
+			bool AllowSleep = true,
+			bool Inherit2DMode = true,
+			Vec3 Velocity = [0, 0, 0],
+			Vec3 AngularVelocity = [0, 0, 0],
+		},
+		CoreLink = 
+		{
+		},
+		Attachable = 
+		{
+		},
+		Hierarchy = 
+		{
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 60,
+				},
+				Named = 
+				{
+					string Name = "Weapon",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [0, 0, 0],
+					Vec3 Scale = [1, 1, 1],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				RigidBody = 
+				{
+					bool Static = true,
+					bool Asleep = false,
+					bool Kinematic = false,
+					bool RotationLocked = false,
+					bool Mode2D = true,
+					bool AllowSleep = true,
+					bool Inherit2DMode = true,
+					Vec3 Velocity = [0, 0, 0],
+					Vec3 AngularVelocity = [0, 0, 0],
+				},
+				BoxCollider = 
+				{
+					bool Ghost = false,
+					bool SendsMessages = true,
+					bool Seamless = true,
+					string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+					string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+					Vec3 Offset = [0.01, 0, 0],
+					Vec3 Size = [0.175, 0.225, 0.05],
+				},
+				Sprite = 
+				{
+					string SpriteSource = "52033c806ca7e0d3:LightningWeapon",
+					bool FlipX = false,
+					bool FlipY = false,
+					Vec4 Color = [1, 1, 1, 1],
+					bool Visible = true,
+					bool OnTop = false,
+					bool AnimationActive = true,
+					float AnimationSpeed = 1,
+					uint StartFrame = 0,
+					BlendMode BlendMode = Alpha,
+					SpriteGeometryMode GeometryMode = ZPlane,
+				},
+				Reactive = 
+				{
+					bool Active = true,
+					bool CaptureMouse = true,
+				},
+				ItemMountable = 
+				{
+					string RootArchetype = "525b9b8a9d8d8062:ObjectRoot",
+				},
+				Weapon = 
+				{
+					float RefireTime = 0.5,
+					Vec3 LocalFireDirection = [0, 1, 0],
+				},
+				Orientation = 
+				{
+					Vec3 UpVector = [0, 0, 1],
+					Vec3 ForwardVector = [0, 1, 0],
+				},
+				InputFromCore = 
+				{
+					string EventName = "Fire",
+					int Key = 32,
+				},
+				Upgradable = 
+				{
+					float Level = 10,
+					string UpgradeWindow = "5230b4fb7a12c599:UpgradeWindow",
+				},
+				WeaponLightning = 
+				{
+					string LightningEmitterName = "LightningEmitter",
+				},
+				Hierarchy = 
+				{
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 61,
+						},
+						Named = 
+						{
+							string Name = "LightningEmitter",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0.0162413, 0.173243, 0],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						SpriteParticleSystem = 
+						{
+							SystemChildMode ChildMode = Independent,
+							SystemSpace SystemSpace = WorldSpace,
+							uint DrawOrder = 0,
+							ParticleGeometry GeometryMode = Beam,
+							ParticleRenderMode RenderMode = Additive,
+							ParticleSortMode SortMode = None,
+							string Texture = "52033f640e8bf7ae:Lightning",
+							Vec4 Tint = [1, 1, 1, 0.7],
+							float VelocityScale = 2,
+							float LengthScale = 0,
+							float MaxParticleSize = 100,
+							Vec3 SystemSize = [2, 2, 2],
+						},
+						LightningParticleEmitter = 
+						{
+							uint MinBranches = 1,
+							uint MaxBranches = 2,
+							float BranchProbabilityExponent = 50,
+							float DurationPerStrike = 5,
+							uint MinDepth = 10,
+							uint MaxDepth = 0,
+							float MinSegmentLength = 0.08,
+							float MaxSegmentLength = 0.2,
+							float MinRandomOffset = 0.55,
+							float MaxRandomOffset = 1,
+							float BeginSize = 0.35,
+							float EndSize = 0.25,
+							float HackOffsetPercentage = 0.78,
+							Vec3 TargetPosition = [0, 50, 0],
+							TargetSpace TargetSpace = LocalSpace,
+						},
+						LinearParticleAnimator = 
+						{
+							Vec3 Force = [0, 0, 0],
+							Vec3 RandomForce = [0, 0, 0],
+							float Torque = 0,
+							float Growth = 0,
+							float Dampening = 0,
+							Vec3 Twist = [0, 0, 0],
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 62,
+						},
+						Named = 
+						{
+							string Name = "DamageRegion",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0.0162413, 0.173243, 0],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						BoxCollider = 
+						{
+							bool Ghost = true,
+							bool SendsMessages = true,
+							bool Seamless = false,
+							string MaterialName = "522ed4616b15044d:Massless",
+							string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+							Vec3 Offset = [0, 0, 0],
+							Vec3 Size = [0.1, 0.5, 0.25],
+						},
+						DamageRegion = 
+						{
+							string DamageCurve = "52289e04f7821205:DamageCurve",
+							string DamageEffect = "523c8e0cbc053bc4:DamageEffect",
+						},
+					},
 				},
 			},
 		},
