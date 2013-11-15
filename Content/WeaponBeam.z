@@ -16,6 +16,9 @@ class WeaponBeam : ScriptComponent
     var DamageCurve : SampleCurve = SampleCurve.Find("DamageCurve");
     
     [Property]
+    var DamageType : Integer = DamageTypes.Beam;
+    
+    [Property]
     var DamageEffect : Archetype = null;
     
     // The object that visually represents the beam we are firing.
@@ -99,6 +102,7 @@ class WeaponBeam : ScriptComponent
         toSend.Damage = damagePerFrame;
         toSend.Normal = hitNormal;
         toSend.WorldPoint = worldPoint;
+        toSend.DamageType = this.DamageType;
         // Tell the other object we dealt damage, also tell any of our other components
         hitObj.DispatchEvent(Events.ApplyDamage, toSend);
         this.Owner.DispatchEvent(Events.ApplyDamage, toSend);

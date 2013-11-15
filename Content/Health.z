@@ -3,6 +3,7 @@ class DamageEvent : Event
     var Damage : Real = 0.0;
     var Normal : Real3 = local Real3(0.0, 0.0, 0.0);
     var WorldPoint : Real3 = local Real3(0.0, 0.0, 0.0);
+    var DamageType : Integer = DamageTypes.Energy;
     
     constructor() : base()
     {
@@ -34,11 +35,18 @@ class Health : ScriptComponent
     
     function OnApplyDamage(damageEvent : DamageEvent)
     {
-        this.ApplyDamage(damageEvent.Damage);
+        this.ApplyDamage(damageEvent.Damage, damageEvent.DamageType);
     }
     
-    function ApplyDamage(damage : Real)
+    function ApplyDamage(damage : Real, damageType : Integer)
     {
+        var damageResistances = this.Owner.DamageResistance;
+        if(damageResistances != null)
+        {
+            var resistance = damageResistances.GetResistance(damageType);
+            damage /= resistance;
+        }
+        
         this.CurrentHealth -= damage;
         // Clamp our current health (in my case I don't want to have
         // to heal through negative health so I clamp to 0)

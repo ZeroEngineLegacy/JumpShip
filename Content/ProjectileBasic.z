@@ -15,7 +15,10 @@ class ProjectileBasic : ScriptComponent
     [Dependency]
     var Projectile : Projectile = null;
     
-    sends ApplyDamage : /*Damage*/Event;
+    [Property]
+    var DamageType : Integer = DamageTypes.Energy;
+    
+    sends ApplyDamage : DamageEvent;
     
     constructor() : base()
     {
@@ -39,7 +42,6 @@ class ProjectileBasic : ScriptComponent
         }
         
         this.HitObject(otherCog, normal, worldPoint);
-       
     }
     
     function HitObject(otherObj : Cog, normal : Real3, worldPoint : Real3)
@@ -48,6 +50,7 @@ class ProjectileBasic : ScriptComponent
         toSend.Damage = this.DamageCurve.Sample(this.Projectile.Level);
         toSend.Normal = normal;
         toSend.WorldPoint = worldPoint;
+        toSend.DamageType = this.DamageType;
         
         // Tell the other object we dealt damage, also tell any of our other components
         otherObj.DispatchEvent(Events.ApplyDamage, toSend);

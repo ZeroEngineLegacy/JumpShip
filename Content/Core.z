@@ -93,6 +93,10 @@ class Core : ScriptComponent
     {
         this.AimTarget = aimTarget;
         this.TargetMoved = true;
+        
+        var targetEvent = new AimTargetEvent();
+        targetEvent.AimTarget = this.AimTarget;
+        this.Owner.DispatchEvent(Events.TargetMoved, targetEvent as Event);
     }
     
     function Move()

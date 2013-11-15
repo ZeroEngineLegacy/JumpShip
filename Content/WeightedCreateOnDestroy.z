@@ -30,6 +30,10 @@ class WeightedCreateOnDestroy : ScriptComponent
         var archetype = resource as Archetype;
         
         var obj = this.Space.CreateAtPosition(archetype, pos);
+        if(obj == null)
+        {
+            throw new Exception("Resource table is empty, failed to create drop");
+        }
         
         // If we want to apply a random velocity to what we create
         if(this.ApplyRandomVelocity == true)

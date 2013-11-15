@@ -12,6 +12,8 @@ class DamageOnCollide : ScriptComponent
     // Set this to null to damage everything
     var OriginRoot : Cog = null;
     
+    [Property]
+    var DamageType : Integer = DamageTypes.Energy;
     //sends Death : Event;
     
     constructor() : base()
@@ -41,7 +43,7 @@ class DamageOnCollide : ScriptComponent
         var health = otherObject.Health;
         if(health != null)
         {
-            health.ApplyDamage(this.Damage);
+            health.ApplyDamage(this.Damage, this.DamageType);
         }
         
         if(this.DestroyOnCollide)
