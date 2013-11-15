@@ -15,7 +15,7 @@ Cog =
 	Transform = 
 	{
 		Vec3 Translation = [0, 0, 0],
-		Vec3 Scale = [1, 1, 1],
+		Vec3 Scale = [0.999999, 0.999999, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
 	RigidBody = 
@@ -76,6 +76,17 @@ Cog =
 	},
 	PickupCollector = 
 	{
+		string UiLevel = "52308e37bdbac48e:UiLevel",
+	},
+	Reactive = 
+	{
+		bool Active = true,
+		bool CaptureMouse = false,
+	},
+	GridAttachable = 
+	{
+		bool IsDraggable = false,
+		string RootArchetype = "525b9b8a9d8d8062:ObjectRoot",
 	},
 	Hierarchy = 
 	{

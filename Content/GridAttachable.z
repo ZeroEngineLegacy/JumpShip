@@ -67,7 +67,6 @@ class GridAttachable : ScriptComponent
             Zero.Connect(this.Owner, Events.MouseUp, this.OnMouseUp);
             
             // Currently MouseMove and MouseUpdate must be listened to in order to get events every frame.
-            Zero.Connect(this.Space, Events.MouseMove, this.OnMouseMove);
             Zero.Connect(this.Space, Events.MouseUpdate, this.OnMouseMove);
         }
         

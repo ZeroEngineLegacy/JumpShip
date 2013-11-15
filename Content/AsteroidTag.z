@@ -1,0 +1,11 @@
+class AsteroidTag : ScriptComponent
+{
+    constructor() : base()
+    {
+    }
+    
+    function Initialize(init : CogInitializer)
+    {
+        
+    }
+}

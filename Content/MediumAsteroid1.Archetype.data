@@ -60,4 +60,11 @@ Cog =
 		float MaxHealth = 30,
 		bool DestroyAtZeroHealth = true,
 	},
+	DamageResistance = 
+	{
+		float EnergyResistance = 1,
+		float BeamResistance = 1,
+		float DrillResistance = 1,
+		float LightningResistance = 1,
+	},
 },

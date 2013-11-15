@@ -60,4 +60,11 @@ Cog =
 		string DropTable = "522fc8f1db69f0cf:MediumAsteroidDrop",
 		bool ApplyRandomVelocity = true,
 	},
+	DamageResistance = 
+	{
+		float EnergyResistance = 1,
+		float BeamResistance = 1,
+		float DrillResistance = 0.25,
+		float LightningResistance = 1,
+	},
 },
