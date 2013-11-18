@@ -1,0 +1,64 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "PlayerRoot",
+	},
+	Archetyped = 
+	{
+		string Name = "5212778c31aa05ed:PlayerRoot",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [-1.73442, 1.29403, 0],
+		Vec3 Scale = [1, 1, 1],
+		Quat Rotation = [0, 0, 0, 1],
+	},
+	RigidBody = 
+	{
+		bool Static = false,
+		bool Asleep = false,
+		bool Kinematic = false,
+		bool RotationLocked = false,
+		bool Mode2D = true,
+		bool AllowSleep = false,
+		bool Inherit2DMode = true,
+		Vec3 Velocity = [0, 0, 0],
+		Vec3 AngularVelocity = [0, 0, 0],
+	},
+	ObjectGrid = 
+	{
+		string DisplayArchetype = "5252e76acb5e3746:GridCellSprite",
+	},
+	CoreLink = 
+	{
+	},
+	Attachable = 
+	{
+	},
+	Hierarchy = 
+	{
+		ArchetypeInstance = 
+		{
+			string Name = "5252cbcb47702c20:Player",
+			LinkId = 
+			{
+				uint Id = 2,
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0, 0, 0],
+				Vec3 Scale = [0.999999, 0.999999, 1],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			Named = 
+			{
+				string Name = "Player",
+			},
+		},
+	},
+},

@@ -55,7 +55,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-4.49958, 0.532323, 38],
+			Vec3 Translation = [-7.07959, 0.532323, 38],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, -1.88225e-008, -0, 1],
 		},
@@ -67,7 +67,7 @@ Level =
 			float FieldOfView = 45,
 			float NearPlane = 0.5,
 			float FarPlane = 500,
-			float Size = 13.1865,
+			float Size = 14.1865,
 		},
 		EditorCameraController = 
 		{
@@ -75,7 +75,7 @@ Level =
 			float LookDistance = 38,
 			float VerticalAngle = 0,
 			float HorizontalAngle = 0,
-			Vec3 LookTarget = [-4.49958, 0.532323, 0],
+			Vec3 LookTarget = [-7.07959, 0.532323, 0],
 		},
 		EditorRenderer = 
 		{
@@ -1179,6 +1179,7 @@ Level =
 						{
 							string DamageCurve = "52289e04f7821205:DamageCurve",
 							string DamageEffect = "523c8e0cbc053bc4:DamageEffect",
+							int DamageType = 2,
 						},
 					},
 				},
@@ -1324,6 +1325,7 @@ Level =
 						{
 							string DamageCurve = "52289e04f7821205:DamageCurve",
 							string DamageEffect = "523c8e0cbc053bc4:DamageEffect",
+							int DamageType = 2,
 						},
 					},
 				},

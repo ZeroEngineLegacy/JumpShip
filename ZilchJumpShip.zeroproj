@@ -6,7 +6,7 @@ Cog =
 		string ProjectOwner = "",
 		string DefaultLevel = "Level",
 		string ProjectSpace = "Space",
-		uint ProjectEngineRevision = 7808,
+		uint ProjectEngineRevision = 7971,
 	},
 	EditorSettings = 
 	{

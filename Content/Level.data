@@ -29,7 +29,7 @@ Level =
 			bool Background = true,
 			Vec2 Offset = [0, 0],
 			Vec2 Size = [1, 1],
-			uint Layer = 0,
+			int Layer = 0,
 			bool Active = true,
 			bool Blocking = true,
 			uint Renderer = 1,
@@ -47,6 +47,14 @@ Level =
 			float Width = 16,
 			float Height = 9,
 		},
+		GameLogic = 
+		{
+			string PlayerArchetype = "5212778c31aa05ed:PlayerRoot",
+			string AsteroidArchetype = "522fce3953e69354:BigAsteroid",
+			string CameraName = "Camera",
+			int NumberOfAsteroids = 100,
+			float SampleBoxSize = 100,
+		},
 	},
 	Cog = 
 	{
@@ -60,9 +68,9 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-2.18557e-006, -1.45936, 50],
+			Vec3 Translation = [2.52026, 1.99034, 43.0319],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0, -2.18557e-008, -0, 1],
+			Quat Rotation = [-0, -1.09278e-008, 0, 1],
 		},
 		Camera = 
 		{
@@ -72,7 +80,7 @@ Level =
 			float FieldOfView = 45,
 			float NearPlane = 0.5,
 			float FarPlane = 500,
-			float Size = 16,
+			float Size = 22,
 		},
 		EditorCameraController = 
 		{
@@ -80,7 +88,7 @@ Level =
 			float LookDistance = 50,
 			float VerticalAngle = 0,
 			float HorizontalAngle = 0,
-			Vec3 LookTarget = [0, -1.45936, 0],
+			Vec3 LookTarget = [2.52026, 1.99034, -6.96811],
 		},
 		EditorRenderer = 
 		{
@@ -113,90 +121,28 @@ Level =
 			float FarPlane = 200,
 			float Size = 13,
 		},
+		CameraGroupFocuser = 
+		{
+			Vec3 PlaneNormal = [-0, -0, -1],
+			float PlaneDistanceScalar = 1,
+			float PlaneDistanceConstant = 10,
+			float MinDistance = 20,
+			float Smoothness = 0.6,
+			float TranslationSmoothness = 0.1,
+			Vec3 PositionOffset = [0, 0, 0],
+			bool ControlsOrientation = true,
+		},
+		DeepSpaceEffect = 
+		{
+			string Stars = "521f5a45e70d4453:Stars",
+			string Nebula = "521f5a0df51443c6:Nebula",
+		},
 	},
 	Cog = 
 	{
 		LinkId = 
 		{
 			uint Id = 4,
-		},
-		Named = 
-		{
-			string Name = "PlayerRoot",
-		},
-		Transform = 
-		{
-			Vec3 Translation = [-0.781704, 0.598767, 0],
-			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0, 0, 1, 0.000386486],
-		},
-		RigidBody = 
-		{
-			bool Static = false,
-			bool Asleep = false,
-			bool Kinematic = false,
-			bool RotationLocked = false,
-			bool Mode2D = true,
-			bool AllowSleep = false,
-			bool Inherit2DMode = true,
-			Vec3 Velocity = [0, 0, 0],
-			Vec3 AngularVelocity = [0, 0, 0],
-		},
-		ObjectGrid = 
-		{
-			string DisplayArchetype = "5252e76acb5e3746:GridCellSprite",
-		},
-		CoreLink = 
-		{
-		},
-		Attachable = 
-		{
-		},
-		Hierarchy = 
-		{
-			ArchetypeInstance = 
-			{
-				string Name = "5252cbce47d0c501:Turbine",
-				LinkId = 
-				{
-					uint Id = 5,
-				},
-				Transform = 
-				{
-					Vec3 Translation = [0, -1, 0],
-					Vec3 Scale = [1, 1, 1],
-					Quat Rotation = [0, 0, 0, 1],
-				},
-				Named = 
-				{
-					string Name = "Turbine",
-				},
-			},
-			ArchetypeInstance = 
-			{
-				string Name = "5252cbcb47702c20:Player",
-				LinkId = 
-				{
-					uint Id = 6,
-				},
-				Transform = 
-				{
-					Vec3 Translation = [0, 0, 0],
-					Vec3 Scale = [0.999999, 0.999999, 1],
-					Quat Rotation = [0, 0, 0, 1],
-				},
-				Named = 
-				{
-					string Name = "Player",
-				},
-			},
-		},
-	},
-	Cog = 
-	{
-		LinkId = 
-		{
-			uint Id = 7,
 		},
 		Named = 
 		{
@@ -237,7 +183,7 @@ Level =
 				string Name = "5252cbce47d0c501:Turbine",
 				LinkId = 
 				{
-					uint Id = 8,
+					uint Id = 5,
 				},
 				Transform = 
 				{
@@ -256,7 +202,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 9,
+			uint Id = 6,
 		},
 		Named = 
 		{
@@ -296,7 +242,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 10,
+					uint Id = 7,
 				},
 				Named = 
 				{
@@ -375,7 +321,7 @@ Level =
 				string Name = "5252cbce47d0c501:Turbine",
 				LinkId = 
 				{
-					uint Id = 11,
+					uint Id = 8,
 				},
 				Transform = 
 				{
@@ -393,7 +339,7 @@ Level =
 				string Name = "5252cbce47d0c501:Turbine",
 				LinkId = 
 				{
-					uint Id = 12,
+					uint Id = 9,
 				},
 				Transform = 
 				{
@@ -411,7 +357,7 @@ Level =
 				string Name = "5252cbce47d0c501:Turbine",
 				LinkId = 
 				{
-					uint Id = 13,
+					uint Id = 10,
 				},
 				Transform = 
 				{
@@ -429,7 +375,7 @@ Level =
 				string Name = "5252cbce47d0c501:Turbine",
 				LinkId = 
 				{
-					uint Id = 14,
+					uint Id = 11,
 				},
 				Transform = 
 				{
@@ -447,7 +393,7 @@ Level =
 				string Name = "5252cbce47d0c501:Turbine",
 				LinkId = 
 				{
-					uint Id = 15,
+					uint Id = 12,
 				},
 				Transform = 
 				{
@@ -466,7 +412,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 16,
+			uint Id = 13,
 		},
 		Named = 
 		{
@@ -507,7 +453,7 @@ Level =
 				string Name = "52244e49c1f35507:HullBasic",
 				LinkId = 
 				{
-					uint Id = 17,
+					uint Id = 14,
 				},
 				Transform = 
 				{
@@ -526,67 +472,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 18,
-		},
-		Named = 
-		{
-			string Name = "Root",
-		},
-		Transform = 
-		{
-			Vec3 Translation = [5.51744, -3.83051, 0],
-			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0, 0, 0, 1],
-		},
-		RigidBody = 
-		{
-			bool Static = false,
-			bool Asleep = false,
-			bool Kinematic = false,
-			bool RotationLocked = false,
-			bool Mode2D = true,
-			bool AllowSleep = true,
-			bool Inherit2DMode = true,
-			Vec3 Velocity = [0, 0, 0],
-			Vec3 AngularVelocity = [0, 0, 0],
-		},
-		ObjectGrid = 
-		{
-			string DisplayArchetype = "5252e76acb5e3746:GridCellSprite",
-		},
-		CoreLink = 
-		{
-		},
-		Attachable = 
-		{
-		},
-		Hierarchy = 
-		{
-			ArchetypeInstance = 
-			{
-				string Name = "5252cbce47d0c501:Turbine",
-				LinkId = 
-				{
-					uint Id = 19,
-				},
-				Transform = 
-				{
-					Vec3 Translation = [0, 0, 0],
-					Vec3 Scale = [1, 1, 1],
-					Quat Rotation = [0, 0, 0, 1],
-				},
-				Named = 
-				{
-					string Name = "Turbine",
-				},
-			},
-		},
-	},
-	Cog = 
-	{
-		LinkId = 
-		{
-			uint Id = 20,
+			uint Id = 15,
 		},
 		Named = 
 		{
@@ -627,7 +513,7 @@ Level =
 				string Name = "52244e49c1f35507:HullBasic",
 				LinkId = 
 				{
-					uint Id = 21,
+					uint Id = 16,
 				},
 				Transform = 
 				{
@@ -640,13 +526,73 @@ Level =
 					string Name = "HullBasic",
 				},
 			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 17,
+				},
+				Named = 
+				{
+					string Name = "Root",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [0.72315, -5.33588, 0],
+					Vec3 Scale = [1, 1, 1],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				RigidBody = 
+				{
+					bool Static = false,
+					bool Asleep = false,
+					bool Kinematic = false,
+					bool RotationLocked = false,
+					bool Mode2D = true,
+					bool AllowSleep = true,
+					bool Inherit2DMode = true,
+					Vec3 Velocity = [0, 0, 0],
+					Vec3 AngularVelocity = [0, 0, 0],
+				},
+				ObjectGrid = 
+				{
+					string DisplayArchetype = "5252e76acb5e3746:GridCellSprite",
+				},
+				CoreLink = 
+				{
+				},
+				Attachable = 
+				{
+				},
+				Hierarchy = 
+				{
+					ArchetypeInstance = 
+					{
+						string Name = "5252cbce47d0c501:Turbine",
+						LinkId = 
+						{
+							uint Id = 18,
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0, 0, 0],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Named = 
+						{
+							string Name = "Turbine",
+						},
+					},
+				},
+			},
 		},
 	},
 	Cog = 
 	{
 		LinkId = 
 		{
-			uint Id = 22,
+			uint Id = 19,
 		},
 		Named = 
 		{
@@ -687,7 +633,7 @@ Level =
 				string Name = "52244e49c1f35507:HullBasic",
 				LinkId = 
 				{
-					uint Id = 23,
+					uint Id = 20,
 				},
 				Transform = 
 				{
@@ -706,7 +652,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 24,
+			uint Id = 21,
 		},
 		Named = 
 		{
@@ -747,7 +693,7 @@ Level =
 				string Name = "52244e49c1f35507:HullBasic",
 				LinkId = 
 				{
-					uint Id = 25,
+					uint Id = 22,
 				},
 				Transform = 
 				{
@@ -766,7 +712,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 26,
+			uint Id = 23,
 		},
 		Named = 
 		{
@@ -806,7 +752,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 27,
+					uint Id = 24,
 				},
 				Named = 
 				{
@@ -889,7 +835,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 28,
+			uint Id = 25,
 		},
 		Named = 
 		{
@@ -930,7 +876,7 @@ Level =
 				string Name = "52244e49c1f35507:HullBasic",
 				LinkId = 
 				{
-					uint Id = 29,
+					uint Id = 26,
 				},
 				Transform = 
 				{
@@ -949,7 +895,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 30,
+			uint Id = 27,
 		},
 		Named = 
 		{
@@ -990,7 +936,7 @@ Level =
 				string Name = "52244e49c1f35507:HullBasic",
 				LinkId = 
 				{
-					uint Id = 31,
+					uint Id = 28,
 				},
 				Transform = 
 				{
@@ -1009,7 +955,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 32,
+			uint Id = 29,
 		},
 		Named = 
 		{
@@ -1050,7 +996,7 @@ Level =
 				string Name = "52244e49c1f35507:HullBasic",
 				LinkId = 
 				{
-					uint Id = 33,
+					uint Id = 30,
 				},
 				Transform = 
 				{
@@ -1069,7 +1015,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 34,
+			uint Id = 31,
 		},
 		Named = 
 		{
@@ -1109,7 +1055,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 35,
+					uint Id = 32,
 				},
 				Named = 
 				{
@@ -1198,93 +1144,16 @@ Level =
 			},
 		},
 	},
-	Cog = 
-	{
-		LinkId = 
-		{
-			uint Id = 36,
-		},
-		Archetyped = 
-		{
-			string Name = "522fce3953e69354:BigAsteroid",
-		},
-		Transform = 
-		{
-			Vec3 Translation = [-3.20933, -4.86791, 0],
-			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0, 0, 0, 1],
-		},
-		Sprite = 
-		{
-			string SpriteSource = "524dce7f2db914b8:BigAsteroid",
-			bool FlipX = false,
-			bool FlipY = false,
-			Vec4 Color = [1, 1, 1, 1],
-			bool Visible = true,
-			bool OnTop = true,
-			bool AnimationActive = true,
-			float AnimationSpeed = 1,
-			uint StartFrame = 0,
-			BlendMode BlendMode = Alpha,
-			SpriteGeometryMode GeometryMode = ZPlane,
-		},
-		RigidBody = 
-		{
-			bool Static = false,
-			bool Asleep = false,
-			bool Kinematic = false,
-			bool RotationLocked = false,
-			bool Mode2D = true,
-			bool AllowSleep = true,
-			bool Inherit2DMode = true,
-			Vec3 Velocity = [0, 0, 0],
-			Vec3 AngularVelocity = [0, 0, 0],
-		},
-		ConvexMeshCollider = 
-		{
-			bool Ghost = false,
-			bool SendsMessages = true,
-			bool Seamless = false,
-			string MaterialName = "4faa6050b8692851:HardMaterial",
-			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
-			Vec3 Offset = [0, 0, 0],
-			string MeshName = "522ff26f19e2e4e5:BigAsteroid",
-		},
-		WeightedCreateOnDestroy = 
-		{
-			string DropTable = "522fcfcaac9e699f:BigAsteroidDrop",
-			bool ApplyRandomVelocity = true,
-		},
-		Health = 
-		{
-			float MaxHealth = 50,
-			bool DestroyAtZeroHealth = true,
-		},
-	},
-	ArchetypeInstance = 
-	{
-		string Name = "522fce3953e69354:BigAsteroid",
-		LinkId = 
-		{
-			uint Id = 37,
-		},
-		Transform = 
-		{
-			Vec3 Translation = [-6.06498, -4.86791, 0],
-			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0, 0, 0, 1],
-		},
-	},
 	ArchetypeInstance = 
 	{
 		string Name = "522d0a2389c5ff62:LargeExperience",
 		LinkId = 
 		{
-			uint Id = 38,
+			uint Id = 33,
 		},
 		Transform = 
 		{
-			Vec3 Translation = [0.937536, -3.66481, 0],
+			Vec3 Translation = [14.1367, -3.66481, 0],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -1293,7 +1162,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 39,
+			uint Id = 34,
 		},
 		Archetyped = 
 		{
@@ -1301,7 +1170,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-0.781314, -4.55835, 0],
+			Vec3 Translation = [12.4179, -4.55835, 0],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -1352,11 +1221,11 @@ Level =
 		string Name = "522d0a318a3d2edf:SmallExperience",
 		LinkId = 
 		{
-			uint Id = 40,
+			uint Id = 35,
 		},
 		Transform = 
 		{
-			Vec3 Translation = [0.352446, -3.66481, 0],
+			Vec3 Translation = [13.5516, -3.66481, 0],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -1365,7 +1234,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 41,
+			uint Id = 36,
 		},
 		Archetyped = 
 		{
@@ -1373,7 +1242,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [0.264686, -4.55835, 0],
+			Vec3 Translation = [13.4639, -4.55835, 0],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -1424,11 +1293,11 @@ Level =
 		string Name = "522d0a148ca4407f:MediumExperience",
 		LinkId = 
 		{
-			uint Id = 42,
+			uint Id = 37,
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-0.189834, -3.66481, 0],
+			Vec3 Translation = [13.0094, -3.66481, 0],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -1438,11 +1307,11 @@ Level =
 		string Name = "522ffcb7f5d840b3:Zinc",
 		LinkId = 
 		{
-			uint Id = 43,
+			uint Id = 38,
 		},
 		Transform = 
 		{
-			Vec3 Translation = [1.27749, -4.55835, 0],
+			Vec3 Translation = [14.4767, -4.55835, 0],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -1451,7 +1320,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 44,
+			uint Id = 39,
 		},
 		Archetyped = 
 		{
@@ -1459,7 +1328,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [0.937536, -3.08893, 0],
+			Vec3 Translation = [14.1367, -3.08893, 0],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -1509,7 +1378,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 45,
+			uint Id = 40,
 		},
 		Archetyped = 
 		{
@@ -1517,7 +1386,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [2.15283, -4.55835, 0],
+			Vec3 Translation = [15.352, -4.55835, 0],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -1567,7 +1436,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 46,
+			uint Id = 41,
 		},
 		Named = 
 		{
@@ -1604,7 +1473,7 @@ Level =
 				string Name = "522ee43aa74829c4:SonicWeapon",
 				LinkId = 
 				{
-					uint Id = 47,
+					uint Id = 42,
 				},
 				Transform = 
 				{
@@ -1623,7 +1492,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 48,
+			uint Id = 43,
 		},
 		Named = 
 		{
@@ -1659,7 +1528,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 49,
+					uint Id = 44,
 				},
 				Named = 
 				{
@@ -1755,7 +1624,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 50,
+			uint Id = 45,
 		},
 		Named = 
 		{
@@ -1792,7 +1661,7 @@ Level =
 				string Name = "523a75c99faa64bd:MissileWeapon",
 				LinkId = 
 				{
-					uint Id = 51,
+					uint Id = 46,
 				},
 				Transform = 
 				{
@@ -1811,7 +1680,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 52,
+			uint Id = 47,
 		},
 		Named = 
 		{
@@ -1847,7 +1716,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 53,
+					uint Id = 48,
 				},
 				Named = 
 				{
@@ -1932,6 +1801,7 @@ Level =
 				{
 					string BeamArchetype = "523e7c32da96f2f1:BeamProjectile",
 					string DamageCurve = "52289e04f7821205:DamageCurve",
+					int DamageType = 1,
 					string DamageEffect = "523c8e0cbc053bc4:DamageEffect",
 				},
 			},
@@ -1941,7 +1811,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 54,
+			uint Id = 49,
 		},
 		Named = 
 		{
@@ -1981,7 +1851,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 55,
+					uint Id = 50,
 				},
 				Named = 
 				{
@@ -2074,7 +1944,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 56,
+			uint Id = 51,
 		},
 		Named = 
 		{
@@ -2110,7 +1980,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 57,
+					uint Id = 52,
 				},
 				Named = 
 				{
@@ -2183,7 +2053,7 @@ Level =
 					{
 						LinkId = 
 						{
-							uint Id = 58,
+							uint Id = 53,
 						},
 						Named = 
 						{
@@ -2209,6 +2079,8 @@ Level =
 						{
 							string DamageCurve = "52289e04f7821205:DamageCurve",
 							string DamageEffect = "523c8e0cbc053bc4:DamageEffect",
+							int DamageType = 2,
+							bool Enabled = true,
 						},
 					},
 				},
@@ -2219,7 +2091,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 59,
+			uint Id = 54,
 		},
 		Named = 
 		{
@@ -2255,7 +2127,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 60,
+					uint Id = 55,
 				},
 				Named = 
 				{
@@ -2329,7 +2201,7 @@ Level =
 				},
 				Upgradable = 
 				{
-					float Level = 10,
+					float Level = 0,
 					string UpgradeWindow = "5230b4fb7a12c599:UpgradeWindow",
 				},
 				WeaponLightning = 
@@ -2342,7 +2214,7 @@ Level =
 					{
 						LinkId = 
 						{
-							uint Id = 61,
+							uint Id = 56,
 						},
 						Named = 
 						{
@@ -2401,7 +2273,7 @@ Level =
 					{
 						LinkId = 
 						{
-							uint Id = 62,
+							uint Id = 57,
 						},
 						Named = 
 						{
@@ -2427,10 +2299,240 @@ Level =
 						{
 							string DamageCurve = "52289e04f7821205:DamageCurve",
 							string DamageEffect = "523c8e0cbc053bc4:DamageEffect",
+							int DamageType = 3,
+							bool Enabled = false,
 						},
 					},
 				},
 			},
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 58,
+		},
+		Named = 
+		{
+			string Name = "PlayerRoot",
+		},
+		Archetyped = 
+		{
+			string Name = "5212778c31aa05ed:PlayerRoot",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-1.73442, 1.29403, 0],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		RigidBody = 
+		{
+			bool Static = false,
+			bool Asleep = false,
+			bool Kinematic = false,
+			bool RotationLocked = false,
+			bool Mode2D = true,
+			bool AllowSleep = false,
+			bool Inherit2DMode = true,
+			Vec3 Velocity = [0, 0, 0],
+			Vec3 AngularVelocity = [0, 0, 0],
+		},
+		ObjectGrid = 
+		{
+			string DisplayArchetype = "5252e76acb5e3746:GridCellSprite",
+		},
+		CoreLink = 
+		{
+		},
+		Attachable = 
+		{
+		},
+		Hierarchy = 
+		{
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "522fce3953e69354:BigAsteroid",
+		LinkId = 
+		{
+			uint Id = 59,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-7.46479, -4.3984, 0],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 60,
+		},
+		Named = 
+		{
+			string Name = "AiRoot",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-1.40996, 2.22785, 0],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		RigidBody = 
+		{
+			bool Static = false,
+			bool Asleep = false,
+			bool Kinematic = false,
+			bool RotationLocked = false,
+			bool Mode2D = true,
+			bool AllowSleep = false,
+			bool Inherit2DMode = true,
+			Vec3 Velocity = [0, 0, 0],
+			Vec3 AngularVelocity = [0, 0, 0],
+		},
+		ObjectGrid = 
+		{
+			string DisplayArchetype = "5252e76acb5e3746:GridCellSprite",
+		},
+		CoreLink = 
+		{
+		},
+		Attachable = 
+		{
+		},
+		Hierarchy = 
+		{
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 61,
+				},
+				Named = 
+				{
+					string Name = "Ai",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [0, 0, 0],
+					Vec3 Scale = [0.999999, 0.999999, 1],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				RigidBody = 
+				{
+					bool Static = true,
+					bool Asleep = false,
+					bool Kinematic = false,
+					bool RotationLocked = false,
+					bool Mode2D = true,
+					bool AllowSleep = true,
+					bool Inherit2DMode = true,
+					Vec3 Velocity = [0, 0, 0],
+					Vec3 AngularVelocity = [0, 0, 0],
+				},
+				BoxCollider = 
+				{
+					bool Ghost = false,
+					bool SendsMessages = true,
+					bool Seamless = true,
+					string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+					string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+					Vec3 Offset = [0, 0, 0],
+					Vec3 Size = [0.5, 0.5, 0.1],
+				},
+				Sprite = 
+				{
+					string SpriteSource = "524dc939f7a122eb:Core",
+					bool FlipX = false,
+					bool FlipY = false,
+					Vec4 Color = [1, 1, 1, 1],
+					bool Visible = true,
+					bool OnTop = false,
+					bool AnimationActive = true,
+					float AnimationSpeed = 1,
+					uint StartFrame = 0,
+					BlendMode BlendMode = Alpha,
+					SpriteGeometryMode GeometryMode = ZPlane,
+				},
+				Orientation = 
+				{
+					Vec3 UpVector = [0, 0, 1],
+					Vec3 ForwardVector = [0, 1, 0],
+				},
+				Core = 
+				{
+				},
+				Health = 
+				{
+					float MaxHealth = 50,
+					bool DestroyAtZeroHealth = true,
+				},
+				CreateOnDestroy = 
+				{
+					string ArchetypeToCreate = "52247a3f629e359a:Explosion",
+				},
+				PickupCollector = 
+				{
+					bool CreateUi = false,
+					string UiLevel = "52308e37bdbac48e:UiLevel",
+				},
+				Reactive = 
+				{
+					bool Active = true,
+					bool CaptureMouse = false,
+				},
+				GridAttachable = 
+				{
+					bool IsDraggable = false,
+					string RootArchetype = "525b9b8a9d8d8062:ObjectRoot",
+				},
+				CompositeAiCore = 
+				{
+					string ClickableText = "521f3a3a938ff591:ClickableText",
+				},
+				WaitBehavior = 
+				{
+					string ContextMenu = "521f3a3a938ff591:ClickableText",
+				},
+				FollowBehavior = 
+				{
+					string ContextMenu = "521f3a3a938ff591:ClickableText",
+				},
+				MiningBehavior = 
+				{
+					string ContextMenu = "521f3a3a938ff591:ClickableText",
+				},
+				PathBehavior = 
+				{
+					string ContextMenu = "52e00362da17d68c:ExpandableText",
+				},
+				Hierarchy = 
+				{
+				},
+			},
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "52e852f848594746:UiTextRoot",
+		LinkId = 
+		{
+			uint Id = 62,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [4.90508, 5.3589, -6.96811],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Named = 
+		{
+			string Name = "Sprite",
 		},
 	},
 },
