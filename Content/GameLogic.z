@@ -1,0 +1,83 @@
+class GameLogic : ScriptComponent
+{
+    // Used to spawn the initial player. Also spawns a new player after he dies.
+    [Property]
+    var PlayerArchetype : Archetype = Archetype.Find("PlayerRoot");
+    
+    [Property]
+    var AsteroidArchetype : Archetype = Archetype.Find("BigAsteroid");
+    
+    // The camera to find (so that we can make it look at the player on load)
+    [Property]
+    var CameraName : String = "Camera";
+    
+    // How many asteroids to spawn in the level.
+    [Property]
+    var NumberOfAsteroids : Integer = 100;
+    
+    // The range in which to spawn boxes
+    [Property]
+    var SampleBoxSize : Real = 100.0;
+    
+    constructor() : base()
+    {
+    }
+    
+    function OnAllObjectsCreated()
+    {
+        this.CreatePlayer();
+        
+        for(var i = 0; i < this.NumberOfAsteroids; ++i)
+        {
+            // Sample a random vector within the sample box size
+            // (for now ignore the area right around the player)
+            var pos = local Real3(this.Owner.RandomContext.Vector2(2.0, this.SampleBoxSize), 0.0);
+                
+            // Attempt to not spawn asteroids on top of other objects.
+            // Have a max counter in-case we can't ever find a free spot.
+            for(var j = 0; j < 50; ++j)
+            {
+                // See if there's any object here
+                var filter = this.Space.PhysicsSpace.CreateDefaultCastFilter();
+                var results = this.Space.PhysicsSpace.CastSphereResults(pos, 2.0, 1, filter);
+                var safe = !results.IsNotEmpty;
+                
+                // If we found a free spot then we want to spawn the asteroid there
+                if(safe == true)
+                {
+                    break;
+                }
+                else
+                {
+                    // Otherwise do another random sample
+                    pos = local Real3(this.Owner.RandomContext.Vector2(2.0, this.SampleBoxSize), 0.0);
+                }
+            }
+            
+            var asteroid = this.Space.CreateAtPosition(this.AsteroidArchetype, pos);
+            // Force the asteroid asleep since it isn't moving anyways. This helps performance
+            asteroid.RigidBody.ForceAsleep();
+        }
+    }
+    
+    function CreatePlayer()
+    {
+        //Spawn the player at the origin
+        var playerRootCog = this.Space.Create(this.PlayerArchetype);
+        var playerCog = playerRootCog.FindChildByName("Player");
+        // Listen for when the player dies so that we can re-spawn them
+        Zero.Connect(playerCog, Events.Death, this.OnPlayerDeath);
+        
+        // Point the camera at the player
+        var cameraCog = this.Space.FindObjectByName(this.CameraName);
+        cameraCog.CameraGroupFocuser.AddObject(playerCog);
+    }
+    
+    function OnPlayerDeath(e : Event)
+    {
+        // Queue up an action to wait for 2 seconds and then re-spawn the player
+        var seq = Action.Sequence(this.Owner.Actions);
+        Action.Delay(seq, 2.0);
+        Action.Call(seq, this.CreatePlayer);
+    }
+}

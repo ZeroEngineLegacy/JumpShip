@@ -1,0 +1,24 @@
+// Get Josh to re-make this later!
+class DeepSpaceEffect : ScriptComponent
+{
+    [Property]
+    var Stars : Archetype = Archetype.Find("Stars");
+    
+    [Property]
+    var Nebula : Archetype = Archetype.Find("Nebula");
+    
+    constructor() : base()
+    {
+    }
+    
+    function OnAllObjectsCreated()
+    {
+        var stars = this.Space.Create(this.Stars);
+        stars.AttachTo(this.Owner);
+        
+        var nebula = this.Space.Create(this.Nebula);
+        nebula.AttachTo(this.Owner);
+        nebula.Transform.Translation = local Real3(0.0, -10.0, 0.0);
+    }
+
+}
