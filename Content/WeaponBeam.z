@@ -113,7 +113,7 @@ class WeaponBeam : ScriptComponent
         var info = this.Weapon.GetFireInfo();
         
         // Create the beam
-        this.BeamCog = this.Space.CreateLink(this.BeamArchetype.Name, this.Owner, this.Owner);
+        this.BeamCog = this.Space.CreateLink(this.BeamArchetype, this.Owner, this.Owner);
         this.BeamCog.ObjectLink.WorldPointA = info.FirePosW + local Real3(0.0, 0.0, 0.1);
         
         this.DoRaycast();
