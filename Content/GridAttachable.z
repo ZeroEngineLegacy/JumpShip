@@ -8,19 +8,9 @@ class AttachEvent : Event
     }
 }
 
-// Used to dtermine if an inner function should get results and if so what kind of results.
+// Used to determine if an inner function should get results and if so what kind of results.
 // Zilch currently doesn't have enums. This is my current workaround.
-class TestResultTypes
-{
-    [Static]
-    var NoResults : Integer { get { return 0; } }
-    
-    [Static]
-    var AttachableResults : Integer { get { return 1; } }
-    
-    [Static]
-    var AlwaysGetResults : Integer { get { return 2; } }
-}
+enum TestResultTypes {NoResults, AttachableResults, AlwaysGetResults}
 
 // Handles a piece being attachable/detachable. Also handles splitting
 // a hierarchy into multiple pieces if this is destroyed.
