@@ -348,5 +348,11 @@ class GridAttachable : ScriptComponent
                 cog.DispatchEvent(Events.DetachFromCore, attachEvent);
             }
         }
+        
+        if(oldGrid.PieceMap.Count == 0)
+        {
+            root.Destroy();
+            return;
+        }
     }
 }
