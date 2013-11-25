@@ -19,6 +19,19 @@ class GameLogic : ScriptComponent
     [Property]
     var SampleBoxSize : Real = 100.0;
     
+    // How many seconds to wait before spawning another enemy
+    [Property]
+    var EnemeySpawnRate : Real = 10.0;
+    
+    // A resource table that contains weighted averages of all types
+    // of pieces (shiled, turbine, hull, etc...)
+    [Property]
+    var PieceTypes : ResourceTable = ResourceTable.Find("PieceTypes");
+    
+    // A resource table that contains weighted averages of all weapons
+    [Property]
+    var WeaponTypes : ResourceTable = ResourceTable.Find("WeaponTypes");
+    
     constructor() : base()
     {
     }
@@ -58,6 +71,40 @@ class GameLogic : ScriptComponent
             // Force the asteroid asleep since it isn't moving anyways. This helps performance
             asteroid.RigidBody.ForceAsleep();
         }
+        
+        this.SpawnEnemy();
+    }
+    
+    function SpawnEnemy()
+    {
+        // Create the enemy anywhere with a radius of 100
+        var pos = this.Owner.RandomContext.Vector2(0.0, 100.0);
+        var enemyCog = this.Space.CreateAtPosition(Archetype.Find("EnemyRoot"), local Real3(pos, 0.0));
+        
+        // Randomly create a piece cog (hull, shield, turbine, etc...)
+        var randomContext = this.Owner.RandomContext;
+        var random1 = randomContext.Float();
+        var random2 = randomContext.Float();
+        var pieceArchetype = this.PieceTypes.SampleResource(random1, random2) as Archetype;
+        var pieceCog = this.Space.Create(pieceArchetype);
+        // Attach the piece in-front of the enemy
+        pieceCog.AttachTo(enemyCog);
+        pieceCog.Transform.Translation = local Real3(0.0, 1.0, 0.0);
+        
+        // If this piece type has an item mount (so we can mount items on it)
+        //then randomly generate a weapon type and attach it to the enemy
+        if(pieceCog.ItemMount != null)
+        {
+            random1 = randomContext.Float();
+            random2 = randomContext.Float();
+            var weapon = this.Space.Create(ResourceTable.Find("WeaponTypes").SampleResource(random1, random2) as Archetype);
+            weapon.ItemMountable.Attach(pieceCog, local Real3(0.0, 0.0, 0.1));
+        }
+        
+        // Queue up an action to spawn another enemy
+        var seq = Actions.Sequence(this.Owner.Actions);
+        Actions.Delay(seq, this.EnemeySpawnRate);
+        Actions.Call(seq, this.SpawnEnemy);
     }
     
     function CreatePlayer()
