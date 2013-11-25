@@ -50,13 +50,21 @@ class Core : ScriptComponent
     {
         Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
         Zero.Connect(this.Owner, "SetMoveTarget", this.OnSetMoveTarget);
+        Zero.Connect(this.Owner, Events.Death, this.OnDeath);
         
-        // find the core link on our root and set ourself as the core
+        // Find the core link on our root and set ourself as the core
         var coreLink = this.Owner.FindRoot().CoreLink;
         if(coreLink != null)
         {
             coreLink.SetCore(this.Owner);
         }
+    }
+    
+    function OnDeath(e : Event)
+    {
+        // Send out an end fire override so any weapon that was firing will stop
+        var toSend = new Event();
+        this.Owner.DispatchEvent("OverrideEnd", toSend);
     }
     
     function OnLogicUpdate(e : UpdateEvent)
