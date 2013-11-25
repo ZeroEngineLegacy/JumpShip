@@ -21,7 +21,7 @@ class ItemMountable : ScriptComponent
     
     sends ItemDragBegin : Event;
     sends ItemDragEnd : Event;
-    sends TestItemMount : /*GridAttach*/Event;
+    sends TestItemMount : GridAttachEvent;
     
     constructor() : base()
     {
@@ -36,12 +36,29 @@ class ItemMountable : ScriptComponent
         Zero.Connect(this.Space, Events.MouseUpdate, this.OnMouseMove);
     }
     
+    function OnAllObjectsCreated()
+    {
+        // On creating, attach to our parent's mount if we didn't already have a mount
+        var mount = this.Owner.Parent;
+        if(mount != null)
+        {
+            if(mount.ItemMount != null)
+            {
+                this.Attach(mount, this.Owner.Transform.LocalTranslation);
+            }
+        }
+    }
+    
     function Attach(root : Cog, localPosition : Real3)
     {
         // Save and attach to this new core
         this.MountCog = root;
         this.MountCog.ItemMount.AddItem(this.Owner);
-        this.Owner.AttachTo(this.MountCog);
+        // Don't attach to a parent we're already aattached to
+        if(this.Owner.Parent != this.MountCog)
+        {
+            this.Owner.AttachTo(this.MountCog);
+        }
         this.Owner.Transform.Translation = localPosition;
         
         // Tell all of our components that we're attaching to another core
