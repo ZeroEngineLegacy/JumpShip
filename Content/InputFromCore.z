@@ -24,8 +24,8 @@ class InputFromCore : ScriptComponent
     // The cog that contains the core we are listening to.
     var CoreCog : Cog = null;
     
-    sends BeginFire : /*Core*/Event;
-    sends EndFire : /*Core*/Event;
+    sends BeginFire : CoreEvent;
+    sends EndFire : CoreEvent;
     
     constructor() : base()
     {
