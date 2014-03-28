@@ -106,8 +106,6 @@ class Weapon : ScriptComponent
         var myPos = this.Owner.Transform.WorldTranslation;
         
         var lookDir = mousePos - myPos;
-        // Bring the look direction back into local space (since we're a child)
-        lookDir = this.Owner.FindRoot().Transform.TransformNormalInverse(lookDir);
         // The weapon might be at a higher z level, we don't want to look
         // up so make sure the direction is zeroed out
         lookDir.Z = 0.0;
