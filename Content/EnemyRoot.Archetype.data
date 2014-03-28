@@ -130,6 +130,11 @@ Cog =
 			{
 				string ContextMenu = "521f3a3a938ff591:ClickableText",
 			},
+			WeightedCreateOnDestroy = 
+			{
+				string DropTable = "52f181d38bff7297:EnemyDropTable",
+				bool ApplyRandomVelocity = false,
+			},
 			Hierarchy = 
 			{
 			},

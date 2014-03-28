@@ -53,6 +53,7 @@ Cog =
 		uint StartFrame = 0,
 		BlendMode BlendMode = Alpha,
 		SpriteGeometryMode GeometryMode = ZPlane,
+		string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
 	},
 	Orientation = 
 	{
@@ -76,6 +77,7 @@ Cog =
 	},
 	PickupCollector = 
 	{
+		bool CreateUi = true,
 		string UiLevel = "52308e37bdbac48e:UiLevel",
 	},
 	Reactive = 

@@ -10,7 +10,7 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [-7.46479, -4.3984, 0],
+		Vec3 Translation = [-13.0162, 2.15648, 0],
 		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
@@ -54,6 +54,7 @@ Cog =
 	{
 		string DropTable = "522fcfcaac9e699f:BigAsteroidDrop",
 		bool ApplyRandomVelocity = true,
+		int MaxItemsToSpawn = 3,
 	},
 	Health = 
 	{
