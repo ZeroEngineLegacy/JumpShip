@@ -29,20 +29,18 @@ Level =
 			bool Background = false,
 			Vec2 Offset = [0, 0],
 			Vec2 Size = [1, 1],
-			uint Layer = 1,
+			int Layer = 1,
 			bool Active = true,
-			bool Blocking = true,
+			bool Blocking = false,
 			uint Renderer = 1,
 			uint Camera = 2,
+			ViewportScaling Scaling = Letterbox,
+			Vec2 Resolution = [16, 9],
+			Vec4 MarginColor = [0, 0, 0, 1],
 		},
 		ForwardRenderer = 
 		{
 			Vec4 ClearColor = [0.278431, 0.278431, 0.278431, 1],
-		},
-		FixedAspectRatio = 
-		{
-			float Width = 16,
-			float Height = 9,
 		},
 	},
 	Cog = 
@@ -59,17 +57,18 @@ Level =
 		{
 			Vec3 Translation = [-10.0754, -2.8007, 78],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0, -2.50967e-008, -0, 1],
+			Quat Rotation = [-0, -1.09278e-008, 0, 1],
 		},
 		Camera = 
 		{
 			ProjectionMode ProjectionMode = Orthographic,
 			Facing Facing = NegativeZ,
 			SpriteSort SpriteSort = ZDepth,
+			string SpriteLayerOrder = "52b23ad3c402d436:DefaultSpriteLayerOrder",
 			float FieldOfView = 45,
 			float NearPlane = 0.5,
 			float FarPlane = 500,
-			float Size = 13,
+			float Size = 39,
 		},
 		EditorCameraController = 
 		{
@@ -105,6 +104,7 @@ Level =
 			ProjectionMode ProjectionMode = Orthographic,
 			Facing Facing = NegativeZ,
 			SpriteSort SpriteSort = ZDepth,
+			string SpriteLayerOrder = "52b23ad3c402d436:DefaultSpriteLayerOrder",
 			float FieldOfView = 45,
 			float NearPlane = 0.5,
 			float FarPlane = 200,
@@ -173,6 +173,7 @@ Level =
 					Vec2 Size = [0, 0],
 					TextAlign Align = Left,
 					float PixelsPerUnit = 64,
+					bool Smoothing = true,
 				},
 			},
 		},
@@ -239,6 +240,7 @@ Level =
 					Vec2 Size = [0, 0],
 					TextAlign Align = Left,
 					float PixelsPerUnit = 64,
+					bool Smoothing = true,
 				},
 			},
 		},
@@ -305,6 +307,7 @@ Level =
 					Vec2 Size = [0, 0],
 					TextAlign Align = Left,
 					float PixelsPerUnit = 64,
+					bool Smoothing = true,
 				},
 			},
 		},
@@ -371,6 +374,7 @@ Level =
 					Vec2 Size = [0, 0],
 					TextAlign Align = Left,
 					float PixelsPerUnit = 64,
+					bool Smoothing = true,
 				},
 			},
 		},

@@ -1,0 +1,8 @@
+TextContent = 
+{
+	PyScriptBuilder = 
+	{
+		string Name = "RunTest",
+		uint64 ResourceId = 53579ce6335f97bb,
+	},
+},

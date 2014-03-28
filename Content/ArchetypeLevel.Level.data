@@ -29,11 +29,14 @@ Level =
 			bool Background = true,
 			Vec2 Offset = [0, 0],
 			Vec2 Size = [1, 1],
-			uint Layer = 0,
+			int Layer = 0,
 			bool Active = true,
 			bool Blocking = true,
 			uint Renderer = 1,
 			uint Camera = 2,
+			ViewportScaling Scaling = Fill,
+			Vec2 Resolution = [1280, 720],
+			Vec4 MarginColor = [0, 0, 0, 1],
 		},
 		ForwardRenderer = 
 		{
@@ -41,6 +44,8 @@ Level =
 		},
 		RandomContext = 
 		{
+			bool RandomSeed = true,
+			uint Seed = 194588,
 		},
 	},
 	Cog = 
@@ -55,19 +60,20 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-7.07959, 0.532323, 38],
+			Vec3 Translation = [-7.36612, 0.532323, 38],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0, -1.88225e-008, -0, 1],
+			Quat Rotation = [-0, -1.09278e-008, 0, 1],
 		},
 		Camera = 
 		{
 			ProjectionMode ProjectionMode = Orthographic,
 			Facing Facing = NegativeZ,
 			SpriteSort SpriteSort = ZDepth,
+			string SpriteLayerOrder = "52b23ad3c402d436:DefaultSpriteLayerOrder",
 			float FieldOfView = 45,
 			float NearPlane = 0.5,
 			float FarPlane = 500,
-			float Size = 14.1865,
+			float Size = 20.1865,
 		},
 		EditorCameraController = 
 		{
@@ -75,7 +81,7 @@ Level =
 			float LookDistance = 38,
 			float VerticalAngle = 0,
 			float HorizontalAngle = 0,
-			Vec3 LookTarget = [-7.07959, 0.532323, 0],
+			Vec3 LookTarget = [-7.36612, 0.532323, 0],
 		},
 		EditorRenderer = 
 		{
@@ -103,6 +109,7 @@ Level =
 			ProjectionMode ProjectionMode = Orthographic,
 			Facing Facing = NegativeZ,
 			SpriteSort SpriteSort = ZDepth,
+			string SpriteLayerOrder = "52b23ad3c402d436:DefaultSpriteLayerOrder",
 			float FieldOfView = 45,
 			float NearPlane = 0.5,
 			float FarPlane = 200,
@@ -1003,15 +1010,12 @@ Level =
 		},
 		Hierarchy = 
 		{
-			Cog = 
+			ArchetypeInstance = 
 			{
+				string Name = "52ede9fcf1afb3d4:LightningWeapon",
 				LinkId = 
 				{
 					uint Id = 42,
-				},
-				Named = 
-				{
-					string Name = "Weapon",
 				},
 				Transform = 
 				{
@@ -1019,169 +1023,9 @@ Level =
 					Vec3 Scale = [1, 1, 1],
 					Quat Rotation = [0, 0, 0, 1],
 				},
-				RigidBody = 
+				Named = 
 				{
-					bool Static = true,
-					bool Asleep = false,
-					bool Kinematic = false,
-					bool RotationLocked = false,
-					bool Mode2D = true,
-					bool AllowSleep = true,
-					bool Inherit2DMode = true,
-					Vec3 Velocity = [0, 0, 0],
-					Vec3 AngularVelocity = [0, 0, 0],
-				},
-				BoxCollider = 
-				{
-					bool Ghost = false,
-					bool SendsMessages = true,
-					bool Seamless = true,
-					string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
-					string SerializedGroupName = "4e740859314e5515:DefaultGroup",
-					Vec3 Offset = [0.01, 0, 0],
-					Vec3 Size = [0.175, 0.225, 0.05],
-				},
-				Sprite = 
-				{
-					string SpriteSource = "52033c806ca7e0d3:LightningWeapon",
-					bool FlipX = false,
-					bool FlipY = false,
-					Vec4 Color = [1, 1, 1, 1],
-					bool Visible = true,
-					bool OnTop = false,
-					bool AnimationActive = true,
-					float AnimationSpeed = 1,
-					uint StartFrame = 0,
-					BlendMode BlendMode = Alpha,
-					SpriteGeometryMode GeometryMode = ZPlane,
-				},
-				Reactive = 
-				{
-					bool Active = true,
-					bool CaptureMouse = true,
-				},
-				ItemMountable = 
-				{
-					string RootArchetype = "525b9b8a9d8d8062:ObjectRoot",
-				},
-				Weapon = 
-				{
-					float RefireTime = 0.5,
-					Vec3 LocalFireDirection = [0, 1, 0],
-				},
-				Orientation = 
-				{
-					Vec3 UpVector = [0, 0, 1],
-					Vec3 ForwardVector = [0, 1, 0],
-				},
-				InputFromCore = 
-				{
-					string EventName = "Fire",
-					int Key = 32,
-				},
-				Upgradable = 
-				{
-					float Level = 10,
-					string UpgradeWindow = "5230b4fb7a12c599:UpgradeWindow",
-				},
-				WeaponLightning = 
-				{
-					string LightningEmitterName = "LightningEmitter",
-				},
-				Hierarchy = 
-				{
-					Cog = 
-					{
-						LinkId = 
-						{
-							uint Id = 43,
-						},
-						Named = 
-						{
-							string Name = "LightningEmitter",
-						},
-						Transform = 
-						{
-							Vec3 Translation = [0.0162413, 0.173243, 0],
-							Vec3 Scale = [1, 1, 1],
-							Quat Rotation = [0, 0, 0, 1],
-						},
-						SpriteParticleSystem = 
-						{
-							SystemChildMode ChildMode = Independent,
-							SystemSpace SystemSpace = WorldSpace,
-							uint DrawOrder = 0,
-							ParticleGeometry GeometryMode = Beam,
-							ParticleRenderMode RenderMode = Additive,
-							ParticleSortMode SortMode = None,
-							string Texture = "52033f640e8bf7ae:Lightning",
-							Vec4 Tint = [1, 1, 1, 0.7],
-							float VelocityScale = 2,
-							float LengthScale = 0,
-							float MaxParticleSize = 100,
-							Vec3 SystemSize = [2, 2, 2],
-						},
-						LightningParticleEmitter = 
-						{
-							uint MinBranches = 1,
-							uint MaxBranches = 2,
-							float BranchProbabilityExponent = 50,
-							float DurationPerStrike = 5,
-							uint MinDepth = 10,
-							uint MaxDepth = 0,
-							float MinSegmentLength = 0.08,
-							float MaxSegmentLength = 0.2,
-							float MinRandomOffset = 0.55,
-							float MaxRandomOffset = 1,
-							float BeginSize = 0.35,
-							float EndSize = 0.25,
-							float HackOffsetPercentage = 0.78,
-							Vec3 TargetPosition = [0, 50, 0],
-							TargetSpace TargetSpace = LocalSpace,
-						},
-						LinearParticleAnimator = 
-						{
-							Vec3 Force = [0, 0, 0],
-							Vec3 RandomForce = [0, 0, 0],
-							float Torque = 0,
-							float Growth = 0,
-							float Dampening = 0,
-							Vec3 Twist = [0, 0, 0],
-						},
-					},
-					Cog = 
-					{
-						LinkId = 
-						{
-							uint Id = 44,
-						},
-						Named = 
-						{
-							string Name = "DamageRegion",
-						},
-						Transform = 
-						{
-							Vec3 Translation = [0.0162413, 0.173243, 0],
-							Vec3 Scale = [1, 1, 1],
-							Quat Rotation = [0, 0, 0, 1],
-						},
-						BoxCollider = 
-						{
-							bool Ghost = true,
-							bool SendsMessages = true,
-							bool Seamless = false,
-							string MaterialName = "522ed4616b15044d:Massless",
-							string SerializedGroupName = "4e740859314e5515:DefaultGroup",
-							Vec3 Offset = [0, 0, 0],
-							Vec3 Size = [0.1, 0.5, 0.25],
-						},
-						DamageRegion = 
-						{
-							string DamageCurve = "52289e04f7821205:DamageCurve",
-							string DamageEffect = "523c8e0cbc053bc4:DamageEffect",
-							int DamageType = 2,
-						},
-					},
+					string Name = "Weapon",
 				},
 			},
 		},
@@ -1190,7 +1034,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 45,
+			uint Id = 43,
 		},
 		Named = 
 		{
@@ -1226,7 +1070,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 46,
+					uint Id = 44,
 				},
 				Named = 
 				{
@@ -1299,7 +1143,7 @@ Level =
 					{
 						LinkId = 
 						{
-							uint Id = 47,
+							uint Id = 45,
 						},
 						Named = 
 						{
@@ -1326,6 +1170,7 @@ Level =
 							string DamageCurve = "52289e04f7821205:DamageCurve",
 							string DamageEffect = "523c8e0cbc053bc4:DamageEffect",
 							int DamageType = 2,
+							bool Enabled = false,
 						},
 					},
 				},

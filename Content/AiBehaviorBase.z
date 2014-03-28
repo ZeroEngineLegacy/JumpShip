@@ -195,59 +195,117 @@ class MiningBehavior : AiBehaviorBase
     
     function FindTarget() : Cog
     {
-        var myPos = this.Owner.Transform.WorldTranslation;
-        var castRadius = 10.0;
-        var filter = this.Space.PhysicsSpace.CreateDefaultCastFilter();
-        var results = this.Space.PhysicsSpace.CastSphereResults(myPos, castRadius, 30, filter);
-        
-        // We want to find the closest pickup if there is one,
-        // otherwise we want the closest asteroid
-        var closestAsteroid : Cog = null;
-        var closestPickup : Cog = null;
-        var closestAsteroidDistance = 9999999.0;
-        var closestPickupDistance = 9999999.0;
-        
-        foreach(var result in results)
+        //var myPos = this.Owner.Transform.WorldTranslation;
+        //var castRadius = 10.0;
+        //var castSphere = new Sphere();
+        //castSphere.Center = myPos;
+        //castSphere.Radius = castRadius;
+        ////var filter = this.Space.PhysicsSpace.CreateDefaultCastFilter();
+        ////var results = this.Space.PhysicsSpace.CastSphereResults(myPos, castRadius, 30, filter);
+        //
+        //var results = this.Space.PhysicsSpace.CastSphereWithCallback(castSphere, 5, this.CastCallback);
+        //
+        //// We want to find the closest pickup if there is one,
+        //// otherwise we want the closest asteroid
+        //var closestAsteroid : Cog = null;
+        //var closestPickup : Cog = null;
+        //var closestAsteroidDistance = 9999999.0;
+        //var closestPickupDistance = 9999999.0;
+        //
+        //foreach(var result in results)
+        //{
+        //    var cog = result.ObjectHit;
+        //    
+        //    // If this cog is an asteroid
+        //    if(cog.AsteroidTag != null)
+        //    {
+        //        // If this asteroid is closest than the previous asteroid then save it (and its distance)
+        //        var asteroidPos = cog.Transform.WorldTranslation;
+        //        var asteroidDistance = Math.Length(asteroidPos - myPos);
+        //        if(asteroidDistance < closestAsteroidDistance)
+        //        {
+        //            closestAsteroidDistance = asteroidDistance;
+        //            closestAsteroid = cog;
+        //        }
+        //        continue;
+        //    }
+        //    
+        //    // If this cog is a pickup
+        //    if(cog.Pickup != null)
+        //    {
+        //        // If this pickup is closest than the previous asteroid then save it (and its distance)
+        //        var pickupPos = cog.Transform.WorldTranslation;
+        //        var pickupDistance = Math.Length(pickupPos - myPos);
+        //        if(pickupDistance < closestPickupDistance)
+        //        {
+        //            closestPickupDistance = pickupDistance;
+        //            closestPickup = cog;
+        //        }
+        //        continue;
+        //    }
+        //}
+        //
+        //// If we had a pickup then return the closest pickup
+        //if(closestPickup != null)
+        //{
+        //    return closestPickup;
+        //}
+        //
+        //// Otherwise return the closest asteroid
+        //return closestAsteroid;
+        return null;
+    }
+    
+    //function CastCallback(physicsCastEvent : PhysicsCastEvent)
+    //{
+    //    var obj = physicsCastEvent.Object;
+    //    if(obj.AsteroidTag != null)
+    //    {
+    //        physicsCastEvent.IsValid = true;
+    //    }
+    //    else if(obj.Pickup != null)
+    //    {
+    //        physicsCastEvent.IsValid = true;
+    //    }
+    //    else
+    //    {
+    //        physicsCastEvent.IsValid = false;
+    //    }
+    //}
+}
+
+class WanderBehavior : AiBehaviorBase
+{
+    var WanderDirection : Real3 = local Real3(0.0, 0.0, 0.0);
+    var WanderScale : Real = 1.0;
+    var Timer : Real = 0.0;
+    
+    constructor() : base()
+    {
+        // Setup our v-table
+        this.GetName = this.OnGetName;
+        this.Update = this.OnUpdate;
+    }
+    
+    function OnGetName() : String
+    {
+        return "Wander";
+    }
+    
+    function OnUpdate(dt : Real)
+    {
+        this.Timer += dt;
+        if(this.Timer > 1.0)
         {
-            var cog = result.ObjectHit;
-            
-            // If this cog is an asteroid
-            if(cog.AsteroidTag != null)
-            {
-                // If this asteroid is closest than the previous asteroid then save it (and its distance)
-                var asteroidPos = cog.Transform.WorldTranslation;
-                var asteroidDistance = Math.Length(asteroidPos - myPos);
-                if(asteroidDistance < closestAsteroidDistance)
-                {
-                    closestAsteroidDistance = asteroidDistance;
-                    closestAsteroid = cog;
-                }
-                continue;
-            }
-            
-            // If this cog is a pickup
-            if(cog.Pickup != null)
-            {
-                // If this pickup is closest than the previous asteroid then save it (and its distance)
-                var pickupPos = cog.Transform.WorldTranslation;
-                var pickupDistance = Math.Length(pickupPos - myPos);
-                if(pickupDistance < closestPickupDistance)
-                {
-                    closestPickupDistance = pickupDistance;
-                    closestPickup = cog;
-                }
-                continue;
-            }
+            var levelSettings = this.Space.FindObjectByName("LevelSettings");
+            this.WanderDirection += local Real3(levelSettings.RandomContext.UnitVector2() * this.WanderScale, 0.0);
+            this.WanderDirection = Math.Normalize(this.WanderDirection);
+            this.Timer -= 1.0;
         }
         
-        // If we had a pickup then return the closest pickup
-        if(closestPickup != null)
-        {
-            return closestPickup;
-        }
-        
-        // Otherwise return the closest asteroid
-        return closestAsteroid;
+        var pos = this.Owner.Transform.WorldTranslation;
+        var targetPos = pos + this.Owner.Orientation.WorldForward + this.WanderDirection;
+        this.CompositeAiCore.Core.SetMoveTarget(targetPos);
     }
 }
 
@@ -269,11 +327,6 @@ class PathBehavior : AiBehaviorBase
         this.GetName = this.OnGetName;
         this.Update = this.OnUpdate;
         this.Activate = this.OnActivate;
-    }
-    
-    function OnAllObjectsCreated()
-    {
-        
     }
     
     function OnGetName() : String
