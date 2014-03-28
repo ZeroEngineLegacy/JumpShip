@@ -63,10 +63,7 @@ class ObjectGrid : ScriptComponent
         Zero.Connect(this.Space, Events.PieceDragEnd, this.OnPieceDragEnd);
         
         Zero.Connect(this.Space, Events.TestAttachment, this.OnTestAttachment);
-    }
-    
-    function OnAllObjectsCreated()
-    {
+        
         // We might have some children so do the initial grid population
         this.RebuildGrid();
     }
