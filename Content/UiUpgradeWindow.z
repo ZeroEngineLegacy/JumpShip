@@ -13,10 +13,7 @@ class UiUpgradeWindow : ScriptComponent
     function Initialize(init : CogInitializer)
     {
         Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
-    }
-    
-    function OnAllObjectsCreated()
-    {
+        
         this.UpgradeButton = this.Owner.FindChildByName("UpgradeText");
         
         Zero.Connect(this.UpgradeButton, Events.MouseEnter, this.OnMouseEnter);

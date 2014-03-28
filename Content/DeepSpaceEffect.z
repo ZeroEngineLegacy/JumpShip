@@ -11,7 +11,7 @@ class DeepSpaceEffect : ScriptComponent
     {
     }
     
-    function OnAllObjectsCreated()
+    function Initialize(init : CogInitializer)
     {
         var stars = this.Space.Create(this.Stars);
         stars.AttachTo(this.Owner);

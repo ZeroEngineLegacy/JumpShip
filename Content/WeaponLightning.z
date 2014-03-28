@@ -18,10 +18,7 @@ class WeaponLightning : ScriptComponent
     {
         Zero.Connect(this.Owner, Events.BeginFire, this.OnBeginFire);
         Zero.Connect(this.Owner, Events.EndFire, this.OnEndFire);
-    }
-    
-    function OnAllObjectsCreated()
-    {
+        
         this.LightningEmitterCog = this.Owner.FindChildByName(this.LightningEmitterName);
         this.DamageRegionCog = this.Owner.FindChildByName("DamageRegion");
         // Let the damage region know who to use for upgrade calculations

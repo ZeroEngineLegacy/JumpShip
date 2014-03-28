@@ -34,10 +34,7 @@ class ItemMountable : ScriptComponent
         
         Zero.Connect(this.Space, Events.MouseMove, this.OnMouseMove);
         Zero.Connect(this.Space, Events.MouseUpdate, this.OnMouseMove);
-    }
-    
-    function OnAllObjectsCreated()
-    {
+        
         // On creating, attach to our parent's mount if we didn't already have a mount
         var mount = this.Owner.Parent;
         if(mount != null)

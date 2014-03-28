@@ -38,7 +38,7 @@ class Shield : ScriptComponent
         
     }
 
-    function OnAllObjectsCreated()
+    function Initialize(init : CogInitializer)
     {
         // Create the barrier, attach it to us and center it on us
         this.BarrierCog = this.Space.CreateAtPosition(this.BarrierArchetype, local Real3(0.0, 0.0, 0.0));
