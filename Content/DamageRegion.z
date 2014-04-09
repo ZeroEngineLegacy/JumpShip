@@ -10,7 +10,7 @@ class DamageRegion : ScriptComponent
     var DamageEffect : Archetype = null;
     
     [Property]
-    var DamageType : Integer = DamageTypes.Drill;
+    var DamageType : DamageTypes = DamageTypes.Drill;
     
     // Quite often, this damage region is on a child or another object,
     // hence it is not upgradable, what creates and owns it is. Therefore the

@@ -16,7 +16,7 @@ class WeaponBeam : ScriptComponent
     var DamageCurve : SampleCurve = SampleCurve.Find("DamageCurve");
     
     [Property]
-    var DamageType : Integer = DamageTypes.Beam;
+    var DamageType : DamageTypes = DamageTypes.Beam;
     
     [Property]
     var DamageEffect : Archetype = null;

@@ -239,7 +239,7 @@ class GridAttachable : ScriptComponent
         this.IsMoving = false;
     }
     
-    function TestAttachment(viewportMouseEvent : ViewportMouseEvent, resultsWanted : Integer) : GridAttachInfo
+    function TestAttachment(viewportMouseEvent : ViewportMouseEvent, resultsWanted : TestResultTypes) : GridAttachInfo
     {
         var root = this.Owner.FindRoot();
         

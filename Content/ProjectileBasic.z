@@ -16,7 +16,7 @@ class ProjectileBasic : ScriptComponent
     var Projectile : Projectile = null;
     
     [Property]
-    var DamageType : Integer = DamageTypes.Energy;
+    var DamageType : DamageTypes = DamageTypes.Energy;
     
     sends ApplyDamage : DamageEvent;
     
