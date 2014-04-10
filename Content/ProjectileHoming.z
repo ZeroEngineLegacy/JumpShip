@@ -1,5 +1,5 @@
 // A Projectile that homes on a target
-class ProjectileHoming : ScriptComponent
+class ProjectileHoming : ZilchComponent
 {
     [Dependency]
     var Projectile : Projectile = null;
@@ -21,7 +21,7 @@ class ProjectileHoming : ScriptComponent
         Zero.Connect(this.Owner, Events.ProjectileSetup, this.OnSetup);
     }
     
-    function OnSetup(e : Event)
+    function OnSetup(e : ZilchEvent)
     {
         // Find our first target and then queue up the next set of searches
         this.FindTarget();

@@ -1,4 +1,4 @@
-class WeaponLightning : ScriptComponent
+class WeaponLightning : ZilchComponent
 {
     [Dependency]
     var Upgradable : Upgradable = null;

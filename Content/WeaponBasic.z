@@ -1,5 +1,5 @@
 // A basic weapon that fires one shot in the fire direction at a given speed.
-class WeaponBasic : ScriptComponent
+class WeaponBasic : ZilchComponent
 {
     // The projectile that we'll spawn when we fire.
     [Property]

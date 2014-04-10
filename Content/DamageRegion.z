@@ -1,6 +1,6 @@
 // Applies a constant dps to any object in contact with it that doesn't belong to the same core.
 // Used for drills and lightning.+
-class DamageRegion : ScriptComponent
+class DamageRegion : ZilchComponent
 {
     // The amount of damage we'll do based upon our current level.
     [Property]

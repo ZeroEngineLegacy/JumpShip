@@ -1,5 +1,5 @@
 // Used to tell any root if there is a core in this hierarchy and if so where.
-class CoreLink : ScriptComponent
+class CoreLink : ZilchComponent
 {
     // The cog that contains the core.
     var CoreCog : Cog = null;

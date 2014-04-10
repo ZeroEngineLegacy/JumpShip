@@ -1,5 +1,5 @@
 // Sent out when text is clicked. Lets the user know who was clicked.
-class ClickableTextEvent : Event
+class ClickableTextEvent : ZilchEvent
 {
     // The text that was clicked.
     var Cog : Cog = null;
@@ -10,7 +10,7 @@ class ClickableTextEvent : Event
 }
 
 // Basic text for ui. Just wraps some common functionality and stores some common data.
-class UiText : ScriptComponent
+class UiText : ZilchComponent
 {
     // Needs sprite text at the moment. Maybe change this later if we get actual art.
     [Dependency]
@@ -39,7 +39,7 @@ class UiText : ScriptComponent
 }
 
 // Basic clickable text. Sends an event to the owning cog when it's clicked.
-class ClickableText : ScriptComponent
+class ClickableText : ZilchComponent
 {
     [Dependency]
     var UiText : UiText = null;
@@ -61,7 +61,7 @@ class ClickableText : ScriptComponent
 
 // A more complicated clickable text. When it's clicked it will create
 // more text options off to the side that can also be clicked.
-class TextWithOptions : ScriptComponent
+class TextWithOptions : ZilchComponent
 {
     // The Archetypes to create when we expand.
     [Property]
@@ -133,7 +133,7 @@ class TextWithOptions : ScriptComponent
 
 // This is a text option that on click creates another archetype (and passes user data to that object).
 // Used to create the object that manages path creation.
-class UiProxyText : ScriptComponent
+class UiProxyText : ZilchComponent
 {
     // The archetype to create when clicked.
     [Property]
@@ -179,7 +179,7 @@ class UiProxyText : ScriptComponent
 }
 
 // Basic user data for text. Currently just an index, could be expanded later.
-class UiUserData : ScriptComponent
+class UiUserData : ZilchComponent
 {
     var UserData : Integer = 0;
     
@@ -196,7 +196,7 @@ class UiUserData : ScriptComponent
 }
 
 // A proxy object to create waypoints for an ai to follow.
-class PathProxyCreator : ScriptComponent
+class PathProxyCreator : ZilchComponent
 {
     // The current list of waypoints.
     var WayPoints : Array[Real3] = new Array[Real3]();

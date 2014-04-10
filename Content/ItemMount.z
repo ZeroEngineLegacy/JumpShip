@@ -1,5 +1,5 @@
 // Allows an item (mostly weapons) to be mounted onto this cog.
-class ItemMount : ScriptComponent
+class ItemMount : ZilchComponent
 {
     // The archetype used to display to the user where the item can be mounted.
     [Property]
@@ -53,7 +53,7 @@ class ItemMount : ScriptComponent
         this.ItemCog = null;
     }
     
-    function OnItemDragBegin(e : Event)
+    function OnItemDragBegin(e : ZilchEvent)
     {
         // If we already have a mounted item then this spot is not
         // valid so don't display anything to the user
@@ -70,7 +70,7 @@ class ItemMount : ScriptComponent
         this.DisplayCog.Transform.Scale = this.DisplayCogScale;
     }
     
-    function OnItemDragEnd(e : Event)
+    function OnItemDragEnd(e : ZilchEvent)
     {
         // If we already had a mount or our display cog was null then down do anything
         if(this.ItemCog != null || this.DisplayCog == null)

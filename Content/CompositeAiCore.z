@@ -1,6 +1,6 @@
 // Responsible for control an ai core. The ai core is made up of behavior components.
 // This manages switching between these behaviors and telling the active behavior to update.
-class CompositeAiCore : ScriptComponent
+class CompositeAiCore : ZilchComponent
 {
     // We need a core in order to function.
     [Dependency]
@@ -137,7 +137,7 @@ class CompositeAiCore : ScriptComponent
         this.OnCloseText(null);
     }
     
-    function OnCloseText(e : Event)
+    function OnCloseText(e : ZilchEvent)
     {
         // Destroy the ui
         if(this.DisplayCog != null)

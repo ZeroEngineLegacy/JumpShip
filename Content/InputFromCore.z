@@ -1,5 +1,5 @@
 // Let a component know that this core has had a key down/up.
-class CoreKeyboardEvent : Event
+class CoreKeyboardEvent : ZilchEvent
 {
     var CoreCog : Cog = null;
     var Key : Integer = 0;
@@ -11,7 +11,7 @@ class CoreKeyboardEvent : Event
 
 // Handles grabbing input from the core and performing certain actions
 // (sending certain events to start/end logic) on a user defined key.
-class InputFromCore : ScriptComponent
+class InputFromCore : ZilchComponent
 {
     // The base name of the event we are listening to.
     // We send out the events Begin<EventName> and End<EventName>.
@@ -86,13 +86,13 @@ class InputFromCore : ScriptComponent
         this.SendEvent("End");
     }
     
-    function OnOverrideBegin(e : Event)
+    function OnOverrideBegin(e : ZilchEvent)
     {
         // Just forcibly send the Begin event (for ai)
         this.SendEvent("Begin");
     }
     
-    function OnOverrideEnd(e : Event)
+    function OnOverrideEnd(e : ZilchEvent)
     {
         // Just forcibly send the End event (for ai)
         this.SendEvent("End");

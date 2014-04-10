@@ -1,12 +1,12 @@
 // Has this cog die after a certain amount of time. Also sends a Death event
 // when this happens so any other component can do death logic.
-class TimedDeath : ScriptComponent
+class TimedDeath : ZilchComponent
 {
     // The amount of time before this object will be destroyed
     [Property]
     var Lifetime : Real = 1.0;
     
-    //sends Death : Event;
+    //sends Death : ZilchEvent;
     
     constructor() : base()
     {

@@ -16,7 +16,7 @@ class GridAttachInfo
 }
 
 // Event sent (and received by ObjectGrid) to test attachments.
-class GridAttachEvent : Event
+class GridAttachEvent : ZilchEvent
 {
     // The position we want to test for attachment
     var TestPos : Real3 = local Real3();
@@ -35,7 +35,7 @@ class GridAttachEvent : Event
 
 // Manages all pieces in a grid and handles doing any sort of
 // flood fill or other management of the grid.
-class ObjectGrid : ScriptComponent
+class ObjectGrid : ZilchComponent
 {
     // The archetype used to display to the user where the object can be mounted.
     [Property]

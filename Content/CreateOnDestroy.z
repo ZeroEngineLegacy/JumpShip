@@ -1,4 +1,4 @@
-class CreateOnDestroy : ScriptComponent
+class CreateOnDestroy : ZilchComponent
 {
     // The archetype to create when we're destroyed
     [Property]
@@ -14,7 +14,7 @@ class CreateOnDestroy : ScriptComponent
         Zero.Connect(this.Owner, Events.Death, this.OnDeath);
     }
     
-    function OnDeath(e : Event)
+    function OnDeath(e : ZilchEvent)
     {
         // Create an object at our position
         var pos = this.Owner.Transform.WorldTranslation;

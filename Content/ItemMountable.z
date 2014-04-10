@@ -1,5 +1,5 @@
 // Handles drag/attach/detach logic for any mountable item (mostly weapons).
-class ItemMountable : ScriptComponent
+class ItemMountable : ZilchComponent
 {
     // When we separate we need to create a new root for us,
     // this is the archetype to create to do this.
@@ -19,8 +19,8 @@ class ItemMountable : ScriptComponent
     //sends AttachToCore : AttachEvent;
     //sends DetachFromCore : AttachEvent;
     
-    sends ItemDragBegin : Event;
-    sends ItemDragEnd : Event;
+    sends ItemDragBegin : ZilchEvent;
+    sends ItemDragEnd : ZilchEvent;
     sends TestItemMount : GridAttachEvent;
     
     constructor() : base()

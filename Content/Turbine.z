@@ -1,5 +1,5 @@
 // Increase the max speed of a core as well as how fast it can accelerate (the linear scalar).
-class Turbine : ScriptComponent
+class Turbine : ZilchComponent
 {
     // Upgrade curve for how we effect the max speed of the core.
     [Property]
@@ -52,7 +52,7 @@ class Turbine : ScriptComponent
         }
     }
     
-    function OnUpgrade(e : Event)
+    function OnUpgrade(e : ZilchEvent)
     {
         var attachEvent = new AttachEvent();
         attachEvent.CoreCog = this.CoreCog;

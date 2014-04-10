@@ -1,4 +1,4 @@
-class ProjectileBasic : ScriptComponent
+class ProjectileBasic : ZilchComponent
 {
     // Any object (mostly effects) that we'll create when we damage something.
     [Property]

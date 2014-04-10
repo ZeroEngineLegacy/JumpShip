@@ -1,5 +1,5 @@
 // Used to notify that an attach/detach has happened to the given core cog.
-class AttachEvent : Event
+class AttachEvent : ZilchEvent
 {
     var CoreCog : Cog = null;
     var Attaching : Boolean = true;
@@ -14,7 +14,7 @@ enum TestResultTypes {NoResults, AttachableResults, AlwaysGetResults}
 
 // Handles a piece being attachable/detachable. Also handles splitting
 // a hierarchy into multiple pieces if this is destroyed.
-class GridAttachable : ScriptComponent
+class GridAttachable : ZilchComponent
 {
     // Can this piece be dragged? This exists so that we can have a piece that can't be
     // dragged but still run the proper logic to split the hierarchy if we're destroyed (player core).
@@ -308,7 +308,7 @@ class GridAttachable : ScriptComponent
         return bestAttachPoint;
     }
     
-    function OnDeath(e : Event)
+    function OnDeath(e : ZilchEvent)
     {
         var root = this.Owner.FindRoot();
         var coreCog = root.CoreLink.CoreCog;

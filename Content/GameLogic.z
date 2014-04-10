@@ -1,4 +1,4 @@
-class GameLogic : ScriptComponent
+class GameLogic : ZilchComponent
 {
     // Used to spawn the initial player. Also spawns a new player after he dies.
     [Property]
@@ -120,7 +120,7 @@ class GameLogic : ScriptComponent
         cameraCog.CameraGroupFocuser.AddObject(playerCog);
     }
     
-    function OnPlayerDeath(e : Event)
+    function OnPlayerDeath(e : ZilchEvent)
     {
         // Queue up an action to wait for 2 seconds and then re-spawn the player
         var seq = Action.Sequence(this.Owner.Actions);

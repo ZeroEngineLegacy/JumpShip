@@ -1,4 +1,4 @@
-class DamageOnCollide : ScriptComponent
+class DamageOnCollide : ZilchComponent
 {
     // How much damage to apply to what we hit when we collide with it.
     [Property]
@@ -14,7 +14,7 @@ class DamageOnCollide : ScriptComponent
     
     [Property]
     var DamageType : DamageTypes = DamageTypes.Energy;
-    //sends Death : Event;
+    //sends Death : ZilchEvent;
     
     constructor() : base()
     {

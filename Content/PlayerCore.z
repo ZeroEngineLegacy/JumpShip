@@ -1,5 +1,5 @@
 // Translates the player input into movement/firing logic on the core.
-class PlayerCore : ScriptComponent
+class PlayerCore : ZilchComponent
 {
     [Dependency]
     var Core : Core = null;

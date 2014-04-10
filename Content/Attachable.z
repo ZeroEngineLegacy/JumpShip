@@ -1,6 +1,6 @@
 // Manages mouse drag logic for moving a piece.
 // The current design is for this to be on the root of any hierarchy, not on a piece itself.
-class Attachable : ScriptComponent
+class Attachable : ZilchComponent
 {
     // The point in local space that should be where the mouse is.
     var LocalPoint : Real3 = local Real3();

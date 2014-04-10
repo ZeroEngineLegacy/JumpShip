@@ -13,7 +13,7 @@ struct UpgradeData
 
 // Manages all logic pertaining to upgrading a part, including displaying the upgrade
 // window. All parts look at their current level through this component.
-class Upgradable : ScriptComponent
+class Upgradable : ZilchComponent
 {
     [Property]
     var Level : Real = 0.0;
@@ -34,7 +34,7 @@ class Upgradable : ScriptComponent
     var CanClose : Boolean = false;
     
     // We send the upgrade event with just the basic event structure for now.
-    sends Upgrade : Event;
+    sends Upgrade : ZilchEvent;
     
     constructor() : base()
     {
@@ -49,7 +49,7 @@ class Upgradable : ScriptComponent
         Zero.Connect(this.Owner, Events.DetachFromCore, this.OnDetachFromCore);
     }
     
-    function OnDetachFromCore(e : Event)
+    function OnDetachFromCore(e : ZilchEvent)
     {
         this.CloseWindow();
     }

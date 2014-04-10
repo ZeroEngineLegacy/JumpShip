@@ -1,6 +1,6 @@
 // An item to be picked up for resources. Can only be picked
 // up by a core with a PickupCollector component.
-class Pickup : ScriptComponent
+class Pickup : ZilchComponent
 {
     // The kind of resource this is (experience, platinum, etc...)
     [Property]

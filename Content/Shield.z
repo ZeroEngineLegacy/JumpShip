@@ -1,7 +1,7 @@
 // A shield to block incoming projectiles. The shield barrier has an
 // extra health that if it is fully destroyed the shield goes into a
 // "sleep" mode to recharge, until then the barrier is not active.
-class Shield : ScriptComponent
+class Shield : ZilchComponent
 {
     // The barrier to create.
     [Property]
@@ -108,7 +108,7 @@ class Shield : ScriptComponent
         }
     }
     
-    function OnBarrierDied(e : Event)
+    function OnBarrierDied(e : ZilchEvent)
     {
         // Change to our recharging color and then interpolate back to our normal color,
         // then we'll begin recovering health again (use actions later)
@@ -128,7 +128,7 @@ class Shield : ScriptComponent
         this.BarrierDamageTimer = this.MaxBarrierDamageTimer;
     }
     
-    function OnUpgrade(e : Event)
+    function OnUpgrade(e : ZilchEvent)
     {
         var level = this.Upgradable.Level;
         var radius = this.ShieldRadiusCurve.Sample(level);

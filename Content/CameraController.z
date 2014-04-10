@@ -1,4 +1,4 @@
-class CameraController : ScriptComponent
+class CameraController : ZilchComponent
 {
     constructor() : base()
     {

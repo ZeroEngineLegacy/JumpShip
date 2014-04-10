@@ -1,4 +1,4 @@
-class AsteroidTag : ScriptComponent
+class AsteroidTag : ZilchComponent
 {
     constructor() : base()
     {

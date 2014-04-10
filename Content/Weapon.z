@@ -1,5 +1,5 @@
 // Info about where and in what direction to fire a weapon.
-class WeaponFireEvent : Event
+class WeaponFireEvent : ZilchEvent
 {
     var CoreCog : Cog = null;
     var FireDirW : Real3 = local Real3();
@@ -15,7 +15,7 @@ class WeaponFireEvent : Event
 // Base logic for a weapon. Computes the transform of where to fire a bullet.
 // Another component actually fires so that different weapon firing
 // types can be easily made (spread shot, etc...)
-class Weapon : ScriptComponent
+class Weapon : ZilchComponent
 {
     // How much time until we can shoot again.
     [Property]

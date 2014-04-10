@@ -8,7 +8,7 @@ enum DamageTypes
 }
 
 // Measures how resistant this cog is to a certain type of damage.
-class DamageResistance : ScriptComponent
+class DamageResistance : ZilchComponent
 {
     [Property]
     var EnergyResistance : Real = 1.0;

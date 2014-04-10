@@ -1,5 +1,5 @@
 // Creates one item based upon the weight ration inside a resource table.
-class WeightedCreateOnDestroy : ScriptComponent
+class WeightedCreateOnDestroy : ZilchComponent
 {
     // The table that has the ratios of how often we should create different archetypes.
     [Property]
@@ -22,7 +22,7 @@ class WeightedCreateOnDestroy : ScriptComponent
         Zero.Connect(this.Owner, Events.Death, this.OnDeath);
     }
     
-    function OnDeath(e : Event)
+    function OnDeath(e : ZilchEvent)
     {
         // Create an object at our position
         var pos = this.Owner.Transform.WorldTranslation;

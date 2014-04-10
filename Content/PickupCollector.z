@@ -1,4 +1,4 @@
-class PickupEvent : Event
+class PickupEvent : ZilchEvent
 {
     var Pickup : Pickup = null;
     
@@ -8,7 +8,7 @@ class PickupEvent : Event
 }
 
 // Manages the current resources of an object (the player) and updates a ui space to reflect this.
-class PickupCollector : ScriptComponent
+class PickupCollector : ZilchComponent
 {
     [Property]
     var CreateUi : Boolean = true;
@@ -42,7 +42,7 @@ class PickupCollector : ScriptComponent
         Zero.Connect(this.Owner, Events.Death, this.OnDeath);
     }
     
-    function OnDeath(e : Event)
+    function OnDeath(e : ZilchEvent)
     {
         // Currently this owns our ui space.
         // If we die then the ui space needs to be destroyed too.

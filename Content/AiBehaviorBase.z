@@ -1,7 +1,7 @@
 // Base class for all ai behaviors. This is mostly just an interface
 // (currently using delegates since there are no virtuals yet).
 // Also contains some basic functionality for inherited classes to use.
-class AiBehaviorBase : ScriptComponent
+class AiBehaviorBase : ZilchComponent
 {
     // What kind of archetype our context menu should be when clicked.
     // This is generally just some clickable text, in some cases this can be more complicated (such as paths).

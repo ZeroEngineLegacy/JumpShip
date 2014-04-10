@@ -1,4 +1,4 @@
-class UiUpgradeWindow : ScriptComponent
+class UiUpgradeWindow : ZilchComponent
 {
     // The object that requested this upgrade
     var TargetObj : Cog = null;

@@ -1,4 +1,4 @@
-class DamageEvent : Event
+class DamageEvent : ZilchEvent
 {
     var Damage : Real = 0.0;
     var Normal : Real3 = local Real3(0.0, 0.0, 0.0);
@@ -10,7 +10,7 @@ class DamageEvent : Event
     }
 }
 
-class Health : ScriptComponent
+class Health : ZilchComponent
 {
     // The max health we can have
     [Property]
@@ -21,7 +21,7 @@ class Health : ScriptComponent
     [Property]
     var DestroyAtZeroHealth : Boolean = true;
     
-    sends Death : Event;
+    sends Death : ZilchEvent;
     
     constructor() : base()
     {

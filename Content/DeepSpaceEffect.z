@@ -1,5 +1,5 @@
 // Get Josh to re-make this later!
-class DeepSpaceEffect : ScriptComponent
+class DeepSpaceEffect : ZilchComponent
 {
     [Property]
     var Stars : Archetype = Archetype.Find("Stars");

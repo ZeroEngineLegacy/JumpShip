@@ -1,6 +1,6 @@
 // A "lazer beam" weapon that raycasts to hit the first
 // object within the beam's max distance.
-class WeaponBeam : ScriptComponent
+class WeaponBeam : ZilchComponent
 {
     [Dependency]
     var Upgradable : Upgradable = null;

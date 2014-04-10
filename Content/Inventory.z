@@ -4,7 +4,7 @@ class InventorySlot
     var ItemCog : Cog = null;
 }
 
-class Inventory : ScriptComponent
+class Inventory : ZilchComponent
 {
     [Property]
     var Width : Integer = 6;

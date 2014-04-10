@@ -1,5 +1,5 @@
 // Notify the core that its target of where to move is being changed
-class MoveTargetEvent : Event
+class MoveTargetEvent : ZilchEvent
 {
     var MoveTarget : Real3 = local Real3();
     
@@ -9,7 +9,7 @@ class MoveTargetEvent : Event
 }
 
 // Notify the core or other components (weapons) that where we're aiming has changed
-class AimTargetEvent : Event
+class AimTargetEvent : ZilchEvent
 {
     var AimTarget : Real3 = local Real3();
     
@@ -19,7 +19,7 @@ class AimTargetEvent : Event
 }
 
 // Just an event to notify someone that something has happened with a core.
-class CoreEvent : Event
+class CoreEvent : ZilchEvent
 {
     var CoreCog : Cog = null;
     
@@ -28,7 +28,7 @@ class CoreEvent : Event
     }
 }
 
-class Core : ScriptComponent
+class Core : ZilchComponent
 {
     var IsMoving : Boolean = false;
     var TargetMoved : Boolean = false;
@@ -60,7 +60,7 @@ class Core : ScriptComponent
         }
     }
     
-    function OnDeath(e : Event)
+    function OnDeath(e : ZilchEvent)
     {
         // Send out an end fire override so any weapon that was firing will stop
         var toSend = new Event();

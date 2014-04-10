@@ -1,4 +1,4 @@
-class Projectile : ScriptComponent
+class Projectile : ZilchComponent
 {
     // The core that fired us. Used so we can not
     // collide with anything that shares a core.
@@ -8,7 +8,7 @@ class Projectile : ScriptComponent
     var Level : Real = 0.0;
     
     // Used to let any other projectiles do setup logic once we have the level and core set.
-    sends ProjectileSetup : Event;
+    sends ProjectileSetup : ZilchEvent;
     
     constructor() : base()
     {

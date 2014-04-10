@@ -1,4 +1,4 @@
-class ProjectileBouncer : ScriptComponent
+class ProjectileBouncer : ZilchComponent
 {
     // The max number of bounces we will do before we destroy ourself.
     // (N bounces means N+1 collisions since we destroy ourself on the last hit)
