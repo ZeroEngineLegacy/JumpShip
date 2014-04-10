@@ -34,7 +34,7 @@ class PickupCollector : ScriptComponent
         if(this.CreateUi == true)
         {
             // Create the display space and load the ui level
-            var displayCog = Zero.Game.CreateNamedSpace("UiSpace", "DefaultSpace");
+            var displayCog = Zero.Game.CreateNamedSpace("UiSpace", Archetype.Find("DefaultSpace"));
             this.DisplaySpace = displayCog.Space;
             this.DisplaySpace.LoadLevel(this.UiLevel);
         }
