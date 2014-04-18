@@ -53,8 +53,8 @@ class GridAttachable : ZilchComponent
         // If we aren't draggable don't listent to any event except our death
         if(this.IsDraggable)
         {
-            Zero.Connect(this.Owner, Events.MouseDown, this.OnMouseDown);
-            Zero.Connect(this.Owner, Events.MouseUp, this.OnMouseUp);
+            Zero.Connect(this.Owner, Events.LeftMouseDown, this.OnLeftMouseDown);
+            Zero.Connect(this.Owner, Events.LeftMouseUp, this.OnLeftMouseUp);
             
             // Currently MouseMove and MouseUpdate must be listened to in order to get events every frame.
             Zero.Connect(this.Space, Events.MouseUpdate, this.OnMouseMove);
@@ -63,7 +63,7 @@ class GridAttachable : ZilchComponent
         Zero.Connect(this.Owner, Events.Death, this.OnDeath);
     }
     
-    function OnMouseDown(viewportMouseEvent : ViewportMouseEvent)
+    function OnLeftMouseDown(viewportMouseEvent : ViewportMouseEvent)
     {
         var root = this.Owner.FindRoot();
         
@@ -119,7 +119,7 @@ class GridAttachable : ZilchComponent
         }
         
         // Tell the root to start dragging from where we clicked
-        root.Attachable.OnMouseDown(viewportMouseEvent);
+        root.Attachable.OnLeftMouseDown(viewportMouseEvent);
         
         // Tell everyone that we're being dragged
         var toSend = new GridAttachEvent();
@@ -194,13 +194,13 @@ class GridAttachable : ZilchComponent
         this.AttachAtKey(cog, info.CoreCog, key);
     }
     
-    function OnMouseUp(viewportMouseEvent : ViewportMouseEvent)
+    function OnLeftMouseUp(viewportMouseEvent : ViewportMouseEvent)
     {
         var root = this.Owner.FindRoot();
         var coreCog = root.CoreLink.CoreCog;
         
         // Let our root handle mouse up logic (not dragging anymore, etc...)
-        root.Attachable.OnMouseUp(viewportMouseEvent);
+        root.Attachable.OnLeftMouseUp(viewportMouseEvent);
         
         // Now test to see if there's anything to attach to (we want results)
         var info = this.TestAttachment(viewportMouseEvent, TestResultTypes.AttachableResults);

@@ -15,7 +15,7 @@ class Attachable : ZilchComponent
     {
     }
     
-    function OnMouseDown(viewportMouseEvent : ViewportMouseEvent)
+    function OnLeftMouseDown(viewportMouseEvent : ViewportMouseEvent)
     {
         // start tracking the mouse during mouse move now
         this.IsMoving = true;
@@ -49,7 +49,7 @@ class Attachable : ZilchComponent
         this.Owner.Transform.Translation = worldOffset;
     }
     
-    function OnMouseUp(viewportMouseEvent : ViewportMouseEvent)
+    function OnLeftMouseUp(viewportMouseEvent : ViewportMouseEvent)
     {
         // we're no longer tracking the mouse
         this.IsMoving = false;

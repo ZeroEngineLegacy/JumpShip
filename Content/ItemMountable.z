@@ -29,8 +29,8 @@ class ItemMountable : ZilchComponent
     
     function Initialize(init : CogInitializer)
     {
-        Zero.Connect(this.Owner, Events.MouseDown, this.OnMouseDown);
-        Zero.Connect(this.Owner, Events.MouseUp, this.OnMouseUp);
+        Zero.Connect(this.Owner, Events.LeftMouseDown, this.OnLeftMouseDown);
+        Zero.Connect(this.Owner, Events.LeftMouseUp, this.OnLeftMouseUp);
         
         Zero.Connect(this.Space, Events.MouseMove, this.OnMouseMove);
         Zero.Connect(this.Space, Events.MouseUpdate, this.OnMouseMove);
@@ -82,7 +82,7 @@ class ItemMountable : ZilchComponent
         this.Owner.DispatchEvent(Events.DetachFromCore, attachEvent);
     }
     
-    function OnMouseDown(viewportMouseEvent : ViewportMouseEvent)
+    function OnLeftMouseDown(viewportMouseEvent : ViewportMouseEvent)
     {
         // If we already have a mount then we have to detach from it
         if(this.MountCog != null)
@@ -92,7 +92,7 @@ class ItemMountable : ZilchComponent
         
         // Tell our root to do drag logic
         var root = this.Owner.FindRoot();
-        root.Attachable.OnMouseDown(viewportMouseEvent);
+        root.Attachable.OnLeftMouseDown(viewportMouseEvent);
         
         // Tell everyone that an item is being dragged
         var toSend = new Event();
@@ -120,11 +120,11 @@ class ItemMountable : ZilchComponent
         this.TestResults(viewportMouseEvent, false);
     }
     
-    function OnMouseUp(viewportMouseEvent : ViewportMouseEvent)
+    function OnLeftMouseUp(viewportMouseEvent : ViewportMouseEvent)
     {
         // Tell our root to handle mouse up logic
         var root = this.Owner.FindRoot();
-        root.Attachable.OnMouseUp(viewportMouseEvent);
+        root.Attachable.OnLeftMouseUp(viewportMouseEvent);
         
         // Tell everyone we stopped dragging
         var toSend = new Event();
