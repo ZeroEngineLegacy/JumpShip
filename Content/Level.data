@@ -71,7 +71,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-1.40996, 2.72785, 50.275],
+			Vec3 Translation = [3.3045, 0.135847, 50],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [-0, -1.09278e-008, 0, 1],
 		},
@@ -84,7 +84,7 @@ Level =
 			float FieldOfView = 45,
 			float NearPlane = 0.5,
 			float FarPlane = 500,
-			float Size = 15.0811,
+			float Size = 23.0811,
 		},
 		EditorCameraController = 
 		{
@@ -92,7 +92,7 @@ Level =
 			float LookDistance = 50,
 			float VerticalAngle = 0,
 			float HorizontalAngle = 0,
-			Vec3 LookTarget = [-1.40996, 2.72785, 0.275],
+			Vec3 LookTarget = [3.3045, 0.135847, 0],
 		},
 		EditorRenderer = 
 		{
@@ -370,7 +370,7 @@ Level =
 				},
 				Transform = 
 				{
-					Vec3 Translation = [0, 2, 0],
+					Vec3 Translation = [0, -2, 0],
 					Vec3 Scale = [1, 1, 1],
 					Quat Rotation = [0, 0, 0, 1],
 				},
@@ -388,7 +388,7 @@ Level =
 				},
 				Transform = 
 				{
-					Vec3 Translation = [1, 1, 0],
+					Vec3 Translation = [1, -1, 0],
 					Vec3 Scale = [1, 1, 1],
 					Quat Rotation = [0, 0, 0, 1],
 				},
@@ -406,7 +406,7 @@ Level =
 				},
 				Transform = 
 				{
-					Vec3 Translation = [1, 0, 0],
+					Vec3 Translation = [1, -2, 0],
 					Vec3 Scale = [1, 1, 1],
 					Quat Rotation = [0, 0, 0, 1],
 				},
@@ -2191,6 +2191,7 @@ Level =
 							SystemChildMode ChildMode = Independent,
 							SystemSpace SystemSpace = WorldSpace,
 							uint DrawOrder = 0,
+							float WarmUpTime = 0,
 							ParticleGeometry GeometryMode = Beam,
 							ParticleRenderMode RenderMode = Additive,
 							ParticleSortMode SortMode = None,
