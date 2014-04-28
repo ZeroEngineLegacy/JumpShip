@@ -408,18 +408,24 @@ class ObjectGrid : ZilchComponent
         var ids = new HashMap[Real2, Boolean]();
         
         var key = this.GetPieceKey(pieceCog);
-        ids.AddOrOverwrite(key, true);
         
         // Flood fill each cardinal direction and add all results to the total final results pool
+        ids.Clear();
+        ids.AddOrOverwrite(key, true);
         var rKey = key + local Real2(1.0, 0.0);
         this.TestKeyFloodFill(finalResults, results, ids, rKey);
+        ids.Clear();
+        ids.AddOrOverwrite(key, true);
         var uKey = key + local Real2(0.0, 1.0);
         this.TestKeyFloodFill(finalResults, results, ids, uKey);
+        ids.Clear();
+        ids.AddOrOverwrite(key, true);
         var lKey = key + local Real2(-1.0, 0.0);
         this.TestKeyFloodFill(finalResults, results, ids, lKey);
+        ids.Clear();
+        ids.AddOrOverwrite(key, true);
         var dKey = key + local Real2(0.0, -1.0);
         this.TestKeyFloodFill(finalResults, results, ids, dKey);
-        
         return finalResults;
     }
     
@@ -461,7 +467,6 @@ class ObjectGrid : ZilchComponent
         
         var dKey = key + local Real2(0.0, -1.0);
         this.TestKeyFloodFill(finalResults, results, ids, dKey);
-        
         return finalResults;
     }
 }
