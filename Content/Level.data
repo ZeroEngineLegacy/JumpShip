@@ -126,17 +126,6 @@ Level =
 			float FarPlane = 200,
 			float Size = 13,
 		},
-		CameraGroupFocuser = 
-		{
-			Vec3 PlaneNormal = [-0, -0, -1],
-			float PlaneDistanceScalar = 1,
-			float PlaneDistanceConstant = 10,
-			float MinDistance = 20,
-			float Smoothness = 0.6,
-			float TranslationSmoothness = 0.1,
-			Vec3 PositionOffset = [0, 0, 0],
-			bool ControlsOrientation = true,
-		},
 		DeepSpaceEffect = 
 		{
 			string Stars = "521f5a45e70d4453:Stars",
@@ -144,6 +133,18 @@ Level =
 		},
 		CameraController = 
 		{
+		},
+		CameraGroupFocus = 
+		{
+			Vec3 PlaneNormal = [0, 0, -1],
+			float PlaneDistanceScalar = 1,
+			float PlaneDistanceConstant = 10,
+			float MinDistance = 20,
+			float Smoothness = 0.6,
+			float TranslationSmoothness = 0.1,
+			Vec3 PositionOffset = [0, 0, 0],
+			bool ControlsOffset = true,
+			bool ControlsOrientation = true,
 		},
 	},
 	Cog = 
@@ -214,7 +215,7 @@ Level =
 		},
 		Named = 
 		{
-			string Name = "PlayerRoot",
+			string Name = "Test",
 		},
 		Transform = 
 		{
@@ -303,6 +304,7 @@ Level =
 				{
 					Vec3 UpVector = [0, 0, 1],
 					Vec3 ForwardVector = [0, 1, 0],
+					OrientationBases DefaultBases = ForwardZUpY,
 				},
 				Core = 
 				{
@@ -1554,6 +1556,7 @@ Level =
 				{
 					Vec3 UpVector = [0, 0, 1],
 					Vec3 ForwardVector = [0, 1, 0],
+					OrientationBases DefaultBases = ForwardZUpY,
 				},
 				InputFromCore = 
 				{
@@ -1743,6 +1746,7 @@ Level =
 				{
 					Vec3 UpVector = [0, 0, 1],
 					Vec3 ForwardVector = [0, 1, 0],
+					OrientationBases DefaultBases = ForwardZUpY,
 				},
 				InputFromCore = 
 				{
@@ -1981,6 +1985,7 @@ Level =
 				{
 					Vec3 UpVector = [0, 0, 1],
 					Vec3 ForwardVector = [0, 1, 0],
+					OrientationBases DefaultBases = ForwardZUpY,
 				},
 				BoxCollider = 
 				{
@@ -2153,6 +2158,7 @@ Level =
 				{
 					Vec3 UpVector = [0, 0, 1],
 					Vec3 ForwardVector = [0, 1, 0],
+					OrientationBases DefaultBases = ForwardZUpY,
 				},
 				InputFromCore = 
 				{
@@ -2435,6 +2441,7 @@ Level =
 				{
 					Vec3 UpVector = [0, 0, 1],
 					Vec3 ForwardVector = [0, 1, 0],
+					OrientationBases DefaultBases = ForwardZUpY,
 				},
 				Core = 
 				{
@@ -2649,6 +2656,7 @@ Level =
 						{
 							Vec3 UpVector = [0, 0, 1],
 							Vec3 ForwardVector = [0, 1, 0],
+							OrientationBases DefaultBases = ForwardZUpY,
 						},
 						InputFromCore = 
 						{

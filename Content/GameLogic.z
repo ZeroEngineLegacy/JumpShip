@@ -117,7 +117,7 @@ class GameLogic : ZilchComponent
         
         // Point the camera at the player
         var cameraCog = this.Space.FindObjectByName(this.CameraName);
-        cameraCog.CameraGroupFocuser.AddObject(playerCog);
+        cameraCog.CameraGroupFocus.AddObject(playerCog);
     }
     
     function OnPlayerDeath(e : ZilchEvent)
