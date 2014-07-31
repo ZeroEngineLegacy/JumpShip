@@ -63,7 +63,7 @@ class Core : ZilchComponent
     function OnDeath(e : ZilchEvent)
     {
         // Send out an end fire override so any weapon that was firing will stop
-        var toSend = new Event();
+        var toSend = new ZilchEvent();
         this.Owner.DispatchEvent("OverrideEnd", toSend);
     }
     

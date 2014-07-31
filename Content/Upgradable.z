@@ -181,7 +181,7 @@ class Upgradable : ZilchComponent
         if(upgradeSuccessful)
         {
             this.Level += 1.0;
-            var toSend = new Event();
+            var toSend = new ZilchEvent();
             this.Owner.DispatchEvent(Events.Upgrade, toSend);
         }
     }

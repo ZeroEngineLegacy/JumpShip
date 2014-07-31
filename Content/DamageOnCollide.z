@@ -49,7 +49,7 @@ class DamageOnCollide : ZilchComponent
         if(this.DestroyOnCollide)
         {
             // Let anyone listening know we just died
-            var toSend = new Event();
+            var toSend = new ZilchEvent();
             this.Owner.DispatchEvent(Events.Death, toSend);
             
             this.Owner.Destroy();

@@ -19,7 +19,7 @@ class Projectile : ZilchComponent
         this.CoreCog = coreCog;
         this.Level = level;
         
-        var toSend = new Event();
+        var toSend = new ZilchEvent();
         this.Owner.DispatchEvent(Events.ProjectileSetup, toSend);
     }
     

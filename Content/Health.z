@@ -56,7 +56,7 @@ class Health : ZilchComponent
         if(this.CurrentHealth <= 0.0)
         {
             // Let anyone listening know we just died
-            var toSend = new Event();
+            var toSend = new ZilchEvent();
             this.Owner.DispatchEvent(Events.Death, toSend);
             
             // And if the property is set destroy ourself

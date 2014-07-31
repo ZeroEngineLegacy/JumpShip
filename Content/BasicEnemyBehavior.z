@@ -71,13 +71,13 @@ class BasicEnemyBehavior : AiBehaviorBase
         {
             //Console.WriteLine("Fire");
             this.WasTargetting = true;
-            var toSend = new Event();
+            var toSend = new ZilchEvent();
             this.CompositeAiCore.Owner.DispatchEvent("OverrideBegin", toSend);
         }
         else if(this.WasTargetting == true && this.CompositeAiCore.TargetCog == null)
         {
             this.WasTargetting = false;
-            var toSend = new Event();
+            var toSend = new ZilchEvent();
             this.CompositeAiCore.Owner.DispatchEvent("OverrideEnd", toSend);
         }
         

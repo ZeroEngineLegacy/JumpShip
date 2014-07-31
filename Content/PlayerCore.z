@@ -42,7 +42,7 @@ class PlayerCore : ZilchComponent
     
     function OnMiddleMouseDown(e : ViewportMouseEvent)
     {
-        var dummyEvent = new Event();
+        var dummyEvent = new ZilchEvent();
         this.Space.DispatchEvent("CloseUpgradeWindows", dummyEvent);
         delete dummyEvent;
     }

@@ -173,7 +173,7 @@ class UiProxyText : ZilchComponent
         // Tell our owning cog to close this ui chain.
         if(owningCog != null)
         {
-            owningCog.DispatchEvent("CloseText", new Event());
+            owningCog.DispatchEvent("CloseText", new ZilchEvent());
         }
     }
 }

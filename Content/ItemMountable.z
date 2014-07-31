@@ -95,7 +95,7 @@ class ItemMountable : ZilchComponent
         root.Attachable.OnLeftMouseDown(viewportMouseEvent);
         
         // Tell everyone that an item is being dragged
-        var toSend = new Event();
+        var toSend = new ZilchEvent();
         this.Space.DispatchEvent(Events.ItemDragBegin, toSend);
         
         // Test all mounts for our current position
@@ -127,7 +127,7 @@ class ItemMountable : ZilchComponent
         root.Attachable.OnLeftMouseUp(viewportMouseEvent);
         
         // Tell everyone we stopped dragging
-        var toSend = new Event();
+        var toSend = new ZilchEvent();
         this.Space.DispatchEvent(Events.ItemDragEnd, toSend);
         
         // Test to see if there's a good attachment point (we want results)

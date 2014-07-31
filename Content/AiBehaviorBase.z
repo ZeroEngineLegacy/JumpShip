@@ -168,7 +168,7 @@ class MiningBehavior : AiBehaviorBase
             if(target.Pickup == null)
             {
                 this.IsFiring = true;
-                var toSend = new Event();
+                var toSend = new ZilchEvent();
                 this.CompositeAiCore.Owner.DispatchEvent("OverrideBegin", toSend);
             }
         }
@@ -179,7 +179,7 @@ class MiningBehavior : AiBehaviorBase
             if(target.Pickup != null)
             {
                 this.IsFiring = false;
-                var toSend = new Event();
+                var toSend = new ZilchEvent();
                 this.CompositeAiCore.Owner.DispatchEvent("OverrideEnd",toSend);
             }
         }
@@ -188,7 +188,7 @@ class MiningBehavior : AiBehaviorBase
         if(target == null && this.IsFiring == true)
         {
             this.IsFiring = false;
-            var toSend = new Event();
+            var toSend = new ZilchEvent();
             this.CompositeAiCore.Owner.DispatchEvent("OverrideEnd",toSend);
         }
     }
