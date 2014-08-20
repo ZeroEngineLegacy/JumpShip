@@ -53,6 +53,7 @@ Cog =
 		uint StartFrame = 0,
 		BlendMode BlendMode = Alpha,
 		SpriteGeometryMode GeometryMode = ZPlane,
+		string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
 	},
 	Reactive = 
 	{
@@ -70,8 +71,10 @@ Cog =
 	},
 	Orientation = 
 	{
+		Vec3 GlobalUp = [0, 0, 1],
 		Vec3 UpVector = [0, 0, 1],
 		Vec3 ForwardVector = [0, 1, 0],
+		OrientationBases DefaultBases = ForwardZUpY,
 	},
 	InputFromCore = 
 	{

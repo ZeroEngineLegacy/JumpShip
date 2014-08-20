@@ -31,6 +31,7 @@ Cog =
 		uint StartFrame = 0,
 		BlendMode BlendMode = Alpha,
 		SpriteGeometryMode GeometryMode = ZPlane,
+		string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
 	},
 	SphereCollider = 
 	{
@@ -44,8 +45,10 @@ Cog =
 	},
 	Orientation = 
 	{
+		Vec3 GlobalUp = [0, 0, 1],
 		Vec3 UpVector = [0, 0, 1],
-		Vec3 ForwardVector = [-1, 1, 0],
+		Vec3 ForwardVector = [-0.707107, 0.707107, 0],
+		OrientationBases DefaultBases = Custom,
 	},
 	Health = 
 	{

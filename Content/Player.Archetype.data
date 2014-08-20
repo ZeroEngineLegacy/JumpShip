@@ -15,7 +15,7 @@ Cog =
 	Transform = 
 	{
 		Vec3 Translation = [0, 0, 0],
-		Vec3 Scale = [0.999999, 0.999999, 1],
+		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
 	RigidBody = 
@@ -57,8 +57,10 @@ Cog =
 	},
 	Orientation = 
 	{
+		Vec3 GlobalUp = [0, 0, 1],
 		Vec3 UpVector = [0, 0, 1],
 		Vec3 ForwardVector = [0, 1, 0],
+		OrientationBases DefaultBases = ForwardZUpY,
 	},
 	Core = 
 	{

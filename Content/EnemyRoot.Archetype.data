@@ -85,11 +85,14 @@ Cog =
 				uint StartFrame = 0,
 				BlendMode BlendMode = Alpha,
 				SpriteGeometryMode GeometryMode = ZPlane,
+				string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
 			},
 			Orientation = 
 			{
+				Vec3 GlobalUp = [0, 0, 1],
 				Vec3 UpVector = [0, 0, 1],
 				Vec3 ForwardVector = [0, 1, 0],
+				OrientationBases DefaultBases = ForwardZUpY,
 			},
 			Core = 
 			{
@@ -134,6 +137,7 @@ Cog =
 			{
 				string DropTable = "52f181d38bff7297:EnemyDropTable",
 				bool ApplyRandomVelocity = false,
+				int MaxItemsToSpawn = 1,
 			},
 			Hierarchy = 
 			{

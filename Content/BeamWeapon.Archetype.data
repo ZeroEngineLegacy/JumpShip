@@ -53,6 +53,7 @@ Cog =
 		uint StartFrame = 0,
 		BlendMode BlendMode = Alpha,
 		SpriteGeometryMode GeometryMode = ZPlane,
+		string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
 	},
 	Reactive = 
 	{
@@ -70,8 +71,10 @@ Cog =
 	},
 	Orientation = 
 	{
+		Vec3 GlobalUp = [0, 0, 1],
 		Vec3 UpVector = [0, 0, 1],
 		Vec3 ForwardVector = [0, 1, 0],
+		OrientationBases DefaultBases = ForwardZUpY,
 	},
 	InputFromCore = 
 	{
@@ -86,6 +89,8 @@ Cog =
 	WeaponBeam = 
 	{
 		string BeamArchetype = "523e7c32da96f2f1:BeamProjectile",
+		string DamageCurve = "52289e04f7821205:DamageCurve",
+		int DamageType = 1,
 		string DamageEffect = "523c8e0cbc053bc4:DamageEffect",
 	},
 },

@@ -43,6 +43,7 @@ Cog =
 		uint StartFrame = 0,
 		BlendMode BlendMode = Alpha,
 		SpriteGeometryMode GeometryMode = ZPlane,
+		string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
 	},
 	IgnoreSpaceEffects = 
 	{
@@ -67,6 +68,7 @@ Cog =
 		string CreateOnDamage = "523c8e0cbc053bc4:DamageEffect",
 		bool DestroyOnDamage = false,
 		string DamageCurve = "52289e04f7821205:DamageCurve",
+		int DamageType = 0,
 	},
 	TimedDeath = 
 	{
@@ -88,7 +90,9 @@ Cog =
 	},
 	Orientation = 
 	{
+		Vec3 GlobalUp = [0, 0, 1],
 		Vec3 UpVector = [0, 0, 1],
 		Vec3 ForwardVector = [0, 1, 0],
+		OrientationBases DefaultBases = ForwardZUpY,
 	},
 },

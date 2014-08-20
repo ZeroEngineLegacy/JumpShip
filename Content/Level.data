@@ -302,6 +302,7 @@ Level =
 				},
 				Orientation = 
 				{
+					Vec3 GlobalUp = [0, 0, 1],
 					Vec3 UpVector = [0, 0, 1],
 					Vec3 ForwardVector = [0, 1, 0],
 					OrientationBases DefaultBases = ForwardZUpY,
@@ -1554,6 +1555,7 @@ Level =
 				},
 				Orientation = 
 				{
+					Vec3 GlobalUp = [0, 0, 1],
 					Vec3 UpVector = [0, 0, 1],
 					Vec3 ForwardVector = [0, 1, 0],
 					OrientationBases DefaultBases = ForwardZUpY,
@@ -1744,6 +1746,7 @@ Level =
 				},
 				Orientation = 
 				{
+					Vec3 GlobalUp = [0, 0, 1],
 					Vec3 UpVector = [0, 0, 1],
 					Vec3 ForwardVector = [0, 1, 0],
 					OrientationBases DefaultBases = ForwardZUpY,
@@ -1983,6 +1986,7 @@ Level =
 				},
 				Orientation = 
 				{
+					Vec3 GlobalUp = [0, 0, 1],
 					Vec3 UpVector = [0, 0, 1],
 					Vec3 ForwardVector = [0, 1, 0],
 					OrientationBases DefaultBases = ForwardZUpY,
@@ -2156,6 +2160,7 @@ Level =
 				},
 				Orientation = 
 				{
+					Vec3 GlobalUp = [0, 0, 1],
 					Vec3 UpVector = [0, 0, 1],
 					Vec3 ForwardVector = [0, 1, 0],
 					OrientationBases DefaultBases = ForwardZUpY,
@@ -2200,7 +2205,8 @@ Level =
 							float WarmUpTime = 0,
 							ParticleGeometry GeometryMode = Beam,
 							ParticleRenderMode RenderMode = Additive,
-							ParticleSortMode SortMode = None,
+							ParticleSortMode SortMode = Youngest,
+							ParticleAnimation ParticleAnimation = Single,
 							string Texture = "52033f640e8bf7ae:Lightning",
 							Vec4 Tint = [1, 1, 1, 0.7],
 							float VelocityScale = 2,
@@ -2439,6 +2445,7 @@ Level =
 				},
 				Orientation = 
 				{
+					Vec3 GlobalUp = [0, 0, 1],
 					Vec3 UpVector = [0, 0, 1],
 					Vec3 ForwardVector = [0, 1, 0],
 					OrientationBases DefaultBases = ForwardZUpY,
@@ -2654,6 +2661,7 @@ Level =
 						},
 						Orientation = 
 						{
+							Vec3 GlobalUp = [0, 0, 1],
 							Vec3 UpVector = [0, 0, 1],
 							Vec3 ForwardVector = [0, 1, 0],
 							OrientationBases DefaultBases = ForwardZUpY,

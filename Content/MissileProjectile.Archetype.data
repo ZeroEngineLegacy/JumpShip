@@ -53,6 +53,7 @@ Cog =
 		uint StartFrame = 0,
 		BlendMode BlendMode = Alpha,
 		SpriteGeometryMode GeometryMode = ZPlane,
+		string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
 	},
 	IgnoreSpaceEffects = 
 	{
@@ -77,6 +78,7 @@ Cog =
 		string CreateOnDamage = "523c8e0cbc053bc4:DamageEffect",
 		bool DestroyOnDamage = true,
 		string DamageCurve = "52289e04f7821205:DamageCurve",
+		int DamageType = 0,
 	},
 	TimedDeath = 
 	{
@@ -87,8 +89,10 @@ Cog =
 	},
 	Orientation = 
 	{
+		Vec3 GlobalUp = [0, 0, 1],
 		Vec3 UpVector = [0, 0, 1],
 		Vec3 ForwardVector = [0, 1, 0],
+		OrientationBases DefaultBases = ForwardZUpY,
 	},
 	Hierarchy = 
 	{
@@ -109,9 +113,11 @@ Cog =
 				SystemChildMode ChildMode = Independent,
 				SystemSpace SystemSpace = WorldSpace,
 				uint DrawOrder = 1,
+				float WarmUpTime = 0,
 				ParticleGeometry GeometryMode = Billboarded,
 				ParticleRenderMode RenderMode = Blended,
-				ParticleSortMode SortMode = None,
+				ParticleSortMode SortMode = Youngest,
+				ParticleAnimation ParticleAnimation = Single,
 				string Texture = "523d6ae9a16254bd:MissileSmoke",
 				Vec4 Tint = [1, 1, 1, 0.4],
 				float VelocityScale = 1,
