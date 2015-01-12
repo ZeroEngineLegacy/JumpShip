@@ -101,7 +101,7 @@ class ObjectGrid : ZilchComponent
         var newKey = this.GetPieceKey(worldPos);
         
         // If the key being tested is different then our old key
-        if(newKey != this.SelectedKey)
+        if((newKey != this.SelectedKey) as Boolean)
         {
             // Set the old key's sprite to the normal color
             var selection = this.FreeMap.Get(this.SelectedKey, null);

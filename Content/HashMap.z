@@ -134,7 +134,7 @@ class HashMap[Key, Value]
         {
             var currentKey = this.InternalKeys.Get(i);
             
-            if (currentKey == key)
+            if ((currentKey == key) as Boolean)
             {
                 return i;
             }
