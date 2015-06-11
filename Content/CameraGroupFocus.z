@@ -137,7 +137,7 @@ class CameraGroupFocus : ZilchComponent
         //Compute the average position of the objects and the aabb encasing the objects
         
         //Initialize the aabb to the first object's position
-        var aabb = new Aabb();
+        var aabb = Aabb();
         var obj = this.Objects.Get(0);
         var pos = obj.Transform.WorldTranslation;
         aabb.Set(pos);
