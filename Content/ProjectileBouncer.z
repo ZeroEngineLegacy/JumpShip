@@ -27,10 +27,9 @@ class ProjectileBouncer : ZilchComponent
         var normal = damageEvent.Normal;
         var body = this.Owner.RigidBody;
         
-        // Reflect our original velocity across the normal
-        // (have to negate since we want to bounce away)
+        // Reflect our original velocity across the normal's plane
         var origVel = body.Velocity;
-        var projVel = Math.Reflect(-origVel, normal);
+        var projVel = Math.ReflectAcrossPlane(origVel, normal);
         body.Velocity = projVel;
         
         // Update the orientation to be aligned with the new velocity direction
