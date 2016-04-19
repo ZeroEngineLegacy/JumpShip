@@ -6,8 +6,8 @@ Cog =
 		string ProjectOwner = "",
 		string DefaultLevel = "Level",
 		string ProjectSpace = "Space",
-		string ProjectFolder = "C:\Users\JoshD\Desktop\Zero\ZeroSummerBranch\JumpShip_Zilch",
-		uint ProjectEngineRevision = 12138,
+		string ProjectFolder = "C:\Users\ZeroDavis\Desktop\Zero\ZeroSummerBranch\JumpShip_Zilch",
+		uint ProjectEngineRevision = 13221,
 		bool AutoTakeProjectScreenshot = true,
 	},
 	EditorSettings = 
