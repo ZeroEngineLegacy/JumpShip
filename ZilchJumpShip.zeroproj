@@ -6,9 +6,9 @@ Cog =
 		string ProjectOwner = "",
 		string DefaultLevel = "Level",
 		string ProjectSpace = "Space",
-		string ProjectFolder = "C:\Users\ZeroDavis\Desktop\Zero\ZeroSummerBranch\JumpShip_Zilch",
-		uint ProjectEngineRevision = 13221,
+		uint ProjectEngineRevision = 13967,
 		bool AutoTakeProjectScreenshot = true,
+		uint64 Guid = 57f23a4e30551e65,
 	},
 	EditorSettings = 
 	{

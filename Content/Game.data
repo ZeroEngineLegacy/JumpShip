@@ -19,6 +19,9 @@ GameSession =
 	CameraViewports = 
 	{
 	},
+	ZilchState = 
+	{
+	},
 	RunUnitTests = 
 	{
 	},
