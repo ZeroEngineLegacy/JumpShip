@@ -3,7 +3,7 @@ class ItemMount : ZilchComponent
 {
     // The archetype used to display to the user where the item can be mounted.
     [Property]
-    var DisplayArchetype : Archetype = Archetype.Find("GridCellSprite");
+    var DisplayArchetype : Archetype = Archetype.GridCellSprite;
     // Currently the same sprite is used for item mounts and grid attachment.
     // Because of this the item mount sprite needs to be scaled down.
     [Property]
@@ -109,7 +109,7 @@ class ItemMount : ZilchComponent
         {
             // If we're within the correct distance then change
             // our sprite color for user feedback
-            this.DisplayCog.Sprite.Color = local Real4(1.0, 1.0, 1.0, 1.0);
+            this.DisplayCog.Sprite.VertexColor = local Real4(1.0, 1.0, 1.0, 1.0);
             
             // Add to the event the attachment info of this spot
             var info = new GridAttachInfo();
@@ -121,7 +121,7 @@ class ItemMount : ZilchComponent
         // Otherwise we're too far away, just set the color for user feedback
         else
         {
-            this.DisplayCog.Sprite.Color = local Real4(1.0, 1.0, 1.0, 0.5);
+            this.DisplayCog.Sprite.VertexColor = local Real4(1.0, 1.0, 1.0, 0.5);
         }
     }
     

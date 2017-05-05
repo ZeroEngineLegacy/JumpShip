@@ -1,58 +1,47 @@
-Cog = 
+[Version:1]
+Cog 
 {
-	LinkId = 
+	var Name = "ShieldBarrier"
+	var LinkId = 1
+	Transform 
 	{
-		uint Id = 1,
-	},
-	Named = 
+		var Translation = Real3{-10.8962002, 4.34088993, 0}
+		var Scale = Real3{1, 1, 1}
+		var Rotation = Quaternion{0, 0, 0, 1}
+	}
+	Sprite 
 	{
-		string Name = "ShieldBarrier",
-	},
-	Archetyped = 
+		var Visible = true
+		var ViewCulling = true
+		var VisibilityEvents = true
+		var Material = "582c575af53d18c9:AlphaSprite"
+		var VertexColor = Real4{1, 1, 1, 1}
+		var GeometryMode = SpriteGeometryMode.ZPlane
+		var SpriteSource = "522ee77c60295462:ShieldBarrier"
+		var FlipX = false
+		var FlipY = false
+		var AnimationActive = true
+		var AnimationSpeed = 1
+		var StartFrame = 0
+	}
+	SphereCollider 
 	{
-		string Name = "522efcb5c5064cfe:ShieldBarrier",
-	},
-	Transform = 
+		var Ghost = true
+		var SendsEvents = true
+		var Material = "522ed4616b15044d:Massless"
+		var CollisionGroup = "4e740859314e5515:DefaultGroup"
+		var Offset = Real3{0, 0, 0}
+		var Radius = 1.5
+	}
+	Orientation 
 	{
-		Vec3 Translation = [-10.8962, 4.34089, 0],
-		Vec3 Scale = [1, 1, 1],
-		Quat Rotation = [0, 0, 0, 1],
-	},
-	Sprite = 
+		var GlobalUp = Real3{0, 0, 1}
+		var LocalOrientationBasis = Quaternion{0.65328151, 0.270598084, 0.270598084, 0.65328151}
+		var DefaultBases = OrientationBases.Custom
+	}
+	Health 
 	{
-		string SpriteSource = "522ee77c60295462:ShieldBarrier",
-		bool FlipX = false,
-		bool FlipY = false,
-		Vec4 Color = [1, 1, 1, 1],
-		bool Visible = true,
-		bool OnTop = true,
-		bool AnimationActive = true,
-		float AnimationSpeed = 1,
-		uint StartFrame = 0,
-		BlendMode BlendMode = Alpha,
-		SpriteGeometryMode GeometryMode = ZPlane,
-		string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-	},
-	SphereCollider = 
-	{
-		bool Ghost = true,
-		bool SendsMessages = true,
-		bool Seamless = false,
-		string MaterialName = "522ed4616b15044d:Massless",
-		string SerializedGroupName = "4e740859314e5515:DefaultGroup",
-		Vec3 Offset = [0, 0, 0],
-		float Radius = 1.5,
-	},
-	Orientation = 
-	{
-		Vec3 GlobalUp = [0, 0, 1],
-		Vec3 UpVector = [0, 0, 1],
-		Vec3 ForwardVector = [-0.707107, 0.707107, 0],
-		OrientationBases DefaultBases = Custom,
-	},
-	Health = 
-	{
-		float MaxHealth = 50,
-		bool DestroyAtZeroHealth = false,
-	},
-},
+		var MaxHealth = 50
+		var DestroyAtZeroHealth = false
+	}
+}

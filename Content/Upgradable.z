@@ -19,7 +19,7 @@ class Upgradable : ZilchComponent
     var Level : Real = 0.0;
     
     [Property]
-    var UpgradeWindow : Archetype = Archetype.Find("UpgradeWindow");
+    var UpgradeWindow : Archetype = Archetype.UpgradeWindow;
     
     // We need a reactive to get mouse events, although we
     // don't actually need the reactive component.

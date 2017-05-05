@@ -6,7 +6,7 @@ class AiBehaviorBase : ZilchComponent
     // What kind of archetype our context menu should be when clicked.
     // This is generally just some clickable text, in some cases this can be more complicated (such as paths).
     [Property]
-    var ContextMenu : Archetype = Archetype.Find("ClickableText");
+    var ContextMenu : Archetype = Archetype.ClickableText;
     
     var CompositeAiCore : CompositeAiCore = null;
     
@@ -384,14 +384,13 @@ class PathBehavior : AiBehaviorBase
         {
             // Draw the waypoint
             var pos = this.WayPoints.Get(i);
-            var sphere = new DebugSphere();
-            sphere.Position(pos).Radius(0.1).Float4Color(local Real4(0.9));
+            var sphere = DebugSphere(pos, 0.1) {Color = Real4(0.9)};
             // If this is the point we're currently following draw the point blue
             if(i == this.FollowIndex)
             {
-                sphere.Float4Color(local Real4(0.0, 0.0, 1.0, 1.0));
+                sphere.Color = local Real4(0.0, 0.0, 1.0, 1.0);
             }
-            sphere.Draw();
+            DebugDraw.Add(sphere);
             
             var prevIndex = i - 1;
             // If the path is closed, make sure to wrap the previous point
@@ -410,9 +409,8 @@ class PathBehavior : AiBehaviorBase
             if(prevIndex >= 0)
             {
                 var prevPos = this.WayPoints.Get(prevIndex);
-                var line = new DebugLine();
-                line.Start(prevPos).End(pos).Float4Color(local Real4(0.9));
-                line.Draw();
+                var line = DebugLine(prevPos, pos) {Color = Real4(0.9)};
+                DebugDraw.Add(line);
             }
         }
     }

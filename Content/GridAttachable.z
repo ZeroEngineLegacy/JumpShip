@@ -24,7 +24,7 @@ class GridAttachable : ZilchComponent
     // When we separate we need to create a new root for us,
     // this is the archetype to create to do this.
     [Property]
-    var RootArchetype : Archetype = Archetype.Find("ObjectRoot");
+    var RootArchetype : Archetype = Archetype.ObjectRoot;
     
     // We need a reactive to get mouse events, although we
     // don't actually need the reactive component.
@@ -177,7 +177,7 @@ class GridAttachable : ZilchComponent
     {
         // Remove from old parent/grid
         oldGrid.RemovePiece(cog);
-        cog.RigidBody.Static = true;
+        cog.RigidBody.DynamicState = RigidBodyDynamicState.Static;
         cog.DetachRelative();
         // Add to new parent/grid
         cog.AttachToRelative(newRoot);
@@ -188,7 +188,7 @@ class GridAttachable : ZilchComponent
     {
         // To completely change over to a new root, we have to change our parent hierarchy
         // and then change our transform to the right spot
-        cog.RigidBody.Static = true;
+        cog.RigidBody.DynamicState = RigidBodyDynamicState.Static;
         this.ChangeToRoot(cog, oldGrid, info.Root, key);
         
         this.AttachAtKey(cog, info.CoreCog, key);

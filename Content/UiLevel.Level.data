@@ -1,382 +1,387 @@
-Level = 
+[Version:1]
+Level 
 {
-	LevelSettings = 
+	Cog 
 	{
-		LinkId = 
+		var Name = "LevelSettings"
+		var LinkId = 1
+		GravityEffect 
 		{
-			uint Id = 1,
-		},
-		Named = 
+			var Active = false
+			var WakeUpOnChange = false
+			var DebugDrawEffect = true
+			var LocalSpaceDirection = true
+			var Strength = 10
+			var Direction = Real3{0, -1, 0}
+		}
+		DragEffect 
 		{
-			string Name = "LevelSettings",
-		},
-		GravityEffect = 
-		{
-			bool Active = false,
-			bool WakeUpOnChange = false,
-			bool LocalSpaceDirection = true,
-			float Strength = 10,
-			Vec3 Direction = [0, -1, 0],
-		},
-		DragEffect = 
-		{
-			bool Active = false,
-			bool WakeUpOnChange = false,
-			float Drag = 0.7,
-		},
-		CameraViewport = 
-		{
-			bool Background = false,
-			Vec2 Offset = [0, 0],
-			Vec2 Size = [1, 1],
-			int Layer = 1,
-			bool Active = true,
-			bool Blocking = false,
-			uint Renderer = 1,
-			uint Camera = 2,
-			ViewportScaling Scaling = Letterbox,
-			Vec2 Resolution = [16, 9],
-			Vec4 MarginColor = [0, 0, 0, 1],
-		},
-		ForwardRenderer = 
-		{
-			Vec4 ClearColor = [0.278431, 0.278431, 0.278431, 1],
-		},
-	},
-	Cog = 
+			var Active = false
+			var WakeUpOnChange = false
+			var DebugDrawEffect = true
+			var LinearDamping = 0.200000003
+			var AngularDamping = 0.100000001
+			var LinearDrag = 0
+			var AngularDrag = 0
+		}
+	}
+	Cog 
 	{
-		LinkId = 
+		var Name = "Renderer"
+		var LinkId = 2
+		MyUiRenderer 
 		{
-			uint Id = 3,
-		},
-		Named = 
-		{
-			string Name = "EditorCamera",
-		},
-		Transform = 
-		{
-			Vec3 Translation = [-10.0754, -2.8007, 78],
-			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [-0, -1.09278e-008, 0, 1],
-		},
-		Camera = 
-		{
-			ProjectionMode ProjectionMode = Orthographic,
-			Facing Facing = NegativeZ,
-			SpriteSort SpriteSort = ZDepth,
-			string SpriteLayerOrder = "52b23ad3c402d436:DefaultSpriteLayerOrder",
-			float FieldOfView = 45,
-			float NearPlane = 0.5,
-			float FarPlane = 500,
-			float Size = 39,
-		},
-		EditorCameraController = 
-		{
-			ControlMode ControlMode = ZPlane,
-			float LookDistance = 38,
-			float VerticalAngle = 0,
-			float HorizontalAngle = 0,
-			Vec3 LookTarget = [-10.0754, -2.8007, 40],
-		},
-		EditorRenderer = 
-		{
-			Vec4 ClearColor = [0.278431, 0.278431, 0.278431, 1],
-		},
-	},
-	Cog = 
+			var ClearColor = Real4{0, 0, 0, 0}
+			var DrawDebug = true
+		}
+	}
+	Cog 
 	{
-		LinkId = 
+		var Name = "EditorCamera"
+		var LinkId = 3
+		Transform 
 		{
-			uint Id = 2,
-		},
-		Named = 
+			var Translation = Real3{-6.984375, -1.5304687, 38}
+			var Scale = Real3{1, 1, 1}
+			var Rotation = Quaternion{-0, -1.09278471e-08, 0, 1}
+		}
+		Camera 
 		{
-			string Name = "Camera",
-		},
-		Transform = 
+			var NearPlane = 0.5
+			var FarPlane = 500
+			var PerspectiveMode = PerspectiveMode.Orthographic
+			var FieldOfView = 45
+			var Size = 9.28904343
+		}
+		EditorCameraController 
 		{
-			Vec3 Translation = [-22.4255, -10.5352, 40],
-			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0, 0, 0, 1],
-		},
-		Camera = 
+			var ControlMode = ControlMode.ZPlane
+			var LookDistance = 38
+			var VerticalAngle = 0
+			var HorizontalAngle = 0
+			var LookTarget = Real3{-6.984375, -1.5304687, 0}
+			var MoveSensitivity = 1
+		}
+		CameraViewport 
 		{
-			ProjectionMode ProjectionMode = Orthographic,
-			Facing Facing = NegativeZ,
-			SpriteSort SpriteSort = ZDepth,
-			string SpriteLayerOrder = "52b23ad3c402d436:DefaultSpriteLayerOrder",
-			float FieldOfView = 45,
-			float NearPlane = 0.5,
-			float FarPlane = 200,
-			float Size = 20,
-		},
-	},
-	Cog = 
-	{
-		LinkId = 
-		{
-			uint Id = 4,
-		},
-		Named = 
-		{
-			string Name = "PlatinumVisual",
-		},
-		Transform = 
-		{
-			Vec3 Translation = [-5.5, -1.3, 0],
-			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0, 0, 0, 1],
-		},
-		Sprite = 
-		{
-			string SpriteSource = "522fe097bb9f098a:Platinum",
-			bool FlipX = false,
-			bool FlipY = false,
-			Vec4 Color = [1, 1, 1, 1],
-			bool Visible = true,
-			bool OnTop = true,
-			bool AnimationActive = true,
-			float AnimationSpeed = 1,
-			uint StartFrame = 0,
-			BlendMode BlendMode = Alpha,
-			SpriteGeometryMode GeometryMode = ZPlane,
-		},
-		Hierarchy = 
-		{
-			Cog = 
+			var RenderInEditor = true
+			var RenderInGame = false
+			var RenderToViewport = true
+			var ForwardViewportEvents = false
+			var RenderOrder = 1
+			var NormalizedSize = Real2{1, 1}
+			var NormalizedOffset = Real2{0, 0}
+			var Camera = CogPath
 			{
-				LinkId = 
-				{
-					uint Id = 5,
-				},
-				Named = 
-				{
-					string Name = "PlatinumText",
-				},
-				Transform = 
-				{
-					Vec3 Translation = [0, -0.5, 0],
-					Vec3 Scale = [1, 1, 1],
-					Quat Rotation = [0, 0, 0, 1],
-				},
-				SpriteText = 
-				{
-					SpriteGeometryMode GeometryMode = ZPlane,
-					TextPositionMode Position = Centered,
-					string FontName = "4e7bac697bec55c5:Verdana",
-					uint FontSize = 20,
-					Vec4 Color = [1, 1, 1, 1],
-					bool Visible = true,
-					string Text = "0",
-					bool OnTop = false,
-					BlendMode BlendMode = Alpha,
-					Vec2 Size = [0, 0],
-					TextAlign Align = Left,
-					float PixelsPerUnit = 64,
-					bool Smoothing = true,
-				},
-			},
-		},
-	},
-	Cog = 
-	{
-		LinkId = 
-		{
-			uint Id = 6,
-		},
-		Named = 
-		{
-			string Name = "SteelVisual",
-		},
-		Transform = 
-		{
-			Vec3 Translation = [-7, -1.3, 0],
-			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0, 0, 0, 1],
-		},
-		Sprite = 
-		{
-			string SpriteSource = "522fe084be388bc0:Steel",
-			bool FlipX = false,
-			bool FlipY = false,
-			Vec4 Color = [1, 1, 1, 1],
-			bool Visible = true,
-			bool OnTop = true,
-			bool AnimationActive = true,
-			float AnimationSpeed = 1,
-			uint StartFrame = 0,
-			BlendMode BlendMode = Alpha,
-			SpriteGeometryMode GeometryMode = ZPlane,
-		},
-		Hierarchy = 
-		{
-			Cog = 
+				var Path = "."
+				var ErrorOnResolveToNull = false
+				var ErrorOnPathCantCompute = false
+				var ErrorOnDirectLinkFail = false
+				var UpdateCogOnPathChange = true
+				var UpdatePathOnCogChange = true
+				var UpdateCogOnInitialize = true
+				var ResolvedNullErrorOccurred = false
+				var ResolvedCog = 3
+				var PathPreference0 = CogPathPreference.CogRelative
+				var PathPreference1 = CogPathPreference.SpaceRelative
+				var PathPreference2 = CogPathPreference.Absolute
+			}
+			var Renderer = CogPath
 			{
-				LinkId = 
-				{
-					uint Id = 7,
-				},
-				Named = 
-				{
-					string Name = "SteelText",
-				},
-				Transform = 
-				{
-					Vec3 Translation = [0, -0.5, 0],
-					Vec3 Scale = [0.5, 0.5, 0.5],
-					Quat Rotation = [0, 0, 0, 1],
-				},
-				SpriteText = 
-				{
-					SpriteGeometryMode GeometryMode = ZPlane,
-					TextPositionMode Position = Centered,
-					string FontName = "4e7bac697bec55c5:Verdana",
-					uint FontSize = 40,
-					Vec4 Color = [1, 1, 1, 1],
-					bool Visible = true,
-					string Text = "0",
-					bool OnTop = false,
-					BlendMode BlendMode = Alpha,
-					Vec2 Size = [0, 0],
-					TextAlign Align = Left,
-					float PixelsPerUnit = 64,
-					bool Smoothing = true,
-				},
-			},
-		},
-	},
-	Cog = 
+				var Path = ":/Renderer"
+				var ErrorOnResolveToNull = false
+				var ErrorOnPathCantCompute = false
+				var ErrorOnDirectLinkFail = false
+				var UpdateCogOnPathChange = true
+				var UpdatePathOnCogChange = true
+				var UpdateCogOnInitialize = true
+				var ResolvedNullErrorOccurred = false
+				var ResolvedCog = 2
+				var PathPreference0 = CogPathPreference.CogRelative
+				var PathPreference1 = CogPathPreference.SpaceRelative
+				var PathPreference2 = CogPathPreference.Absolute
+			}
+			var Resolution = Real2{1280, 720}
+			var ViewportScaling = ViewportScaling.Fill
+			var MarginColor = Real4{0, 0, 0, 1}
+		}
+	}
+	Cog 
 	{
-		LinkId = 
+		var Name = "Camera"
+		var LinkId = 4
+		Transform 
 		{
-			uint Id = 8,
-		},
-		Named = 
+			var Translation = Real3{-22.4255009, -10.5352001, 40}
+			var Scale = Real3{1, 1, 1}
+			var Rotation = Quaternion{0, 0, 0, 1}
+		}
+		Camera 
 		{
-			string Name = "ZincVisual",
-		},
-		Transform = 
+			var NearPlane = 0.5
+			var FarPlane = 200
+			var PerspectiveMode = PerspectiveMode.Orthographic
+			var FieldOfView = 45
+			var Size = 20
+		}
+		CameraViewport 
 		{
-			Vec3 Translation = [-8.5, -1.3, 0],
-			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0, 0, 0, 1],
-		},
-		Sprite = 
-		{
-			string SpriteSource = "522fe316535da728:Zinc",
-			bool FlipX = false,
-			bool FlipY = false,
-			Vec4 Color = [1, 1, 1, 1],
-			bool Visible = true,
-			bool OnTop = true,
-			bool AnimationActive = true,
-			float AnimationSpeed = 1,
-			uint StartFrame = 0,
-			BlendMode BlendMode = Alpha,
-			SpriteGeometryMode GeometryMode = ZPlane,
-		},
-		Hierarchy = 
-		{
-			Cog = 
+			var RenderInEditor = false
+			var RenderInGame = true
+			var RenderToViewport = true
+			var ForwardViewportEvents = true
+			var RenderOrder = 1
+			var NormalizedSize = Real2{1, 1}
+			var NormalizedOffset = Real2{0, 0}
+			var Camera = CogPath
 			{
-				LinkId = 
-				{
-					uint Id = 9,
-				},
-				Named = 
-				{
-					string Name = "ZincText",
-				},
-				Transform = 
-				{
-					Vec3 Translation = [0, -0.5, 0],
-					Vec3 Scale = [0.5, 0.5, 0.5],
-					Quat Rotation = [0, 0, 0, 1],
-				},
-				SpriteText = 
-				{
-					SpriteGeometryMode GeometryMode = ZPlane,
-					TextPositionMode Position = Centered,
-					string FontName = "4e7bac697bec55c5:Verdana",
-					uint FontSize = 40,
-					Vec4 Color = [1, 1, 1, 1],
-					bool Visible = true,
-					string Text = "0",
-					bool OnTop = false,
-					BlendMode BlendMode = Alpha,
-					Vec2 Size = [0, 0],
-					TextAlign Align = Left,
-					float PixelsPerUnit = 64,
-					bool Smoothing = true,
-				},
-			},
-		},
-	},
-	Cog = 
+				var Path = "."
+				var ErrorOnResolveToNull = false
+				var ErrorOnPathCantCompute = false
+				var ErrorOnDirectLinkFail = false
+				var UpdateCogOnPathChange = true
+				var UpdatePathOnCogChange = true
+				var UpdateCogOnInitialize = true
+				var ResolvedNullErrorOccurred = false
+				var ResolvedCog = 4
+				var PathPreference0 = CogPathPreference.CogRelative
+				var PathPreference1 = CogPathPreference.SpaceRelative
+				var PathPreference2 = CogPathPreference.Absolute
+			}
+			var Renderer = CogPath
+			{
+				var Path = ":/Renderer"
+				var ErrorOnResolveToNull = false
+				var ErrorOnPathCantCompute = false
+				var ErrorOnDirectLinkFail = false
+				var UpdateCogOnPathChange = true
+				var UpdatePathOnCogChange = true
+				var UpdateCogOnInitialize = true
+				var ResolvedNullErrorOccurred = false
+				var ResolvedCog = 2
+				var PathPreference0 = CogPathPreference.CogRelative
+				var PathPreference1 = CogPathPreference.SpaceRelative
+				var PathPreference2 = CogPathPreference.Absolute
+			}
+			var Resolution = Real2{1280, 720}
+			var ViewportScaling = ViewportScaling.Fill
+			var MarginColor = Real4{0, 0, 0, 1}
+		}
+	}
+	Cog 
 	{
-		LinkId = 
+		var Name = "PlatinumVisual"
+		var LinkId = 5
+		Transform 
 		{
-			uint Id = 10,
-		},
-		Named = 
+			var Translation = Real3{-5.5, -1.29999995, 0}
+			var Scale = Real3{1, 1, 1}
+			var Rotation = Quaternion{0, 0, 0, 1}
+		}
+		Sprite 
 		{
-			string Name = "ExpVisual",
-		},
-		Transform = 
+			var Visible = true
+			var ViewCulling = true
+			var VisibilityEvents = true
+			var Material = "582c575af53d18c9:AlphaSprite"
+			var VertexColor = Real4{1, 1, 1, 1}
+			var GeometryMode = SpriteGeometryMode.ZPlane
+			var SpriteSource = "522fe097bb9f098a:Platinum"
+			var FlipX = false
+			var FlipY = false
+			var AnimationActive = true
+			var AnimationSpeed = 1
+			var StartFrame = 0
+		}
+		Hierarchy 
 		{
-			Vec3 Translation = [-10, -1.3, 0],
-			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0, 0, 0, 1],
-		},
-		Sprite = 
-		{
-			string SpriteSource = "522d3039be042f23:ExperienceGreen",
-			bool FlipX = false,
-			bool FlipY = false,
-			Vec4 Color = [1, 1, 1, 1],
-			bool Visible = true,
-			bool OnTop = true,
-			bool AnimationActive = true,
-			float AnimationSpeed = 1,
-			uint StartFrame = 0,
-			BlendMode BlendMode = Alpha,
-			SpriteGeometryMode GeometryMode = ZPlane,
-		},
-		Hierarchy = 
-		{
-			Cog = 
+			Cog 
 			{
-				LinkId = 
+				var Name = "PlatinumText"
+				var LinkId = 6
+				Transform 
 				{
-					uint Id = 11,
-				},
-				Named = 
+					var Translation = Real3{0, -0.5, 0}
+					var Scale = Real3{1, 1, 1}
+					var Rotation = Quaternion{0, 0, 0, 1}
+				}
+				SpriteText 
 				{
-					string Name = "ExpText",
-				},
-				Transform = 
+					var Visible = true
+					var ViewCulling = true
+					var VisibilityEvents = true
+					var Material = "582c575af53d18c9:AlphaSprite"
+					var VertexColor = Real4{1, 1, 1, 1}
+					var GeometryMode = SpriteGeometryMode.ZPlane
+					var Font = "57343753bb4eaaec:NotoSans-Regular"
+					var FontSize = 20
+					var Text = "0"
+					var Align = TextAlign.Left
+					var PixelsPerUnit = 64
+				}
+			}
+		}
+	}
+	Cog 
+	{
+		var Name = "SteelVisual"
+		var LinkId = 7
+		Transform 
+		{
+			var Translation = Real3{-7, -1.29999995, 0}
+			var Scale = Real3{1, 1, 1}
+			var Rotation = Quaternion{0, 0, 0, 1}
+		}
+		Sprite 
+		{
+			var Visible = true
+			var ViewCulling = true
+			var VisibilityEvents = true
+			var Material = "582c575af53d18c9:AlphaSprite"
+			var VertexColor = Real4{1, 0.99000001, 0.99000001, 0.999899983}
+			var GeometryMode = SpriteGeometryMode.ZPlane
+			var SpriteSource = "522fe084be388bc0:Steel"
+			var FlipX = false
+			var FlipY = false
+			var AnimationActive = true
+			var AnimationSpeed = 1
+			var StartFrame = 0
+		}
+		Hierarchy 
+		{
+			Cog 
+			{
+				var Name = "SteelText"
+				var LinkId = 8
+				Transform 
 				{
-					Vec3 Translation = [0, -0.5, 0],
-					Vec3 Scale = [0.5, 0.5, 0.5],
-					Quat Rotation = [0, 0, 0, 1],
-				},
-				SpriteText = 
+					var Translation = Real3{0, -0.5, 0}
+					var Scale = Real3{0.5, 0.5, 0.5}
+					var Rotation = Quaternion{0, 0, 0, 1}
+				}
+				SpriteText 
 				{
-					SpriteGeometryMode GeometryMode = ZPlane,
-					TextPositionMode Position = Centered,
-					string FontName = "4e7bac697bec55c5:Verdana",
-					uint FontSize = 40,
-					Vec4 Color = [1, 1, 1, 1],
-					bool Visible = true,
-					string Text = "0",
-					bool OnTop = false,
-					BlendMode BlendMode = Alpha,
-					Vec2 Size = [0, 0],
-					TextAlign Align = Left,
-					float PixelsPerUnit = 64,
-					bool Smoothing = true,
-				},
-			},
-		},
-	},
-},
+					var Visible = true
+					var ViewCulling = true
+					var VisibilityEvents = true
+					var Material = "582c575af53d18c9:AlphaSprite"
+					var VertexColor = Real4{1, 1, 1, 1}
+					var GeometryMode = SpriteGeometryMode.ZPlane
+					var Font = "57343753bb4eaaec:NotoSans-Regular"
+					var FontSize = 40
+					var Text = "0"
+					var Align = TextAlign.Left
+					var PixelsPerUnit = 64
+				}
+			}
+		}
+	}
+	Cog 
+	{
+		var Name = "ZincVisual"
+		var LinkId = 9
+		Transform 
+		{
+			var Translation = Real3{-8.5, -1.29999995, 0}
+			var Scale = Real3{1, 1, 1}
+			var Rotation = Quaternion{0, 0, 0, 1}
+		}
+		Sprite 
+		{
+			var Visible = true
+			var ViewCulling = true
+			var VisibilityEvents = true
+			var Material = "582c575af53d18c9:AlphaSprite"
+			var VertexColor = Real4{1, 1, 1, 1}
+			var GeometryMode = SpriteGeometryMode.ZPlane
+			var SpriteSource = "522fe316535da728:Zinc"
+			var FlipX = false
+			var FlipY = false
+			var AnimationActive = true
+			var AnimationSpeed = 1
+			var StartFrame = 0
+		}
+		Hierarchy 
+		{
+			Cog 
+			{
+				var Name = "ZincText"
+				var LinkId = 10
+				Transform 
+				{
+					var Translation = Real3{0, -0.5, 0}
+					var Scale = Real3{0.5, 0.5, 0.5}
+					var Rotation = Quaternion{0, 0, 0, 1}
+				}
+				SpriteText 
+				{
+					var Visible = true
+					var ViewCulling = true
+					var VisibilityEvents = true
+					var Material = "582c575af53d18c9:AlphaSprite"
+					var VertexColor = Real4{1, 1, 1, 1}
+					var GeometryMode = SpriteGeometryMode.ZPlane
+					var Font = "57343753bb4eaaec:NotoSans-Regular"
+					var FontSize = 40
+					var Text = "0"
+					var Align = TextAlign.Left
+					var PixelsPerUnit = 64
+				}
+			}
+		}
+	}
+	Cog 
+	{
+		var Name = "ExpVisual"
+		var LinkId = 11
+		Transform 
+		{
+			var Translation = Real3{-10, -1.29999995, 0}
+			var Scale = Real3{1, 1, 1}
+			var Rotation = Quaternion{0, 0, 0, 1}
+		}
+		Sprite 
+		{
+			var Visible = true
+			var ViewCulling = true
+			var VisibilityEvents = true
+			var Material = "582c575af53d18c9:AlphaSprite"
+			var VertexColor = Real4{1, 1, 1, 1}
+			var GeometryMode = SpriteGeometryMode.ZPlane
+			var SpriteSource = "522d3039be042f23:ExperienceGreen"
+			var FlipX = false
+			var FlipY = false
+			var AnimationActive = true
+			var AnimationSpeed = 1
+			var StartFrame = 0
+		}
+		Hierarchy 
+		{
+			Cog 
+			{
+				var Name = "ExpText"
+				var LinkId = 12
+				Transform 
+				{
+					var Translation = Real3{0, -0.5, 0}
+					var Scale = Real3{0.5, 0.5, 0.5}
+					var Rotation = Quaternion{0, 0, 0, 1}
+				}
+				SpriteText 
+				{
+					var Visible = true
+					var ViewCulling = true
+					var VisibilityEvents = true
+					var Material = "582c575af53d18c9:AlphaSprite"
+					var VertexColor = Real4{1, 1, 1, 1}
+					var GeometryMode = SpriteGeometryMode.ZPlane
+					var Font = "57343753bb4eaaec:NotoSans-Regular"
+					var FontSize = 40
+					var Text = "0"
+					var Align = TextAlign.Left
+					var PixelsPerUnit = 64
+				}
+			}
+		}
+	}
+}

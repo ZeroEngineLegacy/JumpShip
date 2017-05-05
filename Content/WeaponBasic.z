@@ -7,7 +7,7 @@ class WeaponBasic : ZilchComponent
     
     // The curve to represent how fast we'll fire the bullet based upon our current level.
     [Property]
-    var FireSpeedCurve : SampleCurve = SampleCurve.Find("WeaponSpeed");
+    var FireSpeedCurve : SampleCurve = SampleCurve.WeaponSpeed;
     
     [Dependency]
     var Upgradable : Upgradable = null;

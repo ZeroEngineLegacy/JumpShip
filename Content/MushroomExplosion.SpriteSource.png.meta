@@ -1,19 +1,21 @@
-ImageContent = 
+[Version:1]
+ImageContent 
 {
-	SpriteSourceBuilder = 
+	SpriteSourceBuilder 
 	{
-		string Name = "MushroomExplosion",
-		uint64 ResourceId = 52247b1d57f6a828,
-		uint64 AtlasId = 5274cf95e4a661fd,
-		uint FrameSizeX = 24,
-		uint FrameSizeY = 31,
-		uint FrameCount = 18,
-		float FrameDelay = 0.0416667,
-		float OriginX = 12,
-		float OriginY = 15,
-		float PixelsPerUnit = 32,
-		bool Smoothing = false,
-		bool Looping = false,
-		Vec4 Slices = [0, 0, 0, 0],
-	},
-},
+		var Name = "MushroomExplosion"
+		var ResourceId = 0x52247b1d57f6a828
+		var AtlasId = 0x5274cf95e4a661fd
+		var FrameSizeX = 24
+		var FrameSizeY = 31
+		var FrameCount = 18
+		var FrameDelay = 0.0416667014
+		var OriginX = 12
+		var OriginY = 15
+		var PixelsPerUnit = 32
+		var Sampling = SpriteSampling.Nearest
+		var Looping = false
+		var Slices = Real4{0, 0, 0, 0}
+		var Fill = SpriteFill.Stretch
+	}
+}

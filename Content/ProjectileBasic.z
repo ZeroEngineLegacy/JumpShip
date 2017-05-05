@@ -10,7 +10,7 @@ class ProjectileBasic : ZilchComponent
     
     // The amount of damage we'll do based upon our current level.
     [Property]
-    var DamageCurve : SampleCurve = SampleCurve.Find("DamageCurve");
+    var DamageCurve : SampleCurve = SampleCurve.DamageCurve;
     
     [Dependency]
     var Projectile : Projectile = null;

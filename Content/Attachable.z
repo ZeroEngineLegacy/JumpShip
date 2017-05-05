@@ -31,7 +31,7 @@ class Attachable : ZilchComponent
         var body = this.Owner.RigidBody;
         if(body != null)
         {
-            body.Static = true;
+            body.DynamicState = RigidBodyDynamicState.Static;
         }
     }
     
@@ -62,7 +62,7 @@ class Attachable : ZilchComponent
         var body = this.Owner.RigidBody;
         if(body != null)
         {
-            body.Static = false;
+            body.DynamicState = RigidBodyDynamicState.Dynamic;
         }
     }
 }

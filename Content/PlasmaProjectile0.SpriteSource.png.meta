@@ -1,26 +1,28 @@
-ImageContent = 
+[Version:1]
+ImageContent 
 {
-	ContentTags = 
+	ContentTags 
 	{
-		object Tags = 
-		[
-			"Plasma",
-		],
-	},
-	SpriteSourceBuilder = 
+		var Tags = Array
+		{
+			"Plasma"
+		}
+	}
+	SpriteSourceBuilder 
 	{
-		string Name = "PlasmaProjectile0",
-		uint64 ResourceId = 5226e9b95f2c146e,
-		uint64 AtlasId = 5274cf95e4a661fd,
-		uint FrameSizeX = 7,
-		uint FrameSizeY = 14,
-		uint FrameCount = 1,
-		float FrameDelay = 0.0833333,
-		float OriginX = 3,
-		float OriginY = 7,
-		float PixelsPerUnit = 32,
-		bool Smoothing = false,
-		bool Looping = true,
-		Vec4 Slices = [0, 0, 0, 0],
-	},
-},
+		var Name = "PlasmaProjectile0"
+		var ResourceId = 0x5226e9b95f2c146e
+		var AtlasId = 0x5274cf95e4a661fd
+		var FrameSizeX = 7
+		var FrameSizeY = 14
+		var FrameCount = 1
+		var FrameDelay = 0.0833332986
+		var OriginX = 3
+		var OriginY = 7
+		var PixelsPerUnit = 32
+		var Sampling = SpriteSampling.Nearest
+		var Looping = true
+		var Slices = Real4{0, 0, 0, 0}
+		var Fill = SpriteFill.Stretch
+	}
+}

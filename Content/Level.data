@@ -1,2873 +1,1146 @@
-Level = 
+[Version:1]
+Level 
 {
-	Cog = 
+	Cog 
 	{
-		LinkId = 
+		var Name = "LevelSettings"
+		var LinkId = 1
+		GravityEffect 
 		{
-			uint Id = 1,
-		},
-		Named = 
+			var Active = false
+			var WakeUpOnChange = false
+			var DebugDrawEffect = true
+			var LocalSpaceDirection = true
+			var Strength = 10
+			var Direction = Real3{0, -1, 0}
+		}
+		DragEffect 
 		{
-			string Name = "LevelSettings",
-		},
-		GravityEffect = 
+			var Active = true
+			var WakeUpOnChange = false
+			var DebugDrawEffect = true
+			var LinearDamping = 0.699999988
+			var AngularDamping = 0.100000001
+			var LinearDrag = 0
+			var AngularDrag = 0
+		}
+		RandomContext 
 		{
-			bool Active = false,
-			bool WakeUpOnChange = false,
-			bool LocalSpaceDirection = true,
-			float Strength = 10,
-			Vec3 Direction = [0, -1, 0],
-		},
-		DragEffect = 
+			var RandomSeed = false
+			var Seed = 20
+		}
+		GameLogic 
 		{
-			bool Active = true,
-			bool WakeUpOnChange = false,
-			float Drag = 0.7,
-		},
-		CameraViewport = 
+			var PlayerArchetype = "5212778c31aa05ed:PlayerRoot"
+			var AsteroidArchetype = "522fce3953e69354:BigAsteroid"
+			var CameraName = "Camera"
+			var NumberOfAsteroids = 100
+			var SampleBoxSize = 100
+			var EnemeySpawnRate = 60
+			var PieceTypes = "52f1ab1f3b6cbf24:PieceTypes"
+			var WeaponTypes = "52ed957c975996cd:WeaponTypes"
+		}
+		UnitTests 
 		{
-			bool Background = true,
-			Vec2 Offset = [0, 0],
-			Vec2 Size = [1, 1],
-			int Layer = 0,
-			bool Active = true,
-			bool Blocking = false,
-			CogPath Renderer = 
+			var ScreenShotsToTake = 10
+		}
+	}
+	Cog 
+	{
+		var Name = "Renderer"
+		var LinkId = 2
+		DeferredRenderer 
+		{
+			var DrawDebug = true
+			var GeometryDebug = GeometryValue.None
+			var ShowDiffuse = true
+			var ShowSpecular = true
+			var Skybox = "5827acd640fecdcb:ZeroMetallic"
+			var ClearColor = Real4{0, 0, 0, 1}
+			var DrawSkybox = true
+			var DirectLighting = true
+			var IndirectLighting = true
+			var IndirectIntensity = 1
+			var ToneMap = true
+		}
+	}
+	Cog 
+	{
+		var Name = "EditorCamera"
+		var LinkId = 3
+		Transform 
+		{
+			var Translation = Real3{16.2727432, -1.25672913, 19.1980076}
+			var Scale = Real3{1, 1, 1}
+			var Rotation = Quaternion{0.0564549379, 0.0913544744, -0.00518748024, 0.994203389}
+		}
+		Camera 
+		{
+			var NearPlane = 0.5
+			var FarPlane = 500
+			var PerspectiveMode = PerspectiveMode.Perspective
+			var FieldOfView = 45
+			var Size = 20.3220367
+		}
+		EditorCameraController 
+		{
+			var ControlMode = ControlMode.Orbit
+			var LookDistance = 19.197382
+			var VerticalAngle = -0.113446355
+			var HorizontalAngle = -0.183259621
+			var LookTarget = Real3{12.7967863, 0.916475296, 0.443424225}
+			var MoveSensitivity = 1
+		}
+		EditorRenderer 
+		{
+			var ClearColor = Vec4{}
+			var DrawNonVisible = true
+			var DrawDebugObjects = true
+			var DrawEditorIcons = true
+			var Wireframe = false
+		}
+		CameraViewport 
+		{
+			var RenderInEditor = true
+			var RenderInGame = false
+			var RenderToViewport = true
+			var ForwardViewportEvents = false
+			var RenderOrder = 0
+			var NormalizedSize = Real2{1, 1}
+			var NormalizedOffset = Real2{0, 0}
+			var Camera = CogPath
 			{
-				string Path = ".",
-				bool ErrorOnResolveToNull = false,
-				bool ErrorOnPathCantCompute = false,
-				bool ErrorOnDirectLinkFail = false,
-				bool UpdateCogOnPathChange = true,
-				bool UpdatePathOnCogChange = true,
-				bool UpdateCogOnInitialize = true,
-				bool ResolvedNullErrorOccurred = false,
-				uint ResolvedCog = 1,
-				CogPathPreference PathPreference0 = CogRelative,
-				CogPathPreference PathPreference1 = SpaceRelative,
-				CogPathPreference PathPreference2 = Absolute,
-			},
-			CogPath Camera = 
+				var Path = "."
+				var ErrorOnResolveToNull = false
+				var ErrorOnPathCantCompute = false
+				var ErrorOnDirectLinkFail = false
+				var UpdateCogOnPathChange = true
+				var UpdatePathOnCogChange = true
+				var UpdateCogOnInitialize = true
+				var ResolvedNullErrorOccurred = false
+				var ResolvedCog = 3
+				var PathPreference0 = CogPathPreference.CogRelative
+				var PathPreference1 = CogPathPreference.SpaceRelative
+				var PathPreference2 = CogPathPreference.Absolute
+			}
+			var Renderer = CogPath
 			{
-				string Path = ":/Camera",
-				bool ErrorOnResolveToNull = false,
-				bool ErrorOnPathCantCompute = false,
-				bool ErrorOnDirectLinkFail = false,
-				bool UpdateCogOnPathChange = true,
-				bool UpdatePathOnCogChange = true,
-				bool UpdateCogOnInitialize = true,
-				bool ResolvedNullErrorOccurred = false,
-				uint ResolvedCog = 2,
-				CogPathPreference PathPreference0 = CogRelative,
-				CogPathPreference PathPreference1 = SpaceRelative,
-				CogPathPreference PathPreference2 = Absolute,
-			},
-			ViewportScaling Scaling = Letterbox,
-			Vec2 Resolution = [16, 9],
-			Vec4 MarginColor = [0, 0, 0, 1],
-		},
-		ForwardRenderer = 
-		{
-			Vec4 ClearColor = [0, 0, 0, 1],
-			bool DrawNonVisible = false,
-			bool DrawDebugObjects = true,
-			bool DrawEditorIcons = true,
-			bool EditorIconDepth = true,
-			bool Wireframe = false,
-		},
-		RandomContext = 
-		{
-			bool RandomSeed = false,
-			uint Seed = 20,
-		},
-		GameLogic = 
-		{
-			string PlayerArchetype = "5212778c31aa05ed:PlayerRoot",
-			string AsteroidArchetype = "522fce3953e69354:BigAsteroid",
-			string CameraName = "Camera",
-			int NumberOfAsteroids = 100,
-			float SampleBoxSize = 100,
-			float EnemeySpawnRate = 60,
-			string PieceTypes = "52f1ab1f3b6cbf24:PieceTypes",
-			string WeaponTypes = "52ed957c975996cd:WeaponTypes",
-		},
-		UnitTests = 
-		{
-			int ScreenShotsToTake = 10,
-		},
-	},
-	Cog = 
+				var Path = ":/Renderer"
+				var ErrorOnResolveToNull = false
+				var ErrorOnPathCantCompute = false
+				var ErrorOnDirectLinkFail = false
+				var UpdateCogOnPathChange = true
+				var UpdatePathOnCogChange = true
+				var UpdateCogOnInitialize = true
+				var ResolvedNullErrorOccurred = false
+				var ResolvedCog = 2
+				var PathPreference0 = CogPathPreference.CogRelative
+				var PathPreference1 = CogPathPreference.SpaceRelative
+				var PathPreference2 = CogPathPreference.Absolute
+			}
+			var Resolution = Real2{1280, 720}
+			var ViewportScaling = ViewportScaling.Fill
+			var MarginColor = Real4{0, 0, 0, 1}
+		}
+	}
+	Cog 
 	{
-		LinkId = 
+		var Name = "Camera"
+		var LinkId = 4
+		Transform 
 		{
-			uint Id = 3,
-		},
-		Named = 
+			var Translation = Real3{-2.45061994, 0, 40}
+			var Scale = Real3{1, 1, 1}
+			var Rotation = Quaternion{0, 0, 0, 1}
+		}
+		Camera 
 		{
-			string Name = "EditorCamera",
-		},
-		Transform = 
+			var NearPlane = 0.5
+			var FarPlane = 200
+			var PerspectiveMode = PerspectiveMode.Orthographic
+			var FieldOfView = 45
+			var Size = 13
+		}
+		DeepSpaceEffect 
 		{
-			Vec3 Translation = [3.3045, 0.135847, 50],
-			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [-0, -1.09278e-008, 0, 1],
-		},
-		Camera = 
+			var Stars = "521f5a45e70d4453:Stars"
+			var Nebula = "521f5a0df51443c6:Nebula"
+		}
+		CameraController 
 		{
-			ProjectionMode ProjectionMode = Orthographic,
-			Facing Facing = NegativeZ,
-			CameraTransparentSort TransparentSort = InheritFromSpace,
-			float FieldOfView = 45,
-			float NearPlane = 0.5,
-			float FarPlane = 500,
-			float Size = 23.0811,
-		},
-		EditorCameraController = 
+		}
+		CameraGroupFocus 
 		{
-			ControlMode ControlMode = ZPlane,
-			float LookDistance = 50,
-			float VerticalAngle = 0,
-			float HorizontalAngle = 0,
-			Vec3 LookTarget = [3.3045, 0.135847, 0],
-			float MoveSensitivity = 1,
-		},
-		EditorRenderer = 
+			var PlaneNormal = Real3{0, 0, -1}
+			var PlaneDistanceScalar = 1
+			var PlaneDistanceConstant = 10
+			var MinDistance = 20
+			var Smoothness = 0.600000024
+			var TranslationSmoothness = 0.100000001
+			var PositionOffset = Real3{0, 0, 0}
+			var ControlsOffset = true
+			var ControlsOrientation = true
+		}
+		CameraViewport 
 		{
-			Vec4 ClearColor = [0.278431, 0.278431, 0.278431, 1],
-			bool DrawNonVisible = true,
-			bool DrawDebugObjects = true,
-			bool DrawEditorIcons = true,
-			bool Wireframe = false,
-		},
-	},
-	Cog = 
-	{
-		LinkId = 
-		{
-			uint Id = 2,
-		},
-		Named = 
-		{
-			string Name = "Camera",
-		},
-		Transform = 
-		{
-			Vec3 Translation = [-2.45062, 0, 40],
-			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0, 0, 0, 1],
-		},
-		Camera = 
-		{
-			ProjectionMode ProjectionMode = Orthographic,
-			Facing Facing = NegativeZ,
-			CameraTransparentSort TransparentSort = InheritFromSpace,
-			float FieldOfView = 45,
-			float NearPlane = 0.5,
-			float FarPlane = 200,
-			float Size = 13,
-		},
-		DeepSpaceEffect = 
-		{
-			string Stars = "521f5a45e70d4453:Stars",
-			string Nebula = "521f5a0df51443c6:Nebula",
-		},
-		CameraController = 
-		{
-		},
-		CameraGroupFocus = 
-		{
-			Vec3 PlaneNormal = [0, 0, -1],
-			float PlaneDistanceScalar = 1,
-			float PlaneDistanceConstant = 10,
-			float MinDistance = 20,
-			float Smoothness = 0.6,
-			float TranslationSmoothness = 0.1,
-			Vec3 PositionOffset = [0, 0, 0],
-			bool ControlsOffset = true,
-			bool ControlsOrientation = true,
-		},
-	},
-	Cog = 
-	{
-		LinkId = 
-		{
-			uint Id = 4,
-		},
-		Named = 
-		{
-			string Name = "Root",
-		},
-		Transform = 
-		{
-			Vec3 Translation = [6.50283, -3.83051, 0],
-			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0, 0, 0, 1],
-		},
-		RigidBody = 
-		{
-			bool Static = false,
-			bool Asleep = false,
-			bool Kinematic = false,
-			bool RotationLocked = false,
-			bool Mode2D = true,
-			bool AllowSleep = true,
-			bool Inherit2DMode = true,
-			Vec3 Velocity = [0, 0, 0],
-			Vec3 AngularVelocity = [0, 0, 0],
-		},
-		ObjectGrid = 
-		{
-			string DisplayArchetype = "5252e76acb5e3746:GridCellSprite",
-		},
-		CoreLink = 
-		{
-		},
-		Attachable = 
-		{
-		},
-		Hierarchy = 
-		{
-			ArchetypeInstance = 
+			var RenderInEditor = false
+			var RenderInGame = true
+			var RenderToViewport = true
+			var ForwardViewportEvents = false
+			var RenderOrder = 0
+			var NormalizedSize = Real2{1, 1}
+			var NormalizedOffset = Real2{0, 0}
+			var Camera = CogPath
 			{
-				string Name = "5252cbce47d0c501:Turbine",
-				LinkId = 
-				{
-					uint Id = 5,
-				},
-				Transform = 
-				{
-					Vec3 Translation = [0, 0, 0],
-					Vec3 Scale = [1, 1, 1],
-					Quat Rotation = [0, 0, 0, 1],
-				},
-				Named = 
-				{
-					string Name = "Turbine",
-				},
-			},
-		},
-	},
-	Cog = 
-	{
-		LinkId = 
-		{
-			uint Id = 6,
-		},
-		Named = 
-		{
-			string Name = "Test",
-		},
-		Transform = 
-		{
-			Vec3 Translation = [-5.40465, 1.90229, 0],
-			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0, 0, 1, 0.000386486],
-		},
-		RigidBody = 
-		{
-			bool Static = false,
-			bool Asleep = false,
-			bool Kinematic = false,
-			bool RotationLocked = false,
-			bool Mode2D = true,
-			bool AllowSleep = true,
-			bool Inherit2DMode = true,
-			Vec3 Velocity = [0, 0, 0],
-			Vec3 AngularVelocity = [0, 0, 0],
-		},
-		ObjectGrid = 
-		{
-			string DisplayArchetype = "5252e76acb5e3746:GridCellSprite",
-		},
-		CoreLink = 
-		{
-		},
-		Attachable = 
-		{
-		},
-		Hierarchy = 
-		{
-			Cog = 
+				var Path = "."
+				var ErrorOnResolveToNull = false
+				var ErrorOnPathCantCompute = false
+				var ErrorOnDirectLinkFail = false
+				var UpdateCogOnPathChange = true
+				var UpdatePathOnCogChange = true
+				var UpdateCogOnInitialize = true
+				var ResolvedNullErrorOccurred = false
+				var ResolvedCog = 4
+				var PathPreference0 = CogPathPreference.CogRelative
+				var PathPreference1 = CogPathPreference.SpaceRelative
+				var PathPreference2 = CogPathPreference.Absolute
+			}
+			var Renderer = CogPath
 			{
-				LinkId = 
-				{
-					uint Id = 7,
-				},
-				Named = 
-				{
-					string Name = "Player",
-				},
-				Transform = 
-				{
-					Vec3 Translation = [0, 0, 0],
-					Vec3 Scale = [1, 1, 1],
-					Quat Rotation = [0, 0, 0, 1],
-				},
-				RigidBody = 
-				{
-					bool Static = true,
-					bool Asleep = false,
-					bool Kinematic = false,
-					bool RotationLocked = false,
-					bool Mode2D = true,
-					bool AllowSleep = true,
-					bool Inherit2DMode = true,
-					Vec3 Velocity = [0, 0, 0],
-					Vec3 AngularVelocity = [0, 0, 0],
-				},
-				BoxCollider = 
-				{
-					bool Ghost = false,
-					bool SendsMessages = true,
-					bool Seamless = true,
-					string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
-					string SerializedGroupName = "4e740859314e5515:DefaultGroup",
-					Vec3 Offset = [0, 0, 0],
-					Vec3 Size = [0.5, 0.5, 0.1],
-				},
-				Sprite = 
-				{
-					bool Visible = true,
-					bool VisibilityCulling = true,
-					bool VisibilityEvents = true,
-					bool CastShadows = false,
-					Vec4 Color = [1, 1, 1, 1],
-					BlendMode BlendMode = Alpha,
-					SpriteGeometryMode GeometryMode = ZPlane,
-					string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-					string SpriteSource = "524dc939f7a122eb:Core",
-					bool RenderMask = false,
-					bool FlipX = false,
-					bool FlipY = false,
-					bool AnimationActive = true,
-					float AnimationSpeed = 1,
-					uint StartFrame = 0,
-				},
-				Orientation = 
-				{
-					Vec3 GlobalUp = [0, 0, 1],
-					Vec3 UpVector = [0, 0, 1],
-					Vec3 ForwardVector = [0, 1, 0],
-					OrientationBases DefaultBases = ForwardZUpY,
-				},
-				Core = 
-				{
-				},
-				Health = 
-				{
-					float MaxHealth = 50,
-					bool DestroyAtZeroHealth = true,
-				},
-				GridAttachable = 
-				{
-					bool IsDraggable = false,
-					string RootArchetype = "525b9b8a9d8d8062:ObjectRoot",
-				},
-				CreateOnDestroy = 
-				{
-					string ArchetypeToCreate = "52247a3f629e359a:Explosion",
-				},
-				Hierarchy = 
-				{
-				},
-			},
-			ArchetypeInstance = 
+				var Path = ":/Renderer"
+				var ErrorOnResolveToNull = false
+				var ErrorOnPathCantCompute = false
+				var ErrorOnDirectLinkFail = false
+				var UpdateCogOnPathChange = true
+				var UpdatePathOnCogChange = true
+				var UpdateCogOnInitialize = true
+				var ResolvedNullErrorOccurred = false
+				var ResolvedCog = 2
+				var PathPreference0 = CogPathPreference.CogRelative
+				var PathPreference1 = CogPathPreference.SpaceRelative
+				var PathPreference2 = CogPathPreference.Absolute
+			}
+			var Resolution = Real2{1280, 720}
+			var ViewportScaling = ViewportScaling.Fill
+			var MarginColor = Real4{0, 0, 0, 1}
+		}
+	}
+	Cog 
+	{
+		var Name = "Root"
+		var LinkId = 5
+		Transform 
+		{
+			var Translation = Real3{6.50283003, -3.8305099, 0}
+			var Scale = Real3{1, 1, 1}
+			var Rotation = Quaternion{0, 0, 0, 1}
+		}
+		RigidBody 
+		{
+			var Velocity = Real3{0, 0, 0}
+			var AngularVelocity = Real3{0, 0, 0}
+			var DynamicState = RigidBodyDynamicState.Dynamic
+			var AllowSleep = true
+			var Asleep = false
+			var RotationLocked = false
+			var Mode2D = Mode2DStates.Mode2D
+		}
+		ObjectGrid 
+		{
+			var DisplayArchetype = "5252e76acb5e3746:GridCellSprite"
+		}
+		CoreLink 
+		{
+		}
+		Attachable 
+		{
+		}
+		Hierarchy 
+		{
+			Cog [InheritId:"5252cbce47d0c501:Turbine"]
 			{
-				string Name = "5252cbce47d0c501:Turbine",
-				LinkId = 
-				{
-					uint Id = 8,
-				},
-				Transform = 
-				{
-					Vec3 Translation = [0, -1, 0],
-					Vec3 Scale = [1, 1, 1],
-					Quat Rotation = [0, 0, 0, 1],
-				},
-				Named = 
-				{
-					string Name = "Turbine",
-				},
-			},
-			ArchetypeInstance = 
+			}
+		}
+	}
+	Cog 
+	{
+		var Name = "Root"
+		var LinkId = 6
+		Transform 
+		{
+			var Translation = Real3{4.79429007, 0.135847002, 0}
+			var Scale = Real3{1, 1, 1}
+			var Rotation = Quaternion{0, 0, 0, 1}
+		}
+		RigidBody 
+		{
+			var Velocity = Real3{0, 0, 0}
+			var AngularVelocity = Real3{0, 0, 0}
+			var DynamicState = RigidBodyDynamicState.Dynamic
+			var AllowSleep = true
+			var Asleep = false
+			var RotationLocked = false
+			var Mode2D = Mode2DStates.Mode2D
+		}
+		ObjectGrid 
+		{
+			var DisplayArchetype = "5252e76acb5e3746:GridCellSprite"
+		}
+		CoreLink 
+		{
+		}
+		Attachable 
+		{
+		}
+		Hierarchy 
+		{
+			Cog [InheritId:"52244e49c1f35507:HullBasic"]
 			{
-				string Name = "5252cbce47d0c501:Turbine",
-				LinkId = 
-				{
-					uint Id = 9,
-				},
-				Transform = 
-				{
-					Vec3 Translation = [0, 1, 0],
-					Vec3 Scale = [1, 1, 1],
-					Quat Rotation = [0, 0, 0, 1],
-				},
-				Named = 
-				{
-					string Name = "Turbine",
-				},
-			},
-			ArchetypeInstance = 
+			}
+		}
+	}
+	Cog 
+	{
+		var Name = "Root"
+		var LinkId = 7
+		Transform 
+		{
+			var Translation = Real3{4.79429007, 1.50537002, 0}
+			var Scale = Real3{1, 1, 1}
+			var Rotation = Quaternion{0, 0, 0, 1}
+		}
+		RigidBody 
+		{
+			var Velocity = Real3{0, 0, 0}
+			var AngularVelocity = Real3{0, 0, 0}
+			var DynamicState = RigidBodyDynamicState.Dynamic
+			var AllowSleep = true
+			var Asleep = false
+			var RotationLocked = false
+			var Mode2D = Mode2DStates.Mode2D
+		}
+		ObjectGrid 
+		{
+			var DisplayArchetype = "5252e76acb5e3746:GridCellSprite"
+		}
+		CoreLink 
+		{
+		}
+		Attachable 
+		{
+		}
+		Hierarchy 
+		{
+			Cog [InheritId:"52244e49c1f35507:HullBasic"]
 			{
-				string Name = "5252cbce47d0c501:Turbine",
-				LinkId = 
-				{
-					uint Id = 10,
-				},
-				Transform = 
-				{
-					Vec3 Translation = [0, -2, 0],
-					Vec3 Scale = [1, 1, 1],
-					Quat Rotation = [0, 0, 0, 1],
-				},
-				Named = 
-				{
-					string Name = "Turbine",
-				},
-			},
-			ArchetypeInstance = 
+			}
+		}
+	}
+	Cog 
+	{
+		var Name = "Root"
+		var LinkId = 8
+		Transform 
+		{
+			var Translation = Real3{6.21392012, 1.50537002, 0}
+			var Scale = Real3{1, 1, 1}
+			var Rotation = Quaternion{0, 0, 0, 1}
+		}
+		RigidBody 
+		{
+			var Velocity = Real3{0, 0, 0}
+			var AngularVelocity = Real3{0, 0, 0}
+			var DynamicState = RigidBodyDynamicState.Dynamic
+			var AllowSleep = true
+			var Asleep = false
+			var RotationLocked = false
+			var Mode2D = Mode2DStates.Mode2D
+		}
+		ObjectGrid 
+		{
+			var DisplayArchetype = "5252e76acb5e3746:GridCellSprite"
+		}
+		CoreLink 
+		{
+		}
+		Attachable 
+		{
+		}
+		Hierarchy 
+		{
+			Cog [InheritId:"52244e49c1f35507:HullBasic"]
 			{
-				string Name = "5252cbce47d0c501:Turbine",
-				LinkId = 
-				{
-					uint Id = 11,
-				},
-				Transform = 
-				{
-					Vec3 Translation = [1, -1, 0],
-					Vec3 Scale = [1, 1, 1],
-					Quat Rotation = [0, 0, 0, 1],
-				},
-				Named = 
-				{
-					string Name = "Turbine",
-				},
-			},
-			ArchetypeInstance = 
+			}
+		}
+	}
+	Cog 
+	{
+		var Name = "Root"
+		var LinkId = 9
+		Transform 
+		{
+			var Translation = Real3{6.21392012, 0.135847002, 0}
+			var Scale = Real3{1, 1, 1}
+			var Rotation = Quaternion{0, 0, 0, 1}
+		}
+		RigidBody 
+		{
+			var Velocity = Real3{0, 0, 0}
+			var AngularVelocity = Real3{0, 0, 0}
+			var DynamicState = RigidBodyDynamicState.Dynamic
+			var AllowSleep = true
+			var Asleep = false
+			var RotationLocked = false
+			var Mode2D = Mode2DStates.Mode2D
+		}
+		ObjectGrid 
+		{
+			var DisplayArchetype = "5252e76acb5e3746:GridCellSprite"
+		}
+		CoreLink 
+		{
+		}
+		Attachable 
+		{
+		}
+		Hierarchy 
+		{
+			Cog [InheritId:"52244e49c1f35507:HullBasic"]
 			{
-				string Name = "5252cbce47d0c501:Turbine",
-				LinkId = 
-				{
-					uint Id = 12,
-				},
-				Transform = 
-				{
-					Vec3 Translation = [1, -2, 0],
-					Vec3 Scale = [1, 1, 1],
-					Quat Rotation = [0, 0, 0, 1],
-				},
-				Named = 
-				{
-					string Name = "Turbine",
-				},
-			},
-		},
-	},
-	Cog = 
+			}
+		}
+	}
+	Cog 
 	{
-		LinkId = 
+		var Name = "Root"
+		var LinkId = 10
+		Transform 
 		{
-			uint Id = 13,
-		},
-		Named = 
+			var Translation = Real3{2.01849008, 0.135847002, 0}
+			var Scale = Real3{1, 1, 1}
+			var Rotation = Quaternion{0, 0, 0, 1}
+		}
+		RigidBody 
 		{
-			string Name = "Root",
-		},
-		Transform = 
+			var Velocity = Real3{0, 0, 0}
+			var AngularVelocity = Real3{0, 0, 0}
+			var DynamicState = RigidBodyDynamicState.Dynamic
+			var AllowSleep = true
+			var Asleep = false
+			var RotationLocked = false
+			var Mode2D = Mode2DStates.Mode2D
+		}
+		ObjectGrid 
 		{
-			Vec3 Translation = [4.79429, 0.135847, 0],
-			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0, 0, 0, 1],
-		},
-		RigidBody = 
+			var DisplayArchetype = "5252e76acb5e3746:GridCellSprite"
+		}
+		CoreLink 
 		{
-			bool Static = false,
-			bool Asleep = false,
-			bool Kinematic = false,
-			bool RotationLocked = false,
-			bool Mode2D = true,
-			bool AllowSleep = true,
-			bool Inherit2DMode = true,
-			Vec3 Velocity = [0, 0, 0],
-			Vec3 AngularVelocity = [0, 0, 0],
-		},
-		ObjectGrid = 
+		}
+		Attachable 
 		{
-			string DisplayArchetype = "5252e76acb5e3746:GridCellSprite",
-		},
-		CoreLink = 
+		}
+		Hierarchy 
 		{
-		},
-		Attachable = 
-		{
-		},
-		Hierarchy = 
-		{
-			ArchetypeInstance = 
+			Cog [InheritId:"52244e49c1f35507:HullBasic"]
 			{
-				string Name = "52244e49c1f35507:HullBasic",
-				LinkId = 
-				{
-					uint Id = 14,
-				},
-				Transform = 
-				{
-					Vec3 Translation = [0, 0, 0],
-					Vec3 Scale = [1, 1, 1],
-					Quat Rotation = [0, 0, 0, 1],
-				},
-				Named = 
-				{
-					string Name = "HullBasic",
-				},
-			},
-		},
-	},
-	Cog = 
+			}
+		}
+	}
+	Cog 
 	{
-		LinkId = 
+		var Name = "Root"
+		var LinkId = 11
+		Transform 
 		{
-			uint Id = 15,
-		},
-		Named = 
+			var Translation = Real3{2.01849008, 1.50537002, 0}
+			var Scale = Real3{1, 1, 1}
+			var Rotation = Quaternion{0, 0, 0, 1}
+		}
+		RigidBody 
 		{
-			string Name = "Root",
-		},
-		Transform = 
+			var Velocity = Real3{0, 0, 0}
+			var AngularVelocity = Real3{0, 0, 0}
+			var DynamicState = RigidBodyDynamicState.Dynamic
+			var AllowSleep = true
+			var Asleep = false
+			var RotationLocked = false
+			var Mode2D = Mode2DStates.Mode2D
+		}
+		ObjectGrid 
 		{
-			Vec3 Translation = [4.79429, 1.50537, 0],
-			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0, 0, 0, 1],
-		},
-		RigidBody = 
+			var DisplayArchetype = "5252e76acb5e3746:GridCellSprite"
+		}
+		CoreLink 
 		{
-			bool Static = false,
-			bool Asleep = false,
-			bool Kinematic = false,
-			bool RotationLocked = false,
-			bool Mode2D = true,
-			bool AllowSleep = true,
-			bool Inherit2DMode = true,
-			Vec3 Velocity = [0, 0, 0],
-			Vec3 AngularVelocity = [0, 0, 0],
-		},
-		ObjectGrid = 
+		}
+		Attachable 
 		{
-			string DisplayArchetype = "5252e76acb5e3746:GridCellSprite",
-		},
-		CoreLink = 
+		}
+		Hierarchy 
 		{
-		},
-		Attachable = 
-		{
-		},
-		Hierarchy = 
-		{
-			ArchetypeInstance = 
+			Cog [InheritId:"52244e49c1f35507:HullBasic"]
 			{
-				string Name = "52244e49c1f35507:HullBasic",
-				LinkId = 
-				{
-					uint Id = 16,
-				},
-				Transform = 
-				{
-					Vec3 Translation = [0, 0, 0],
-					Vec3 Scale = [1, 1, 1],
-					Quat Rotation = [0, 0, 0, 1],
-				},
-				Named = 
-				{
-					string Name = "HullBasic",
-				},
-			},
-		},
-	},
-	Cog = 
+			}
+		}
+	}
+	Cog 
 	{
-		LinkId = 
+		var Name = "Root"
+		var LinkId = 12
+		Transform 
 		{
-			uint Id = 17,
-		},
-		Named = 
+			var Translation = Real3{3.3045001, 1.50537002, 0}
+			var Scale = Real3{1, 1, 1}
+			var Rotation = Quaternion{0, 0, 0, 1}
+		}
+		RigidBody 
 		{
-			string Name = "Root",
-		},
-		Transform = 
+			var Velocity = Real3{0, 0, 0}
+			var AngularVelocity = Real3{0, 0, 0}
+			var DynamicState = RigidBodyDynamicState.Dynamic
+			var AllowSleep = true
+			var Asleep = false
+			var RotationLocked = false
+			var Mode2D = Mode2DStates.Mode2D
+		}
+		ObjectGrid 
 		{
-			Vec3 Translation = [6.21392, 1.50537, 0],
-			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0, 0, 0, 1],
-		},
-		RigidBody = 
+			var DisplayArchetype = "5252e76acb5e3746:GridCellSprite"
+		}
+		CoreLink 
 		{
-			bool Static = false,
-			bool Asleep = false,
-			bool Kinematic = false,
-			bool RotationLocked = false,
-			bool Mode2D = true,
-			bool AllowSleep = true,
-			bool Inherit2DMode = true,
-			Vec3 Velocity = [0, 0, 0],
-			Vec3 AngularVelocity = [0, 0, 0],
-		},
-		ObjectGrid = 
+		}
+		Attachable 
 		{
-			string DisplayArchetype = "5252e76acb5e3746:GridCellSprite",
-		},
-		CoreLink = 
+		}
+		Hierarchy 
 		{
-		},
-		Attachable = 
-		{
-		},
-		Hierarchy = 
-		{
-			ArchetypeInstance = 
+			Cog [InheritId:"52244e49c1f35507:HullBasic"]
 			{
-				string Name = "52244e49c1f35507:HullBasic",
-				LinkId = 
-				{
-					uint Id = 18,
-				},
-				Transform = 
-				{
-					Vec3 Translation = [0, 0, 0],
-					Vec3 Scale = [1, 1, 1],
-					Quat Rotation = [0, 0, 0, 1],
-				},
-				Named = 
-				{
-					string Name = "HullBasic",
-				},
-			},
-		},
-	},
-	Cog = 
+			}
+		}
+	}
+	Cog 
 	{
-		LinkId = 
+		var Name = "Root"
+		var LinkId = 13
+		Transform 
 		{
-			uint Id = 19,
-		},
-		Named = 
+			var Translation = Real3{3.3045001, 0.135847002, 0}
+			var Scale = Real3{1, 1, 1}
+			var Rotation = Quaternion{0, 0, 0, 1}
+		}
+		RigidBody 
 		{
-			string Name = "Root",
-		},
-		Transform = 
+			var Velocity = Real3{0, 0, 0}
+			var AngularVelocity = Real3{0, 0, 0}
+			var DynamicState = RigidBodyDynamicState.Dynamic
+			var AllowSleep = true
+			var Asleep = false
+			var RotationLocked = false
+			var Mode2D = Mode2DStates.Mode2D
+		}
+		ObjectGrid 
 		{
-			Vec3 Translation = [6.21392, 0.135847, 0],
-			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0, 0, 0, 1],
-		},
-		RigidBody = 
+			var DisplayArchetype = "5252e76acb5e3746:GridCellSprite"
+		}
+		CoreLink 
 		{
-			bool Static = false,
-			bool Asleep = false,
-			bool Kinematic = false,
-			bool RotationLocked = false,
-			bool Mode2D = true,
-			bool AllowSleep = true,
-			bool Inherit2DMode = true,
-			Vec3 Velocity = [0, 0, 0],
-			Vec3 AngularVelocity = [0, 0, 0],
-		},
-		ObjectGrid = 
+		}
+		Attachable 
 		{
-			string DisplayArchetype = "5252e76acb5e3746:GridCellSprite",
-		},
-		CoreLink = 
+		}
+		Hierarchy 
 		{
-		},
-		Attachable = 
-		{
-		},
-		Hierarchy = 
-		{
-			ArchetypeInstance = 
+			Cog [InheritId:"52244e49c1f35507:HullBasic"]
 			{
-				string Name = "52244e49c1f35507:HullBasic",
-				LinkId = 
-				{
-					uint Id = 20,
-				},
-				Transform = 
-				{
-					Vec3 Translation = [0, 0, 0],
-					Vec3 Scale = [1, 1, 1],
-					Quat Rotation = [0, 0, 0, 1],
-				},
-				Named = 
-				{
-					string Name = "HullBasic",
-				},
-			},
-		},
-	},
-	Cog = 
+			}
+		}
+	}
+	Cog 
 	{
-		LinkId = 
+		var Name = "Root"
+		var LinkId = 14
+		Transform 
 		{
-			uint Id = 21,
-		},
-		Named = 
+			var Translation = Real3{-4.39764977, -1.67489004, 0}
+			var Scale = Real3{1, 1, 1}
+			var Rotation = Quaternion{0, 0, 0, 1}
+		}
+		RigidBody 
 		{
-			string Name = "Root",
-		},
-		Transform = 
+			var Velocity = Real3{0, 0, 0}
+			var AngularVelocity = Real3{0, 0, 0}
+			var DynamicState = RigidBodyDynamicState.Dynamic
+			var AllowSleep = true
+			var Asleep = false
+			var RotationLocked = false
+			var Mode2D = Mode2DStates.Mode2D
+		}
+		ObjectGrid 
 		{
-			Vec3 Translation = [2.01849, 0.135847, 0],
-			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0, 0, 0, 1],
-		},
-		RigidBody = 
+			var DisplayArchetype = "5252e76acb5e3746:GridCellSprite"
+		}
+		CoreLink 
 		{
-			bool Static = false,
-			bool Asleep = false,
-			bool Kinematic = false,
-			bool RotationLocked = false,
-			bool Mode2D = true,
-			bool AllowSleep = true,
-			bool Inherit2DMode = true,
-			Vec3 Velocity = [0, 0, 0],
-			Vec3 AngularVelocity = [0, 0, 0],
-		},
-		ObjectGrid = 
+		}
+		Attachable 
 		{
-			string DisplayArchetype = "5252e76acb5e3746:GridCellSprite",
-		},
-		CoreLink = 
+		}
+		Hierarchy 
 		{
-		},
-		Attachable = 
-		{
-		},
-		Hierarchy = 
-		{
-			Cog = 
+			Cog [InheritId:"522efcf6f14384fd:Shield"]
 			{
-				LinkId = 
-				{
-					uint Id = 22,
-				},
-				Named = 
-				{
-					string Name = "HullBasic",
-				},
-				Archetyped = 
-				{
-					string Name = "52244e49c1f35507:HullBasic",
-				},
-				Transform = 
-				{
-					Vec3 Translation = [0, 0, 0],
-					Vec3 Scale = [1, 1, 1],
-					Quat Rotation = [0, 0, 0, 1],
-				},
-				RigidBody = 
-				{
-					bool Static = true,
-					bool Asleep = false,
-					bool Kinematic = false,
-					bool RotationLocked = false,
-					bool Mode2D = true,
-					bool AllowSleep = true,
-					bool Inherit2DMode = true,
-					Vec3 Velocity = [0, 0, 0],
-					Vec3 AngularVelocity = [0, 0, 0],
-				},
-				BoxCollider = 
-				{
-					bool Ghost = false,
-					bool SendsMessages = true,
-					bool Seamless = true,
-					string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
-					string SerializedGroupName = "4e740859314e5515:DefaultGroup",
-					Vec3 Offset = [0, 0, 0],
-					Vec3 Size = [0.5, 0.5, 0.05],
-				},
-				Sprite = 
-				{
-					bool Visible = true,
-					bool VisibilityCulling = true,
-					bool VisibilityEvents = true,
-					bool CastShadows = false,
-					Vec4 Color = [1, 1, 1, 1],
-					BlendMode BlendMode = Alpha,
-					SpriteGeometryMode GeometryMode = ZPlane,
-					string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-					string SpriteSource = "522230c6abcdce55:Connector",
-					bool RenderMask = false,
-					bool FlipX = false,
-					bool FlipY = false,
-					bool AnimationActive = true,
-					float AnimationSpeed = 1,
-					uint StartFrame = 0,
-				},
-				Reactive = 
-				{
-					bool Active = true,
-					bool CaptureMouse = true,
-				},
-				GridAttachable = 
-				{
-					bool IsDraggable = true,
-					string RootArchetype = "525b9b8a9d8d8062:ObjectRoot",
-				},
-				ItemMount = 
-				{
-					string DisplayArchetype = "5252e76acb5e3746:GridCellSprite",
-					Vec3 DisplayCogScale = [0.5, 0.5, 1],
-				},
-				Health = 
-				{
-					float MaxHealth = 50,
-					bool DestroyAtZeroHealth = true,
-				},
-				CreateOnDestroy = 
-				{
-					string ArchetypeToCreate = "52247a3f629e359a:Explosion",
-				},
-			},
-		},
-	},
-	Cog = 
+			}
+		}
+	}
+	Cog [InheritId:"522d0a2389c5ff62:LargeExperience"]
 	{
-		LinkId = 
+	}
+	Cog [InheritId:"522ffc42f787cfb7:Platinum"]
+	{
+	}
+	Cog [InheritId:"522d0a318a3d2edf:SmallExperience"]
+	{
+	}
+	Cog [InheritId:"522ffcbcf4ca6d8b:Steel"]
+	{
+	}
+	Cog [InheritId:"522d0a148ca4407f:MediumExperience"]
+	{
+	}
+	Cog [InheritId:"522ffcb7f5d840b3:Zinc"]
+	{
+	}
+	Cog [InheritId:"522d0a2389c5ff62:LargeExperience"]
+	{
+	}
+	Cog [InheritId:"522ffcb7f5d840b3:Zinc"]
+	{
+	}
+	Cog 
+	{
+		var Name = "Root"
+		var LinkId = 15
+		Transform 
 		{
-			uint Id = 23,
-		},
-		Named = 
+			var Translation = Real3{1.01908004, -1.62655997, 0}
+			var Scale = Real3{1, 1, 1}
+			var Rotation = Quaternion{0, 0, 0, 1}
+		}
+		RigidBody 
 		{
-			string Name = "Root",
-		},
-		Transform = 
+			var Velocity = Real3{0, 0, 0}
+			var AngularVelocity = Real3{0, 0, 0}
+			var DynamicState = RigidBodyDynamicState.Dynamic
+			var AllowSleep = true
+			var Asleep = false
+			var RotationLocked = false
+			var Mode2D = Mode2DStates.Mode2D
+		}
+		CoreLink 
 		{
-			Vec3 Translation = [2.01849, 1.50537, 0],
-			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0, 0, 0, 1],
-		},
-		RigidBody = 
+		}
+		Attachable 
 		{
-			bool Static = false,
-			bool Asleep = false,
-			bool Kinematic = false,
-			bool RotationLocked = false,
-			bool Mode2D = true,
-			bool AllowSleep = true,
-			bool Inherit2DMode = true,
-			Vec3 Velocity = [0, 0, 0],
-			Vec3 AngularVelocity = [0, 0, 0],
-		},
-		ObjectGrid = 
+		}
+		Hierarchy 
 		{
-			string DisplayArchetype = "5252e76acb5e3746:GridCellSprite",
-		},
-		CoreLink = 
-		{
-		},
-		Attachable = 
-		{
-		},
-		Hierarchy = 
-		{
-			ArchetypeInstance = 
+			Cog [InheritId:"522ee43aa74829c4:SonicWeapon"]
 			{
-				string Name = "52244e49c1f35507:HullBasic",
-				LinkId = 
-				{
-					uint Id = 24,
-				},
-				Transform = 
-				{
-					Vec3 Translation = [0, 0, 0],
-					Vec3 Scale = [1, 1, 1],
-					Quat Rotation = [0, 0, 0, 1],
-				},
-				Named = 
-				{
-					string Name = "HullBasic",
-				},
-			},
-		},
-	},
-	Cog = 
+			}
+		}
+	}
+	Cog 
 	{
-		LinkId = 
+		var Name = "Root"
+		var LinkId = 16
+		Transform 
 		{
-			uint Id = 25,
-		},
-		Named = 
+			var Translation = Real3{0.0081324596, -1.63656998, 0}
+			var Scale = Real3{1, 1, 1}
+			var Rotation = Quaternion{0, 0, 0, 1}
+		}
+		RigidBody 
 		{
-			string Name = "Root",
-		},
-		Transform = 
+			var Velocity = Real3{0, 0, 0}
+			var AngularVelocity = Real3{0, 0, 0}
+			var DynamicState = RigidBodyDynamicState.Dynamic
+			var AllowSleep = true
+			var Asleep = false
+			var RotationLocked = false
+			var Mode2D = Mode2DStates.Mode2D
+		}
+		CoreLink 
 		{
-			Vec3 Translation = [3.3045, 1.50537, 0],
-			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0, 0, 0, 1],
-		},
-		RigidBody = 
+		}
+		Attachable 
 		{
-			bool Static = false,
-			bool Asleep = false,
-			bool Kinematic = false,
-			bool RotationLocked = false,
-			bool Mode2D = true,
-			bool AllowSleep = true,
-			bool Inherit2DMode = true,
-			Vec3 Velocity = [0, 0, 0],
-			Vec3 AngularVelocity = [0, 0, 0],
-		},
-		ObjectGrid = 
+		}
+		Hierarchy 
 		{
-			string DisplayArchetype = "5252e76acb5e3746:GridCellSprite",
-		},
-		CoreLink = 
-		{
-		},
-		Attachable = 
-		{
-		},
-		Hierarchy = 
-		{
-			ArchetypeInstance = 
+			Cog [InheritId:"522ee5c5a10b9f53:PlasmaWeapon"]
 			{
-				string Name = "52244e49c1f35507:HullBasic",
-				LinkId = 
-				{
-					uint Id = 26,
-				},
-				Transform = 
-				{
-					Vec3 Translation = [0, 0, 0],
-					Vec3 Scale = [1, 1, 1],
-					Quat Rotation = [0, 0, 0, 1],
-				},
-				Named = 
-				{
-					string Name = "HullBasic",
-				},
-			},
-		},
-	},
-	Cog = 
+			}
+		}
+	}
+	Cog 
 	{
-		LinkId = 
+		var Name = "Root"
+		var LinkId = 17
+		Transform 
 		{
-			uint Id = 27,
-		},
-		Named = 
+			var Translation = Real3{2.16406989, -1.67262995, 0}
+			var Scale = Real3{1, 1, 1}
+			var Rotation = Quaternion{0, 0, 0, 1}
+		}
+		RigidBody 
 		{
-			string Name = "Root",
-		},
-		Transform = 
+			var Velocity = Real3{0, 0, 0}
+			var AngularVelocity = Real3{0, 0, 0}
+			var DynamicState = RigidBodyDynamicState.Dynamic
+			var AllowSleep = true
+			var Asleep = false
+			var RotationLocked = false
+			var Mode2D = Mode2DStates.Mode2D
+		}
+		CoreLink 
 		{
-			Vec3 Translation = [3.3045, 0.135847, 0],
-			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0, 0, 0, 1],
-		},
-		RigidBody = 
+		}
+		Attachable 
 		{
-			bool Static = false,
-			bool Asleep = false,
-			bool Kinematic = false,
-			bool RotationLocked = false,
-			bool Mode2D = true,
-			bool AllowSleep = true,
-			bool Inherit2DMode = true,
-			Vec3 Velocity = [0, 0, 0],
-			Vec3 AngularVelocity = [0, 0, 0],
-		},
-		ObjectGrid = 
+		}
+		Hierarchy 
 		{
-			string DisplayArchetype = "5252e76acb5e3746:GridCellSprite",
-		},
-		CoreLink = 
-		{
-		},
-		Attachable = 
-		{
-		},
-		Hierarchy = 
-		{
-			ArchetypeInstance = 
+			Cog [InheritId:"523a75c99faa64bd:MissileWeapon"]
 			{
-				string Name = "52244e49c1f35507:HullBasic",
-				LinkId = 
-				{
-					uint Id = 28,
-				},
-				Transform = 
-				{
-					Vec3 Translation = [0, 0, 0],
-					Vec3 Scale = [1, 1, 1],
-					Quat Rotation = [0, 0, 0, 1],
-				},
-				Named = 
-				{
-					string Name = "HullBasic",
-				},
-			},
-		},
-	},
-	Cog = 
+			}
+		}
+	}
+	Cog 
 	{
-		LinkId = 
+		var Name = "Root"
+		var LinkId = 18
+		Transform 
 		{
-			uint Id = 29,
-		},
-		Named = 
+			var Translation = Real3{3.13986993, -1.61626005, 0}
+			var Scale = Real3{1, 1, 1}
+			var Rotation = Quaternion{0, 0, 0, 1}
+		}
+		RigidBody 
 		{
-			string Name = "Root",
-		},
-		Transform = 
+			var Velocity = Real3{0, 0, 0}
+			var AngularVelocity = Real3{0, 0, 0}
+			var DynamicState = RigidBodyDynamicState.Dynamic
+			var AllowSleep = true
+			var Asleep = false
+			var RotationLocked = false
+			var Mode2D = Mode2DStates.Mode2D
+		}
+		CoreLink 
 		{
-			Vec3 Translation = [-4.39765, -1.67489, 0],
-			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0, 0, 0, 1],
-		},
-		RigidBody = 
+		}
+		Attachable 
 		{
-			bool Static = false,
-			bool Asleep = false,
-			bool Kinematic = false,
-			bool RotationLocked = false,
-			bool Mode2D = true,
-			bool AllowSleep = true,
-			bool Inherit2DMode = true,
-			Vec3 Velocity = [0, 0, 0],
-			Vec3 AngularVelocity = [0, 0, 0],
-		},
-		ObjectGrid = 
+		}
+		Hierarchy 
 		{
-			string DisplayArchetype = "5252e76acb5e3746:GridCellSprite",
-		},
-		CoreLink = 
-		{
-		},
-		Attachable = 
-		{
-		},
-		Hierarchy = 
-		{
-			Cog = 
+			Cog [InheritId:"523c8e9054cadb11:BeamWeapon"]
 			{
-				LinkId = 
-				{
-					uint Id = 30,
-				},
-				Named = 
-				{
-					string Name = "Shield",
-				},
-				Archetyped = 
-				{
-					string Name = "522efcf6f14384fd:Shield",
-				},
-				Transform = 
-				{
-					Vec3 Translation = [0, 0, 0],
-					Vec3 Scale = [1, 1, 1],
-					Quat Rotation = [0, 0, 0, 1],
-				},
-				RigidBody = 
-				{
-					bool Static = true,
-					bool Asleep = false,
-					bool Kinematic = false,
-					bool RotationLocked = false,
-					bool Mode2D = true,
-					bool AllowSleep = true,
-					bool Inherit2DMode = true,
-					Vec3 Velocity = [0, 0, 0],
-					Vec3 AngularVelocity = [0, 0, 0],
-				},
-				BoxCollider = 
-				{
-					bool Ghost = false,
-					bool SendsMessages = true,
-					bool Seamless = true,
-					string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
-					string SerializedGroupName = "4e740859314e5515:DefaultGroup",
-					Vec3 Offset = [0, 0, 0],
-					Vec3 Size = [0.5, 0.5, 0.05],
-				},
-				Sprite = 
-				{
-					bool Visible = true,
-					bool VisibilityCulling = true,
-					bool VisibilityEvents = true,
-					bool CastShadows = false,
-					Vec4 Color = [1, 1, 1, 1],
-					BlendMode BlendMode = Alpha,
-					SpriteGeometryMode GeometryMode = ZPlane,
-					string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-					string SpriteSource = "524dc84db87b9edc:ShieldConnector",
-					bool RenderMask = false,
-					bool FlipX = false,
-					bool FlipY = false,
-					bool AnimationActive = true,
-					float AnimationSpeed = 1,
-					uint StartFrame = 0,
-				},
-				Reactive = 
-				{
-					bool Active = true,
-					bool CaptureMouse = true,
-				},
-				GridAttachable = 
-				{
-					bool IsDraggable = true,
-					string RootArchetype = "525b9b8a9d8d8062:ObjectRoot",
-				},
-				Health = 
-				{
-					float MaxHealth = 50,
-					bool DestroyAtZeroHealth = true,
-				},
-				CreateOnDestroy = 
-				{
-					string ArchetypeToCreate = "52247a3f629e359a:Explosion",
-				},
-				Shield = 
-				{
-					string BarrierArchetype = "522efcb5c5064cfe:ShieldBarrier",
-					string RechareRateCurve = "522ee3f842b9833f:ShieldRechargeRate",
-					string ShieldRadiusCurve = "522edbdb92b4259a:ShieldRadius",
-					Vec4 RechargeColor = [0.2, 0.2, 0, 1],
-				},
-				Upgradable = 
-				{
-					float Level = 0,
-					string UpgradeWindow = "5230b4fb7a12c599:UpgradeWindow",
-				},
-				Hierarchy = 
-				{
-				},
-			},
-		},
-	},
-	ArchetypeInstance = 
+			}
+		}
+	}
+	Cog 
 	{
-		string Name = "522d0a2389c5ff62:LargeExperience",
-		LinkId = 
+		var Name = "Root"
+		var LinkId = 19
+		Transform 
 		{
-			uint Id = 31,
-		},
-		Transform = 
+			var Translation = Real3{-3.00334001, -1.67489004, 0}
+			var Scale = Real3{1, 1, 1}
+			var Rotation = Quaternion{0, 0, 0, 1}
+		}
+		RigidBody 
 		{
-			Vec3 Translation = [14.1367, -3.66481, 0],
-			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0, 0, 0, 1],
-		},
-	},
-	Cog = 
-	{
-		LinkId = 
+			var Velocity = Real3{0, 0, 0}
+			var AngularVelocity = Real3{0, 0, 0}
+			var DynamicState = RigidBodyDynamicState.Dynamic
+			var AllowSleep = true
+			var Asleep = false
+			var RotationLocked = false
+			var Mode2D = Mode2DStates.Mode2D
+		}
+		ObjectGrid 
 		{
-			uint Id = 32,
-		},
-		Archetyped = 
+			var DisplayArchetype = "5252e76acb5e3746:GridCellSprite"
+		}
+		CoreLink 
 		{
-			string Name = "522ffc42f787cfb7:Platinum",
-		},
-		Transform = 
+		}
+		Attachable 
 		{
-			Vec3 Translation = [12.4179, -4.55835, 0],
-			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0, 0, 0, 1],
-		},
-		Sprite = 
+		}
+		Hierarchy 
 		{
-			bool Visible = true,
-			bool VisibilityCulling = true,
-			bool VisibilityEvents = true,
-			bool CastShadows = false,
-			Vec4 Color = [1, 1, 1, 1],
-			BlendMode BlendMode = Alpha,
-			SpriteGeometryMode GeometryMode = ZPlane,
-			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-			string SpriteSource = "522fe097bb9f098a:Platinum",
-			bool RenderMask = false,
-			bool FlipX = false,
-			bool FlipY = false,
-			bool AnimationActive = true,
-			float AnimationSpeed = 1,
-			uint StartFrame = 0,
-		},
-		SphereCollider = 
-		{
-			bool Ghost = false,
-			bool SendsMessages = true,
-			bool Seamless = false,
-			string MaterialName = "4faa6050b8692851:HardMaterial",
-			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
-			Vec3 Offset = [0, 0, 0],
-			float Radius = 0.25,
-		},
-		RigidBody = 
-		{
-			bool Static = false,
-			bool Asleep = false,
-			bool Kinematic = false,
-			bool RotationLocked = false,
-			bool Mode2D = true,
-			bool AllowSleep = true,
-			bool Inherit2DMode = true,
-			Vec3 Velocity = [0, 0, 0],
-			Vec3 AngularVelocity = [0, 0, 0],
-		},
-		Pickup = 
-		{
-			string ResourceType = "Platinum",
-			float Value = 10,
-		},
-	},
-	ArchetypeInstance = 
-	{
-		string Name = "522d0a318a3d2edf:SmallExperience",
-		LinkId = 
-		{
-			uint Id = 33,
-		},
-		Transform = 
-		{
-			Vec3 Translation = [13.5516, -3.66481, 0],
-			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0, 0, 0, 1],
-		},
-	},
-	Cog = 
-	{
-		LinkId = 
-		{
-			uint Id = 34,
-		},
-		Archetyped = 
-		{
-			string Name = "522ffcbcf4ca6d8b:Steel",
-		},
-		Transform = 
-		{
-			Vec3 Translation = [13.4639, -4.55835, 0],
-			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0, 0, 0, 1],
-		},
-		Sprite = 
-		{
-			bool Visible = true,
-			bool VisibilityCulling = true,
-			bool VisibilityEvents = true,
-			bool CastShadows = false,
-			Vec4 Color = [1, 1, 1, 1],
-			BlendMode BlendMode = Alpha,
-			SpriteGeometryMode GeometryMode = ZPlane,
-			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-			string SpriteSource = "522fe084be388bc0:Steel",
-			bool RenderMask = false,
-			bool FlipX = false,
-			bool FlipY = false,
-			bool AnimationActive = true,
-			float AnimationSpeed = 1,
-			uint StartFrame = 0,
-		},
-		SphereCollider = 
-		{
-			bool Ghost = false,
-			bool SendsMessages = true,
-			bool Seamless = false,
-			string MaterialName = "4faa6050b8692851:HardMaterial",
-			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
-			Vec3 Offset = [0, 0, 0],
-			float Radius = 0.25,
-		},
-		RigidBody = 
-		{
-			bool Static = false,
-			bool Asleep = false,
-			bool Kinematic = false,
-			bool RotationLocked = false,
-			bool Mode2D = true,
-			bool AllowSleep = true,
-			bool Inherit2DMode = true,
-			Vec3 Velocity = [0, 0, 0],
-			Vec3 AngularVelocity = [0, 0, 0],
-		},
-		Pickup = 
-		{
-			string ResourceType = "Steel",
-			float Value = 999,
-		},
-	},
-	ArchetypeInstance = 
-	{
-		string Name = "522d0a148ca4407f:MediumExperience",
-		LinkId = 
-		{
-			uint Id = 35,
-		},
-		Transform = 
-		{
-			Vec3 Translation = [13.0094, -3.66481, 0],
-			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0, 0, 0, 1],
-		},
-	},
-	ArchetypeInstance = 
-	{
-		string Name = "522ffcb7f5d840b3:Zinc",
-		LinkId = 
-		{
-			uint Id = 36,
-		},
-		Transform = 
-		{
-			Vec3 Translation = [14.4767, -4.55835, 0],
-			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0, 0, 0, 1],
-		},
-	},
-	Cog = 
-	{
-		LinkId = 
-		{
-			uint Id = 37,
-		},
-		Archetyped = 
-		{
-			string Name = "522d0a2389c5ff62:LargeExperience",
-		},
-		Transform = 
-		{
-			Vec3 Translation = [14.1367, -3.08893, 0],
-			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0, 0, 0, 1],
-		},
-		Sprite = 
-		{
-			bool Visible = true,
-			bool VisibilityCulling = true,
-			bool VisibilityEvents = true,
-			bool CastShadows = false,
-			Vec4 Color = [1, 1, 1, 1],
-			BlendMode BlendMode = Alpha,
-			SpriteGeometryMode GeometryMode = ZPlane,
-			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-			string SpriteSource = "522d3018a05f0e60:ExperienceRed",
-			bool RenderMask = false,
-			bool FlipX = false,
-			bool FlipY = false,
-			bool AnimationActive = true,
-			float AnimationSpeed = 1,
-			uint StartFrame = 0,
-		},
-		SphereCollider = 
-		{
-			bool Ghost = false,
-			bool SendsMessages = true,
-			bool Seamless = false,
-			string MaterialName = "4faa6050b8692851:HardMaterial",
-			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
-			Vec3 Offset = [0, 0, 0],
-			float Radius = 0.15,
-		},
-		RigidBody = 
-		{
-			bool Static = false,
-			bool Asleep = false,
-			bool Kinematic = false,
-			bool RotationLocked = false,
-			bool Mode2D = true,
-			bool AllowSleep = true,
-			bool Inherit2DMode = true,
-			Vec3 Velocity = [0, 0, 0],
-			Vec3 AngularVelocity = [0, 0, 0],
-		},
-		Pickup = 
-		{
-			string ResourceType = "Exp",
-			float Value = 999,
-		},
-	},
-	Cog = 
-	{
-		LinkId = 
-		{
-			uint Id = 38,
-		},
-		Archetyped = 
-		{
-			string Name = "522ffcb7f5d840b3:Zinc",
-		},
-		Transform = 
-		{
-			Vec3 Translation = [15.352, -4.55835, 0],
-			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0, 0, 0, 1],
-		},
-		Sprite = 
-		{
-			bool Visible = true,
-			bool VisibilityCulling = true,
-			bool VisibilityEvents = true,
-			bool CastShadows = false,
-			Vec4 Color = [1, 1, 1, 1],
-			BlendMode BlendMode = Alpha,
-			SpriteGeometryMode GeometryMode = ZPlane,
-			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-			string SpriteSource = "522fe316535da728:Zinc",
-			bool RenderMask = false,
-			bool FlipX = false,
-			bool FlipY = false,
-			bool AnimationActive = true,
-			float AnimationSpeed = 1,
-			uint StartFrame = 0,
-		},
-		SphereCollider = 
-		{
-			bool Ghost = false,
-			bool SendsMessages = true,
-			bool Seamless = false,
-			string MaterialName = "4faa6050b8692851:HardMaterial",
-			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
-			Vec3 Offset = [0, 0, 0],
-			float Radius = 0.25,
-		},
-		RigidBody = 
-		{
-			bool Static = false,
-			bool Asleep = false,
-			bool Kinematic = false,
-			bool RotationLocked = false,
-			bool Mode2D = true,
-			bool AllowSleep = true,
-			bool Inherit2DMode = true,
-			Vec3 Velocity = [0, 0, 0],
-			Vec3 AngularVelocity = [0, 0, 0],
-		},
-		Pickup = 
-		{
-			string ResourceType = "Zinc",
-			float Value = 999,
-		},
-	},
-	Cog = 
-	{
-		LinkId = 
-		{
-			uint Id = 39,
-		},
-		Named = 
-		{
-			string Name = "Root",
-		},
-		Transform = 
-		{
-			Vec3 Translation = [1.01908, -1.62656, 0],
-			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0, 0, 0, 1],
-		},
-		RigidBody = 
-		{
-			bool Static = false,
-			bool Asleep = false,
-			bool Kinematic = false,
-			bool RotationLocked = false,
-			bool Mode2D = true,
-			bool AllowSleep = true,
-			bool Inherit2DMode = true,
-			Vec3 Velocity = [0, 0, 0],
-			Vec3 AngularVelocity = [0, 0, 0],
-		},
-		CoreLink = 
-		{
-		},
-		Attachable = 
-		{
-		},
-		Hierarchy = 
-		{
-			ArchetypeInstance = 
+			Cog [InheritId:"522efcf6f14384fd:Shield"]
 			{
-				string Name = "522ee43aa74829c4:SonicWeapon",
-				LinkId = 
-				{
-					uint Id = 40,
-				},
-				Transform = 
-				{
-					Vec3 Translation = [0, 0, 0],
-					Vec3 Scale = [1, 1, 1],
-					Quat Rotation = [0, 0, 0, 1],
-				},
-				Named = 
-				{
-					string Name = "Weapon",
-				},
-			},
-		},
-	},
-	Cog = 
+			}
+		}
+	}
+	Cog 
 	{
-		LinkId = 
+		var Name = "Root"
+		var LinkId = 20
+		Transform 
 		{
-			uint Id = 41,
-		},
-		Named = 
+			var Translation = Real3{-9.00481987, 0.298388004, 0}
+			var Scale = Real3{1, 1, 1}
+			var Rotation = Quaternion{0, 0, 0, 1}
+		}
+		RigidBody 
 		{
-			string Name = "Root",
-		},
-		Transform = 
+			var Velocity = Real3{0, 0, 0}
+			var AngularVelocity = Real3{0, 0, 0}
+			var DynamicState = RigidBodyDynamicState.Dynamic
+			var AllowSleep = true
+			var Asleep = false
+			var RotationLocked = false
+			var Mode2D = Mode2DStates.Mode2D
+		}
+		CoreLink 
 		{
-			Vec3 Translation = [0.00813246, -1.63657, 0],
-			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0, 0, 0, 1],
-		},
-		RigidBody = 
+		}
+		Attachable 
 		{
-			bool Static = false,
-			bool Asleep = false,
-			bool Kinematic = false,
-			bool RotationLocked = false,
-			bool Mode2D = true,
-			bool AllowSleep = true,
-			bool Inherit2DMode = true,
-			Vec3 Velocity = [0, 0, 0],
-			Vec3 AngularVelocity = [0, 0, 0],
-		},
-		CoreLink = 
+		}
+		Hierarchy 
 		{
-		},
-		Attachable = 
-		{
-		},
-		Hierarchy = 
-		{
-			Cog = 
+			Cog 
 			{
-				LinkId = 
+				var Name = "Weapon"
+				var LinkId = 21
+				Transform 
 				{
-					uint Id = 42,
-				},
-				Named = 
+					var Translation = Real3{0, 0, 0}
+					var Scale = Real3{1, 1, 1}
+					var Rotation = Quaternion{0, 0, 0, 1}
+				}
+				RigidBody 
 				{
-					string Name = "Weapon",
-				},
-				Archetyped = 
+					var Velocity = Real3{0, 0, 0}
+					var AngularVelocity = Real3{0, 0, 0}
+					var DynamicState = RigidBodyDynamicState.Static
+					var AllowSleep = true
+					var Asleep = false
+					var RotationLocked = false
+					var Mode2D = Mode2DStates.Mode2D
+				}
+				Sprite 
 				{
-					string Name = "522ee5c5a10b9f53:PlasmaWeapon",
-				},
-				Transform = 
+					var Visible = true
+					var ViewCulling = true
+					var VisibilityEvents = true
+					var Material = "582c575af53d18c9:AlphaSprite"
+					var VertexColor = Real4{1, 1, 1, 1}
+					var GeometryMode = SpriteGeometryMode.ZPlane
+					var SpriteSource = "52026759d3313998:Drill"
+					var FlipX = false
+					var FlipY = false
+					var AnimationActive = true
+					var AnimationSpeed = 1
+					var StartFrame = 0
+				}
+				Orientation 
 				{
-					Vec3 Translation = [0, 0, 0],
-					Vec3 Scale = [1, 1, 1],
-					Quat Rotation = [0, 0, 0, 1],
-				},
-				RigidBody = 
+					var GlobalUp = Real3{0, 0, 1}
+					var LocalOrientationBasis = Quaternion{0, 0, 0, 1}
+					var DefaultBases = OrientationBases.ForwardZUpY
+				}
+				BoxCollider 
 				{
-					bool Static = true,
-					bool Asleep = false,
-					bool Kinematic = false,
-					bool RotationLocked = false,
-					bool Mode2D = true,
-					bool AllowSleep = true,
-					bool Inherit2DMode = true,
-					Vec3 Velocity = [0, 0, 0],
-					Vec3 AngularVelocity = [0, 0, 0],
-				},
-				BoxCollider = 
+					var Ghost = false
+					var SendsEvents = true
+					var Material = "4faa6050b8692851:HardMaterial"
+					var CollisionGroup = "4e740859314e5515:DefaultGroup"
+					var Offset = Real3{0, 0, 0}
+					var HalfSize = Real3{0.25, 0.25, 0.0500000007}
+				}
+				Reactive 
 				{
-					bool Ghost = false,
-					bool SendsMessages = true,
-					bool Seamless = true,
-					string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
-					string SerializedGroupName = "4e740859314e5515:DefaultGroup",
-					Vec3 Offset = [0, 0, 0],
-					Vec3 Size = [0.2, 0.225, 0.05],
-				},
-				Sprite = 
+					var Active = true
+				}
+				ItemMountable 
 				{
-					bool Visible = true,
-					bool VisibilityCulling = true,
-					bool VisibilityEvents = true,
-					bool CastShadows = false,
-					Vec4 Color = [1, 1, 1, 1],
-					BlendMode BlendMode = Alpha,
-					SpriteGeometryMode GeometryMode = ZPlane,
-					string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-					string SpriteSource = "524dc896a7f2a4f4:IonWeapon",
-					bool RenderMask = false,
-					bool FlipX = false,
-					bool FlipY = false,
-					bool AnimationActive = true,
-					float AnimationSpeed = 1,
-					uint StartFrame = 0,
-				},
-				Reactive = 
+					var RootArchetype = "525b9b8a9d8d8062:ObjectRoot"
+				}
+				Upgradable 
 				{
-					bool Active = true,
-					bool CaptureMouse = true,
-				},
-				ItemMountable = 
+					var Level = 0
+					var UpgradeWindow = "5230b4fb7a12c599:UpgradeWindow"
+				}
+				Hierarchy 
 				{
-					string RootArchetype = "525b9b8a9d8d8062:ObjectRoot",
-				},
-				Weapon = 
-				{
-					float RefireTime = 0.5,
-					Vec3 LocalFireDirection = [0, 1, 0],
-				},
-				Orientation = 
-				{
-					Vec3 GlobalUp = [0, 0, 1],
-					Vec3 UpVector = [0, 0, 1],
-					Vec3 ForwardVector = [0, 1, 0],
-					OrientationBases DefaultBases = ForwardZUpY,
-				},
-				InputFromCore = 
-				{
-					string EventName = "Fire",
-					int Key = 32,
-				},
-				WeaponBasic = 
-				{
-					string ProjectileArchetype = "5226ea44cc3b5c37:PlasmaProjectile",
-					string FireSpeedCurve = "52288017287c7c84:WeaponSpeed",
-				},
-				Upgradable = 
-				{
-					float Level = 0,
-					string UpgradeWindow = "5230b4fb7a12c599:UpgradeWindow",
-				},
-				Hierarchy = 
-				{
-				},
-			},
-		},
-	},
-	Cog = 
-	{
-		LinkId = 
-		{
-			uint Id = 43,
-		},
-		Named = 
-		{
-			string Name = "Root",
-		},
-		Transform = 
-		{
-			Vec3 Translation = [2.16407, -1.67263, 0],
-			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0, 0, 0, 1],
-		},
-		RigidBody = 
-		{
-			bool Static = false,
-			bool Asleep = false,
-			bool Kinematic = false,
-			bool RotationLocked = false,
-			bool Mode2D = true,
-			bool AllowSleep = true,
-			bool Inherit2DMode = true,
-			Vec3 Velocity = [0, 0, 0],
-			Vec3 AngularVelocity = [0, 0, 0],
-		},
-		CoreLink = 
-		{
-		},
-		Attachable = 
-		{
-		},
-		Hierarchy = 
-		{
-			ArchetypeInstance = 
-			{
-				string Name = "523a75c99faa64bd:MissileWeapon",
-				LinkId = 
-				{
-					uint Id = 44,
-				},
-				Transform = 
-				{
-					Vec3 Translation = [0, 0, 0],
-					Vec3 Scale = [1, 1, 1],
-					Quat Rotation = [0, 0, 0, 1],
-				},
-				Named = 
-				{
-					string Name = "Weapon",
-				},
-			},
-		},
-	},
-	Cog = 
-	{
-		LinkId = 
-		{
-			uint Id = 45,
-		},
-		Named = 
-		{
-			string Name = "Root",
-		},
-		Transform = 
-		{
-			Vec3 Translation = [3.13987, -1.61626, 0],
-			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0, 0, 0, 1],
-		},
-		RigidBody = 
-		{
-			bool Static = false,
-			bool Asleep = false,
-			bool Kinematic = false,
-			bool RotationLocked = false,
-			bool Mode2D = true,
-			bool AllowSleep = true,
-			bool Inherit2DMode = true,
-			Vec3 Velocity = [0, 0, 0],
-			Vec3 AngularVelocity = [0, 0, 0],
-		},
-		CoreLink = 
-		{
-		},
-		Attachable = 
-		{
-		},
-		Hierarchy = 
-		{
-			Cog = 
-			{
-				LinkId = 
-				{
-					uint Id = 46,
-				},
-				Named = 
-				{
-					string Name = "Weapon",
-				},
-				Archetyped = 
-				{
-					string Name = "523c8e9054cadb11:BeamWeapon",
-				},
-				Transform = 
-				{
-					Vec3 Translation = [0, 0, 0],
-					Vec3 Scale = [1, 1, 1],
-					Quat Rotation = [0, 0, 0, 1],
-				},
-				RigidBody = 
-				{
-					bool Static = true,
-					bool Asleep = false,
-					bool Kinematic = false,
-					bool RotationLocked = false,
-					bool Mode2D = true,
-					bool AllowSleep = true,
-					bool Inherit2DMode = true,
-					Vec3 Velocity = [0, 0, 0],
-					Vec3 AngularVelocity = [0, 0, 0],
-				},
-				BoxCollider = 
-				{
-					bool Ghost = false,
-					bool SendsMessages = true,
-					bool Seamless = true,
-					string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
-					string SerializedGroupName = "4e740859314e5515:DefaultGroup",
-					Vec3 Offset = [0, 0, 0],
-					Vec3 Size = [0.15, 0.225, 0.05],
-				},
-				Sprite = 
-				{
-					bool Visible = true,
-					bool VisibilityCulling = true,
-					bool VisibilityEvents = true,
-					bool CastShadows = false,
-					Vec4 Color = [1, 1, 1, 1],
-					BlendMode BlendMode = Alpha,
-					SpriteGeometryMode GeometryMode = ZPlane,
-					string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-					string SpriteSource = "523c8ddb2f950d40:BeamWeapon",
-					bool RenderMask = false,
-					bool FlipX = false,
-					bool FlipY = false,
-					bool AnimationActive = true,
-					float AnimationSpeed = 1,
-					uint StartFrame = 0,
-				},
-				Reactive = 
-				{
-					bool Active = true,
-					bool CaptureMouse = true,
-				},
-				ItemMountable = 
-				{
-					string RootArchetype = "525b9b8a9d8d8062:ObjectRoot",
-				},
-				Weapon = 
-				{
-					float RefireTime = 0.5,
-					Vec3 LocalFireDirection = [0, 1, 0],
-				},
-				Orientation = 
-				{
-					Vec3 GlobalUp = [0, 0, 1],
-					Vec3 UpVector = [0, 0, 1],
-					Vec3 ForwardVector = [0, 1, 0],
-					OrientationBases DefaultBases = ForwardZUpY,
-				},
-				InputFromCore = 
-				{
-					string EventName = "Fire",
-					int Key = 32,
-				},
-				Upgradable = 
-				{
-					float Level = 0,
-					string UpgradeWindow = "5230b4fb7a12c599:UpgradeWindow",
-				},
-				WeaponBeam = 
-				{
-					string BeamArchetype = "523e7c32da96f2f1:BeamProjectile",
-					string DamageCurve = "52289e04f7821205:DamageCurve",
-					Enum DamageType = Energy,
-					string DamageEffect = "523c8e0cbc053bc4:DamageEffect",
-				},
-			},
-		},
-	},
-	Cog = 
-	{
-		LinkId = 
-		{
-			uint Id = 47,
-		},
-		Named = 
-		{
-			string Name = "Root",
-		},
-		Transform = 
-		{
-			Vec3 Translation = [-3.00334, -1.67489, 0],
-			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0, 0, 0, 1],
-		},
-		RigidBody = 
-		{
-			bool Static = false,
-			bool Asleep = false,
-			bool Kinematic = false,
-			bool RotationLocked = false,
-			bool Mode2D = true,
-			bool AllowSleep = true,
-			bool Inherit2DMode = true,
-			Vec3 Velocity = [0, 0, 0],
-			Vec3 AngularVelocity = [0, 0, 0],
-		},
-		ObjectGrid = 
-		{
-			string DisplayArchetype = "5252e76acb5e3746:GridCellSprite",
-		},
-		CoreLink = 
-		{
-		},
-		Attachable = 
-		{
-		},
-		Hierarchy = 
-		{
-			Cog = 
-			{
-				LinkId = 
-				{
-					uint Id = 48,
-				},
-				Named = 
-				{
-					string Name = "Shield",
-				},
-				Archetyped = 
-				{
-					string Name = "522efcf6f14384fd:Shield",
-				},
-				Transform = 
-				{
-					Vec3 Translation = [0, 0, 0],
-					Vec3 Scale = [1, 1, 1],
-					Quat Rotation = [0, 0, 0, 1],
-				},
-				RigidBody = 
-				{
-					bool Static = true,
-					bool Asleep = false,
-					bool Kinematic = false,
-					bool RotationLocked = false,
-					bool Mode2D = true,
-					bool AllowSleep = true,
-					bool Inherit2DMode = true,
-					Vec3 Velocity = [0, 0, 0],
-					Vec3 AngularVelocity = [0, 0, 0],
-				},
-				BoxCollider = 
-				{
-					bool Ghost = false,
-					bool SendsMessages = true,
-					bool Seamless = true,
-					string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
-					string SerializedGroupName = "4e740859314e5515:DefaultGroup",
-					Vec3 Offset = [0, 0, 0],
-					Vec3 Size = [0.5, 0.5, 0.05],
-				},
-				Sprite = 
-				{
-					bool Visible = true,
-					bool VisibilityCulling = true,
-					bool VisibilityEvents = true,
-					bool CastShadows = false,
-					Vec4 Color = [1, 1, 1, 1],
-					BlendMode BlendMode = Alpha,
-					SpriteGeometryMode GeometryMode = ZPlane,
-					string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-					string SpriteSource = "524dc84db87b9edc:ShieldConnector",
-					bool RenderMask = false,
-					bool FlipX = false,
-					bool FlipY = false,
-					bool AnimationActive = true,
-					float AnimationSpeed = 1,
-					uint StartFrame = 0,
-				},
-				Reactive = 
-				{
-					bool Active = true,
-					bool CaptureMouse = true,
-				},
-				GridAttachable = 
-				{
-					bool IsDraggable = true,
-					string RootArchetype = "525b9b8a9d8d8062:ObjectRoot",
-				},
-				Health = 
-				{
-					float MaxHealth = 50,
-					bool DestroyAtZeroHealth = true,
-				},
-				CreateOnDestroy = 
-				{
-					string ArchetypeToCreate = "52247a3f629e359a:Explosion",
-				},
-				Shield = 
-				{
-					string BarrierArchetype = "522efcb5c5064cfe:ShieldBarrier",
-					string RechareRateCurve = "522ee3f842b9833f:ShieldRechargeRate",
-					string ShieldRadiusCurve = "522edbdb92b4259a:ShieldRadius",
-					Vec4 RechargeColor = [0.2, 0.2, 0, 1],
-				},
-				Upgradable = 
-				{
-					float Level = 0,
-					string UpgradeWindow = "5230b4fb7a12c599:UpgradeWindow",
-				},
-				Hierarchy = 
-				{
-				},
-			},
-		},
-	},
-	Cog = 
-	{
-		LinkId = 
-		{
-			uint Id = 49,
-		},
-		Named = 
-		{
-			string Name = "Root",
-		},
-		Transform = 
-		{
-			Vec3 Translation = [-9.00482, 0.298388, 0],
-			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0, 0, 0, 1],
-		},
-		RigidBody = 
-		{
-			bool Static = false,
-			bool Asleep = false,
-			bool Kinematic = false,
-			bool RotationLocked = false,
-			bool Mode2D = true,
-			bool AllowSleep = true,
-			bool Inherit2DMode = true,
-			Vec3 Velocity = [0, 0, 0],
-			Vec3 AngularVelocity = [0, 0, 0],
-		},
-		CoreLink = 
-		{
-		},
-		Attachable = 
-		{
-		},
-		Hierarchy = 
-		{
-			Cog = 
-			{
-				LinkId = 
-				{
-					uint Id = 50,
-				},
-				Named = 
-				{
-					string Name = "Weapon",
-				},
-				Transform = 
-				{
-					Vec3 Translation = [0, 0, 0],
-					Vec3 Scale = [1, 1, 1],
-					Quat Rotation = [0, 0, 0, 1],
-				},
-				RigidBody = 
-				{
-					bool Static = true,
-					bool Asleep = false,
-					bool Kinematic = false,
-					bool RotationLocked = false,
-					bool Mode2D = true,
-					bool AllowSleep = true,
-					bool Inherit2DMode = true,
-					Vec3 Velocity = [0, 0, 0],
-					Vec3 AngularVelocity = [0, 0, 0],
-				},
-				Sprite = 
-				{
-					bool Visible = true,
-					bool VisibilityCulling = true,
-					bool VisibilityEvents = true,
-					bool CastShadows = false,
-					Vec4 Color = [1, 1, 1, 1],
-					BlendMode BlendMode = Alpha,
-					SpriteGeometryMode GeometryMode = ZPlane,
-					string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-					string SpriteSource = "52026759d3313998:Drill",
-					bool RenderMask = false,
-					bool FlipX = false,
-					bool FlipY = false,
-					bool AnimationActive = true,
-					float AnimationSpeed = 1,
-					uint StartFrame = 0,
-				},
-				Orientation = 
-				{
-					Vec3 GlobalUp = [0, 0, 1],
-					Vec3 UpVector = [0, 0, 1],
-					Vec3 ForwardVector = [0, 1, 0],
-					OrientationBases DefaultBases = ForwardZUpY,
-				},
-				BoxCollider = 
-				{
-					bool Ghost = false,
-					bool SendsMessages = true,
-					bool Seamless = false,
-					string MaterialName = "4faa6050b8692851:HardMaterial",
-					string SerializedGroupName = "4e740859314e5515:DefaultGroup",
-					Vec3 Offset = [0, 0, 0],
-					Vec3 Size = [0.25, 0.25, 0.05],
-				},
-				Reactive = 
-				{
-					bool Active = true,
-					bool CaptureMouse = false,
-				},
-				ItemMountable = 
-				{
-					string RootArchetype = "525b9b8a9d8d8062:ObjectRoot",
-				},
-				Upgradable = 
-				{
-					float Level = 0,
-					string UpgradeWindow = "5230b4fb7a12c599:UpgradeWindow",
-				},
-				Hierarchy = 
-				{
-					Cog = 
+					Cog 
 					{
-						LinkId = 
+						var Name = "Weapon"
+						var LinkId = 22
+						Transform 
 						{
-							uint Id = 51,
-						},
-						Named = 
+							var Translation = Real3{0, 0, 0}
+							var Scale = Real3{1, 1, 1}
+							var Rotation = Quaternion{0, 0, 0, 1}
+						}
+						ConvexMeshCollider 
 						{
-							string Name = "Weapon",
-						},
-						Transform = 
+							var Ghost = false
+							var SendsEvents = true
+							var Material = "522ed4616b15044d:Massless"
+							var CollisionGroup = "4e740859314e5515:DefaultGroup"
+							var Offset = Real3{0, 0, 0}
+							var ConvexMesh = "52026601f8780c12:Drill"
+						}
+						DamageRegion 
 						{
-							Vec3 Translation = [0, 0, 0],
-							Vec3 Scale = [1, 1, 1],
-							Quat Rotation = [0, 0, 0, 1],
-						},
-						ConvexMeshCollider = 
-						{
-							bool Ghost = false,
-							bool SendsMessages = true,
-							bool Seamless = false,
-							string MaterialName = "522ed4616b15044d:Massless",
-							string SerializedGroupName = "4e740859314e5515:DefaultGroup",
-							Vec3 Offset = [0, 0, 0],
-							string MeshName = "52026601f8780c12:Drill",
-						},
-						DamageRegion = 
-						{
-							string DamageCurve = "52289e04f7821205:DamageCurve",
-							string DamageEffect = "523c8e0cbc053bc4:DamageEffect",
-							Enum DamageType = Energy,
-							bool Enabled = true,
-						},
-					},
-				},
-			},
-		},
-	},
-	Cog = 
+							var DamageCurve = "52289e04f7821205:DamageCurve"
+							var DamageEffect = "523c8e0cbc053bc4:DamageEffect"
+							var DamageType = DamageTypes.Energy
+							var Enabled = true
+						}
+					}
+				}
+			}
+		}
+	}
+	Cog 
 	{
-		LinkId = 
+		var Name = "Root"
+		var LinkId = 23
+		Transform 
 		{
-			uint Id = 52,
-		},
-		Named = 
+			var Translation = Real3{3.83769011, -1.72542, 0}
+			var Scale = Real3{1, 1, 1}
+			var Rotation = Quaternion{0, 0, 0, 1}
+		}
+		RigidBody 
 		{
-			string Name = "Root",
-		},
-		Transform = 
+			var Velocity = Real3{0, 0, 0}
+			var AngularVelocity = Real3{0, 0, 0}
+			var DynamicState = RigidBodyDynamicState.Dynamic
+			var AllowSleep = true
+			var Asleep = false
+			var RotationLocked = false
+			var Mode2D = Mode2DStates.Mode2D
+		}
+		CoreLink 
 		{
-			Vec3 Translation = [3.83769, -1.72542, 0],
-			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0, 0, 0, 1],
-		},
-		RigidBody = 
+		}
+		Attachable 
 		{
-			bool Static = false,
-			bool Asleep = false,
-			bool Kinematic = false,
-			bool RotationLocked = false,
-			bool Mode2D = true,
-			bool AllowSleep = true,
-			bool Inherit2DMode = true,
-			Vec3 Velocity = [0, 0, 0],
-			Vec3 AngularVelocity = [0, 0, 0],
-		},
-		CoreLink = 
+		}
+		Hierarchy 
 		{
-		},
-		Attachable = 
-		{
-		},
-		Hierarchy = 
-		{
-			Cog = 
+			Cog 
 			{
-				LinkId = 
+				var Name = "Weapon"
+				var LinkId = 24
+				Transform 
 				{
-					uint Id = 53,
-				},
-				Named = 
+					var Translation = Real3{0, 0, 0}
+					var Scale = Real3{1, 1, 1}
+					var Rotation = Quaternion{0, 0, 0, 1}
+				}
+				RigidBody 
 				{
-					string Name = "Weapon",
-				},
-				Transform = 
+					var Velocity = Real3{0, 0, 0}
+					var AngularVelocity = Real3{0, 0, 0}
+					var DynamicState = RigidBodyDynamicState.Static
+					var AllowSleep = true
+					var Asleep = false
+					var RotationLocked = false
+					var Mode2D = Mode2DStates.Mode2D
+				}
+				BoxCollider 
 				{
-					Vec3 Translation = [0, 0, 0],
-					Vec3 Scale = [1, 1, 1],
-					Quat Rotation = [0, 0, 0, 1],
-				},
-				RigidBody = 
+					var Ghost = false
+					var SendsEvents = true
+					var Material = "4de020863e872da8:DefaultPhysicsMaterial"
+					var CollisionGroup = "4e740859314e5515:DefaultGroup"
+					var Offset = Real3{0.00999999978, 0, 0}
+					var HalfSize = Real3{0.200000003, 0.200000003, 0.0500000007}
+				}
+				Sprite 
 				{
-					bool Static = true,
-					bool Asleep = false,
-					bool Kinematic = false,
-					bool RotationLocked = false,
-					bool Mode2D = true,
-					bool AllowSleep = true,
-					bool Inherit2DMode = true,
-					Vec3 Velocity = [0, 0, 0],
-					Vec3 AngularVelocity = [0, 0, 0],
-				},
-				BoxCollider = 
+					var Visible = true
+					var ViewCulling = true
+					var VisibilityEvents = true
+					var Material = "582c575af53d18c9:AlphaSprite"
+					var VertexColor = Real4{1, 1, 1, 1}
+					var GeometryMode = SpriteGeometryMode.ZPlane
+					var SpriteSource = "52033c806ca7e0d3:LightningWeapon"
+					var FlipX = false
+					var FlipY = false
+					var AnimationActive = true
+					var AnimationSpeed = 1
+					var StartFrame = 0
+				}
+				Reactive 
 				{
-					bool Ghost = false,
-					bool SendsMessages = true,
-					bool Seamless = true,
-					string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
-					string SerializedGroupName = "4e740859314e5515:DefaultGroup",
-					Vec3 Offset = [0.01, 0, 0],
-					Vec3 Size = [0.175, 0.225, 0.05],
-				},
-				Sprite = 
+					var Active = true
+				}
+				ItemMountable 
 				{
-					bool Visible = true,
-					bool VisibilityCulling = true,
-					bool VisibilityEvents = true,
-					bool CastShadows = false,
-					Vec4 Color = [1, 1, 1, 1],
-					BlendMode BlendMode = Alpha,
-					SpriteGeometryMode GeometryMode = ZPlane,
-					string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-					string SpriteSource = "52033c806ca7e0d3:LightningWeapon",
-					bool RenderMask = false,
-					bool FlipX = false,
-					bool FlipY = false,
-					bool AnimationActive = true,
-					float AnimationSpeed = 1,
-					uint StartFrame = 0,
-				},
-				Reactive = 
+					var RootArchetype = "525b9b8a9d8d8062:ObjectRoot"
+				}
+				Weapon 
 				{
-					bool Active = true,
-					bool CaptureMouse = true,
-				},
-				ItemMountable = 
+					var RefireTime = 0.5
+					var LocalFireDirection = Real3{0, 1, 0}
+				}
+				Orientation 
 				{
-					string RootArchetype = "525b9b8a9d8d8062:ObjectRoot",
-				},
-				Weapon = 
+					var GlobalUp = Real3{0, 0, 1}
+					var LocalOrientationBasis = Quaternion{0.707106769, -0, 0, 0.707106769}
+					var DefaultBases = OrientationBases.ForwardYUpZ
+				}
+				InputFromCore 
 				{
-					float RefireTime = 0.5,
-					Vec3 LocalFireDirection = [0, 1, 0],
-				},
-				Orientation = 
+					var EventName = "Fire"
+					var Key = 32
+				}
+				Upgradable 
 				{
-					Vec3 GlobalUp = [0, 0, 1],
-					Vec3 UpVector = [0, 0, 1],
-					Vec3 ForwardVector = [0, 1, 0],
-					OrientationBases DefaultBases = ForwardZUpY,
-				},
-				InputFromCore = 
+					var Level = 0
+					var UpgradeWindow = "5230b4fb7a12c599:UpgradeWindow"
+				}
+				WeaponLightning 
 				{
-					string EventName = "Fire",
-					int Key = 32,
-				},
-				Upgradable = 
+					var LightningEmitterName = "LightningEmitter"
+				}
+				Hierarchy 
 				{
-					float Level = 0,
-					string UpgradeWindow = "5230b4fb7a12c599:UpgradeWindow",
-				},
-				WeaponLightning = 
-				{
-					string LightningEmitterName = "LightningEmitter",
-				},
-				Hierarchy = 
-				{
-					Cog = 
+					Cog 
 					{
-						LinkId = 
+						var Name = "LightningEmitter"
+						var LinkId = 25
+						EditorFlags 
 						{
-							uint Id = 54,
-						},
-						Named = 
+							var Locked = true
+							var Hidden = false
+						}
+						Transform 
 						{
-							string Name = "LightningEmitter",
-						},
-						Transform = 
+							var Translation = Real3{0.0162413009, 0.173243001, 0}
+							var Scale = Real3{1, 1, 1}
+							var Rotation = Quaternion{0, 0, 0, 1}
+						}
+						SpriteParticleSystem 
 						{
-							Vec3 Translation = [0.0162413, 0.173243, 0],
-							Vec3 Scale = [1, 1, 1],
-							Quat Rotation = [0, 0, 0, 1],
-						},
-						SpriteParticleSystem = 
+							var Visible = true
+							var ViewCulling = true
+							var VisibilityEvents = true
+							var Material = "582c575af53d18c9:AlphaSprite"
+							var ChildSystem = false
+							var SystemSpace = SystemSpace.WorldSpace
+							var DrawOrder = 0
+							var Tint = Real4{1, 1, 1, 0.699999988}
+							var WarmUpTime = 0
+							var GeometryMode = ParticleGeometryMode.Beam
+							var SortMode = ParticleSortMode.Youngest
+							var ParticleAnimation = ParticleAnimationMode.Single
+							var SpriteSource = "5586f579ca73ecc2:SquareBordered"
+							var VelocityScale = 2
+							var LengthScale = 0
+							var SystemSize = Real3{2, 2, 2}
+							var PreviewInEditor = false
+						}
+						LinearParticleAnimator 
 						{
-							bool Visible = true,
-							bool VisibilityCulling = true,
-							bool VisibilityEvents = true,
-							bool CastShadows = false,
-							SystemChildMode ChildMode = Independent,
-							SystemSpace SystemSpace = WorldSpace,
-							uint DrawOrder = 0,
-							float WarmUpTime = 0,
-							ParticleGeometry GeometryMode = Beam,
-							ParticleRenderMode RenderMode = Additive,
-							ParticleSortMode SortMode = Youngest,
-							ParticleAnimation ParticleAnimation = Single,
-							string Texture = "52033f640e8bf7ae:Lightning",
-							Vec4 Tint = [1, 1, 1, 0.7],
-							float VelocityScale = 2,
-							float LengthScale = 0,
-							float MaxParticleSize = 100,
-							Vec3 SystemSize = [2, 2, 2],
-						},
-						LightningParticleEmitter = 
-						{
-							uint MinBranches = 1,
-							uint MaxBranches = 2,
-							float BranchProbabilityExponent = 50,
-							float DurationPerStrike = 5,
-							uint MinDepth = 10,
-							uint MaxDepth = 0,
-							float MinSegmentLength = 0.08,
-							float MaxSegmentLength = 0.2,
-							float MinRandomOffset = 0.55,
-							float MaxRandomOffset = 1,
-							float BeginSize = 0.35,
-							float EndSize = 0.25,
-							float HackOffsetPercentage = 0.78,
-							Vec3 TargetPosition = [0, 50, 0],
-							TargetSpace TargetSpace = LocalSpace,
-						},
-						LinearParticleAnimator = 
-						{
-							Vec3 Force = [0, 0, 0],
-							Vec3 RandomForce = [0, 0, 0],
-							float Torque = 0,
-							float Growth = 0,
-							float Dampening = 0,
-							Vec3 Twist = [0, 0, 0],
-						},
-					},
-					Cog = 
+							var Force = Real3{0, 0, 0}
+							var RandomForce = Real3{0, 0, 0}
+							var Torque = 0
+							var Growth = 0
+							var Dampening = 0
+							var Twist = Real3{0, 0, 0}
+						}
+					}
+					Cog 
 					{
-						LinkId = 
+						var Name = "DamageRegion"
+						var LinkId = 26
+						EditorFlags 
 						{
-							uint Id = 55,
-						},
-						Named = 
+							var Locked = true
+							var Hidden = false
+						}
+						Transform 
 						{
-							string Name = "DamageRegion",
-						},
-						Transform = 
+							var Translation = Real3{0.0162413009, 0.173243001, 0}
+							var Scale = Real3{1, 1, 1}
+							var Rotation = Quaternion{0, 0, 0, 1}
+						}
+						BoxCollider 
 						{
-							Vec3 Translation = [0.0162413, 0.173243, 0],
-							Vec3 Scale = [1, 1, 1],
-							Quat Rotation = [0, 0, 0, 1],
-						},
-						BoxCollider = 
+							var Ghost = true
+							var SendsEvents = true
+							var Material = "522ed4616b15044d:Massless"
+							var CollisionGroup = "4e740859314e5515:DefaultGroup"
+							var Offset = Real3{0, 0, 0}
+							var HalfSize = Real3{0.5, 0.5, 0.5}
+						}
+						DamageRegion 
 						{
-							bool Ghost = true,
-							bool SendsMessages = true,
-							bool Seamless = false,
-							string MaterialName = "522ed4616b15044d:Massless",
-							string SerializedGroupName = "4e740859314e5515:DefaultGroup",
-							Vec3 Offset = [0, 0, 0],
-							Vec3 Size = [0.1, 0.5, 0.25],
-						},
-						DamageRegion = 
-						{
-							string DamageCurve = "52289e04f7821205:DamageCurve",
-							string DamageEffect = "523c8e0cbc053bc4:DamageEffect",
-							Enum DamageType = Energy,
-							bool Enabled = false,
-						},
-					},
-				},
-			},
-		},
-	},
-	Cog = 
+							var DamageCurve = "52289e04f7821205:DamageCurve"
+							var DamageEffect = "523c8e0cbc053bc4:DamageEffect"
+							var DamageType = DamageTypes.Energy
+							var Enabled = false
+						}
+					}
+				}
+			}
+		}
+	}
+	Cog [InheritId:"522fce3953e69354:BigAsteroid"]
 	{
-		LinkId = 
-		{
-			uint Id = 56,
-		},
-		Named = 
-		{
-			string Name = "PlayerRoot",
-		},
-		Archetyped = 
-		{
-			string Name = "5212778c31aa05ed:PlayerRoot",
-		},
-		Transform = 
-		{
-			Vec3 Translation = [-1.73442, 1.29403, 0],
-			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0, 0, 0, 1],
-		},
-		RigidBody = 
-		{
-			bool Static = false,
-			bool Asleep = false,
-			bool Kinematic = false,
-			bool RotationLocked = false,
-			bool Mode2D = true,
-			bool AllowSleep = false,
-			bool Inherit2DMode = true,
-			Vec3 Velocity = [0, 0, 0],
-			Vec3 AngularVelocity = [0, 0, 0],
-		},
-		ObjectGrid = 
-		{
-			string DisplayArchetype = "5252e76acb5e3746:GridCellSprite",
-		},
-		CoreLink = 
-		{
-		},
-		Attachable = 
-		{
-		},
-		Hierarchy = 
-		{
-		},
-	},
-	ArchetypeInstance = 
+		var Name = ""
+	}
+	Cog [InheritId:"52e852f848594746:UiTextRoot"]
 	{
-		string Name = "522fce3953e69354:BigAsteroid",
-		LinkId = 
-		{
-			uint Id = 57,
-		},
-		Transform = 
-		{
-			Vec3 Translation = [-7.46479, -4.3984, 0],
-			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0, 0, 0, 1],
-		},
-	},
-	Cog = 
+	}
+	Cog [InheritId:"52ed9802631f503f:EnemyRoot"]
 	{
-		LinkId = 
+	}
+	Cog 
+	{
+		var Name = "Root"
+		var LinkId = 27
+		Transform 
 		{
-			uint Id = 58,
-		},
-		Named = 
+			var Translation = Real3{5.51743984, -3.8305099, 0}
+			var Scale = Real3{1, 1, 1}
+			var Rotation = Quaternion{0, 0, 0, 1}
+		}
+		RigidBody 
 		{
-			string Name = "AiRoot",
-		},
-		Transform = 
+			var Velocity = Real3{0, 0, 0}
+			var AngularVelocity = Real3{0, 0, 0}
+			var DynamicState = RigidBodyDynamicState.Dynamic
+			var AllowSleep = true
+			var Asleep = false
+			var RotationLocked = false
+			var Mode2D = Mode2DStates.Mode2D
+		}
+		CoreLink 
 		{
-			Vec3 Translation = [-1.40996, 2.22785, 0],
-			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0, 0, 0, 1],
-		},
-		RigidBody = 
+		}
+		Attachable 
 		{
-			bool Static = false,
-			bool Asleep = false,
-			bool Kinematic = false,
-			bool RotationLocked = false,
-			bool Mode2D = true,
-			bool AllowSleep = false,
-			bool Inherit2DMode = true,
-			Vec3 Velocity = [0, 0, 0],
-			Vec3 AngularVelocity = [0, 0, 0],
-		},
-		ObjectGrid = 
+		}
+		Hierarchy 
 		{
-			string DisplayArchetype = "5252e76acb5e3746:GridCellSprite",
-		},
-		CoreLink = 
-		{
-		},
-		Attachable = 
-		{
-		},
-		BoxCollider = 
-		{
-			bool Ghost = false,
-			bool SendsMessages = true,
-			bool Seamless = false,
-			string MaterialName = "522ed4616b15044d:Massless",
-			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
-			Vec3 Offset = [0, 0, 0],
-			Vec3 Size = [0.5, 0.5, 0.5],
-		},
-		Hierarchy = 
-		{
-			Cog = 
+			Cog [InheritId:"5252cbce47d0c501:Turbine"]
 			{
-				LinkId = 
-				{
-					uint Id = 59,
-				},
-				Named = 
-				{
-					string Name = "Ai",
-				},
-				Transform = 
-				{
-					Vec3 Translation = [0, 0, 0],
-					Vec3 Scale = [0.999999, 0.999999, 1],
-					Quat Rotation = [0, 0, 0, 1],
-				},
-				RigidBody = 
-				{
-					bool Static = true,
-					bool Asleep = false,
-					bool Kinematic = false,
-					bool RotationLocked = false,
-					bool Mode2D = true,
-					bool AllowSleep = true,
-					bool Inherit2DMode = true,
-					Vec3 Velocity = [0, 0, 0],
-					Vec3 AngularVelocity = [0, 0, 0],
-				},
-				BoxCollider = 
-				{
-					bool Ghost = false,
-					bool SendsMessages = true,
-					bool Seamless = true,
-					string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
-					string SerializedGroupName = "4e740859314e5515:DefaultGroup",
-					Vec3 Offset = [0, 0, 0],
-					Vec3 Size = [0.5, 0.5, 0.1],
-				},
-				Sprite = 
-				{
-					bool Visible = true,
-					bool VisibilityCulling = true,
-					bool VisibilityEvents = true,
-					bool CastShadows = false,
-					Vec4 Color = [1, 1, 1, 1],
-					BlendMode BlendMode = Alpha,
-					SpriteGeometryMode GeometryMode = ZPlane,
-					string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-					string SpriteSource = "524dc939f7a122eb:Core",
-					bool RenderMask = false,
-					bool FlipX = false,
-					bool FlipY = false,
-					bool AnimationActive = true,
-					float AnimationSpeed = 1,
-					uint StartFrame = 0,
-				},
-				Orientation = 
-				{
-					Vec3 GlobalUp = [0, 0, 1],
-					Vec3 UpVector = [0, 0, 1],
-					Vec3 ForwardVector = [0, 1, 0],
-					OrientationBases DefaultBases = ForwardZUpY,
-				},
-				Core = 
-				{
-				},
-				Health = 
-				{
-					float MaxHealth = 50,
-					bool DestroyAtZeroHealth = true,
-				},
-				CreateOnDestroy = 
-				{
-					string ArchetypeToCreate = "52247a3f629e359a:Explosion",
-				},
-				PickupCollector = 
-				{
-					bool CreateUi = false,
-					string UiLevel = "52308e37bdbac48e:UiLevel",
-				},
-				Reactive = 
-				{
-					bool Active = true,
-					bool CaptureMouse = false,
-				},
-				GridAttachable = 
-				{
-					bool IsDraggable = false,
-					string RootArchetype = "525b9b8a9d8d8062:ObjectRoot",
-				},
-				CompositeAiCore = 
-				{
-					string UiTextRoot = "52e852f848594746:UiTextRoot",
-				},
-				WaitBehavior = 
-				{
-					string ContextMenu = "521f3a3a938ff591:ClickableText",
-				},
-				FollowBehavior = 
-				{
-					string ContextMenu = "521f3a3a938ff591:ClickableText",
-				},
-				MiningBehavior = 
-				{
-					string ContextMenu = "521f3a3a938ff591:ClickableText",
-				},
-				PathBehavior = 
-				{
-					string ContextMenu = "52e00362da17d68c:ExpandableText",
-				},
-				WanderBehavior = 
-				{
-					string ContextMenu = "521f3a3a938ff591:ClickableText",
-				},
-				Hierarchy = 
-				{
-				},
-			},
-			Cog = 
-			{
-				LinkId = 
-				{
-					uint Id = 60,
-				},
-				Named = 
-				{
-					string Name = "HullBasic",
-				},
-				Archetyped = 
-				{
-					string Name = "52244e49c1f35507:HullBasic",
-				},
-				Transform = 
-				{
-					Vec3 Translation = [0, 1, 0],
-					Vec3 Scale = [1, 1, 1],
-					Quat Rotation = [0, 0, 0, 1],
-				},
-				RigidBody = 
-				{
-					bool Static = true,
-					bool Asleep = false,
-					bool Kinematic = false,
-					bool RotationLocked = false,
-					bool Mode2D = true,
-					bool AllowSleep = true,
-					bool Inherit2DMode = true,
-					Vec3 Velocity = [0, 0, 0],
-					Vec3 AngularVelocity = [0, 0, 0],
-				},
-				BoxCollider = 
-				{
-					bool Ghost = false,
-					bool SendsMessages = true,
-					bool Seamless = true,
-					string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
-					string SerializedGroupName = "4e740859314e5515:DefaultGroup",
-					Vec3 Offset = [0, 0, 0],
-					Vec3 Size = [0.5, 0.5, 0.05],
-				},
-				Sprite = 
-				{
-					bool Visible = true,
-					bool VisibilityCulling = true,
-					bool VisibilityEvents = true,
-					bool CastShadows = false,
-					Vec4 Color = [1, 1, 1, 1],
-					BlendMode BlendMode = Alpha,
-					SpriteGeometryMode GeometryMode = ZPlane,
-					string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-					string SpriteSource = "522230c6abcdce55:Connector",
-					bool RenderMask = false,
-					bool FlipX = false,
-					bool FlipY = false,
-					bool AnimationActive = true,
-					float AnimationSpeed = 1,
-					uint StartFrame = 0,
-				},
-				Reactive = 
-				{
-					bool Active = true,
-					bool CaptureMouse = true,
-				},
-				GridAttachable = 
-				{
-					bool IsDraggable = true,
-					string RootArchetype = "525b9b8a9d8d8062:ObjectRoot",
-				},
-				ItemMount = 
-				{
-					string DisplayArchetype = "5252e76acb5e3746:GridCellSprite",
-					Vec3 DisplayCogScale = [0.5, 0.5, 1],
-				},
-				Health = 
-				{
-					float MaxHealth = 50,
-					bool DestroyAtZeroHealth = true,
-				},
-				CreateOnDestroy = 
-				{
-					string ArchetypeToCreate = "52247a3f629e359a:Explosion",
-				},
-				Hierarchy = 
-				{
-					Cog = 
-					{
-						LinkId = 
-						{
-							uint Id = 61,
-						},
-						Named = 
-						{
-							string Name = "Weapon",
-						},
-						Archetyped = 
-						{
-							string Name = "522ee5c5a10b9f53:PlasmaWeapon",
-						},
-						Transform = 
-						{
-							Vec3 Translation = [0, 0, 1],
-							Vec3 Scale = [1, 1, 1],
-							Quat Rotation = [0, 0, 0, 1],
-						},
-						RigidBody = 
-						{
-							bool Static = true,
-							bool Asleep = false,
-							bool Kinematic = false,
-							bool RotationLocked = false,
-							bool Mode2D = true,
-							bool AllowSleep = true,
-							bool Inherit2DMode = true,
-							Vec3 Velocity = [0, 0, 0],
-							Vec3 AngularVelocity = [0, 0, 0],
-						},
-						BoxCollider = 
-						{
-							bool Ghost = false,
-							bool SendsMessages = true,
-							bool Seamless = true,
-							string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
-							string SerializedGroupName = "4e740859314e5515:DefaultGroup",
-							Vec3 Offset = [0, 0, 0],
-							Vec3 Size = [0.2, 0.225, 0.05],
-						},
-						Sprite = 
-						{
-							bool Visible = true,
-							bool VisibilityCulling = true,
-							bool VisibilityEvents = true,
-							bool CastShadows = false,
-							Vec4 Color = [1, 1, 1, 1],
-							BlendMode BlendMode = Alpha,
-							SpriteGeometryMode GeometryMode = ZPlane,
-							string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-							string SpriteSource = "524dc896a7f2a4f4:IonWeapon",
-							bool RenderMask = false,
-							bool FlipX = false,
-							bool FlipY = false,
-							bool AnimationActive = true,
-							float AnimationSpeed = 1,
-							uint StartFrame = 0,
-						},
-						Reactive = 
-						{
-							bool Active = true,
-							bool CaptureMouse = true,
-						},
-						ItemMountable = 
-						{
-							string RootArchetype = "525b9b8a9d8d8062:ObjectRoot",
-						},
-						Weapon = 
-						{
-							float RefireTime = 0.5,
-							Vec3 LocalFireDirection = [0, 1, 0],
-						},
-						Orientation = 
-						{
-							Vec3 GlobalUp = [0, 0, 1],
-							Vec3 UpVector = [0, 0, 1],
-							Vec3 ForwardVector = [0, 1, 0],
-							OrientationBases DefaultBases = ForwardZUpY,
-						},
-						InputFromCore = 
-						{
-							string EventName = "Fire",
-							int Key = 32,
-						},
-						WeaponBasic = 
-						{
-							string ProjectileArchetype = "5226ea44cc3b5c37:PlasmaProjectile",
-							string FireSpeedCurve = "52288017287c7c84:WeaponSpeed",
-						},
-						Upgradable = 
-						{
-							float Level = 0,
-							string UpgradeWindow = "5230b4fb7a12c599:UpgradeWindow",
-						},
-						Hierarchy = 
-						{
-						},
-					},
-				},
-			},
-		},
-	},
-	ArchetypeInstance = 
-	{
-		string Name = "52e852f848594746:UiTextRoot",
-		LinkId = 
-		{
-			uint Id = 62,
-		},
-		Transform = 
-		{
-			Vec3 Translation = [4.90508, 5.3589, -6.96811],
-			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0, 0, 0, 1],
-		},
-		Named = 
-		{
-			string Name = "Sprite",
-		},
-	},
-	ArchetypeInstance = 
-	{
-		string Name = "52ed9802631f503f:EnemyRoot",
-		LinkId = 
-		{
-			uint Id = 63,
-		},
-		Transform = 
-		{
-			Vec3 Translation = [8.46402, 7.97988, 0],
-			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0, 0, 0, 1],
-		},
-	},
-	Cog = 
-	{
-		LinkId = 
-		{
-			uint Id = 64,
-		},
-		Named = 
-		{
-			string Name = "Root",
-		},
-		Transform = 
-		{
-			Vec3 Translation = [5.51744, -3.83051, 0],
-			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0, 0, 0, 1],
-		},
-		RigidBody = 
-		{
-			bool Static = false,
-			bool Asleep = false,
-			bool Kinematic = false,
-			bool RotationLocked = false,
-			bool Mode2D = true,
-			bool AllowSleep = true,
-			bool Inherit2DMode = true,
-			Vec3 Velocity = [0, 0, 0],
-			Vec3 AngularVelocity = [0, 0, 0],
-		},
-		ObjectGrid = 
-		{
-			string DisplayArchetype = "5252e76acb5e3746:GridCellSprite",
-		},
-		CoreLink = 
-		{
-		},
-		Attachable = 
-		{
-		},
-		Hierarchy = 
-		{
-			ArchetypeInstance = 
-			{
-				string Name = "5252cbce47d0c501:Turbine",
-				LinkId = 
-				{
-					uint Id = 65,
-				},
-				Transform = 
-				{
-					Vec3 Translation = [0, 0, 0],
-					Vec3 Scale = [1, 1, 1],
-					Quat Rotation = [0, 0, 0, 1],
-				},
-				Named = 
-				{
-					string Name = "Turbine",
-				},
-			},
-		},
-	},
-},
+			}
+		}
+	}
+}

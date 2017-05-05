@@ -1,159 +1,154 @@
-Cog = 
+[Version:1]
+Cog 
 {
-	LinkId = 
+	var Name = "MissileProjectile"
+	var LinkId = 1
+	Transform 
 	{
-		uint Id = 1,
-	},
-	Named = 
+		var Translation = Real3{-1.46781468, -0.291055441, 0}
+		var Scale = Real3{1, 1, 1}
+		var Rotation = Quaternion{0, 0, 0, 1}
+	}
+	RigidBody 
 	{
-		string Name = "MissileProjectile",
-	},
-	Archetyped = 
+		var Velocity = Real3{0, 0, 0}
+		var AngularVelocity = Real3{0, 0, 0}
+		var DynamicState = RigidBodyDynamicState.Dynamic
+		var AllowSleep = true
+		var Asleep = false
+		var RotationLocked = false
+		var Mode2D = Mode2DStates.Mode2D
+	}
+	BoxCollider 
 	{
-		string Name = "523a75b1ebb0860e:MissileProjectile",
-	},
-	Transform = 
+		var Ghost = true
+		var SendsEvents = true
+		var Material = "4de020863e872da8:DefaultPhysicsMaterial"
+		var CollisionGroup = "4e740859314e5515:DefaultGroup"
+		var Offset = Real3{0.00999999978, 0, 0}
+		var HalfSize = Real3{0.150000006, 0.349999994, 0.0500000007}
+	}
+	Sprite 
 	{
-		Vec3 Translation = [-5.92972, -0.289637, 0],
-		Vec3 Scale = [1, 1, 1],
-		Quat Rotation = [0, 0, 0, 1],
-	},
-	RigidBody = 
+		var Visible = true
+		var ViewCulling = true
+		var VisibilityEvents = true
+		var Material = "582c575af53d18c9:AlphaSprite"
+		var VertexColor = Real4{1, 1, 1, 1}
+		var GeometryMode = SpriteGeometryMode.ZPlane
+		var SpriteSource = "523a7bb404f3fe74:MissileProjectile0"
+		var FlipX = false
+		var FlipY = false
+		var AnimationActive = true
+		var AnimationSpeed = 1
+		var StartFrame = 0
+	}
+	IgnoreSpaceEffects 
 	{
-		bool Static = false,
-		bool Asleep = false,
-		bool Kinematic = false,
-		bool RotationLocked = false,
-		bool Mode2D = true,
-		bool AllowSleep = true,
-		bool Inherit2DMode = true,
-		Vec3 Velocity = [0, 0, 0],
-		Vec3 AngularVelocity = [0, 0, 0],
-	},
-	BoxCollider = 
+		var IgnoreDrag = true
+		var IgnoreFlow = true
+		var IgnoreForce = true
+		var IgnoreGravity = true
+		var IgnorePointForce = true
+		var IgnorePointGravity = true
+		var IgnoreThrust = true
+		var IgnoreVortex = true
+		var IgnoreWind = true
+		var IgnoreTorque = true
+		var IgnoreBuoyancy = true
+		var IgnoreCustom = true
+	}
+	Projectile 
 	{
-		bool Ghost = true,
-		bool SendsMessages = true,
-		bool Seamless = true,
-		string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
-		string SerializedGroupName = "522e52f6be075ed1:Bullet",
-		Vec3 Offset = [0.01, 0, 0],
-		Vec3 Size = [0.15, 0.35, 0.05],
-	},
-	Sprite = 
+	}
+	ProjectileBasic 
 	{
-		string SpriteSource = "523a7bb404f3fe74:MissileProjectile0",
-		bool FlipX = false,
-		bool FlipY = false,
-		Vec4 Color = [1, 1, 1, 1],
-		bool Visible = true,
-		bool OnTop = true,
-		bool AnimationActive = true,
-		float AnimationSpeed = 1,
-		uint StartFrame = 0,
-		BlendMode BlendMode = Alpha,
-		SpriteGeometryMode GeometryMode = ZPlane,
-		string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-	},
-	IgnoreSpaceEffects = 
+		var CreateOnDamage = "523c8e0cbc053bc4:DamageEffect"
+		var DestroyOnDamage = true
+		var DamageCurve = "52289e04f7821205:DamageCurve"
+		var DamageType = DamageTypes.Energy
+	}
+	TimedDeath 
 	{
-		bool Drag = true,
-		bool Flow = false,
-		bool Force = false,
-		bool Gravity = false,
-		bool Thrust = false,
-		bool Vortex = false,
-		bool Wind = false,
-		bool Invalid = false,
-		bool Torque = false,
-		bool PointGravity = false,
-		bool PointForce = false,
-		bool Buoyancy = false,
-	},
-	Projectile = 
+		var Lifetime = 10
+	}
+	ProjectileHoming 
 	{
-	},
-	ProjectileBasic = 
+	}
+	Orientation 
 	{
-		string CreateOnDamage = "523c8e0cbc053bc4:DamageEffect",
-		bool DestroyOnDamage = true,
-		string DamageCurve = "52289e04f7821205:DamageCurve",
-		int DamageType = 0,
-	},
-	TimedDeath = 
+		var GlobalUp = Real3{0, 0, 1}
+		var LocalOrientationBasis = Quaternion{0.707106769, -0, 0, 0.707106769}
+		var DefaultBases = OrientationBases.ForwardYUpZ
+	}
+	Hierarchy 
 	{
-		float Lifetime = 10,
-	},
-	ProjectileHoming = 
-	{
-	},
-	Orientation = 
-	{
-		Vec3 GlobalUp = [0, 0, 1],
-		Vec3 UpVector = [0, 0, 1],
-		Vec3 ForwardVector = [0, 1, 0],
-		OrientationBases DefaultBases = ForwardZUpY,
-	},
-	Hierarchy = 
-	{
-		Cog = 
+		Cog [Id:0x595d6e6bcfc78024]
 		{
-			LinkId = 
+			var Name = ""
+			var LinkId = 2
+			EditorFlags 
 			{
-				uint Id = 2,
-			},
-			Transform = 
+				var Locked = true
+				var Hidden = true
+			}
+			Transform 
 			{
-				Vec3 Translation = [0.00439072, -0.357408, 0],
-				Vec3 Scale = [1, 1, 1],
-				Quat Rotation = [0, 0, 0, 1],
-			},
-			SpriteParticleSystem = 
+				var Translation = Real3{0.00439071981, -0.357407987, 0}
+				var Scale = Real3{1, 1, 1}
+				var Rotation = Quaternion{0, 0, 0, 1}
+			}
+			SpriteParticleSystem 
 			{
-				SystemChildMode ChildMode = Independent,
-				SystemSpace SystemSpace = WorldSpace,
-				uint DrawOrder = 1,
-				float WarmUpTime = 0,
-				ParticleGeometry GeometryMode = Billboarded,
-				ParticleRenderMode RenderMode = Blended,
-				ParticleSortMode SortMode = Youngest,
-				ParticleAnimation ParticleAnimation = Single,
-				string Texture = "523d6ae9a16254bd:MissileSmoke",
-				Vec4 Tint = [1, 1, 1, 0.4],
-				float VelocityScale = 1,
-				float LengthScale = 0,
-				float MaxParticleSize = 100,
-				Vec3 SystemSize = [2, 2, 2],
-			},
-			SphericalParticleEmitter = 
+				var Visible = true
+				var ViewCulling = true
+				var VisibilityEvents = true
+				var Material = "582c575af53d18c9:AlphaSprite"
+				var ChildSystem = false
+				var SystemSpace = SystemSpace.WorldSpace
+				var DrawOrder = 1
+				var Tint = Real4{1, 1, 1, 0.400000006}
+				var WarmUpTime = 0
+				var GeometryMode = ParticleGeometryMode.Billboarded
+				var SortMode = ParticleSortMode.Youngest
+				var ParticleAnimation = ParticleAnimationMode.Single
+				var SpriteSource = "5586f579ca73ecc2:SquareBordered"
+				var VelocityScale = 1
+				var LengthScale = 0
+				var SystemSize = Real3{2, 2, 2}
+				var PreviewInEditor = false
+			}
+			SphericalParticleEmitter 
 			{
-				bool Active = true,
-				uint EmitCount = 0,
-				float EmitRate = 100,
-				float EmitVariance = 0,
-				float Size = 0.3,
-				float SizeVariance = 0.05,
-				float Lifetime = 0.8,
-				float LifetimeVariance = 0.15,
-				float Spin = 3,
-				float SpinVariance = 1,
-				bool RandomSpin = true,
-				float Fill = 1,
-				float EmitterVelocityPercent = 0,
-				Vec3 StartVelocity = [0, 1, 0],
-				Vec3 RandomVelocity = [0, 0, 0],
-				Vec3 TangentVelocity = [0, 0, 0],
-				Vec3 EmitterSize = [0.01, 0.01, 0.01],
-				bool FastMovingEmitter = true,
-			},
-			ParticleColorAnimator = 
+				var Active = true
+				var EmitCount = 0
+				var EmitDelay = 0
+				var EmitRate = 100
+				var EmitVariance = 0
+				var EmitRateSoftStartTime = 0
+				var Size = 0.300000012
+				var SizeVariance = 0.0500000007
+				var Lifetime = 0.800000012
+				var LifetimeVariance = 0.150000006
+				var Spin = 3
+				var SpinVariance = 1
+				var RandomSpin = true
+				var Fill = 1
+				var EmitterVelocityPercent = 0
+				var StartVelocity = Real3{0, 1, 0}
+				var RandomVelocity = Real3{0, 0, 0}
+				var TangentVelocity = Real3{0, 0, 0}
+				var EmitterSize = Real3{0.00999999978, 0.00999999978, 0.00999999978}
+				var FastMovingEmitter = true
+			}
+			ParticleColorAnimator 
 			{
-				Vec4 Color0 = [1, 1, 1, 1],
-				Vec4 Color1 = [1, 1, 1, 1],
-				Vec4 Color2 = [1, 1, 1, 1],
-				Vec4 Color3 = [1, 1, 1, 0.5],
-				Vec4 Color4 = [1, 1, 1, 0],
-			},
-		},
-	},
-},
+				var Color0 = Real4{1, 1, 1, 1}
+				var Color1 = Real4{1, 1, 1, 1}
+				var Color2 = Real4{1, 1, 1, 1}
+				var Color3 = Real4{1, 1, 1, 0.5}
+				var Color4 = Real4{1, 1, 1, 0}
+			}
+		}
+	}
+}

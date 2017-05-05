@@ -4,7 +4,7 @@ class ItemMountable : ZilchComponent
     // When we separate we need to create a new root for us,
     // this is the archetype to create to do this.
     [Property]
-    var RootArchetype : Archetype = Archetype.Find("ObjectRoot");
+    var RootArchetype : Archetype = Archetype.ObjectRoot;
     
     // We need a reactive to get mouse events, although we
     // don't actually need the reactive component.

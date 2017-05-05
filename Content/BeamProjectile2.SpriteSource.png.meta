@@ -1,19 +1,21 @@
-ImageContent = 
+[Version:1]
+ImageContent 
 {
-	SpriteSourceBuilder = 
+	SpriteSourceBuilder 
 	{
-		string Name = "BeamProjectile2",
-		uint64 ResourceId = 523e7d9627815329,
-		uint64 AtlasId = 5274cf95e4a661fd,
-		uint FrameSizeX = 14,
-		uint FrameSizeY = 9,
-		uint FrameCount = 1,
-		float FrameDelay = 0.0833333,
-		float OriginX = 7,
-		float OriginY = 4,
-		float PixelsPerUnit = 32,
-		bool Smoothing = false,
-		bool Looping = true,
-		Vec4 Slices = [0, 0, 0, 0],
-	},
-},
+		var Name = "BeamProjectile2"
+		var ResourceId = 0x523e7d9627815329
+		var AtlasId = 0x5274cf95e4a661fd
+		var FrameSizeX = 14
+		var FrameSizeY = 9
+		var FrameCount = 1
+		var FrameDelay = 0.0833332986
+		var OriginX = 7
+		var OriginY = 4
+		var PixelsPerUnit = 32
+		var Sampling = SpriteSampling.Nearest
+		var Looping = true
+		var Slices = Real4{0, 0, 0, 0}
+		var Fill = SpriteFill.Stretch
+	}
+}

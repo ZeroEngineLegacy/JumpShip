@@ -3,11 +3,11 @@ class Turbine : ZilchComponent
 {
     // Upgrade curve for how we effect the max speed of the core.
     [Property]
-    var MaxSpeedCurve : SampleCurve = SampleCurve.Find("TurbineMaxSpeed");
+    var MaxSpeedCurve : SampleCurve = SampleCurve.TurbineMaxSpeed;
     
     // Upgrade curve for how we effect the linear scalar for the speed of the core.
     [Property]
-    var LinearScalarCurve : SampleCurve = SampleCurve.Find("TurbineLinearScalar");
+    var LinearScalarCurve : SampleCurve = SampleCurve.TurbineLinearScalar;
     
     [Dependency]
     var Upgradable : Upgradable = null;

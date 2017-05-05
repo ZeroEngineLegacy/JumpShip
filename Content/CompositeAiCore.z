@@ -7,7 +7,7 @@ class CompositeAiCore : ZilchComponent
     var Core : Core = null;
     
     [Property]
-    var UiTextRoot : Archetype = Archetype.Find("UiTextRoot");
+    var UiTextRoot : Archetype = Archetype.UiTextRoot;
     
     // The "player" core that owns this (could be an enemy in which case
     // this is null). Used to transfer resources to the player.

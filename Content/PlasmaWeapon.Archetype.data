@@ -1,94 +1,80 @@
-Cog = 
+[Version:1]
+Cog 
 {
-	LinkId = 
+	var Name = "Weapon"
+	var LinkId = 1
+	Transform 
 	{
-		uint Id = 1,
-	},
-	Named = 
+		var Translation = Real3{0, 0, 0}
+		var Scale = Real3{1, 1, 1}
+		var Rotation = Quaternion{0, 0, 0, 1}
+	}
+	RigidBody 
 	{
-		string Name = "Weapon",
-	},
-	Archetyped = 
+		var Velocity = Real3{0, 0, 0}
+		var AngularVelocity = Real3{0, 0, 0}
+		var DynamicState = RigidBodyDynamicState.Static
+		var AllowSleep = true
+		var Asleep = false
+		var RotationLocked = false
+		var Mode2D = Mode2DStates.Mode2D
+	}
+	BoxCollider 
 	{
-		string Name = "522ee5c5a10b9f53:PlasmaWeapon",
-	},
-	Transform = 
+		var Ghost = false
+		var SendsEvents = true
+		var Material = "4de020863e872da8:DefaultPhysicsMaterial"
+		var CollisionGroup = "4e740859314e5515:DefaultGroup"
+		var Offset = Real3{0, 0, 0}
+		var HalfSize = Real3{0.200000003, 0.224999994, 0.0500000007}
+	}
+	Sprite 
 	{
-		Vec3 Translation = [0, 0, 0],
-		Vec3 Scale = [1, 1, 1],
-		Quat Rotation = [0, 0, 0, 1],
-	},
-	RigidBody = 
+		var Visible = true
+		var ViewCulling = true
+		var VisibilityEvents = true
+		var Material = "582c575af53d18c9:AlphaSprite"
+		var VertexColor = Real4{1, 1, 1, 1}
+		var GeometryMode = SpriteGeometryMode.ZPlane
+		var SpriteSource = "524dc896a7f2a4f4:IonWeapon"
+		var FlipX = false
+		var FlipY = false
+		var AnimationActive = true
+		var AnimationSpeed = 1
+		var StartFrame = 0
+	}
+	Reactive 
 	{
-		bool Static = true,
-		bool Asleep = false,
-		bool Kinematic = false,
-		bool RotationLocked = false,
-		bool Mode2D = true,
-		bool AllowSleep = true,
-		bool Inherit2DMode = true,
-		Vec3 Velocity = [0, 0, 0],
-		Vec3 AngularVelocity = [0, 0, 0],
-	},
-	BoxCollider = 
+		var Active = true
+	}
+	ItemMountable 
 	{
-		bool Ghost = false,
-		bool SendsMessages = true,
-		bool Seamless = true,
-		string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
-		string SerializedGroupName = "4e740859314e5515:DefaultGroup",
-		Vec3 Offset = [0, 0, 0],
-		Vec3 Size = [0.2, 0.225, 0.05],
-	},
-	Sprite = 
+		var RootArchetype = "525b9b8a9d8d8062:ObjectRoot"
+	}
+	Weapon 
 	{
-		string SpriteSource = "524dc896a7f2a4f4:IonWeapon",
-		bool FlipX = false,
-		bool FlipY = false,
-		Vec4 Color = [1, 1, 1, 1],
-		bool Visible = true,
-		bool OnTop = false,
-		bool AnimationActive = true,
-		float AnimationSpeed = 1,
-		uint StartFrame = 0,
-		BlendMode BlendMode = Alpha,
-		SpriteGeometryMode GeometryMode = ZPlane,
-		string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-	},
-	Reactive = 
+		var RefireTime = 0.5
+		var LocalFireDirection = Real3{0, 1, 0}
+	}
+	Orientation 
 	{
-		bool Active = true,
-		bool CaptureMouse = true,
-	},
-	ItemMountable = 
+		var GlobalUp = Real3{0, 0, 1}
+		var LocalOrientationBasis = Quaternion{0.707106769, -0, 0, 0.707106769}
+		var DefaultBases = OrientationBases.ForwardYUpZ
+	}
+	InputFromCore 
 	{
-		string RootArchetype = "525b9b8a9d8d8062:ObjectRoot",
-	},
-	Weapon = 
+		var EventName = "Fire"
+		var Key = 32
+	}
+	Upgradable 
 	{
-		float RefireTime = 0.5,
-		Vec3 LocalFireDirection = [0, 1, 0],
-	},
-	Orientation = 
+		var Level = 0
+		var UpgradeWindow = "5230b4fb7a12c599:UpgradeWindow"
+	}
+	WeaponBasic 
 	{
-		Vec3 GlobalUp = [0, 0, 1],
-		Vec3 UpVector = [0, 0, 1],
-		Vec3 ForwardVector = [0, 1, 0],
-		OrientationBases DefaultBases = ForwardZUpY,
-	},
-	InputFromCore = 
-	{
-		string EventName = "Fire",
-		int Key = 32,
-	},
-	WeaponBasic = 
-	{
-		string ProjectileArchetype = "5226ea44cc3b5c37:PlasmaProjectile",
-		string FireSpeedCurve = "52288017287c7c84:WeaponSpeed",
-	},
-	Upgradable = 
-	{
-		float Level = 0,
-		string UpgradeWindow = "5230b4fb7a12c599:UpgradeWindow",
-	},
-},
+		var ProjectileArchetype = "5226ea44cc3b5c37:PlasmaProjectile"
+		var FireSpeedCurve = "52288017287c7c84:WeaponSpeed"
+	}
+}

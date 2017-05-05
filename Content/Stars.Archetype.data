@@ -1,74 +1,72 @@
-Cog = 
+[Version:1]
+Cog 
 {
-	LinkId = 
+	var Name = "Stars"
+	var LinkId = 1
+	Transform 
 	{
-		uint Id = 1,
-	},
-	Named = 
+		var Translation = Real3{0, 0, 0}
+		var Scale = Real3{1, 1, 1}
+		var Rotation = Quaternion{0, 0, 0, 1}
+	}
+	SpriteParticleSystem 
 	{
-		string Name = "Stars",
-	},
-	Archetyped = 
+		var Visible = true
+		var ViewCulling = true
+		var VisibilityEvents = true
+		var Material = "582c50d330d372c3:AdditiveSprite"
+		var ChildSystem = false
+		var SystemSpace = SystemSpace.WorldSpace
+		var DrawOrder = 0
+		var Tint = Real4{1, 1, 1, 1}
+		var WarmUpTime = 0
+		var GeometryMode = ParticleGeometryMode.Billboarded
+		var SortMode = ParticleSortMode.Youngest
+		var ParticleAnimation = ParticleAnimationMode.Single
+		var SpriteSource = "595a4241b84954a9:Twinkle"
+		var VelocityScale = 1
+		var LengthScale = 0
+		var SystemSize = Real3{5, 5, 5}
+		var PreviewInEditor = false
+	}
+	LinearParticleAnimator 
 	{
-		string Name = "521f5a45e70d4453:Stars",
-	},
-	Transform = 
+		var Force = Real3{0, 0, 0}
+		var RandomForce = Real3{0, 0, 0}
+		var Torque = 0
+		var Growth = 0
+		var Dampening = 0
+		var Twist = Real3{0, 0, 0}
+	}
+	SphericalParticleEmitter 
 	{
-		Vec3 Translation = [0.52885, 2.98789, 5.26727],
-		Vec3 Scale = [1, 1, 1],
-		Quat Rotation = [0, 0, 0, 1],
-	},
-	SpriteParticleSystem = 
+		var Active = true
+		var EmitCount = 0
+		var EmitDelay = 0
+		var EmitRate = 400
+		var EmitVariance = 0
+		var EmitRateSoftStartTime = 0
+		var Size = 2
+		var SizeVariance = 0
+		var Lifetime = 10
+		var LifetimeVariance = 5
+		var Spin = 0
+		var SpinVariance = 0
+		var RandomSpin = false
+		var Fill = 0.5
+		var EmitterVelocityPercent = 0
+		var StartVelocity = Real3{0, 0, 0}
+		var RandomVelocity = Real3{0, 0, 0}
+		var TangentVelocity = Real3{0, 0, 0}
+		var EmitterSize = Real3{200, 200, 30}
+		var FastMovingEmitter = false
+	}
+	ParticleColorAnimator 
 	{
-		SystemChildMode ChildMode = Independent,
-		SystemSpace SystemSpace = WorldSpace,
-		uint DrawOrder = 0,
-		ParticleGeometry GeometryMode = Billboarded,
-		ParticleRenderMode RenderMode = Additive,
-		ParticleSortMode SortMode = None,
-		string Texture = "530183e1ca131bcc:Twinkle",
-		Vec4 Tint = [1, 1, 1, 1],
-		float VelocityScale = 1,
-		float LengthScale = 0,
-		float MaxParticleSize = 100,
-		Vec3 SystemSize = [5, 5, 5],
-	},
-	LinearParticleAnimator = 
-	{
-		Vec3 Force = [0, 0, 0],
-		Vec3 RandomForce = [0, 0, 0],
-		float Torque = 0,
-		float Growth = 0,
-		float Dampening = 0,
-		Vec3 Twist = [0, 0, 0],
-	},
-	SphericalParticleEmitter = 
-	{
-		bool Active = true,
-		uint EmitCount = 0,
-		float EmitRate = 400,
-		float EmitVariance = 0,
-		float Size = 2,
-		float SizeVariance = 0,
-		float Lifetime = 10,
-		float LifetimeVariance = 5,
-		float Spin = 0,
-		float SpinVariance = 0,
-		bool RandomSpin = false,
-		float Fill = 0.5,
-		float EmitterVelocityPercent = 0,
-		Vec3 StartVelocity = [0, 0, 0],
-		Vec3 RandomVelocity = [0, 0, 0],
-		Vec3 TangentVelocity = [0, 0, 0],
-		Vec3 EmitterSize = [200, 200, 30],
-		bool FastMovingEmitter = false,
-	},
-	ParticleColorAnimator = 
-	{
-		Vec4 Color0 = [1, 1, 1, 0],
-		Vec4 Color1 = [1, 1, 1, 0.423529],
-		Vec4 Color2 = [0.7, 0.7, 1, 0.670588],
-		Vec4 Color3 = [1, 1, 1, 0.2],
-		Vec4 Color4 = [1, 1, 1, 0],
-	},
-},
+		var Color0 = Real4{1, 1, 1, 0}
+		var Color1 = Real4{1, 1, 1, 0.423528999}
+		var Color2 = Real4{0.699999988, 0.699999988, 1, 0.670588017}
+		var Color3 = Real4{1, 1, 1, 0.200000003}
+		var Color4 = Real4{1, 1, 1, 0}
+	}
+}

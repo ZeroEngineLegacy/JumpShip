@@ -45,7 +45,7 @@ class WeightedCreateOnDestroy : ZilchComponent
     function SpawnItem(pos : Real3, randomContext : RandomContext)
     {
         // Sample the resource table for the archetype to create
-        var resource = this.DropTable.SampleResource(randomContext.Float(), randomContext.Float());
+        var resource = this.DropTable.Sample(randomContext.Float(), randomContext.Float()).Resource;
         var archetype = resource as Archetype;
         
         var obj = this.Space.CreateAtPosition(archetype, pos);

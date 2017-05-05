@@ -29,17 +29,17 @@ class WeaponLightning : ZilchComponent
     {
         if(this.LightningEmitterCog != null)
         {
-            var level = this.Upgradable.Level;
-            
-            //hardcoded numbers for now from last jump ship
-            var maxDepth = level * 5.0 + 20.0;
-            this.LightningEmitterCog.LightningParticleEmitter.MaxDepth = maxDepth as Integer;
-            
-            var beginSize = level * 0.01 + 0.25;
-            var endSize = beginSize - 0.1;
-            
-            this.LightningEmitterCog.LightningParticleEmitter.BeginSize = beginSize;
-            this.LightningEmitterCog.LightningParticleEmitter.EndSize = endSize;
+            //var level = this.Upgradable.Level;
+            //
+            ////hardcoded numbers for now from last jump ship
+            //var maxDepth = level * 5.0 + 20.0;
+            //this.LightningEmitterCog.LightningParticleEmitter.MaxDepth = maxDepth as Integer;
+            //
+            //var beginSize = level * 0.01 + 0.25;
+            //var endSize = beginSize - 0.1;
+            //
+            //this.LightningEmitterCog.LightningParticleEmitter.BeginSize = beginSize;
+            //this.LightningEmitterCog.LightningParticleEmitter.EndSize = endSize;
         }
         
         if(this.DamageRegionCog != null)
@@ -58,7 +58,7 @@ class WeaponLightning : ZilchComponent
     {
         if(this.LightningEmitterCog != null)
         {
-            this.LightningEmitterCog.LightningParticleEmitter.MaxDepth = 0;
+            //this.LightningEmitterCog.LightningParticleEmitter.MaxDepth = 0;
         }
         
         if(this.DamageRegionCog != null)

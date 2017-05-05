@@ -1,26 +1,28 @@
-ImageContent = 
+[Version:1]
+ImageContent 
 {
-	ContentTags = 
+	ContentTags 
 	{
-		object Tags = 
-		[
-			"Sonic",
-		],
-	},
-	SpriteSourceBuilder = 
+		var Tags = Array
+		{
+			"Sonic"
+		}
+	}
+	SpriteSourceBuilder 
 	{
-		string Name = "SonicProjectile2",
-		uint64 ResourceId = 522e5414f56abcd1,
-		uint64 AtlasId = 5274cf95e4a661fd,
-		uint FrameSizeX = 10,
-		uint FrameSizeY = 13,
-		uint FrameCount = 1,
-		float FrameDelay = 0.0833333,
-		float OriginX = 5,
-		float OriginY = 6,
-		float PixelsPerUnit = 32,
-		bool Smoothing = false,
-		bool Looping = true,
-		Vec4 Slices = [0, 0, 0, 0],
-	},
-},
+		var Name = "SonicProjectile2"
+		var ResourceId = 0x522e5414f56abcd1
+		var AtlasId = 0x5274cf95e4a661fd
+		var FrameSizeX = 10
+		var FrameSizeY = 13
+		var FrameCount = 1
+		var FrameDelay = 0.0833332986
+		var OriginX = 5
+		var OriginY = 6
+		var PixelsPerUnit = 32
+		var Sampling = SpriteSampling.Nearest
+		var Looping = true
+		var Slices = Real4{0, 0, 0, 0}
+		var Fill = SpriteFill.Stretch
+	}
+}

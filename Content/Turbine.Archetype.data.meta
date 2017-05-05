@@ -1,18 +1,19 @@
-DataContent = 
+[Version:1]
+DataContent 
 {
-	ContentTags = 
+	DataBuilder 
 	{
-		object Tags = 
-		[
-			"Turbine",
-		],
-	},
-	DataBuilder = 
+		var Name = "Turbine"
+		var ResourceId = 0x5252cbce47d0c501
+		var LoaderType = "Cog"
+		var Version = 0
+		var ShowInEditor = true
+	}
+	ContentTags 
 	{
-		string Name = "Turbine",
-		uint64 ResourceId = 5252cbce47d0c501,
-		string LoaderType = "Cog",
-		uint Version = 0,
-		bool ShowInEditor = true,
-	},
-},
+		var Tags = Array
+		{
+			"Turbine"
+		}
+	}
+}

@@ -1,19 +1,21 @@
-ImageContent = 
+[Version:1]
+ImageContent 
 {
-	SpriteSourceBuilder = 
+	SpriteSourceBuilder 
 	{
-		string Name = "BigAsteroid",
-		uint64 ResourceId = 524dce7f2db914b8,
-		uint64 AtlasId = 5274cf95e4a661fd,
-		uint FrameSizeX = 69,
-		uint FrameSizeY = 75,
-		uint FrameCount = 1,
-		float FrameDelay = 0.0833333,
-		float OriginX = 34,
-		float OriginY = 37,
-		float PixelsPerUnit = 32,
-		bool Smoothing = false,
-		bool Looping = true,
-		Vec4 Slices = [0, 0, 0, 0],
-	},
-},
+		var Name = "BigAsteroid"
+		var ResourceId = 0x524dce7f2db914b8
+		var AtlasId = 0x5274cf95e4a661fd
+		var FrameSizeX = 69
+		var FrameSizeY = 75
+		var FrameCount = 1
+		var FrameDelay = 0.0833332986
+		var OriginX = 34
+		var OriginY = 37
+		var PixelsPerUnit = 32
+		var Sampling = SpriteSampling.Nearest
+		var Looping = true
+		var Slices = Real4{0, 0, 0, 0}
+		var Fill = SpriteFill.Stretch
+	}
+}

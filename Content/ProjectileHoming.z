@@ -80,8 +80,9 @@ class ProjectileHoming : ZilchComponent
         var radius = this.GetSearchRadius();
         var physicsSpace = this.Space.PhysicsSpace;
         // Cast a sphere and find the object in that sphere closest to our current position
-        var filter = physicsSpace.CreateDefaultCastFilter();
-        var results = physicsSpace.CastSphereResults(pos, radius, this.MaxResults, filter);
+        var filter = CastFilter();
+        var castSphere = Sphere() {Center = pos, Radius = radius};
+        var results = physicsSpace.CastSphere(castSphere, this.MaxResults, filter);
         
         var minDistance = 999.0;
         var closestObj : Cog = null;

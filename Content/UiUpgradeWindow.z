@@ -91,12 +91,12 @@ class UiUpgradeWindow : ZilchComponent
         var sprite = this.UpgradeButton.SpriteText;
         if(upgradable.CanUpgrade() == true)
         {
-            sprite.Color = local Real4(1.0);
+            sprite.VertexColor = Real4(1.0);
         }
         // Otherwise turn it red since we don't have enough resources
         else
         {
-            sprite.Color = local Real4(1.0, 0.0, 0.0, 1.0);
+            sprite.VertexColor = Real4(1.0, 0.0, 0.0, 1.0);
         }
     }
     
@@ -104,7 +104,7 @@ class UiUpgradeWindow : ZilchComponent
     {
         // Change back to a semi-transparent gray when the mouse is not over the upgrade button
         var sprite = this.UpgradeButton.SpriteText;
-        sprite.Color = local Real4(0.5);
+        sprite.VertexColor = local Real4(0.5);
     }
     
     function OnUpgrade(viewportMouseEvent : ViewportMouseEvent)

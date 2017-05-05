@@ -69,7 +69,6 @@ class InputFromCore : ZilchComponent
         {
             return;
         }
-        
         // Send our event with Begin pre-pended to it
         this.SendEvent("Begin");
     }

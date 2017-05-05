@@ -120,6 +120,7 @@ class Core : ZilchComponent
         // Get the target direction (from the core position to the target point in world space)
         // Normalize that vector since we only care about direction, not magnitude
         var targetDir = this.MoveTarget - pos;
+        targetDir.Z = 0;
         targetDir = Math.Normalize(targetDir);
         
         // Get the world forward vector of the ship

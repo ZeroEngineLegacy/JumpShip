@@ -39,7 +39,7 @@ class ObjectGrid : ZilchComponent
 {
     // The archetype used to display to the user where the object can be mounted.
     [Property]
-    var DisplayArchetype : Archetype = Archetype.Find("GridCellSprite");
+    var DisplayArchetype : Archetype = Archetype.GridCellSprite;
     
     // A map of keys to current pieces attached to this root.
     var PieceMap : HashMap[Real2, Cog] = new HashMap[Real2, Cog]();
@@ -58,14 +58,20 @@ class ObjectGrid : ZilchComponent
     
     function Initialize(init : CogInitializer)
     {
+      Zero.Connect(init, Events.AllObjectsInitialized, this.OnAllObjectsInitialized);
         // Listen for when a piece start/stops dragging so we can create/destroy visuals
         Zero.Connect(this.Space, Events.PieceDragBegin, this.OnPieceDragBegin);
         Zero.Connect(this.Space, Events.PieceDragEnd, this.OnPieceDragEnd);
         
         Zero.Connect(this.Space, Events.TestAttachment, this.OnTestAttachment);
         
-        // We might have some children so do the initial grid population
-        this.RebuildGrid();
+        
+    }
+
+    function OnAllObjectsInitialized(event : CogInitializerEvent)
+    {
+      // We might have some children so do the initial grid population
+      this.RebuildGrid();
     }
     
     function OnPieceDragBegin(e : GridAttachEvent)
@@ -107,7 +113,7 @@ class ObjectGrid : ZilchComponent
             var selection = this.FreeMap.Get(this.SelectedKey, null);
             if(selection != null)
             {
-                selection.Sprite.Color = local Real4(1.0, 1.0, 1.0, 0.5);
+                selection.Sprite.VertexColor = local Real4(1.0, 1.0, 1.0, 0.5);
             }
             // Replace the current key with this new key
             this.SelectedKey = newKey;
@@ -118,7 +124,7 @@ class ObjectGrid : ZilchComponent
         if(selection != null)
         {
             // Change the color to give user feedback that this is the spot that'll be selected
-            selection.Sprite.Color = local Real4(selection.Sprite.Color.XYZ, 1.0);
+            selection.Sprite.VertexColor = local Real4(selection.Sprite.VertexColor.XYZ, 1.0);
             
             // Build up the info for where this attachment info is and add it to the event
             var info = new GridAttachInfo();
@@ -137,7 +143,7 @@ class ObjectGrid : ZilchComponent
         if(selection != null)
         {
             var sprite = selection.Sprite;
-            sprite.Color = local Real4(1.0, 0.0, 0.0, 1.0);
+            sprite.VertexColor = local Real4(1.0, 0.0, 0.0, 1.0);
         }
     }
     
@@ -156,7 +162,7 @@ class ObjectGrid : ZilchComponent
             selection.AttachTo(this.Owner);
             
             // Set the color dimmed so that selections are more obvious
-            selection.Sprite.Color = local Real4(selection.Sprite.Color.XYZ, 0.5);
+            selection.Sprite.VertexColor = local Real4(selection.Sprite.VertexColor.XYZ, 0.5);
             
             this.FreeMap.AddOrOverwrite(key, selection);
         }
@@ -190,8 +196,11 @@ class ObjectGrid : ZilchComponent
     
     function GetPieceKey(pieceCog : Cog) : Real2
     {
+      var transform = pieceCog.Transform;
+      var scale = transform.LocalScale;
+      var pos = transform.WorldTranslation;
         // Get the key from the current cog's position
-        return this.GetPieceKey(pieceCog.Transform.WorldTranslation);
+        return this.GetPieceKey(pos);
     }
     
     function AddFreeNeighbors(key : Real2)
@@ -334,7 +343,7 @@ class ObjectGrid : ZilchComponent
         var children = hierarchy.Children.All;
         foreach (var cog in children)
         {
-            this.AddPiece(cog);
+          this.AddPiece(cog);
         }
     }
     

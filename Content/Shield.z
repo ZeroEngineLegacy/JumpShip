@@ -5,19 +5,19 @@ class Shield : ZilchComponent
 {
     // The barrier to create.
     [Property]
-    var BarrierArchetype : Archetype = Archetype.Find("ShieldBarrier");
+    var BarrierArchetype : Archetype = Archetype.ShieldBarrier;
     
     // Curve to represent how quickly the barrier recharges its health.
     [Property]
-    var RechareRateCurve : SampleCurve = SampleCurve.Find("ShieldRechargeRate");
+    var RechareRateCurve : SampleCurve = SampleCurve.ShieldRechargeRate;
     
     // How the radius of the barrier increases with level.
     [Property]
-    var ShieldRadiusCurve : SampleCurve = SampleCurve.Find("ShieldRadius");
+    var ShieldRadiusCurve : SampleCurve = SampleCurve.ShieldRadius;
     
     // The color of the shield when it's in the powered down state.
     [Property]
-    var RechargeColor : Real4 = local Real4(0.2, 0.2, 0.0, 1.0);
+    var RechargeColor : Real4 = Real4(0.2, 0.2, 0.0, 1.0);
     
     [Dependency]
     var Upgradable : Upgradable = null;
@@ -41,14 +41,14 @@ class Shield : ZilchComponent
     function Initialize(init : CogInitializer)
     {
         // Create the barrier, attach it to us and center it on us
-        this.BarrierCog = this.Space.CreateAtPosition(this.BarrierArchetype, local Real3(0.0, 0.0, 0.0));
+        this.BarrierCog = this.Space.CreateAtPosition(this.BarrierArchetype, Real3(0.0, 0.0, 0.0));
         this.BarrierCog.AttachTo(this.Owner);
         
         // Set the initial size of the shield and its color
         var level = this.Upgradable.Level;
         var radius = this.ShieldRadiusCurve.Sample(level);
-        this.BarrierCog.Transform.Scale = local Real3(radius, radius, radius);
-        this.BarrierCog.Sprite.Color = local Real4(this.BarrierCog.Sprite.Color.XYZ, 0.0);
+        this.BarrierCog.Transform.Scale = Real3(radius, radius, radius);
+        this.BarrierCog.Sprite.VertexColor = Real4(this.BarrierCog.Sprite.VertexColor.XYZ, 0.0);
         
         Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
         Zero.Connect(this.BarrierCog, Events.Death, this.OnBarrierDied);
@@ -67,19 +67,19 @@ class Shield : ZilchComponent
             
             var alpha = this.BarrierDamageTimer / this.MaxBarrierDamageTimer;
             var bSprite = this.BarrierCog.Sprite;
-            bSprite.Color = local Real4(bSprite.Color.XYZ, alpha);
+            bSprite.VertexColor = Real4(bSprite.VertexColor.XYZ, alpha);
         }
         
         //(replace with an action)
         if(this.BarrierDied)
         {
             this.BarrierDeathTimer = Math.Max(0.0, this.BarrierDeathTimer - dt);
-            this.Owner.Sprite.Color = Math.Lerp(this.RechargeColor, local Real4(1.0, 1.0, 1.0, 1.0), 1.0 - this.BarrierDeathTimer / 3.0);
+            this.Owner.Sprite.VertexColor = Math.Lerp(this.RechargeColor, Real4(1.0, 1.0, 1.0, 1.0), 1.0 - this.BarrierDeathTimer / 3.0);
             
             if(this.BarrierDeathTimer <= 0.0)
             {
                 this.BarrierDied = false;
-                this.Owner.Sprite.Color = local Real4(1.0, 1.0, 1.0, 1.0);
+                this.Owner.Sprite.VertexColor = Real4(1.0, 1.0, 1.0, 1.0);
             }
             //(if the action is running then don't do the rest of logic update)
             return;
@@ -112,7 +112,7 @@ class Shield : ZilchComponent
     {
         // Change to our recharging color and then interpolate back to our normal color,
         // then we'll begin recovering health again (use actions later)
-        this.Owner.Sprite.Color = this.RechargeColor;
+        this.Owner.Sprite.VertexColor = this.RechargeColor;
         this.BarrierDied = true;
         this.BarrierDeathTimer = this.MaxBarrierDeathTimer;
         this.Owner.Sprite.AnimationSpeed = 0.0;

@@ -1,58 +1,51 @@
-Cog = 
+[Version:1]
+Cog 
 {
-	LinkId = 
+	var Name = ""
+	var LinkId = 1
+	Transform 
 	{
-		uint Id = 1,
-	},
-	Archetyped = 
+		var Translation = Real3{-8.10908031, -2.3036499, 0}
+		var Scale = Real3{1, 1, 1}
+		var Rotation = Quaternion{0, 0, 0, 1}
+	}
+	Sprite 
 	{
-		string Name = "522ffc42f787cfb7:Platinum",
-	},
-	Transform = 
+		var Visible = true
+		var ViewCulling = true
+		var VisibilityEvents = true
+		var Material = "582c575af53d18c9:AlphaSprite"
+		var VertexColor = Real4{1, 1, 1, 1}
+		var GeometryMode = SpriteGeometryMode.ZPlane
+		var SpriteSource = "522fe097bb9f098a:Platinum"
+		var FlipX = false
+		var FlipY = false
+		var AnimationActive = true
+		var AnimationSpeed = 1
+		var StartFrame = 0
+	}
+	SphereCollider 
 	{
-		Vec3 Translation = [-8.10908, -2.30365, 0],
-		Vec3 Scale = [1, 1, 1],
-		Quat Rotation = [0, 0, 0, 1],
-	},
-	Sprite = 
+		var Ghost = false
+		var SendsEvents = true
+		var Material = "4faa6050b8692851:HardMaterial"
+		var CollisionGroup = "4e740859314e5515:DefaultGroup"
+		var Offset = Real3{0, 0, 0}
+		var Radius = 0.25
+	}
+	RigidBody 
 	{
-		string SpriteSource = "522fe097bb9f098a:Platinum",
-		bool FlipX = false,
-		bool FlipY = false,
-		Vec4 Color = [1, 1, 1, 1],
-		bool Visible = true,
-		bool OnTop = true,
-		bool AnimationActive = true,
-		float AnimationSpeed = 1,
-		uint StartFrame = 0,
-		BlendMode BlendMode = Alpha,
-		SpriteGeometryMode GeometryMode = ZPlane,
-	},
-	SphereCollider = 
+		var Velocity = Real3{0, 0, 0}
+		var AngularVelocity = Real3{0, 0, 0}
+		var DynamicState = RigidBodyDynamicState.Dynamic
+		var AllowSleep = true
+		var Asleep = false
+		var RotationLocked = false
+		var Mode2D = Mode2DStates.Mode2D
+	}
+	Pickup 
 	{
-		bool Ghost = false,
-		bool SendsMessages = true,
-		bool Seamless = false,
-		string MaterialName = "4faa6050b8692851:HardMaterial",
-		string SerializedGroupName = "4e740859314e5515:DefaultGroup",
-		Vec3 Offset = [0, 0, 0],
-		float Radius = 0.25,
-	},
-	RigidBody = 
-	{
-		bool Static = false,
-		bool Asleep = false,
-		bool Kinematic = false,
-		bool RotationLocked = false,
-		bool Mode2D = true,
-		bool AllowSleep = true,
-		bool Inherit2DMode = true,
-		Vec3 Velocity = [0, 0, 0],
-		Vec3 AngularVelocity = [0, 0, 0],
-	},
-	Pickup = 
-	{
-		string ResourceType = "Platinum",
-		float Value = 1,
-	},
-},
+		var ResourceType = "Platinum"
+		var Value = 1
+	}
+}

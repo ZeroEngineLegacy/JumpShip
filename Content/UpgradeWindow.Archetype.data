@@ -1,387 +1,313 @@
-Cog = 
+[Version:1]
+Cog 
 {
-	LinkId = 
+	var Name = "UiObjectInfo"
+	var LinkId = 1
+	Transform 
 	{
-		uint Id = 1,
-	},
-	Named = 
+		var Translation = Real3{-4.53724003, -4.13534021, 0}
+		var Scale = Real3{1, 1, 1}
+		var Rotation = Quaternion{0, 0, 0, 1}
+	}
+	Sprite 
 	{
-		string Name = "UiObjectInfo",
-	},
-	Archetyped = 
+		var Visible = true
+		var ViewCulling = true
+		var VisibilityEvents = true
+		var Material = "582c575af53d18c9:AlphaSprite"
+		var VertexColor = Real4{1, 1, 1, 1}
+		var GeometryMode = SpriteGeometryMode.ZPlane
+		var SpriteSource = "522d50e3a118bdc0:UIObjectInfo"
+		var FlipX = false
+		var FlipY = false
+		var AnimationActive = true
+		var AnimationSpeed = 1
+		var StartFrame = 0
+	}
+	UiUpgradeWindow 
 	{
-		string Name = "5230b4fb7a12c599:UpgradeWindow",
-	},
-	Transform = 
+	}
+	BoxCollider 
 	{
-		Vec3 Translation = [-4.53724, -4.13534, 0],
-		Vec3 Scale = [1, 1, 1],
-		Quat Rotation = [0, 0, 0, 1],
-	},
-	Sprite = 
+		var Ghost = true
+		var SendsEvents = true
+		var Material = "522ed4616b15044d:Massless"
+		var CollisionGroup = "4e740859314e5515:DefaultGroup"
+		var Offset = Real3{2.25, 1.20000005, 0}
+		var HalfSize = Real3{2, 1, 0.0500000007}
+	}
+	Reactive 
 	{
-		string SpriteSource = "522d50e3a118bdc0:UIObjectInfo",
-		bool FlipX = false,
-		bool FlipY = false,
-		Vec4 Color = [1, 1, 1, 1],
-		bool Visible = true,
-		bool OnTop = false,
-		bool AnimationActive = true,
-		float AnimationSpeed = 1,
-		uint StartFrame = 0,
-		BlendMode BlendMode = Alpha,
-		SpriteGeometryMode GeometryMode = ZPlane,
-	},
-	UiUpgradeWindow = 
+		var Active = true
+	}
+	Hierarchy 
 	{
-	},
-	BoxCollider = 
-	{
-		bool Ghost = true,
-		bool SendsMessages = true,
-		bool Seamless = false,
-		string MaterialName = "522ed4616b15044d:Massless",
-		string SerializedGroupName = "4e740859314e5515:DefaultGroup",
-		Vec3 Offset = [2.25, 1.2, 0],
-		Vec3 Size = [2, 1, 0.05],
-	},
-	Reactive = 
-	{
-		bool Active = true,
-		bool CaptureMouse = false,
-	},
-	Hierarchy = 
-	{
-		Cog = 
+		Cog [Id:0x595d6d83da3d28e7]
 		{
-			LinkId = 
+			var Name = "LevelText"
+			var LinkId = 2
+			Transform 
 			{
-				uint Id = 2,
-			},
-			Named = 
+				var Translation = Real3{0.346946001, 2.07402992, 0}
+				var Scale = Real3{1, 1, 1}
+				var Rotation = Quaternion{0, 0, 0, 1}
+			}
+			SpriteText 
 			{
-				string Name = "LevelText",
-			},
-			Transform = 
-			{
-				Vec3 Translation = [0.346946, 2.07403, 0],
-				Vec3 Scale = [1, 1, 1],
-				Quat Rotation = [0, 0, 0, 1],
-			},
-			SpriteText = 
-			{
-				SpriteGeometryMode GeometryMode = ZPlane,
-				TextPositionMode Position = UpperLeft,
-				string FontName = "4e7bac697bec55c5:Verdana",
-				uint FontSize = 20,
-				Vec4 Color = [1, 1, 1, 1],
-				bool Visible = true,
-				string Text = "Level: 1",
-				bool OnTop = true,
-				BlendMode BlendMode = Alpha,
-				Vec2 Size = [0, 0],
-				TextAlign Align = Left,
-				float PixelsPerUnit = 64,
-			},
-		},
-		Cog = 
+				var Visible = true
+				var ViewCulling = true
+				var VisibilityEvents = true
+				var Material = "582c575af53d18c9:AlphaSprite"
+				var VertexColor = Real4{1, 1, 1, 1}
+				var GeometryMode = SpriteGeometryMode.ZPlane
+				var Font = "57343753bb4eaaec:NotoSans-Regular"
+				var FontSize = 20
+				var Text = "Level: 1"
+				var Align = TextAlign.Left
+				var PixelsPerUnit = 64
+			}
+		}
+		Cog [Id:0x595d6d83da3d28f0]
 		{
-			LinkId = 
+			var Name = "UpgradeText"
+			var LinkId = 3
+			Transform 
 			{
-				uint Id = 3,
-			},
-			Named = 
+				var Translation = Real3{3.49622011, 0.411063999, 0.100000001}
+				var Scale = Real3{1, 1, 1}
+				var Rotation = Quaternion{0, 0, 0, 1}
+			}
+			SpriteText 
 			{
-				string Name = "UpgradeText",
-			},
-			Transform = 
+				var Visible = true
+				var ViewCulling = true
+				var VisibilityEvents = true
+				var Material = "582c575af53d18c9:AlphaSprite"
+				var VertexColor = Real4{1, 1, 1, 1}
+				var GeometryMode = SpriteGeometryMode.ZPlane
+				var Font = "57343753bb4eaaec:NotoSans-Regular"
+				var FontSize = 20
+				var Text = "Upgrade"
+				var Align = TextAlign.Left
+				var PixelsPerUnit = 64
+			}
+			BoxCollider 
 			{
-				Vec3 Translation = [3.49622, 0.411064, 0.1],
-				Vec3 Scale = [1, 1, 1],
-				Quat Rotation = [0, 0, 0, 1],
-			},
-			SpriteText = 
+				var Ghost = false
+				var SendsEvents = true
+				var Material = "4faa6050b8692851:HardMaterial"
+				var CollisionGroup = "4e740859314e5515:DefaultGroup"
+				var Offset = Real3{0, 0, 0}
+				var HalfSize = Real3{0.699999988, 0.200000003, 0.0500000007}
+			}
+			Reactive 
 			{
-				SpriteGeometryMode GeometryMode = ZPlane,
-				TextPositionMode Position = Centered,
-				string FontName = "4e7bac697bec55c5:Verdana",
-				uint FontSize = 20,
-				Vec4 Color = [0.6, 0.6, 0.6, 1],
-				bool Visible = true,
-				string Text = "Upgrade",
-				bool OnTop = true,
-				BlendMode BlendMode = Alpha,
-				Vec2 Size = [0, 0],
-				TextAlign Align = Left,
-				float PixelsPerUnit = 64,
-			},
-			BoxCollider = 
-			{
-				bool Ghost = false,
-				bool SendsMessages = true,
-				bool Seamless = false,
-				string MaterialName = "4faa6050b8692851:HardMaterial",
-				string SerializedGroupName = "4e740859314e5515:DefaultGroup",
-				Vec3 Offset = [0, 0, 0],
-				Vec3 Size = [0.7, 0.2, 0.05],
-			},
-			Reactive = 
-			{
-				bool Active = true,
-				bool CaptureMouse = false,
-			},
-		},
-		Cog = 
+				var Active = true
+			}
+		}
+		Cog [Id:0x595d6d83da3d28f3]
 		{
-			LinkId = 
+			var Name = "ExpRequired"
+			var LinkId = 4
+			Transform 
 			{
-				uint Id = 4,
-			},
-			Named = 
+				var Translation = Real3{0.600000024, 0.899999976, 0}
+				var Scale = Real3{1, 1, 1}
+				var Rotation = Quaternion{0, 0, 0, 1}
+			}
+			SpriteText 
 			{
-				string Name = "ExpRequired",
-			},
-			Transform = 
-			{
-				Vec3 Translation = [0.6, 0.9, 0],
-				Vec3 Scale = [1, 1, 1],
-				Quat Rotation = [0, 0, 0, 1],
-			},
-			SpriteText = 
-			{
-				SpriteGeometryMode GeometryMode = ZPlane,
-				TextPositionMode Position = Centered,
-				string FontName = "4e7bac697bec55c5:Verdana",
-				uint FontSize = 20,
-				Vec4 Color = [1, 1, 1, 1],
-				bool Visible = false,
-				string Text = "1",
-				bool OnTop = true,
-				BlendMode BlendMode = Alpha,
-				Vec2 Size = [0, 0],
-				TextAlign Align = Left,
-				float PixelsPerUnit = 64,
-			},
-		},
-		Cog = 
+				var Visible = false
+				var ViewCulling = true
+				var VisibilityEvents = true
+				var Material = "582c575af53d18c9:AlphaSprite"
+				var VertexColor = Real4{1, 1, 1, 1}
+				var GeometryMode = SpriteGeometryMode.ZPlane
+				var Font = "57343753bb4eaaec:NotoSans-Regular"
+				var FontSize = 20
+				var Text = "1"
+				var Align = TextAlign.Left
+				var PixelsPerUnit = 64
+			}
+		}
+		Cog [Id:0x595d6d83da3d28f5]
 		{
-			LinkId = 
+			var Name = "ExpVisual"
+			var LinkId = 5
+			Transform 
 			{
-				uint Id = 5,
-			},
-			Named = 
+				var Translation = Real3{0.600000024, 1.39999998, 0.100000001}
+				var Scale = Real3{1, 1, 1}
+				var Rotation = Quaternion{0, 0, 0, 1}
+			}
+			Sprite 
 			{
-				string Name = "ExpVisual",
-			},
-			Transform = 
-			{
-				Vec3 Translation = [0.6, 1.4, 0.1],
-				Vec3 Scale = [1, 1, 1],
-				Quat Rotation = [0, 0, 0, 1],
-			},
-			Sprite = 
-			{
-				string SpriteSource = "522d3039be042f23:ExperienceGreen",
-				bool FlipX = false,
-				bool FlipY = false,
-				Vec4 Color = [1, 1, 1, 1],
-				bool Visible = false,
-				bool OnTop = true,
-				bool AnimationActive = true,
-				float AnimationSpeed = 1,
-				uint StartFrame = 0,
-				BlendMode BlendMode = Alpha,
-				SpriteGeometryMode GeometryMode = ZPlane,
-			},
-		},
-		Cog = 
+				var Visible = false
+				var ViewCulling = true
+				var VisibilityEvents = true
+				var Material = "582c575af53d18c9:AlphaSprite"
+				var VertexColor = Real4{1, 1, 1, 1}
+				var GeometryMode = SpriteGeometryMode.ZPlane
+				var SpriteSource = "522d3039be042f23:ExperienceGreen"
+				var FlipX = false
+				var FlipY = false
+				var AnimationActive = true
+				var AnimationSpeed = 1
+				var StartFrame = 0
+			}
+		}
+		Cog [Id:0x595d6d83da3d28f7]
 		{
-			LinkId = 
+			var Name = "ZincVisual"
+			var LinkId = 6
+			Transform 
 			{
-				uint Id = 6,
-			},
-			Named = 
+				var Translation = Real3{1.60000002, 1.39999998, 0.100000001}
+				var Scale = Real3{1, 1, 1}
+				var Rotation = Quaternion{0, 0, 0, 1}
+			}
+			Sprite 
 			{
-				string Name = "ZincVisual",
-			},
-			Transform = 
-			{
-				Vec3 Translation = [1.6, 1.4, 0.1],
-				Vec3 Scale = [1, 1, 1],
-				Quat Rotation = [0, 0, 0, 1],
-			},
-			Sprite = 
-			{
-				string SpriteSource = "522fe316535da728:Zinc",
-				bool FlipX = false,
-				bool FlipY = false,
-				Vec4 Color = [1, 1, 1, 1],
-				bool Visible = false,
-				bool OnTop = true,
-				bool AnimationActive = true,
-				float AnimationSpeed = 1,
-				uint StartFrame = 0,
-				BlendMode BlendMode = Alpha,
-				SpriteGeometryMode GeometryMode = ZPlane,
-			},
-		},
-		Cog = 
+				var Visible = false
+				var ViewCulling = true
+				var VisibilityEvents = true
+				var Material = "582c575af53d18c9:AlphaSprite"
+				var VertexColor = Real4{1, 1, 1, 1}
+				var GeometryMode = SpriteGeometryMode.ZPlane
+				var SpriteSource = "522fe316535da728:Zinc"
+				var FlipX = false
+				var FlipY = false
+				var AnimationActive = true
+				var AnimationSpeed = 1
+				var StartFrame = 0
+			}
+		}
+		Cog [Id:0x595d6d83da3d28fa]
 		{
-			LinkId = 
+			var Name = "SteelVisual"
+			var LinkId = 7
+			Transform 
 			{
-				uint Id = 7,
-			},
-			Named = 
+				var Translation = Real3{2.5999999, 1.39999998, 0.100000001}
+				var Scale = Real3{1, 1, 1}
+				var Rotation = Quaternion{0, 0, 0, 1}
+			}
+			Sprite 
 			{
-				string Name = "SteelVisual",
-			},
-			Transform = 
-			{
-				Vec3 Translation = [2.6, 1.4, 0.1],
-				Vec3 Scale = [1, 1, 1],
-				Quat Rotation = [0, 0, 0, 1],
-			},
-			Sprite = 
-			{
-				string SpriteSource = "522fe084be388bc0:Steel",
-				bool FlipX = false,
-				bool FlipY = false,
-				Vec4 Color = [1, 1, 1, 1],
-				bool Visible = false,
-				bool OnTop = true,
-				bool AnimationActive = true,
-				float AnimationSpeed = 1,
-				uint StartFrame = 0,
-				BlendMode BlendMode = Alpha,
-				SpriteGeometryMode GeometryMode = ZPlane,
-			},
-		},
-		Cog = 
+				var Visible = false
+				var ViewCulling = true
+				var VisibilityEvents = true
+				var Material = "582c575af53d18c9:AlphaSprite"
+				var VertexColor = Real4{1, 1, 1, 1}
+				var GeometryMode = SpriteGeometryMode.ZPlane
+				var SpriteSource = "522fe084be388bc0:Steel"
+				var FlipX = false
+				var FlipY = false
+				var AnimationActive = true
+				var AnimationSpeed = 1
+				var StartFrame = 0
+			}
+		}
+		Cog [Id:0x595d6d83da3d28fc]
 		{
-			LinkId = 
+			var Name = "PlatinumVisual"
+			var LinkId = 8
+			Transform 
 			{
-				uint Id = 8,
-			},
-			Named = 
+				var Translation = Real3{3.5999999, 1.39999998, 0.100000001}
+				var Scale = Real3{1, 1, 1}
+				var Rotation = Quaternion{0, 0, 0, 1}
+			}
+			Sprite 
 			{
-				string Name = "PlatinumVisual",
-			},
-			Transform = 
-			{
-				Vec3 Translation = [3.6, 1.4, 0.1],
-				Vec3 Scale = [1, 1, 1],
-				Quat Rotation = [0, 0, 0, 1],
-			},
-			Sprite = 
-			{
-				string SpriteSource = "522fe097bb9f098a:Platinum",
-				bool FlipX = false,
-				bool FlipY = false,
-				Vec4 Color = [1, 1, 1, 1],
-				bool Visible = false,
-				bool OnTop = true,
-				bool AnimationActive = true,
-				float AnimationSpeed = 1,
-				uint StartFrame = 0,
-				BlendMode BlendMode = Alpha,
-				SpriteGeometryMode GeometryMode = ZPlane,
-			},
-		},
-		Cog = 
+				var Visible = false
+				var ViewCulling = true
+				var VisibilityEvents = true
+				var Material = "582c575af53d18c9:AlphaSprite"
+				var VertexColor = Real4{1, 1, 1, 1}
+				var GeometryMode = SpriteGeometryMode.ZPlane
+				var SpriteSource = "522fe097bb9f098a:Platinum"
+				var FlipX = false
+				var FlipY = false
+				var AnimationActive = true
+				var AnimationSpeed = 1
+				var StartFrame = 0
+			}
+		}
+		Cog [Id:0x595d6d83da3d28fe]
 		{
-			LinkId = 
+			var Name = "ZincRequired"
+			var LinkId = 9
+			Transform 
 			{
-				uint Id = 9,
-			},
-			Named = 
+				var Translation = Real3{1.60000002, 0.899999976, 0}
+				var Scale = Real3{1, 1, 1}
+				var Rotation = Quaternion{0, 0, 0, 1}
+			}
+			SpriteText 
 			{
-				string Name = "ZincRequired",
-			},
-			Transform = 
-			{
-				Vec3 Translation = [1.6, 0.9, 0],
-				Vec3 Scale = [1, 1, 1],
-				Quat Rotation = [0, 0, 0, 1],
-			},
-			SpriteText = 
-			{
-				SpriteGeometryMode GeometryMode = ZPlane,
-				TextPositionMode Position = Centered,
-				string FontName = "4e7bac697bec55c5:Verdana",
-				uint FontSize = 20,
-				Vec4 Color = [1, 1, 1, 1],
-				bool Visible = false,
-				string Text = "1",
-				bool OnTop = true,
-				BlendMode BlendMode = Alpha,
-				Vec2 Size = [0, 0],
-				TextAlign Align = Left,
-				float PixelsPerUnit = 64,
-			},
-		},
-		Cog = 
+				var Visible = false
+				var ViewCulling = true
+				var VisibilityEvents = true
+				var Material = "582c575af53d18c9:AlphaSprite"
+				var VertexColor = Real4{1, 1, 1, 1}
+				var GeometryMode = SpriteGeometryMode.ZPlane
+				var Font = "57343753bb4eaaec:NotoSans-Regular"
+				var FontSize = 20
+				var Text = "1"
+				var Align = TextAlign.Left
+				var PixelsPerUnit = 64
+			}
+		}
+		Cog [Id:0x595d6d83da3d2900]
 		{
-			LinkId = 
+			var Name = "PlatinumRequired"
+			var LinkId = 10
+			Transform 
 			{
-				uint Id = 10,
-			},
-			Named = 
+				var Translation = Real3{3.5999999, 0.899999976, 0}
+				var Scale = Real3{1, 1, 1}
+				var Rotation = Quaternion{0, 0, 0, 1}
+			}
+			SpriteText 
 			{
-				string Name = "PlatinumRequired",
-			},
-			Transform = 
-			{
-				Vec3 Translation = [3.6, 0.9, 0],
-				Vec3 Scale = [1, 1, 1],
-				Quat Rotation = [0, 0, 0, 1],
-			},
-			SpriteText = 
-			{
-				SpriteGeometryMode GeometryMode = ZPlane,
-				TextPositionMode Position = Centered,
-				string FontName = "4e7bac697bec55c5:Verdana",
-				uint FontSize = 20,
-				Vec4 Color = [1, 1, 1, 1],
-				bool Visible = false,
-				string Text = "1",
-				bool OnTop = true,
-				BlendMode BlendMode = Alpha,
-				Vec2 Size = [0, 0],
-				TextAlign Align = Left,
-				float PixelsPerUnit = 64,
-			},
-		},
-		Cog = 
+				var Visible = false
+				var ViewCulling = true
+				var VisibilityEvents = true
+				var Material = "582c575af53d18c9:AlphaSprite"
+				var VertexColor = Real4{1, 1, 1, 1}
+				var GeometryMode = SpriteGeometryMode.ZPlane
+				var Font = "57343753bb4eaaec:NotoSans-Regular"
+				var FontSize = 20
+				var Text = "1"
+				var Align = TextAlign.Left
+				var PixelsPerUnit = 64
+			}
+		}
+		Cog [Id:0x595d6d83da3d2902]
 		{
-			LinkId = 
+			var Name = "SteelRequired"
+			var LinkId = 11
+			Transform 
 			{
-				uint Id = 11,
-			},
-			Named = 
+				var Translation = Real3{2.5999999, 0.899999976, 0}
+				var Scale = Real3{1, 1, 1}
+				var Rotation = Quaternion{0, 0, 0, 1}
+			}
+			SpriteText 
 			{
-				string Name = "SteelRequired",
-			},
-			Transform = 
-			{
-				Vec3 Translation = [2.6, 0.9, 0],
-				Vec3 Scale = [1, 1, 1],
-				Quat Rotation = [0, 0, 0, 1],
-			},
-			SpriteText = 
-			{
-				SpriteGeometryMode GeometryMode = ZPlane,
-				TextPositionMode Position = Centered,
-				string FontName = "4e7bac697bec55c5:Verdana",
-				uint FontSize = 20,
-				Vec4 Color = [1, 1, 1, 1],
-				bool Visible = false,
-				string Text = "1",
-				bool OnTop = true,
-				BlendMode BlendMode = Alpha,
-				Vec2 Size = [0, 0],
-				TextAlign Align = Left,
-				float PixelsPerUnit = 64,
-			},
-		},
-	},
-},
+				var Visible = false
+				var ViewCulling = true
+				var VisibilityEvents = true
+				var Material = "582c575af53d18c9:AlphaSprite"
+				var VertexColor = Real4{1, 1, 1, 1}
+				var GeometryMode = SpriteGeometryMode.ZPlane
+				var Font = "57343753bb4eaaec:NotoSans-Regular"
+				var FontSize = 20
+				var Text = "1"
+				var Align = TextAlign.Left
+				var PixelsPerUnit = 64
+			}
+		}
+	}
+}

@@ -1,18 +1,19 @@
-DataContent = 
+[Version:1]
+DataContent 
 {
-	DataBuilder = 
+	DataBuilder 
 	{
-		string Name = "PlasmaProjectile",
-		uint64 ResourceId = 5226ea44cc3b5c37,
-		string LoaderType = "Cog",
-		uint Version = 0,
-		bool ShowInEditor = true,
-	},
-	ContentTags = 
+		var Name = "PlasmaProjectile"
+		var ResourceId = 0x5226ea44cc3b5c37
+		var LoaderType = "Cog"
+		var Version = 0
+		var ShowInEditor = true
+	}
+	ContentTags 
 	{
-		Array Tags = 
-		[
-			"Plasma",
-		],
-	},
-},
+		var Tags = Array
+		{
+			"Plasma"
+		}
+	}
+}

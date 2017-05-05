@@ -15,7 +15,7 @@ class PickupCollector : ZilchComponent
     
     // The level to load with our Ui
     [Property]
-    var UiLevel : Level = Level.Find("UiLevel");
+    var UiLevel : Level = Level.UiLevel;
     
     // The current amount of resources available to the core.
     var Resources : HashMap[String, Real] = new HashMap[String, Real]();
@@ -34,7 +34,7 @@ class PickupCollector : ZilchComponent
         if(this.CreateUi == true)
         {
             // Create the display space and load the ui level
-            var displayCog = this.GameSession.CreateNamedSpace("UiSpace", Archetype.Find("DefaultSpace"));
+            var displayCog = this.GameSession.CreateNamedSpace("UiSpace", Archetype.DefaultSpace);
             this.DisplaySpace = displayCog.Space;
             this.DisplaySpace.LoadLevel(this.UiLevel);
         }

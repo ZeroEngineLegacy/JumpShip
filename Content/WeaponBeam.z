@@ -9,11 +9,11 @@ class WeaponBeam : ZilchComponent
     var Weapon : Weapon = null;
     
     [Property]
-    var BeamArchetype : Archetype = Archetype.Find("BeamProjectile");
+    var BeamArchetype : Archetype = Archetype.BeamProjectile;
     
     // The amount of damage we'll do based upon our current level.
     [Property]
-    var DamageCurve : SampleCurve = SampleCurve.Find("DamageCurve");
+    var DamageCurve : SampleCurve = SampleCurve.DamageCurve;
     
     [Property]
     var DamageType : DamageTypes = DamageTypes.Beam;
@@ -54,7 +54,7 @@ class WeaponBeam : ZilchComponent
         ray.Start = info.FirePosW;
         ray.Direction = info.FireDirW;
         
-        var results = this.Space.PhysicsSpace.CastRayResults(ray, 20);
+        var results = this.Space.PhysicsSpace.CastRay(ray, 20);
         foreach(var result in results)
         {
             var obj = result.ObjectHit;

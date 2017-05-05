@@ -1,86 +1,69 @@
-Cog = 
+[Version:1]
+Cog 
 {
-	LinkId = 
+	var Name = "Turbine"
+	var LinkId = 1
+	Transform 
 	{
-		uint Id = 1,
-	},
-	Named = 
+		var Translation = Real3{0, 0, 0}
+		var Scale = Real3{1, 1, 1}
+		var Rotation = Quaternion{0, 0, 0, 1}
+	}
+	RigidBody 
 	{
-		string Name = "Turbine",
-	},
-	Archetyped = 
+		var Velocity = Real3{0, 0, 0}
+		var AngularVelocity = Real3{0, 0, 0}
+		var DynamicState = RigidBodyDynamicState.Dynamic
+		var AllowSleep = true
+		var Asleep = false
+		var RotationLocked = false
+		var Mode2D = Mode2DStates.Mode2D
+	}
+	BoxCollider 
 	{
-		string Name = "5252cbce47d0c501:Turbine",
-	},
-	Transform = 
+		var Ghost = false
+		var SendsEvents = true
+		var Material = "4de020863e872da8:DefaultPhysicsMaterial"
+		var CollisionGroup = "4e740859314e5515:DefaultGroup"
+		var Offset = Real3{0, 0, 0}
+		var HalfSize = Real3{0.5, 0.5, 0.5}
+	}
+	Sprite 
 	{
-		Vec3 Translation = [0, 0, 0],
-		Vec3 Scale = [1, 1, 1],
-		Quat Rotation = [0, 0, 0, 1],
-	},
-	RigidBody = 
+		var Visible = true
+		var ViewCulling = true
+		var VisibilityEvents = true
+		var Material = "582c575af53d18c9:AlphaSprite"
+		var VertexColor = Real4{1, 1, 1, 1}
+		var GeometryMode = SpriteGeometryMode.ZPlane
+		var SpriteSource = "524dc8aba3ea6c84:Turbine"
+		var FlipX = false
+		var FlipY = false
+		var AnimationActive = true
+		var AnimationSpeed = 1
+		var StartFrame = 0
+	}
+	Reactive 
 	{
-		bool Static = true,
-		bool Asleep = false,
-		bool Kinematic = false,
-		bool RotationLocked = false,
-		bool Mode2D = true,
-		bool AllowSleep = true,
-		bool Inherit2DMode = true,
-		Vec3 Velocity = [0, 0, 0],
-		Vec3 AngularVelocity = [0, 0, 0],
-	},
-	BoxCollider = 
+		var Active = true
+	}
+	GridAttachable 
 	{
-		bool Ghost = false,
-		bool SendsMessages = true,
-		bool Seamless = true,
-		string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
-		string SerializedGroupName = "4e740859314e5515:DefaultGroup",
-		Vec3 Offset = [0, 0, 0],
-		Vec3 Size = [0.5, 0.5, 0.05],
-	},
-	Sprite = 
+		var IsDraggable = true
+		var RootArchetype = "525b9b8a9d8d8062:ObjectRoot"
+	}
+	Health 
 	{
-		string SpriteSource = "524dc8aba3ea6c84:Turbine",
-		bool FlipX = false,
-		bool FlipY = false,
-		Vec4 Color = [1, 1, 1, 1],
-		bool Visible = true,
-		bool OnTop = false,
-		bool AnimationActive = true,
-		float AnimationSpeed = 1,
-		uint StartFrame = 0,
-		BlendMode BlendMode = Alpha,
-		SpriteGeometryMode GeometryMode = ZPlane,
-	},
-	Reactive = 
+		var MaxHealth = 50
+		var DestroyAtZeroHealth = true
+	}
+	CreateOnDestroy 
 	{
-		bool Active = true,
-		bool CaptureMouse = true,
-	},
-	GridAttachable = 
+		var ArchetypeToCreate = "52247a3f629e359a:Explosion"
+	}
+	Upgradable 
 	{
-		bool IsDraggable = true,
-		string RootArchetype = "525b9b8a9d8d8062:ObjectRoot",
-	},
-	Health = 
-	{
-		float MaxHealth = 50,
-		bool DestroyAtZeroHealth = true,
-	},
-	CreateOnDestroy = 
-	{
-		string ArchetypeToCreate = "52247a3f629e359a:Explosion",
-	},
-	Turbine = 
-	{
-		string MaxSpeedCurve = "4f16dfae49806add:DefaultCurve",
-		string LinearScalarCurve = "4f16dfae49806add:DefaultCurve",
-	},
-	Upgradable = 
-	{
-		float Level = 0,
-		string UpgradeWindow = "5230b4fb7a12c599:UpgradeWindow",
-	},
-},
+		var Level = 0
+		var UpgradeWindow = "5230b4fb7a12c599:UpgradeWindow"
+	}
+}

@@ -4,7 +4,7 @@ class DamageRegion : ZilchComponent
 {
     // The amount of damage we'll do based upon our current level.
     [Property]
-    var DamageCurve : SampleCurve = SampleCurve.Find("DamageCurve");
+    var DamageCurve : SampleCurve = SampleCurve.DamageCurve;
     
     [Property]
     var DamageEffect : Archetype = null;
@@ -68,7 +68,7 @@ class DamageRegion : ZilchComponent
         
         var damagePerFrame = this.GetDamage();
         // Create the event to damage what we hit
-        var toSend = new DamageEvent();
+        var toSend = DamageEvent();
         toSend.Damage = damagePerFrame;
         toSend.Normal = worldNormal;
         toSend.WorldPoint = worldPoint;

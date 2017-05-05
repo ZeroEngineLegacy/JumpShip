@@ -65,7 +65,7 @@ class TextWithOptions : ZilchComponent
 {
     // The Archetypes to create when we expand.
     [Property]
-    var Options : ResourceTable = ResourceTable.Find("PathTextOptions");
+    var Options : ResourceTable = ResourceTable.PathTextOptions;
     // Are we currently expanded? Used to destroy old options if we're already expanded.
     var Expanded : Boolean = false;
     
@@ -99,9 +99,10 @@ class TextWithOptions : ZilchComponent
         // later to be the largest x of any of our siblings)
         startPos.X = this.Owner.SpriteText.MeasureText().X;
         
-        for(var index = 0; index < this.Options.Size; ++index)
+        for(var index = 0; index < this.Options.Count; ++index)
         {
-            var archetype = this.Options.GetResourceAt(index) as Archetype;
+            var entry = this.Options[index];
+            var archetype = entry.Resource as Archetype;
             
             // Create the option archetype as a child at the appropriate offset down
             var obj = this.Space.Create(archetype);
@@ -113,7 +114,7 @@ class TextWithOptions : ZilchComponent
             if(uiText != null)
             {
                 // Set the text to the name in the resource table (change later?)
-                uiText.SetText(this.Options.GetNameAt(index));
+                uiText.SetText(entry.Name);
                 // Also have this option have the same owning cog (who it sends events to)
                 uiText.OwningCog = this.Owner.UiText.OwningCog;
             }
@@ -241,9 +242,8 @@ class PathProxyCreator : ZilchComponent
         // Debug draw all of the waypoints
         foreach(var point in this.WayPoints)
         {
-            var sphere = new DebugSphere();
-            sphere.Position(point).Radius(0.1).Float4Color(local Real4(0.9));
-            sphere.Draw();
+            var sphere = DebugSphere(point, 0.1) {Color = Real4(0.9)};
+            DebugDraw.Add(sphere);
         }
     }
 }

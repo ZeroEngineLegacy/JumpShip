@@ -2,10 +2,10 @@
 class DeepSpaceEffect : ZilchComponent
 {
     [Property]
-    var Stars : Archetype = Archetype.Find("Stars");
+    var Stars : Archetype = Archetype.Stars;
     
     [Property]
-    var Nebula : Archetype = Archetype.Find("Nebula");
+    var Nebula : Archetype = Archetype.Nebula;
     
     constructor() : base()
     {
