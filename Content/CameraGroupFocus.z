@@ -66,7 +66,7 @@ class CameraGroupFocus : ZilchComponent
         var cameraPos = myTransform.Translation;
         
         //Offset the center of the aabb
-        var aabbCenter = (aabb.Min + aabb.Max) / 2.0 + this.PositionOffset;
+        var aabbCenter = aabb.Center + this.PositionOffset;
         //Project the aabb's center onto the plane the camera is currently on
         var offset = aabbCenter - cameraPos;
         var projectedCameraDistance = Math.Dot(offset, this.PlaneNormal);
@@ -144,9 +144,9 @@ class CameraGroupFocus : ZilchComponent
         //Expand the aabb by every object's position
         for(var i = 1; i < this.Objects.Count; ++i)
         {
-            obj = this.Objects.Get(i);
+            obj = this.Objects[i];
             pos = obj.Transform.Translation;
-            aabb.Expand(pos);
+            aabb = Aabb.Expand(aabb, pos);
         }
         return aabb;
     }
