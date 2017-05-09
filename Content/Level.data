@@ -91,14 +91,6 @@ Level
 			var LookTarget = Real3{12.7967863, 0.916475296, 0.443424225}
 			var MoveSensitivity = 1
 		}
-		EditorRenderer 
-		{
-			var ClearColor = Vec4{}
-			var DrawNonVisible = true
-			var DrawDebugObjects = true
-			var DrawEditorIcons = true
-			var Wireframe = false
-		}
 		CameraViewport 
 		{
 			var RenderInEditor = true

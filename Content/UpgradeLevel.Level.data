@@ -24,11 +24,6 @@ Level
 			var LinearDrag = 0
 			var AngularDrag = 0
 		}
-		FixedAspectRatio 
-		{
-			var Width = 16
-			var Height = 9
-		}
 	}
 	Cog 
 	{
@@ -55,23 +50,23 @@ Level
 		var LinkId = 3
 		Transform 
 		{
-			var Translation = Real3{-22.3419991, -17.3554993, 78}
+			var Translation = Real3{-22.3419991, -10.7568684, 77.422699}
 			var Scale = Real3{1, 1, 1}
-			var Rotation = Quaternion{-0, -1.09278471e-08, 0, 1}
+			var Rotation = Quaternion{-0.0871557519, -1.09695906e-08, -1.90484961e-09, 0.99619478}
 		}
 		Camera 
 		{
 			var NearPlane = 0.5
 			var FarPlane = 500
-			var PerspectiveMode = PerspectiveMode.Orthographic
+			var PerspectiveMode = PerspectiveMode.Perspective
 			var FieldOfView = 45
 			var Size = 18
 		}
 		EditorCameraController 
 		{
-			var ControlMode = ControlMode.ZPlane
+			var ControlMode = ControlMode.Orbit
 			var LookDistance = 38
-			var VerticalAngle = 0
+			var VerticalAngle = 0.17453292
 			var HorizontalAngle = 0
 			var LookTarget = Real3{-22.3419991, -17.3554993, 40}
 			var MoveSensitivity = 1

@@ -1,26 +1,41 @@
-Cog = 
+[Version:1]
+Cog 
 {
-	LinkId = 
+	var Name = ""
+	var LinkId = 1
+	ObjectLink 
 	{
-		uint Id = 1,
-	},
-	ObjectLink = 
-	{
-		uint ObjectA = 2,
-		uint ObjectB = 3,
-		Vec3 BodyPointA = [-9.53674e-007, 0, 0.499999],
-		Vec3 BodyPointB = [-6.19888e-006, 1.19209e-007, 0.499998],
-	},
-	SpriteBeam = 
-	{
-		string SpriteSource = "523e7d9627815329:BeamProjectile2",
-		bool Visible = true,
-		BlendMode BlendMode = Alpha,
-		BeamCapMode BeamCapMode = Normal,
-		BeamGeometryMode BeamGeometryMode = Mode2D,
-		Vec4 Color = [1, 1, 1, 1],
-		float SpriteThickness = 0.1,
-		float SpriteLength = 0.1,
-		float RepeatCount = 0,
-	},
-},
+		var ObjectAPath = CogPath
+		{
+			var Path = ""
+			var ErrorOnResolveToNull = false
+			var ErrorOnPathCantCompute = false
+			var ErrorOnDirectLinkFail = false
+			var UpdateCogOnPathChange = true
+			var UpdatePathOnCogChange = true
+			var UpdateCogOnInitialize = true
+			var ResolvedNullErrorOccurred = false
+			var ResolvedCog = 4294967293
+			var PathPreference0 = CogPathPreference.CogRelative
+			var PathPreference1 = CogPathPreference.SpaceRelative
+			var PathPreference2 = CogPathPreference.Absolute
+		}
+		var ObjectBPath = CogPath
+		{
+			var Path = ""
+			var ErrorOnResolveToNull = false
+			var ErrorOnPathCantCompute = false
+			var ErrorOnDirectLinkFail = false
+			var UpdateCogOnPathChange = true
+			var UpdatePathOnCogChange = true
+			var UpdateCogOnInitialize = true
+			var ResolvedNullErrorOccurred = false
+			var ResolvedCog = 4294967293
+			var PathPreference0 = CogPathPreference.CogRelative
+			var PathPreference1 = CogPathPreference.SpaceRelative
+			var PathPreference2 = CogPathPreference.Absolute
+		}
+		var LocalPointA = Real3{0, 0, 0}
+		var LocalPointB = Real3{0, 0, 0}
+	}
+}
