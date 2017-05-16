@@ -70,9 +70,9 @@ Level
 		var LinkId = 3
 		Transform 
 		{
-			var Translation = Real3{16.2727432, -1.25672913, 19.1980076}
+			var Translation = Real3{16.2420826, 4.2500658, 19.0325756}
 			var Scale = Real3{1, 1, 1}
-			var Rotation = Quaternion{0.0564549379, 0.0913544744, -0.00518748024, 0.994203389}
+			var Rotation = Quaternion{-0.0867901221, 0.0911534354, 0.00797489285, 0.99201566}
 		}
 		Camera 
 		{
@@ -86,7 +86,7 @@ Level
 		{
 			var ControlMode = ControlMode.Orbit
 			var LookDistance = 19.197382
-			var VerticalAngle = -0.113446355
+			var VerticalAngle = 0.17453292
 			var HorizontalAngle = -0.183259621
 			var LookTarget = Real3{12.7967863, 0.916475296, 0.443424225}
 			var MoveSensitivity = 1
