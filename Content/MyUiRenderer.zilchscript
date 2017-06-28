@@ -11,7 +11,7 @@ class MyUiRenderer : ZilchComponent
 
   function OnRenderTasksUpdate(event : RenderTasksEvent)
   {
-    var size = event.GetViewportSize();
+    var size = event.ViewportSize;
     var color = event.GetFinalTarget(size, TextureFormat.RGBA8);
     var depth = event.GetRenderTarget(size, TextureFormat.Depth32);
 
