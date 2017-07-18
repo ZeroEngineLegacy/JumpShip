@@ -14,20 +14,23 @@ Cog
 		var Visible = true
 		var ViewCulling = true
 		var VisibilityEvents = true
+		var OverrideBoundingBox = false
+		var LocalAabbCenter = Real3{0, 0, 0}
+		var LocalAabbHalfExtents = Real3{1, 1, 1}
+		var GroupSortValue = 0
 		var Material = "582c575af53d18c9:AlphaSprite"
+		var BoundingBoxSize = 2
 		var ChildSystem = false
 		var SystemSpace = SystemSpace.WorldSpace
-		var DrawOrder = 1
-		var Tint = Real4{1, 1, 1, 1}
 		var WarmUpTime = 0
-		var GeometryMode = ParticleGeometryMode.Billboarded
-		var SortMode = ParticleSortMode.Youngest
-		var ParticleAnimation = ParticleAnimationMode.Single
-		var SpriteSource = "523c8f02edc0325c:Sparks"
-		var VelocityScale = 1
-		var LengthScale = 0
-		var SystemSize = Real3{2, 2, 2}
 		var PreviewInEditor = false
+		var VertexColor = Real4{1, 1, 1, 1}
+		var GeometryMode = SpriteParticleGeometryMode.Billboarded
+		var SpriteSource = "523c8f02edc0325c:Sparks"
+		var ParticleAnimation = SpriteParticleAnimationMode.Single
+		var ParticleSort = SpriteParticleSortMode.None
+		var BeamBaseScale = 1
+		var BeamVelocityScale = 1
 	}
 	SphericalParticleEmitter 
 	{
@@ -54,11 +57,9 @@ Cog
 	}
 	ParticleColorAnimator 
 	{
-		var Color0 = Real4{1, 1, 1, 1}
-		var Color1 = Real4{1, 1, 1, 1}
-		var Color2 = Real4{1, 1, 1, 1}
-		var Color3 = Real4{1, 1, 1, 0.5}
-		var Color4 = Real4{1, 1, 1, 0}
+		var TimeGradient = "591abd225f232eaa:FadeInOut"
+		var VelocityGradient = "null"
+		var MaxParticleSpeed = 5
 	}
 	TimedDeath 
 	{

@@ -33,6 +33,10 @@ Cog
 		var Visible = true
 		var ViewCulling = true
 		var VisibilityEvents = true
+		var OverrideBoundingBox = false
+		var LocalAabbCenter = Real3{0, 0, 0}
+		var LocalAabbHalfExtents = Real3{1, 1, 1}
+		var GroupSortValue = 0
 		var Material = "582c575af53d18c9:AlphaSprite"
 		var VertexColor = Real4{1, 1, 1, 1}
 		var GeometryMode = SpriteGeometryMode.ZPlane
@@ -98,20 +102,23 @@ Cog
 				var Visible = true
 				var ViewCulling = true
 				var VisibilityEvents = true
+				var OverrideBoundingBox = false
+				var LocalAabbCenter = Real3{0, 0, 0}
+				var LocalAabbHalfExtents = Real3{1, 1, 1}
+				var GroupSortValue = 0
 				var Material = "582c575af53d18c9:AlphaSprite"
+				var BoundingBoxSize = 2
 				var ChildSystem = false
 				var SystemSpace = SystemSpace.WorldSpace
-				var DrawOrder = 0
-				var Tint = Real4{1, 1, 1, 0.699999988}
 				var WarmUpTime = 0
-				var GeometryMode = ParticleGeometryMode.Beam
-				var SortMode = ParticleSortMode.Youngest
-				var ParticleAnimation = ParticleAnimationMode.Single
-				var SpriteSource = "5586f579ca73ecc2:SquareBordered"
-				var VelocityScale = 2
-				var LengthScale = 0
-				var SystemSize = Real3{2, 2, 2}
 				var PreviewInEditor = false
+				var VertexColor = Real4{1, 1, 1, 1}
+				var GeometryMode = SpriteParticleGeometryMode.Beam
+				var SpriteSource = "5586f579ca73ecc2:SquareBordered"
+				var ParticleAnimation = SpriteParticleAnimationMode.Single
+				var ParticleSort = SpriteParticleSortMode.None
+				var BeamBaseScale = 1
+				var BeamVelocityScale = 1
 			}
 		}
 		Cog [Id:0x595d6e3cbfd6e6d7]

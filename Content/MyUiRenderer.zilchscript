@@ -27,7 +27,7 @@ class MyUiRenderer : ZilchComponent
     renderSettings.DepthSettings.DepthCompareFunc = TextureCompareFunc.LessEqual;
     renderSettings.CullMode = CullMode.BackFace;
 
-    event.AddRenderTaskRenderPass(renderSettings, RenderGroup.DefaultRenderGroup, renderPass);
+    event.AddRenderTaskRenderPass(renderSettings, RenderGroup.Opaque, renderPass);
 
     renderSettings.DepthSettings.DepthMode = DepthMode.Read;
     renderSettings.BlendSettings.BlendMode = BlendMode.Separate;
