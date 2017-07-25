@@ -51,13 +51,14 @@ Level
 		var LinkId = 2
 		DeferredRenderer 
 		{
-			var DrawDebug = true
 			var GeometryDebug = GeometryValue.None
-			var ShowDiffuse = true
-			var ShowSpecular = true
+			var EditorDebugDraw = true
+			var GameDebugDraw = true
+			var RenderDiffuse = true
+			var RenderSpecular = true
+			var RenderSkybox = true
 			var Skybox = "5827acd640fecdcb:ZeroMetallic"
 			var ClearColor = Real4{0, 0, 0, 1}
-			var DrawSkybox = true
 			var DirectLighting = true
 			var IndirectLighting = true
 			var IndirectIntensity = 1
@@ -85,6 +86,7 @@ Level
 		EditorCameraController 
 		{
 			var ControlMode = ControlMode.Orbit
+			var Previous3DMode = ControlMode.Orbit
 			var LookDistance = 19.197382
 			var VerticalAngle = 0.17453292
 			var HorizontalAngle = -0.183259621
@@ -100,7 +102,7 @@ Level
 			var RenderOrder = 0
 			var NormalizedSize = Real2{1, 1}
 			var NormalizedOffset = Real2{0, 0}
-			var Camera = CogPath
+			var CameraPath = CogPath
 			{
 				var Path = "."
 				var ErrorOnResolveToNull = false
@@ -115,7 +117,7 @@ Level
 				var PathPreference1 = CogPathPreference.SpaceRelative
 				var PathPreference2 = CogPathPreference.Absolute
 			}
-			var Renderer = CogPath
+			var RendererPath = CogPath
 			{
 				var Path = ":/Renderer"
 				var ErrorOnResolveToNull = false
@@ -182,7 +184,7 @@ Level
 			var RenderOrder = 0
 			var NormalizedSize = Real2{1, 1}
 			var NormalizedOffset = Real2{0, 0}
-			var Camera = CogPath
+			var CameraPath = CogPath
 			{
 				var Path = "."
 				var ErrorOnResolveToNull = false
@@ -197,7 +199,7 @@ Level
 				var PathPreference1 = CogPathPreference.SpaceRelative
 				var PathPreference2 = CogPathPreference.Absolute
 			}
-			var Renderer = CogPath
+			var RendererPath = CogPath
 			{
 				var Path = ":/Renderer"
 				var ErrorOnResolveToNull = false
@@ -833,6 +835,10 @@ Level
 					var Visible = true
 					var ViewCulling = true
 					var VisibilityEvents = true
+					var OverrideBoundingBox = false
+					var LocalAabbCenter = Real3{0, 0, 0}
+					var LocalAabbHalfExtents = Real3{1, 1, 1}
+					var GroupSortValue = 0
 					var Material = "582c575af53d18c9:AlphaSprite"
 					var VertexColor = Real4{1, 1, 1, 1}
 					var GeometryMode = SpriteGeometryMode.ZPlane
@@ -966,6 +972,10 @@ Level
 					var Visible = true
 					var ViewCulling = true
 					var VisibilityEvents = true
+					var OverrideBoundingBox = false
+					var LocalAabbCenter = Real3{0, 0, 0}
+					var LocalAabbHalfExtents = Real3{1, 1, 1}
+					var GroupSortValue = 0
 					var Material = "582c575af53d18c9:AlphaSprite"
 					var VertexColor = Real4{1, 1, 1, 1}
 					var GeometryMode = SpriteGeometryMode.ZPlane
@@ -1031,20 +1041,23 @@ Level
 							var Visible = true
 							var ViewCulling = true
 							var VisibilityEvents = true
+							var OverrideBoundingBox = false
+							var LocalAabbCenter = Real3{0, 0, 0}
+							var LocalAabbHalfExtents = Real3{1, 1, 1}
+							var GroupSortValue = 0
 							var Material = "582c575af53d18c9:AlphaSprite"
+							var BoundingBoxSize = 2
 							var ChildSystem = false
 							var SystemSpace = SystemSpace.WorldSpace
-							var DrawOrder = 0
-							var Tint = Real4{1, 1, 1, 0.699999988}
 							var WarmUpTime = 0
-							var GeometryMode = ParticleGeometryMode.Beam
-							var SortMode = ParticleSortMode.Youngest
-							var ParticleAnimation = ParticleAnimationMode.Single
-							var SpriteSource = "5586f579ca73ecc2:SquareBordered"
-							var VelocityScale = 2
-							var LengthScale = 0
-							var SystemSize = Real3{2, 2, 2}
 							var PreviewInEditor = false
+							var VertexColor = Real4{1, 1, 1, 1}
+							var GeometryMode = SpriteParticleGeometryMode.Beam
+							var SpriteSource = "5586f579ca73ecc2:SquareBordered"
+							var ParticleAnimation = SpriteParticleAnimationMode.Single
+							var ParticleSort = SpriteParticleSortMode.None
+							var BeamBaseScale = 1
+							var BeamVelocityScale = 1
 						}
 						LinearParticleAnimator 
 						{

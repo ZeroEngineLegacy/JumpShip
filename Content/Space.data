@@ -1,44 +1,52 @@
-Space = 
+[Version:1]
+Space 
 {
-	LinkId = 
+	var Name = ""
+	var LinkId = 1
+	TimeSpace 
 	{
-		uint Id = 1,
-	},
-	Archetyped = 
+		var MaxDt = 0.300000012
+		var MinDt = 9.99999997e-07
+		var TimeScale = 1
+		var TimeMode = TimeMode.FixedFrametime
+		var StepCount = 1
+	}
+	GraphicsSpace 
 	{
-		string Name = "524dcfc823a891d3:Space",
-	},
-	TimeSpace = 
+		var Active = true
+		var RandomSeed = false
+		var Seed = 0
+	}
+	ActionSpace 
 	{
-		float MaxDt = 0.3,
-		float MinDt = 1e-006,
-		float TimeScale = 1,
-		uint TimeMode = 0,
-		uint StepCount = 1,
-	},
-	GraphicsSpace = 
+	}
+	PhysicsSpace 
 	{
-		TransparentSort TransparentSort = ViewDepth,
-		string SpriteLayerOrder = "52b23ad3c402d436:DefaultSpriteLayerOrder",
-	},
-	ActionSpace = 
+		var AllowSleep = true
+		var Mode2D = true
+		var Deterministic = false
+		var SubStepCount = 1
+		var CollisionTable = "4e66a5c0b9dc59b9:DefaultCollisionTable"
+		var PhysicsSolverConfig = "52a967fb4cda91cb:Baumgarte"
+		var DynamicBroadphaseType = "DynamicAabbTree"
+		var StaticBroadphaseType = "StaticAabbTree"
+	}
+	SoundSpace 
 	{
-	},
-	PhysicsSpace = 
+		var PauseWithTimeSpace = true
+		var PitchWithTimeSpace = true
+	}
+	ReactiveSpace 
 	{
-		bool AllowSleep = true,
-		bool Mode2D = true,
-		bool Deterministic = false,
-		uint SubStepCount = 1,
-		string CollisionFilterName = "522e52e5bd796eb4:Game",
-		string PhysicsSolverConfigName = "52a967fb4cda91cb:Baumgarte",
-		string DynamicBroadphaseType = "DynamicAabbTree",
-		string StaticBroadphaseType = "StaticAabbTree",
-	},
-	SoundSpace = 
+	}
+	NetSpace 
 	{
-	},
-	ReactiveSpace = 
-	{
-	},
-},
+		var DetectOutgoingChanges = true
+		var AcceptIncomingChanges = true
+		var AllowNapping = true
+		var AutomaticChannel = "56f22bdc94800e65:Default"
+		var NetPropertyInfos = Array
+		{
+		}
+	}
+}
