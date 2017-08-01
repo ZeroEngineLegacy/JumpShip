@@ -178,9 +178,9 @@ class GridAttachable : ZilchComponent
         // Remove from old parent/grid
         oldGrid.RemovePiece(cog);
         cog.RigidBody.DynamicState = RigidBodyDynamicState.Static;
-        cog.DetachRelative();
+        cog.Detach();
         // Add to new parent/grid
-        cog.AttachToRelative(newRoot);
+        cog.AttachTo(newRoot);
         newRoot.ObjectGrid.AddPiece(key, cog);
     }
     

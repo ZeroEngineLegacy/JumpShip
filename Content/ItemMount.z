@@ -64,7 +64,7 @@ class ItemMount : ZilchComponent
         
         // Create our display cog and attach it to ourself (up in the z a bit to avoid z fighting)
         this.DisplayCog = this.Space.Create(this.DisplayArchetype);
-        this.DisplayCog.AttachTo(this.Owner.FindRoot());
+        this.DisplayCog.AttachToPreserveLocal(this.Owner.FindRoot());
         this.DisplayCog.Transform.Translation = local Real3(0.0, 0.0, 0.5) + this.Owner.Transform.LocalTranslation;
         // Currently scale it down because I don't have a different sprite
         this.DisplayCog.Transform.Scale = this.DisplayCogScale;

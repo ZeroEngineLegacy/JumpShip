@@ -94,7 +94,7 @@ class CompositeAiCore : ZilchComponent
             
             // Attach the text to our display cog at the correct position offset
             var text = this.Space.Create(behavior.ContextMenu);
-            text.AttachTo(this.DisplayCog);
+            text.AttachToPreserveLocal(this.DisplayCog);
             text.Transform.Translation = local Real3(0.0, -offset, 1.0);
             // Setup the base info for this text (name, who owns it)
             text.UiText.SetText(behaviorName);

@@ -42,7 +42,7 @@ class Shield : ZilchComponent
     {
         // Create the barrier, attach it to us and center it on us
         this.BarrierCog = this.Space.CreateAtPosition(this.BarrierArchetype, Real3(0.0, 0.0, 0.0));
-        this.BarrierCog.AttachTo(this.Owner);
+        this.BarrierCog.AttachToPreserveLocal(this.Owner);
         
         // Set the initial size of the shield and its color
         var level = this.Upgradable.Level;

@@ -107,7 +107,7 @@ class TextWithOptions : ZilchComponent
             // Create the option archetype as a child at the appropriate offset down
             var obj = this.Space.Create(archetype);
             obj.Transform.Translation = local Real3(startPos.X, startPos.Y + offset, 0.0);
-            obj.AttachTo(this.Owner);
+            obj.AttachToPreserveLocal(this.Owner);
             
             // If there was a UiText component, then we can set parameters
             var uiText = obj.UiText;

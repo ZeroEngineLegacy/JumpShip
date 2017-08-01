@@ -159,7 +159,7 @@ class ObjectGrid : ZilchComponent
             var selection = this.Space.Create(this.DisplayArchetype);
             selection.Transform.Translation = localPos;
             // Not using attach relative because we already know the desired local position
-            selection.AttachTo(this.Owner);
+            selection.AttachToPreserveLocal(this.Owner);
             
             // Set the color dimmed so that selections are more obvious
             selection.Sprite.VertexColor = local Real4(selection.Sprite.VertexColor.XYZ, 0.5);

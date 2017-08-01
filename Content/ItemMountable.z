@@ -54,7 +54,7 @@ class ItemMountable : ZilchComponent
         // Don't attach to a parent we're already aattached to
         if(this.Owner.Parent != this.MountCog)
         {
-            this.Owner.AttachTo(this.MountCog);
+            this.Owner.AttachToPreserveLocal(this.MountCog);
         }
         this.Owner.Transform.Translation = localPosition;
         
@@ -72,8 +72,8 @@ class ItemMountable : ZilchComponent
         
         // Create a new root and attach to it
         var newRoot = this.Space.CreateAtPosition(this.RootArchetype, this.Owner.Transform.WorldTranslation);
-        this.Owner.Detach();
-        this.Owner.AttachTo(newRoot);
+        this.Owner.DetachPreserveLocal();
+        this.Owner.AttachToPreserveLocal(newRoot);
         this.Owner.Transform.Translation = local Real3(0.0, 0.0, 0.0);
         
         // Tell all of our components that we're attaching to another core

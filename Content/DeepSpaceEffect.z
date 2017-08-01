@@ -14,10 +14,10 @@ class DeepSpaceEffect : ZilchComponent
     function Initialize(init : CogInitializer)
     {
         var stars = this.Space.Create(this.Stars);
-        stars.AttachTo(this.Owner);
+        stars.AttachToPreserveLocal(this.Owner);
         
         var nebula = this.Space.Create(this.Nebula);
-        nebula.AttachTo(this.Owner);
+        nebula.AttachToPreserveLocal(this.Owner);
         nebula.Transform.Translation = local Real3(0.0, -10.0, 0.0);
     }
 

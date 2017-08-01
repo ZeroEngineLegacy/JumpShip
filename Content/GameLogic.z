@@ -98,7 +98,7 @@ class GameLogic : ZilchComponent
         var pieceArchetype = this.PieceTypes.Sample(random1, random2).Resource as Archetype;
         var pieceCog = this.Space.Create(pieceArchetype);
         // Attach the piece in-front of the enemy
-        pieceCog.AttachTo(enemyCog);
+        pieceCog.AttachToPreserveLocal(enemyCog);
         pieceCog.Transform.Translation = local Real3(0.0, 1.0, 0.0);
         
         // If this piece type has an item mount (so we can mount items on it)

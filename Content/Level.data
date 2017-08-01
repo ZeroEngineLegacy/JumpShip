@@ -1,10 +1,9 @@
 [Version:1]
 Level 
 {
-	Cog 
+	Cog [ContextId:1]
 	{
 		var Name = "LevelSettings"
-		var LinkId = 1
 		GravityEffect 
 		{
 			var Active = false
@@ -20,7 +19,7 @@ Level
 			var WakeUpOnChange = false
 			var DebugDrawEffect = true
 			var LinearDamping = 0.699999988
-			var AngularDamping = 0.100000001
+			var AngularDamping = 2
 			var LinearDrag = 0
 			var AngularDrag = 0
 		}
@@ -45,10 +44,9 @@ Level
 			var ScreenShotsToTake = 10
 		}
 	}
-	Cog 
+	Cog [ContextId:2]
 	{
 		var Name = "Renderer"
-		var LinkId = 2
 		DeferredRenderer 
 		{
 			var GeometryDebug = GeometryValue.None
@@ -65,15 +63,14 @@ Level
 			var ToneMap = true
 		}
 	}
-	Cog 
+	Cog [ContextId:3]
 	{
 		var Name = "EditorCamera"
-		var LinkId = 3
 		Transform 
 		{
-			var Translation = Real3{16.2420826, 4.2500658, 19.0325756}
+			var Translation = Real3{-22.4614182, 23.6632175, 29.8354263}
 			var Scale = Real3{1, 1, 1}
-			var Rotation = Quaternion{-0.0867901221, 0.0911534354, 0.00797489285, 0.99201566}
+			var Rotation = Quaternion{-0.0398536362, -0.117442675, -0.00471698679, 0.992268503}
 		}
 		Camera 
 		{
@@ -87,21 +84,17 @@ Level
 		{
 			var ControlMode = ControlMode.Orbit
 			var Previous3DMode = ControlMode.Orbit
-			var LookDistance = 19.197382
-			var VerticalAngle = 0.17453292
-			var HorizontalAngle = -0.183259621
-			var LookTarget = Real3{12.7967863, 0.916475296, 0.443424225}
+			var LookDistance = 35.2314606
+			var VerticalAngle = 0.0802851766
+			var HorizontalAngle = 0.235619351
+			var LookTarget = Real3{-14.2632923, 20.8376904, -4.3122406}
 			var MoveSensitivity = 1
 		}
 		CameraViewport 
 		{
 			var RenderInEditor = true
 			var RenderInGame = false
-			var RenderToViewport = true
-			var ForwardViewportEvents = false
 			var RenderOrder = 0
-			var NormalizedSize = Real2{1, 1}
-			var NormalizedOffset = Real2{0, 0}
 			var CameraPath = CogPath
 			{
 				var Path = "."
@@ -112,7 +105,7 @@ Level
 				var UpdatePathOnCogChange = true
 				var UpdateCogOnInitialize = true
 				var ResolvedNullErrorOccurred = false
-				var ResolvedCog = 3
+				var Cog = 3
 				var PathPreference0 = CogPathPreference.CogRelative
 				var PathPreference1 = CogPathPreference.SpaceRelative
 				var PathPreference2 = CogPathPreference.Absolute
@@ -127,20 +120,23 @@ Level
 				var UpdatePathOnCogChange = true
 				var UpdateCogOnInitialize = true
 				var ResolvedNullErrorOccurred = false
-				var ResolvedCog = 2
+				var Cog = 2
 				var PathPreference0 = CogPathPreference.CogRelative
 				var PathPreference1 = CogPathPreference.SpaceRelative
 				var PathPreference2 = CogPathPreference.Absolute
 			}
-			var Resolution = Real2{1280, 720}
+			var ResolutionOrAspect = Integer2{1920, 1080}
+			var RenderToViewport = true
+			var ForwardViewportEvents = false
 			var ViewportScaling = ViewportScaling.Fill
 			var MarginColor = Real4{0, 0, 0, 1}
+			var NormalizedSize = Real2{1, 1}
+			var NormalizedOffset = Real2{0, 0}
 		}
 	}
-	Cog 
+	Cog [ContextId:4]
 	{
 		var Name = "Camera"
-		var LinkId = 4
 		Transform 
 		{
 			var Translation = Real3{-2.45061994, 0, 40}
@@ -179,11 +175,7 @@ Level
 		{
 			var RenderInEditor = false
 			var RenderInGame = true
-			var RenderToViewport = true
-			var ForwardViewportEvents = false
 			var RenderOrder = 0
-			var NormalizedSize = Real2{1, 1}
-			var NormalizedOffset = Real2{0, 0}
 			var CameraPath = CogPath
 			{
 				var Path = "."
@@ -194,7 +186,7 @@ Level
 				var UpdatePathOnCogChange = true
 				var UpdateCogOnInitialize = true
 				var ResolvedNullErrorOccurred = false
-				var ResolvedCog = 4
+				var Cog = 4
 				var PathPreference0 = CogPathPreference.CogRelative
 				var PathPreference1 = CogPathPreference.SpaceRelative
 				var PathPreference2 = CogPathPreference.Absolute
@@ -209,20 +201,23 @@ Level
 				var UpdatePathOnCogChange = true
 				var UpdateCogOnInitialize = true
 				var ResolvedNullErrorOccurred = false
-				var ResolvedCog = 2
+				var Cog = 2
 				var PathPreference0 = CogPathPreference.CogRelative
 				var PathPreference1 = CogPathPreference.SpaceRelative
 				var PathPreference2 = CogPathPreference.Absolute
 			}
-			var Resolution = Real2{1280, 720}
+			var ResolutionOrAspect = Integer2{1920, 1080}
+			var RenderToViewport = true
+			var ForwardViewportEvents = false
 			var ViewportScaling = ViewportScaling.Fill
 			var MarginColor = Real4{0, 0, 0, 1}
+			var NormalizedSize = Real2{1, 1}
+			var NormalizedOffset = Real2{0, 0}
 		}
 	}
-	Cog 
+	Cog [ContextId:5]
 	{
 		var Name = "Root"
-		var LinkId = 5
 		Transform 
 		{
 			var Translation = Real3{6.50283003, -3.8305099, 0}
@@ -251,15 +246,14 @@ Level
 		}
 		Hierarchy 
 		{
-			Cog [InheritId:"5252cbce47d0c501:Turbine"]
+			Cog [InheritId:"5252cbce47d0c501:Turbine"][ContextId:6]
 			{
 			}
 		}
 	}
-	Cog 
+	Cog [ContextId:7]
 	{
 		var Name = "Root"
-		var LinkId = 6
 		Transform 
 		{
 			var Translation = Real3{4.79429007, 0.135847002, 0}
@@ -288,15 +282,14 @@ Level
 		}
 		Hierarchy 
 		{
-			Cog [InheritId:"52244e49c1f35507:HullBasic"]
+			Cog [InheritId:"52244e49c1f35507:HullBasic"][ContextId:8]
 			{
 			}
 		}
 	}
-	Cog 
+	Cog [ContextId:9]
 	{
 		var Name = "Root"
-		var LinkId = 7
 		Transform 
 		{
 			var Translation = Real3{4.79429007, 1.50537002, 0}
@@ -325,15 +318,14 @@ Level
 		}
 		Hierarchy 
 		{
-			Cog [InheritId:"52244e49c1f35507:HullBasic"]
+			Cog [InheritId:"52244e49c1f35507:HullBasic"][ContextId:10]
 			{
 			}
 		}
 	}
-	Cog 
+	Cog [ContextId:11]
 	{
 		var Name = "Root"
-		var LinkId = 8
 		Transform 
 		{
 			var Translation = Real3{6.21392012, 1.50537002, 0}
@@ -362,15 +354,14 @@ Level
 		}
 		Hierarchy 
 		{
-			Cog [InheritId:"52244e49c1f35507:HullBasic"]
+			Cog [InheritId:"52244e49c1f35507:HullBasic"][ContextId:12]
 			{
 			}
 		}
 	}
-	Cog 
+	Cog [ContextId:13]
 	{
 		var Name = "Root"
-		var LinkId = 9
 		Transform 
 		{
 			var Translation = Real3{6.21392012, 0.135847002, 0}
@@ -399,15 +390,14 @@ Level
 		}
 		Hierarchy 
 		{
-			Cog [InheritId:"52244e49c1f35507:HullBasic"]
+			Cog [InheritId:"52244e49c1f35507:HullBasic"][ContextId:14]
 			{
 			}
 		}
 	}
-	Cog 
+	Cog [ContextId:15]
 	{
 		var Name = "Root"
-		var LinkId = 10
 		Transform 
 		{
 			var Translation = Real3{2.01849008, 0.135847002, 0}
@@ -436,15 +426,14 @@ Level
 		}
 		Hierarchy 
 		{
-			Cog [InheritId:"52244e49c1f35507:HullBasic"]
+			Cog [InheritId:"52244e49c1f35507:HullBasic"][ContextId:16]
 			{
 			}
 		}
 	}
-	Cog 
+	Cog [ContextId:17]
 	{
 		var Name = "Root"
-		var LinkId = 11
 		Transform 
 		{
 			var Translation = Real3{2.01849008, 1.50537002, 0}
@@ -473,15 +462,14 @@ Level
 		}
 		Hierarchy 
 		{
-			Cog [InheritId:"52244e49c1f35507:HullBasic"]
+			Cog [InheritId:"52244e49c1f35507:HullBasic"][ContextId:18]
 			{
 			}
 		}
 	}
-	Cog 
+	Cog [ContextId:19]
 	{
 		var Name = "Root"
-		var LinkId = 12
 		Transform 
 		{
 			var Translation = Real3{3.3045001, 1.50537002, 0}
@@ -510,15 +498,14 @@ Level
 		}
 		Hierarchy 
 		{
-			Cog [InheritId:"52244e49c1f35507:HullBasic"]
+			Cog [InheritId:"52244e49c1f35507:HullBasic"][ContextId:20]
 			{
 			}
 		}
 	}
-	Cog 
+	Cog [ContextId:21]
 	{
 		var Name = "Root"
-		var LinkId = 13
 		Transform 
 		{
 			var Translation = Real3{3.3045001, 0.135847002, 0}
@@ -547,15 +534,14 @@ Level
 		}
 		Hierarchy 
 		{
-			Cog [InheritId:"52244e49c1f35507:HullBasic"]
+			Cog [InheritId:"52244e49c1f35507:HullBasic"][ContextId:22]
 			{
 			}
 		}
 	}
-	Cog 
+	Cog [ContextId:23]
 	{
 		var Name = "Root"
-		var LinkId = 14
 		Transform 
 		{
 			var Translation = Real3{-4.39764977, -1.67489004, 0}
@@ -584,39 +570,38 @@ Level
 		}
 		Hierarchy 
 		{
-			Cog [InheritId:"522efcf6f14384fd:Shield"]
+			Cog [InheritId:"522efcf6f14384fd:Shield"][ContextId:24]
 			{
 			}
 		}
 	}
-	Cog [InheritId:"522d0a2389c5ff62:LargeExperience"]
+	Cog [InheritId:"522d0a2389c5ff62:LargeExperience"][ContextId:25]
 	{
 	}
-	Cog [InheritId:"522ffc42f787cfb7:Platinum"]
+	Cog [InheritId:"522ffc42f787cfb7:Platinum"][ContextId:26]
 	{
 	}
-	Cog [InheritId:"522d0a318a3d2edf:SmallExperience"]
+	Cog [InheritId:"522d0a318a3d2edf:SmallExperience"][ContextId:27]
 	{
 	}
-	Cog [InheritId:"522ffcbcf4ca6d8b:Steel"]
+	Cog [InheritId:"522ffcbcf4ca6d8b:Steel"][ContextId:28]
 	{
 	}
-	Cog [InheritId:"522d0a148ca4407f:MediumExperience"]
+	Cog [InheritId:"522d0a148ca4407f:MediumExperience"][ContextId:29]
 	{
 	}
-	Cog [InheritId:"522ffcb7f5d840b3:Zinc"]
+	Cog [InheritId:"522ffcb7f5d840b3:Zinc"][ContextId:30]
 	{
 	}
-	Cog [InheritId:"522d0a2389c5ff62:LargeExperience"]
+	Cog [InheritId:"522d0a2389c5ff62:LargeExperience"][ContextId:31]
 	{
 	}
-	Cog [InheritId:"522ffcb7f5d840b3:Zinc"]
+	Cog [InheritId:"522ffcb7f5d840b3:Zinc"][ContextId:32]
 	{
 	}
-	Cog 
+	Cog [ContextId:33]
 	{
 		var Name = "Root"
-		var LinkId = 15
 		Transform 
 		{
 			var Translation = Real3{1.01908004, -1.62655997, 0}
@@ -641,15 +626,14 @@ Level
 		}
 		Hierarchy 
 		{
-			Cog [InheritId:"522ee43aa74829c4:SonicWeapon"]
+			Cog [InheritId:"522ee43aa74829c4:SonicWeapon"][ContextId:34]
 			{
 			}
 		}
 	}
-	Cog 
+	Cog [ContextId:35]
 	{
 		var Name = "Root"
-		var LinkId = 16
 		Transform 
 		{
 			var Translation = Real3{0.0081324596, -1.63656998, 0}
@@ -674,15 +658,14 @@ Level
 		}
 		Hierarchy 
 		{
-			Cog [InheritId:"522ee5c5a10b9f53:PlasmaWeapon"]
+			Cog [InheritId:"522ee5c5a10b9f53:PlasmaWeapon"][ContextId:36]
 			{
 			}
 		}
 	}
-	Cog 
+	Cog [ContextId:37]
 	{
 		var Name = "Root"
-		var LinkId = 17
 		Transform 
 		{
 			var Translation = Real3{2.16406989, -1.67262995, 0}
@@ -707,15 +690,14 @@ Level
 		}
 		Hierarchy 
 		{
-			Cog [InheritId:"523a75c99faa64bd:MissileWeapon"]
+			Cog [InheritId:"523a75c99faa64bd:MissileWeapon"][ContextId:38]
 			{
 			}
 		}
 	}
-	Cog 
+	Cog [ContextId:39]
 	{
 		var Name = "Root"
-		var LinkId = 18
 		Transform 
 		{
 			var Translation = Real3{3.13986993, -1.61626005, 0}
@@ -740,15 +722,14 @@ Level
 		}
 		Hierarchy 
 		{
-			Cog [InheritId:"523c8e9054cadb11:BeamWeapon"]
+			Cog [InheritId:"523c8e9054cadb11:BeamWeapon"][ContextId:40]
 			{
 			}
 		}
 	}
-	Cog 
+	Cog [ContextId:41]
 	{
 		var Name = "Root"
-		var LinkId = 19
 		Transform 
 		{
 			var Translation = Real3{-3.00334001, -1.67489004, 0}
@@ -777,15 +758,14 @@ Level
 		}
 		Hierarchy 
 		{
-			Cog [InheritId:"522efcf6f14384fd:Shield"]
+			Cog [InheritId:"522efcf6f14384fd:Shield"][ContextId:42]
 			{
 			}
 		}
 	}
-	Cog 
+	Cog [ContextId:43]
 	{
 		var Name = "Root"
-		var LinkId = 20
 		Transform 
 		{
 			var Translation = Real3{-9.00481987, 0.298388004, 0}
@@ -810,10 +790,9 @@ Level
 		}
 		Hierarchy 
 		{
-			Cog 
+			Cog [ContextId:44]
 			{
 				var Name = "Weapon"
-				var LinkId = 21
 				Transform 
 				{
 					var Translation = Real3{0, 0, 0}
@@ -879,10 +858,9 @@ Level
 				}
 				Hierarchy 
 				{
-					Cog 
+					Cog [ContextId:45]
 					{
 						var Name = "Weapon"
-						var LinkId = 22
 						Transform 
 						{
 							var Translation = Real3{0, 0, 0}
@@ -910,10 +888,9 @@ Level
 			}
 		}
 	}
-	Cog 
+	Cog [ContextId:46]
 	{
 		var Name = "Root"
-		var LinkId = 23
 		Transform 
 		{
 			var Translation = Real3{3.83769011, -1.72542, 0}
@@ -938,10 +915,9 @@ Level
 		}
 		Hierarchy 
 		{
-			Cog 
+			Cog [ContextId:47]
 			{
 				var Name = "Weapon"
-				var LinkId = 24
 				Transform 
 				{
 					var Translation = Real3{0, 0, 0}
@@ -1021,10 +997,9 @@ Level
 				}
 				Hierarchy 
 				{
-					Cog 
+					Cog [ContextId:48]
 					{
 						var Name = "LightningEmitter"
-						var LinkId = 25
 						EditorFlags 
 						{
 							var Locked = true
@@ -1069,10 +1044,9 @@ Level
 							var Twist = Real3{0, 0, 0}
 						}
 					}
-					Cog 
+					Cog [ContextId:49]
 					{
 						var Name = "DamageRegion"
-						var LinkId = 26
 						EditorFlags 
 						{
 							var Locked = true
@@ -1105,20 +1079,19 @@ Level
 			}
 		}
 	}
-	Cog [InheritId:"522fce3953e69354:BigAsteroid"]
+	Cog [InheritId:"522fce3953e69354:BigAsteroid"][ContextId:50]
 	{
 		var Name = ""
 	}
-	Cog [InheritId:"52e852f848594746:UiTextRoot"]
+	Cog [InheritId:"52e852f848594746:UiTextRoot"][ContextId:51]
 	{
 	}
-	Cog [InheritId:"52ed9802631f503f:EnemyRoot"]
+	Cog [InheritId:"52ed9802631f503f:EnemyRoot"][ContextId:52]
 	{
 	}
-	Cog 
+	Cog [ContextId:53]
 	{
 		var Name = "Root"
-		var LinkId = 27
 		Transform 
 		{
 			var Translation = Real3{5.51743984, -3.8305099, 0}
@@ -1143,9 +1116,18 @@ Level
 		}
 		Hierarchy 
 		{
-			Cog [InheritId:"5252cbce47d0c501:Turbine"]
+			Cog [InheritId:"5252cbce47d0c501:Turbine"][ContextId:54]
 			{
 			}
+		}
+	}
+	Cog [InheritId:"5212778c31aa05ed:PlayerRoot"][ContextId:55]
+	{
+		Transform 
+		{
+			var Translation = Real3{-14.2632923, 20.8376904, -4.3122406}
+			var Rotation = Quaternion{0, 0, 0, 1}
+			var Scale = Real3{1, 1, 1}
 		}
 	}
 }
